@@ -1,0 +1,1107 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Kiten Harbor View &amp; Private Spa — 熱海港を見下ろす、唯一無二の滞在</title>
+<meta name="description" content="喜天（きてん）——喜びを天に還す場所。熱海の高台に佇む完全貸切の別邸。プライベート天然温泉とハーバービューが織りなす、非日常の静寂。">
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --ink:      #0F0D0B;
+    --dark:     #1C1612;
+    --charcoal: #2E2820;
+    --mid:      #5C4E3E;
+    --warm:     #8A7260;
+    --stone:    #B8A494;
+    --sand:     #D8CCBC;
+    --cream:    #EDE8E0;
+    --light:    #F7F4EF;
+    --white:    #FFFFFF;
+    --gold:     #C4972A;
+    --gold-lt:  #D4B060;
+    --gold-dk:  #9A7018;
+  }
+
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Georgia', 'Yu Mincho', 'YuMincho', 'Hiragino Mincho ProN', serif;
+    background: var(--white);
+    color: var(--dark);
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ─── NAV ─────────────────────────────────────── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    padding: 28px 56px;
+    display: flex; align-items: center; justify-content: space-between;
+    transition: all 0.4s;
+  }
+  nav.scrolled {
+    background: rgba(247,244,239,0.97);
+    backdrop-filter: blur(16px);
+    padding: 18px 56px;
+    box-shadow: 0 1px 0 rgba(0,0,0,0.06);
+  }
+  .nav-logo {
+    text-decoration: none;
+    display: flex; flex-direction: column; gap: 2px;
+  }
+  .nav-logo .logo-main {
+    font-size: 14px; letter-spacing: 0.28em; text-transform: uppercase;
+    color: var(--white); transition: color 0.4s; font-weight: 400;
+  }
+  .nav-logo .logo-sub {
+    font-size: 9px; letter-spacing: 0.3em; text-transform: uppercase;
+    color: rgba(255,255,255,0.5); transition: color 0.4s;
+  }
+  nav.scrolled .nav-logo .logo-main { color: var(--dark); }
+  nav.scrolled .nav-logo .logo-sub  { color: var(--warm); }
+  .nav-links { display: flex; gap: 40px; }
+  .nav-links a {
+    font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase;
+    text-decoration: none; color: rgba(255,255,255,0.75); transition: color 0.3s;
+  }
+  nav.scrolled .nav-links a { color: var(--mid); }
+  .nav-links a:hover { color: var(--gold); }
+  .nav-cta {
+    font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase;
+    padding: 11px 32px; border: 1px solid rgba(255,255,255,0.55);
+    text-decoration: none; color: var(--white); transition: all 0.3s;
+  }
+  nav.scrolled .nav-cta { border-color: var(--gold); color: var(--gold-dk); }
+  .nav-cta:hover { background: var(--gold); border-color: var(--gold); color: var(--white); }
+
+  /* ─── HERO ────────────────────────────────────── */
+  .hero {
+    position: relative; height: 100vh; min-height: 620px; overflow: hidden;
+  }
+  .hero-bg {
+    position: absolute; inset: 0;
+    background: url('images_kiten/hero.jpg') center 40% / cover no-repeat;
+    animation: slowZoom 14s ease-out forwards;
+  }
+  @keyframes slowZoom {
+    from { transform: scale(1.06); }
+    to   { transform: scale(1.0);  }
+  }
+  .hero-veil {
+    position: absolute; inset: 0;
+    background: linear-gradient(
+      160deg,
+      rgba(12,9,6,0.55) 0%,
+      rgba(12,9,6,0.20) 50%,
+      rgba(12,9,6,0.60) 100%
+    );
+  }
+  .hero-content {
+    position: relative; z-index: 2;
+    height: 100%; display: flex; flex-direction: column;
+    justify-content: flex-end; padding: 0 80px 10%;
+  }
+  .hero-eyebrow {
+    font-size: 10px; letter-spacing: 0.4em; text-transform: uppercase;
+    color: var(--gold-lt); margin-bottom: 20px;
+  }
+  .hero-title {
+    font-size: clamp(32px, 4.2vw, 60px); font-weight: 400;
+    color: var(--white); letter-spacing: 0.04em; line-height: 1.1;
+    margin-bottom: 20px; max-width: 700px;
+  }
+  .hero-title em { font-style: italic; color: var(--gold-lt); }
+  .hero-kiten-origin {
+    font-size: 12px; color: rgba(255,255,255,0.50);
+    letter-spacing: 0.22em; margin-bottom: 18px; font-style: italic;
+  }
+  .hero-desc {
+    font-size: 15px; color: rgba(255,255,255,0.65);
+    line-height: 1.85; letter-spacing: 0.06em;
+    max-width: 460px; margin-bottom: 44px;
+  }
+  .hero-btns { display: flex; gap: 20px; align-items: center; }
+  .btn-primary {
+    display: inline-block; padding: 16px 52px;
+    background: var(--gold); color: var(--white);
+    font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase;
+    text-decoration: none; transition: background 0.3s;
+  }
+  .btn-primary:hover { background: var(--gold-lt); }
+  .btn-secondary {
+    display: inline-block; padding: 16px 40px;
+    border: 1px solid rgba(255,255,255,0.45);
+    font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase;
+    text-decoration: none; color: rgba(255,255,255,0.75); transition: all 0.3s;
+  }
+  .btn-secondary:hover { border-color: var(--white); color: var(--white); }
+
+  /* ─── RIBBON ──────────────────────────────────── */
+  .ribbon {
+    background: var(--gold); padding: 18px 48px;
+    display: flex; justify-content: center; gap: 64px; align-items: center;
+    flex-wrap: wrap;
+  }
+  .ribbon-item {
+    font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--white); display: flex; align-items: center; gap: 10px;
+  }
+  .ribbon-item::before {
+    content: ''; width: 4px; height: 4px; background: rgba(255,255,255,0.6);
+    border-radius: 50%;
+  }
+
+  /* ─── SECTION COMMON ──────────────────────────── */
+  .section-tag {
+    font-size: 10px; letter-spacing: 0.35em; text-transform: uppercase;
+    color: var(--gold); display: block; margin-bottom: 16px;
+  }
+  .section-title {
+    font-size: clamp(24px, 3vw, 38px); font-weight: 400;
+    color: var(--dark); line-height: 1.4; letter-spacing: 0.03em;
+  }
+  .section-body {
+    font-size: 15px; line-height: 2.0; color: var(--mid);
+    letter-spacing: 0.04em; margin-top: 20px;
+  }
+  .rule { width: 40px; height: 1px; background: var(--gold); margin: 24px 0; }
+
+  /* ─── PHILOSOPHY / CONCEPT ───────────────────── */
+  .philosophy {
+    padding: 120px 80px;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 100px; align-items: center;
+    max-width: 1200px; margin: 0 auto;
+  }
+  .philosophy-img {
+    position: relative; overflow: hidden;
+  }
+  .philosophy-img img {
+    width: 100%; display: block;
+    aspect-ratio: 4/5; object-fit: cover;
+    transition: transform 0.8s ease;
+  }
+  .philosophy-img:hover img { transform: scale(1.04); }
+  .philosophy-img::after {
+    content: ''; position: absolute; bottom: -2px; right: -2px;
+    width: 40%; height: 40%; border: 1px solid var(--gold);
+    pointer-events: none;
+  }
+  .kiten-origin-box {
+    margin-top: 32px; padding: 22px 28px;
+    border-left: 2px solid var(--gold);
+    background: var(--light);
+  }
+  .kiten-origin-box .kanji {
+    font-size: 32px; color: var(--dark); letter-spacing: 0.15em;
+    display: block; margin-bottom: 6px;
+  }
+  .kiten-origin-box .reading {
+    font-size: 11px; letter-spacing: 0.3em; color: var(--gold);
+    text-transform: uppercase; display: block; margin-bottom: 14px;
+  }
+  .kiten-origin-box p {
+    font-size: 14px; color: var(--mid); line-height: 1.9; letter-spacing: 0.04em;
+  }
+
+  /* ─── PARALLAX ────────────────────────────────── */
+  .parallax-section {
+    position: relative; height: 70vh; min-height: 480px; overflow: hidden;
+  }
+  .parallax-img {
+    position: absolute; inset: 0;
+    background-size: cover; background-position: center;
+  }
+  .parallax-overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(to right, rgba(12,9,6,0.7) 0%, rgba(12,9,6,0.2) 60%, transparent 100%);
+  }
+  .parallax-content {
+    position: relative; z-index: 2;
+    height: 100%; display: flex; align-items: center;
+    padding: 0 80px;
+  }
+  .parallax-content-inner { max-width: 520px; }
+  .parallax-content-inner h2 {
+    font-size: clamp(28px, 3.5vw, 46px); font-weight: 400;
+    color: var(--white); letter-spacing: 0.04em; line-height: 1.3;
+    margin-bottom: 20px;
+  }
+  .parallax-content-inner p {
+    font-size: 15px; color: rgba(255,255,255,0.65);
+    line-height: 1.9; letter-spacing: 0.05em;
+  }
+
+  /* ─── ROOMS GRID ──────────────────────────────── */
+  .rooms-section {
+    padding: 100px 48px; background: var(--light);
+  }
+  .rooms-inner { max-width: 1200px; margin: 0 auto; }
+  .rooms-header { text-align: center; margin-bottom: 64px; }
+  .rooms-grid {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 4px;
+  }
+  .room-card { position: relative; overflow: hidden; }
+  .room-card img {
+    width: 100%; height: 100%; object-fit: cover; display: block;
+    transition: transform 0.7s ease; aspect-ratio: 1/1;
+  }
+  .room-card:hover img { transform: scale(1.06); }
+  .room-card.large { grid-column: span 7; }
+  .room-card.large img { aspect-ratio: 7/5; }
+  .room-card.tall { grid-column: span 5; grid-row: span 2; }
+  .room-card.tall img { aspect-ratio: 5/10; height: 100%; }
+  .room-card.wide { grid-column: span 7; }
+  .room-card.wide img { aspect-ratio: 7/4; }
+  .room-card.sm { grid-column: span 4; }
+  .room-card.sm img { aspect-ratio: 1/1; }
+  .room-card-label {
+    position: absolute; bottom: 0; left: 0; right: 0;
+    padding: 56px 24px 20px;
+    background: linear-gradient(to top, rgba(10,8,5,0.7), transparent);
+  }
+  .room-card-label span {
+    font-size: 9px; letter-spacing: 0.3em; text-transform: uppercase;
+    color: var(--gold-lt); display: block; margin-bottom: 4px;
+  }
+  .room-card-label h4 {
+    font-size: 16px; font-weight: 400; color: var(--white); letter-spacing: 0.05em;
+  }
+
+  /* ─── SPA FEATURE ─────────────────────────────── */
+  .spa-section {
+    display: grid; grid-template-columns: 55% 45%;
+    min-height: 600px;
+  }
+  .spa-img { position: relative; overflow: hidden; }
+  .spa-img img {
+    width: 100%; height: 100%; object-fit: cover; display: block;
+    transition: transform 0.8s ease;
+  }
+  .spa-img:hover img { transform: scale(1.04); }
+  .spa-text {
+    display: flex; align-items: center;
+    background: var(--charcoal); padding: 80px 72px;
+  }
+  .spa-text-inner { max-width: 400px; }
+  .spa-text-inner .section-tag { color: var(--gold-lt); }
+  .spa-text-inner .section-title { color: var(--white); }
+  .spa-text-inner .section-body { color: rgba(255,255,255,0.55); }
+  .spa-text-inner .rule { background: var(--gold-lt); }
+  .spa-feature-list {
+    margin-top: 32px; list-style: none;
+  }
+  .spa-feature-list li {
+    font-size: 13px; color: rgba(255,255,255,0.5);
+    letter-spacing: 0.08em; padding: 10px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+    display: flex; gap: 12px; align-items: flex-start;
+  }
+  .spa-feature-list li::before {
+    content: ''; width: 4px; height: 4px; background: var(--gold);
+    border-radius: 50%; flex-shrink: 0; margin-top: 7px;
+  }
+
+  /* ─── FLOOR GUIDE ─────────────────────────────── */
+  .floor-section {
+    padding: 100px 48px; background: var(--cream);
+  }
+  .floor-inner { max-width: 1100px; margin: 0 auto; }
+  .floor-header { text-align: center; margin-bottom: 60px; }
+  .floor-header .floor-note {
+    font-size: 13px; color: var(--warm); margin-top: 14px;
+    letter-spacing: 0.04em; font-style: italic;
+  }
+  .floor-nav {
+    display: flex; justify-content: center; gap: 0;
+    margin-bottom: 56px; border-bottom: 1px solid var(--sand);
+    flex-wrap: wrap;
+  }
+  .floor-btn {
+    font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase;
+    padding: 14px 32px; cursor: pointer; border: none; background: none;
+    color: var(--mid); border-bottom: 2px solid transparent;
+    margin-bottom: -1px; transition: all 0.3s; font-family: inherit;
+  }
+  .floor-btn.active { color: var(--dark); border-bottom-color: var(--gold); }
+  .floor-panel { display: none; }
+  .floor-panel.active { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
+  .floor-plan img {
+    width: 100%; border-radius: 1px;
+    box-shadow: 0 10px 48px rgba(0,0,0,0.13);
+  }
+  .floor-details h3 {
+    font-size: 26px; font-weight: 400; color: var(--dark);
+    letter-spacing: 0.03em; margin-bottom: 20px;
+  }
+  .floor-details p {
+    font-size: 14px; line-height: 1.95; color: var(--mid);
+    letter-spacing: 0.04em; margin-bottom: 28px;
+  }
+  .rooms-ul {
+    list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 6px;
+  }
+  .rooms-ul li {
+    font-size: 12px; color: var(--mid); padding: 8px 0;
+    border-bottom: 1px solid var(--sand);
+    display: flex; gap: 8px; align-items: center; letter-spacing: 0.05em;
+  }
+  .rooms-ul li::before {
+    content: ''; width: 3px; height: 3px; background: var(--gold);
+    border-radius: 50%; flex-shrink: 0;
+  }
+
+  /* ─── PRICING ─────────────────────────────────── */
+  .pricing-section { background: var(--dark); padding: 100px 48px; }
+  .pricing-inner { max-width: 1200px; margin: 0 auto; }
+  .pricing-header { text-align: center; margin-bottom: 60px; }
+  .pricing-header .section-tag { color: var(--gold-lt); }
+  .pricing-header .section-title { color: var(--white); }
+  .plans {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px;
+    background: rgba(255,255,255,0.06);
+  }
+  .plan {
+    background: var(--dark); padding: 48px 32px; position: relative;
+    transition: background 0.3s;
+  }
+  .plan:hover { background: rgba(255,255,255,0.04); }
+  .plan.highlight { background: rgba(196,151,42,0.12); }
+  .plan.special { background: rgba(30,20,10,0.6); }
+  .plan-badge {
+    position: absolute; top: -12px; left: 50%; transform: translateX(-50%);
+    background: var(--gold); color: var(--white);
+    font-size: 9px; letter-spacing: 0.25em; text-transform: uppercase;
+    padding: 4px 18px; white-space: nowrap;
+  }
+  .plan-name {
+    font-size: 12px; letter-spacing: 0.3em; text-transform: uppercase;
+    color: var(--stone); margin-bottom: 24px; text-align: center; font-weight: 400;
+  }
+  .plan-price { text-align: center; margin-bottom: 8px; }
+  .plan-price .num {
+    font-size: 42px; color: var(--white); letter-spacing: -0.02em; font-weight: 400;
+  }
+  .plan-price .unit {
+    font-size: 12px; color: rgba(255,255,255,0.35); letter-spacing: 0.1em; margin-top: 4px;
+    display: block;
+  }
+  .plan-rule { width: 30px; height: 1px; background: rgba(255,255,255,0.1); margin: 24px auto; }
+  .plan-list { list-style: none; }
+  .plan-list li {
+    font-size: 13px; color: rgba(255,255,255,0.5);
+    padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,0.05);
+    display: flex; gap: 10px; align-items: flex-start; line-height: 1.5;
+    letter-spacing: 0.04em;
+  }
+  .plan-list li::before {
+    content: ''; width: 3px; height: 3px; background: var(--gold);
+    border-radius: 50%; flex-shrink: 0; margin-top: 8px;
+  }
+  .plan-action {
+    display: block; margin-top: 32px; text-align: center;
+    padding: 14px; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase;
+    border: 1px solid rgba(255,255,255,0.15); color: rgba(255,255,255,0.55);
+    text-decoration: none; transition: all 0.3s;
+  }
+  .plan.highlight .plan-action {
+    background: var(--gold); border-color: var(--gold); color: var(--white);
+  }
+  .plan.special .plan-action {
+    background: rgba(196,151,42,0.2); border-color: var(--gold-lt); color: var(--gold-lt);
+  }
+  .plan-action:hover { background: var(--gold); border-color: var(--gold); color: var(--white); }
+  .pricing-note {
+    text-align: center; margin-top: 32px;
+    font-size: 12px; color: rgba(255,255,255,0.25); letter-spacing: 0.08em; line-height: 1.9;
+  }
+  .pricing-add-note {
+    text-align: center; margin-top: 16px;
+    font-size: 13px; color: rgba(255,255,255,0.35); letter-spacing: 0.06em;
+    padding: 18px; border: 1px solid rgba(255,255,255,0.06);
+  }
+
+  /* ─── CORPORATE ───────────────────────────────── */
+  .corp-section {
+    padding: 100px 80px; max-width: 1200px; margin: 0 auto;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center;
+  }
+  .corp-list { list-style: none; margin-top: 32px; }
+  .corp-list li {
+    padding: 18px 0; border-bottom: 1px solid var(--sand);
+    display: flex; gap: 16px; align-items: flex-start;
+  }
+  .corp-num {
+    font-size: 28px; color: var(--gold); font-weight: 400;
+    line-height: 1; flex-shrink: 0; min-width: 36px;
+  }
+  .corp-list-text h4 {
+    font-size: 15px; color: var(--dark); margin-bottom: 4px; font-weight: 400;
+    letter-spacing: 0.04em;
+  }
+  .corp-list-text p {
+    font-size: 13px; color: var(--warm); line-height: 1.7; letter-spacing: 0.04em;
+  }
+  .corp-img-wrap { position: relative; }
+  .corp-img-wrap img {
+    width: 100%; aspect-ratio: 4/3; object-fit: cover; display: block;
+  }
+  .corp-img-accent {
+    position: absolute; top: -16px; right: -16px;
+    width: 50%; height: 50%; border: 1px solid var(--gold);
+    pointer-events: none; z-index: -1;
+  }
+
+  /* ─── ACCESS ──────────────────────────────────── */
+  .access-section {
+    background: var(--light); padding: 100px 80px;
+  }
+  .access-inner {
+    max-width: 1100px; margin: 0 auto;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center;
+  }
+  .access-text h2 {
+    font-size: clamp(22px, 2.6vw, 32px); font-weight: 400;
+    color: var(--dark); margin-bottom: 36px; letter-spacing: 0.03em;
+  }
+  .access-dl { list-style: none; }
+  .access-dl li {
+    display: grid; grid-template-columns: 130px 1fr;
+    gap: 16px; padding: 16px 0;
+    border-bottom: 1px solid var(--sand);
+    font-size: 14px; line-height: 1.65;
+  }
+  .access-dl .dt {
+    font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--warm); padding-top: 2px;
+  }
+  .access-dl .dd { color: var(--dark); letter-spacing: 0.03em; }
+  .map-frame {
+    border-radius: 2px; overflow: hidden;
+    box-shadow: 0 16px 64px rgba(0,0,0,0.1);
+  }
+  .map-frame iframe { width: 100%; height: 420px; border: none; display: block; }
+
+  /* ─── CTA ─────────────────────────────────────── */
+  .cta-section {
+    position: relative; height: 65vh; min-height: 440px; overflow: hidden;
+  }
+  .cta-bg {
+    position: absolute; inset: 0;
+    background: url('images_kiten/fireworks.jpg') center center / cover no-repeat;
+    filter: brightness(0.38);
+  }
+  .cta-content {
+    position: relative; z-index: 2;
+    height: 100%; display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    text-align: center; padding: 0 24px; gap: 20px;
+  }
+  .cta-content .section-tag { color: var(--stone); }
+  .cta-content h2 {
+    font-size: clamp(30px, 4.5vw, 58px); font-weight: 400;
+    color: var(--white); letter-spacing: 0.04em; line-height: 1.2;
+  }
+  .cta-content p {
+    font-size: 15px; color: rgba(255,255,255,0.55);
+    max-width: 500px; line-height: 1.85; letter-spacing: 0.06em;
+  }
+  .cta-btns { display: flex; gap: 16px; flex-wrap: wrap; justify-content: center; margin-top: 8px; }
+  .cta-tel {
+    font-size: 13px; color: rgba(255,255,255,0.45); letter-spacing: 0.12em;
+    text-decoration: none; margin-top: 12px; transition: color 0.3s;
+  }
+  .cta-tel:hover { color: var(--white); }
+
+  /* ─── FOOTER ──────────────────────────────────── */
+  footer {
+    background: var(--ink); padding: 72px 56px 44px;
+    display: grid; grid-template-columns: 1.4fr 1fr 1fr;
+    gap: 56px;
+  }
+  .foot-brand .brand-en {
+    font-size: 14px; letter-spacing: 0.24em; text-transform: uppercase;
+    color: var(--white); display: block; margin-bottom: 4px;
+  }
+  .foot-brand .brand-ja {
+    font-size: 10px; letter-spacing: 0.18em;
+    color: var(--warm); display: block; margin-bottom: 24px;
+  }
+  .foot-brand p {
+    font-size: 12px; color: rgba(255,255,255,0.35);
+    line-height: 1.95; letter-spacing: 0.04em;
+  }
+  .foot-col h4 {
+    font-size: 9px; letter-spacing: 0.3em; text-transform: uppercase;
+    color: var(--stone); margin-bottom: 20px; font-weight: 400;
+  }
+  .foot-col a, .foot-col p {
+    display: block; font-size: 13px; color: rgba(255,255,255,0.4);
+    text-decoration: none; margin-bottom: 10px;
+    letter-spacing: 0.04em; transition: color 0.3s; line-height: 1.7;
+  }
+  .foot-col a:hover { color: rgba(255,255,255,0.8); }
+  .foot-bottom {
+    grid-column: 1/-1; margin-top: 44px; padding-top: 32px;
+    border-top: 1px solid rgba(255,255,255,0.05);
+    display: flex; justify-content: space-between; align-items: center;
+  }
+  .foot-bottom p {
+    font-size: 11px; color: rgba(255,255,255,0.2); letter-spacing: 0.1em;
+  }
+
+  /* ─── RESPONSIVE ──────────────────────────────── */
+  @media (max-width: 1060px) {
+    .plans { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 960px) {
+    nav { padding: 20px 24px; }
+    nav.scrolled { padding: 14px 24px; }
+    .nav-links { display: none; }
+    .philosophy { grid-template-columns: 1fr; padding: 72px 32px; gap: 48px; }
+    .parallax-content { padding: 0 32px; }
+    .rooms-grid { grid-template-columns: 1fr; }
+    .room-card.large, .room-card.tall, .room-card.wide, .room-card.sm {
+      grid-column: span 1; grid-row: span 1;
+    }
+    .room-card img, .room-card.tall img { aspect-ratio: 4/3; height: auto; }
+    .spa-section { grid-template-columns: 1fr; }
+    .spa-img { min-height: 360px; }
+    .floor-panel.active { grid-template-columns: 1fr; gap: 40px; }
+    .plans { grid-template-columns: 1fr; }
+    .corp-section { grid-template-columns: 1fr; padding: 72px 32px; gap: 48px; }
+    .access-section { padding: 72px 32px; }
+    .access-inner { grid-template-columns: 1fr; gap: 48px; }
+    footer { grid-template-columns: 1fr; padding: 56px 32px 36px; }
+    .foot-bottom { flex-direction: column; gap: 12px; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="mainNav">
+  <a href="#" class="nav-logo">
+    <span class="logo-main">The Kiten</span>
+    <span class="logo-sub">Harbor View &amp; Private Spa</span>
+  </a>
+  <div class="nav-links">
+    <a href="#rooms">お部屋・施設</a>
+    <a href="#spa">温泉</a>
+    <a href="#floors">フロア</a>
+    <a href="#pricing">料金</a>
+    <a href="#access">アクセス</a>
+  </div>
+  <a href="#contact" class="nav-cta">ご予約・お問い合わせ</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-veil"></div>
+  <div class="hero-content">
+    <p class="hero-eyebrow">Atami · Shizuoka · Exclusive Private Villa</p>
+    <h1 class="hero-title">The Kiten<br><em>Harbor View</em><br>&amp; Private Spa</h1>
+    <p class="hero-kiten-origin">喜天（きてん）——喜びを天に還す、唯一の場所</p>
+    <p class="hero-desc">
+      熱海港を見下ろす高台の別邸。天然温泉とハーバービューが、あなただけの非日常を演出する完全貸切の空間。
+    </p>
+    <div class="hero-btns">
+      <a href="#contact" class="btn-primary">ご予約・空き確認</a>
+      <a href="#rooms" class="btn-secondary">施設を見る</a>
+    </div>
+  </div>
+</section>
+
+<!-- RIBBON -->
+<div class="ribbon">
+  <span class="ribbon-item">完全貸切 1棟丸ごと</span>
+  <span class="ribbon-item">天然温泉 24時間</span>
+  <span class="ribbon-item">相模湾 180°ビュー</span>
+  <span class="ribbon-item">最大 16名</span>
+  <span class="ribbon-item">旅館業法許可取得済</span>
+</div>
+
+<!-- PHILOSOPHY / CONCEPT -->
+<section class="philosophy" id="rooms">
+  <div class="philosophy-text">
+    <span class="section-tag">The Concept</span>
+    <h2 class="section-title">港を見下ろす高台に、<br>誰にも邪魔されない<br>時間がある。</h2>
+    <div class="rule"></div>
+    <p class="section-body">
+      The Kiten は、熱海の高台に佇む完全貸切の別邸です。
+      相模湾と熱海港を一望するダイナミックなロケーション、
+      天然温泉を引いたプライベート大浴場、そして全7フロアにわたる
+      充実した空間が、特別な時間の場を提供します。
+    </p>
+    <p class="section-body" style="margin-top:16px;">
+      ご家族での貸切旅行から、エグゼクティブの合宿・チームビルディング、
+      接待・記念日まで——どんな目的でも、唯一無二の体験をお届けします。
+    </p>
+    <div class="kiten-origin-box">
+      <span class="kanji">喜 天</span>
+      <span class="reading">Kiten — 喜びを天に還す場所</span>
+      <p>
+        「喜天（きてん）」とは、喜びを天に還すという意味を込めた名。
+        熱海の天空に立つこの別邸から、相模湾を望む絶景とともに、
+        日常を超えた歓びを天地に解き放つ滞在を。
+      </p>
+    </div>
+  </div>
+  <div class="philosophy-img">
+    <img src="images_kiten/living_daytime.jpg" alt="4階リビングダイニング・日中の光が差し込む空間">
+  </div>
+</section>
+
+<!-- PARALLAX: SAGAMI BAY -->
+<section class="parallax-section">
+  <div class="parallax-img" style="background-image:url('images_kiten/sagami.jpg');"></div>
+  <div class="parallax-overlay"></div>
+  <div class="parallax-content">
+    <div class="parallax-content-inner">
+      <span class="section-tag" style="color:var(--gold-lt)">The View</span>
+      <h2>熱海港と相模湾、<br>この眺めは<br>ここにしかない。</h2>
+      <p>海抜150mの高台から広がる、初島・大島まで見渡す180°パノラマ。日中は紺碧の海面が光を弾き、夜は漁火と街の灯りが瞬きます。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ROOMS GRID -->
+<section class="rooms-section">
+  <div class="rooms-inner">
+    <div class="rooms-header">
+      <span class="section-tag">Spaces</span>
+      <h2 class="section-title">全7フロアの贅沢な空間</h2>
+    </div>
+    <div class="rooms-grid">
+      <!-- Row 1 -->
+      <div class="room-card large">
+        <img src="images_kiten/living_harbor.jpg" alt="4階リビングダイニング・ハーバービュー夜景">
+        <div class="room-card-label">
+          <span>4F Living</span>
+          <h4>海を映すリビングダイニング</h4>
+        </div>
+      </div>
+      <div class="room-card tall">
+        <img src="images_kiten/bedroom.jpg" alt="5階マスターベッドルーム">
+        <div class="room-card-label">
+          <span>5F Master</span>
+          <h4>オーシャンビューの主寝室</h4>
+        </div>
+      </div>
+      <!-- Row 2 -->
+      <div class="room-card wide">
+        <img src="images_kiten/vista.jpg" alt="相模湾の眺望">
+        <div class="room-card-label">
+          <span>Vista</span>
+          <h4>相模湾パノラマの眺望</h4>
+        </div>
+      </div>
+      <!-- Row 3: 3 sm cards -->
+      <div class="room-card sm">
+        <img src="images_kiten/washitsu_large.jpg" alt="3階大和室">
+        <div class="room-card-label">
+          <span>3F — Japanese Suite</span>
+          <h4>大和室（8畳）</h4>
+        </div>
+      </div>
+      <div class="room-card sm">
+        <img src="images_kiten/washitsu_daytime.jpg" alt="和室・日中">
+        <div class="room-card-label">
+          <span>3F — Washitsu</span>
+          <h4>畳の間・縁側の光</h4>
+        </div>
+      </div>
+      <div class="room-card sm">
+        <img src="images_kiten/rooftop_terrace.jpg" alt="屋上テラス・人工芝">
+        <div class="room-card-label">
+          <span>Rooftop</span>
+          <h4>屋上テラス（完成予定）</h4>
+        </div>
+      </div>
+      <!-- Row 4 -->
+      <div class="room-card wide">
+        <img src="images_kiten/bbq.jpg" alt="BBQエリア">
+        <div class="room-card-label">
+          <span>BBQ</span>
+          <h4>アウトドアBBQスペース</h4>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SPA FEATURE -->
+<section class="spa-section" id="spa">
+  <div class="spa-img">
+    <img src="images_kiten/onsen.jpg" alt="プライベート天然温泉（夜）">
+  </div>
+  <div class="spa-text">
+    <div class="spa-text-inner">
+      <span class="section-tag">Private Spa</span>
+      <h2 class="section-title">貸切で浸かる、<br>熱海の名湯。</h2>
+      <div class="rule"></div>
+      <p class="section-body">
+        熱海の天然温泉を引いたプライベート大浴場は、
+        24時間いつでも貸切でご利用いただけます。
+        キャンドルに照らされた湯面と、窓の外に広がる夜の庭——
+        この静寂は、ここでしか味わえません。
+      </p>
+      <ul class="spa-feature-list">
+        <li>天然温泉（熱海市内から引湯）</li>
+        <li>24時間 貸切利用</li>
+        <li>男女・入れ替えなし、自由にご利用可</li>
+        <li>露天・打たせ湯・シャワールーム完備</li>
+        <li>高級アメニティ（タオル・バスローブ）付き</li>
+        <li>別途：個室檜風呂（3F）もご利用可</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- FLOOR GUIDE -->
+<section class="floor-section" id="floors">
+  <div class="floor-inner">
+    <div class="floor-header">
+      <span class="section-tag">Floor Guide</span>
+      <h2 class="section-title">フロアガイド</h2>
+      <p class="floor-note">※ エントランスは4階（丘の上・メインフロア）となります</p>
+    </div>
+    <div class="floor-nav">
+      <button class="floor-btn active" onclick="changeFloor('4f', this)">4F｜エントランス・メインフロア</button>
+      <button class="floor-btn" onclick="changeFloor('1f', this)">1F｜温泉・スパ棟</button>
+      <button class="floor-btn" onclick="changeFloor('3f', this)">3F｜和室ゲスト棟</button>
+      <button class="floor-btn" onclick="changeFloor('roof', this)">屋上｜展望テラス</button>
+    </div>
+
+    <!-- 4F: Entrance & Main Living -->
+    <div id="kiten-floor-4f" class="floor-panel active">
+      <div class="floor-plan"><img src="images_kiten/living_harbor.jpg" alt="4F エントランス・リビングダイニング"></div>
+      <div class="floor-details">
+        <h3>4F — エントランス &amp; メインリビング</h3>
+        <p>
+          丘の上に位置するメインフロア。灯籠のような照明に導かれ
+          アプローチを渡ると、石張りのエントランスホールが出迎えます。
+          4Fには開放感溢れるリビングダイニングが広がり、
+          相模湾と熱海港を一望するパノラマビューが広がります。
+          暖炉を囲む団らん、そして夜の夜景ディナーまで、
+          This Floorがご滞在の中心です。
+        </p>
+        <ul class="rooms-ul">
+          <li>エントランスホール</li>
+          <li>リビングダイニング（海側）</li>
+          <li>暖炉ラウンジ</li>
+          <li>ゲスト用トイレ</li>
+          <li>廊下・眺望ギャラリー</li>
+          <li>4階テラス</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- 1F: Onsen & Spa -->
+    <div id="kiten-floor-1f" class="floor-panel">
+      <div class="floor-plan"><img src="images_kiten/floor_1f.jpg" alt="1F 図面"></div>
+      <div class="floor-details">
+        <h3>1F — 温泉 &amp; スパ棟</h3>
+        <p>
+          天然温泉大浴場を擁する専用スパフロア。チェックイン直後から
+          深夜まで24時間、プライベートに利用できます。
+          シアタールームでの映画鑑賞や、フィットネス・スパルームでの
+          ボディケアも充実。1棟まるごと贅沢に使い倒す空間です。
+        </p>
+        <ul class="rooms-ul">
+          <li>天然温泉 大浴場</li>
+          <li>シャワールーム×2</li>
+          <li>シアタールーム</li>
+          <li>フィットネス・スパルーム</li>
+          <li>ランドリー</li>
+          <li>駐車場（3台）</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- 3F: Japanese Rooms -->
+    <div id="kiten-floor-3f" class="floor-panel">
+      <div class="floor-plan"><img src="images_kiten/floor_3f.jpg" alt="3F 図面"></div>
+      <div class="floor-details">
+        <h3>3F — 和室ゲスト棟 &amp; 檜風呂</h3>
+        <p>
+          3階は本格和室2部屋と、個室の檜風呂を備えるフロアです。
+          縁側に面したバルコニーから相模湾を望む静寂の空間は、
+          日本の伝統的な旅館の雰囲気を大切にした設計です。
+          大人数での利用時も、和の空間でゆったりとくつろげます。
+        </p>
+        <ul class="rooms-ul">
+          <li>大和室（8畳）</li>
+          <li>小和室（6畳）</li>
+          <li>個室 檜風呂</li>
+          <li>バルコニー（海側）</li>
+          <li>脱衣所・洗面</li>
+          <li>共用トイレ</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Rooftop -->
+    <div id="kiten-floor-roof" class="floor-panel">
+      <div class="floor-plan"><img src="images_kiten/floor_roof.jpg" alt="屋上 図面"></div>
+      <div class="floor-details">
+        <h3>Rooftop — プライベート展望テラス</h3>
+        <p>
+          最上階の展望テラスからは、相模湾、熱海港、初島、
+          遠く伊豆大島まで見渡すことができます。
+          人工芝テラスにアウトドアファニチャーを配置し、
+          夏は熱海海上花火大会の特等席、冬は澄んだ空気の下での
+          星空観察も楽しめます。BBQグリルの設置にも対応。
+        </p>
+        <ul class="rooms-ul">
+          <li>人工芝テラス（全面）</li>
+          <li>アウトドアダイニングセット</li>
+          <li>ラウンジチェア</li>
+          <li>180° オーシャンビュー</li>
+          <li>花火観覧スポット</li>
+          <li>天体観測スポット</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="pricing-section" id="pricing">
+  <div class="pricing-inner">
+    <div class="pricing-header">
+      <span class="section-tag">Rates</span>
+      <h2 class="section-title">ご利用料金</h2>
+      <p style="color:rgba(255,255,255,0.35);font-size:13px;letter-spacing:0.1em;margin-top:16px;">
+        1棟貸切 / 税込 / チェックイン15:00 チェックアウト11:00 / 10名様まで
+      </p>
+    </div>
+    <div class="plans">
+      <!-- 平日 -->
+      <div class="plan">
+        <p class="plan-name">平日</p>
+        <div class="plan-price">
+          <span class="num">¥200,000</span>
+          <span class="unit">1泊 / 1棟全体（10名まで）</span>
+        </div>
+        <div class="plan-rule"></div>
+        <ul class="plan-list">
+          <li>月曜〜木曜（祝前日を除く）</li>
+          <li>温泉・全設備・全フロア込み</li>
+          <li>追加ゲスト +¥15,000/名</li>
+          <li>最大16名まで対応</li>
+        </ul>
+        <a href="#contact" class="plan-action">空き確認・予約</a>
+      </div>
+      <!-- 休前日 -->
+      <div class="plan highlight">
+        <div class="plan-badge">人気プラン</div>
+        <p class="plan-name">休前日</p>
+        <div class="plan-price">
+          <span class="num">¥300,000</span>
+          <span class="unit">1泊 / 1棟全体（10名まで）</span>
+        </div>
+        <div class="plan-rule"></div>
+        <ul class="plan-list">
+          <li>金曜・土曜・祝前日</li>
+          <li>温泉・全設備・全フロア込み</li>
+          <li>追加ゲスト +¥15,000/名</li>
+          <li>最大16名まで対応</li>
+        </ul>
+        <a href="#contact" class="plan-action">空き確認・予約</a>
+      </div>
+      <!-- 特別シーズン -->
+      <div class="plan">
+        <p class="plan-name">特別シーズン</p>
+        <div class="plan-price">
+          <span class="num">¥400,000</span>
+          <span class="unit">1泊 / 1棟全体（10名まで）</span>
+        </div>
+        <div class="plan-rule"></div>
+        <ul class="plan-list">
+          <li>GW・お盆・年末年始</li>
+          <li>温泉・全設備・全フロア込み</li>
+          <li>追加ゲスト +¥15,000/名</li>
+          <li>2泊以上で5%割引</li>
+        </ul>
+        <a href="#contact" class="plan-action">空き確認・予約</a>
+      </div>
+      <!-- 花火シーズン -->
+      <div class="plan special">
+        <div class="plan-badge" style="background:var(--gold-dk);">花火 特別料金</div>
+        <p class="plan-name">花火大会日</p>
+        <div class="plan-price">
+          <span class="num">¥650,000</span>
+          <span class="unit">1泊 / 1棟全体（10名まで）</span>
+        </div>
+        <div class="plan-rule"></div>
+        <ul class="plan-list">
+          <li>熱海海上花火大会 開催日</li>
+          <li>屋上テラス特等席でのプレミアム観覧</li>
+          <li>追加ゲスト +¥15,000/名</li>
+          <li>早期予約で優先確保</li>
+        </ul>
+        <a href="#contact" class="plan-action">空き確認・予約</a>
+      </div>
+    </div>
+    <div class="pricing-add-note">
+      追加ゲスト料金：10名を超える場合、1名につき ¥15,000（税込）/ 最大16名まで
+    </div>
+    <p class="pricing-note">
+      ※ 法人契約・年間利用のお客様は別途ご相談ください。専用レート・優先予約制度あり。<br>
+      ※ キャンセルポリシー：7日前まで無料、3日前50%、前日・当日100%
+    </p>
+  </div>
+</section>
+
+<!-- CORPORATE USE -->
+<section class="corp-section">
+  <div class="corp-text">
+    <span class="section-tag">For Corporate</span>
+    <h2 class="section-title">法人・特別利用に<br>最適な環境</h2>
+    <div class="rule"></div>
+    <p class="section-body">
+      シアタールーム・フィットネス設備・高速Wi-Fi・完全プライバシーを
+      兼ね備えた The Kiten は、合宿・チームビルディング・エグゼクティブ接待に最適です。
+    </p>
+    <ul class="corp-list">
+      <li>
+        <span class="corp-num">01</span>
+        <div class="corp-list-text">
+          <h4>経営合宿・研修</h4>
+          <p>1Fのシアタールーム＋フィットネス設備。最大16名の集中合宿に対応。</p>
+        </div>
+      </li>
+      <li>
+        <span class="corp-num">02</span>
+        <div class="corp-list-text">
+          <h4>エグゼクティブ接待</h4>
+          <p>完全プライベートな空間で、ハーバービューを肴に特別なディナーを。ケータリング手配も可。</p>
+        </div>
+      </li>
+      <li>
+        <span class="corp-num">03</span>
+        <div class="corp-list-text">
+          <h4>チームビルディング</h4>
+          <p>BBQ・温泉・屋上テラス・和室。仕事を離れて、チームの絆を深める2日間。</p>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div class="corp-img-wrap">
+    <img src="images_kiten/terrace.jpg" alt="5階テラス">
+    <div class="corp-img-accent"></div>
+  </div>
+</section>
+
+<!-- ACCESS -->
+<section class="access-section" id="access">
+  <div class="access-inner">
+    <div class="access-text">
+      <span class="section-tag">Access</span>
+      <h2>東京から<br>最短65分。</h2>
+      <ul class="access-dl">
+        <li>
+          <span class="dt">所在地</span>
+          <span class="dd">静岡県熱海市<br>（詳細住所はご予約確定後）</span>
+        </li>
+        <li>
+          <span class="dt">新幹線</span>
+          <span class="dd">東京駅→熱海駅（こだま）約65分<br>熱海駅よりタクシー約15分</span>
+        </li>
+        <li>
+          <span class="dt">在来線</span>
+          <span class="dd">東京駅→熱海駅（踊り子号）約90分</span>
+        </li>
+        <li>
+          <span class="dt">お車</span>
+          <span class="dd">東名高速 沼津ICより約40分<br>敷地内駐車場 3台（無料）</span>
+        </li>
+        <li>
+          <span class="dt">送迎</span>
+          <span class="dd">熱海駅↔施設 有料送迎<br>（要事前予約）</span>
+        </li>
+      </ul>
+    </div>
+    <div class="map-frame">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d26325.46516!2d139.07!3d35.1!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x601b75acfe0d9c45%3A0x5069c6e3b9c7d91!2z54aK5rW3!5e0!3m2!1sja!2sjp!4v1000000000000"
+        allowfullscreen loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section" id="contact">
+  <div class="cta-bg"></div>
+  <div class="cta-content">
+    <span class="section-tag">Reservations</span>
+    <h2>この場所を、<br>あなただけのものに。</h2>
+    <p>
+      ご予約・空き確認・法人プランのご相談は、お気軽にメールまたはお電話にてお問い合わせください。
+    </p>
+    <div class="cta-btns">
+      <a href="mailto:info@fukudahotel.com?subject=The Kiten Harbor View 予約問い合わせ" class="btn-primary">
+        メールで問い合わせる
+      </a>
+    </div>
+    <a href="tel:0557-XX-XXXX" class="cta-tel">Tel: 0557-XX-XXXX</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="foot-brand">
+    <span class="brand-en">The Kiten Harbor View &amp; Private Spa</span>
+    <span class="brand-ja">喜天（きてん）— 熱海 完全貸切 別邸</span>
+    <p>
+      熱海港を望む高台の別邸。<br>天然温泉と絶景が、非日常を演出します。<br><br>
+      運営：合同会社フクダホテルマネジメント<br>
+      〒413-XXXX 静岡県熱海市<br>
+      旅館業法許可取得済
+    </p>
+  </div>
+  <div class="foot-col">
+    <h4>Navigation</h4>
+    <a href="#rooms">施設・お部屋</a>
+    <a href="#spa">プライベート温泉</a>
+    <a href="#floors">フロアガイド</a>
+    <a href="#pricing">ご利用料金</a>
+    <a href="#access">アクセス</a>
+    <a href="#contact">予約・お問い合わせ</a>
+  </div>
+  <div class="foot-col">
+    <h4>Information</h4>
+    <p>チェックイン：15:00〜</p>
+    <p>チェックアウト：〜11:00</p>
+    <p>定員：最大16名（基本10名）</p>
+    <p>完全貸切（他のゲストなし）</p>
+    <p>ペット不可</p>
+    <p>喫煙：屋外指定エリアのみ</p>
+  </div>
+  <div class="foot-bottom">
+    <p>© 2026 合同会社フクダホテルマネジメント. All rights reserved.</p>
+    <p>プライバシーポリシー｜特定商取引法に基づく表記</p>
+  </div>
+</footer>
+
+<script>
+  const nav = document.getElementById('mainNav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 60);
+  });
+
+  function changeFloor(id, btn) {
+    document.querySelectorAll('.floor-panel').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.floor-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById('kiten-floor-' + id).classList.add('active');
+    btn.classList.add('active');
+  }
+</script>
+</body>
+</html>

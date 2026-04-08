@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Retreat — Fukuda Hotel Management</title>
+<meta name="description" content="Corporate retreats, leadership offsites, and executive escapes. Exclusively whole-building private spaces for the decisions that matter.">
+
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; font-size: 16px; }
+
+:root {
+  --cream:   #F5F2EC;
+  --cream-d: #EDE9E1;
+  --ink:     #1A1714;
+  --charcoal:#2E2820;
+  --mid:     #6B5E52;
+  --warm:    #96877A;
+  --sand:    #D4C9BA;
+  --gold:    #B8965A;
+  --white:   #FFFFFF;
+  --dark:    #0F0D0A;
+  --dark2:   #161210;
+}
+
+body {
+  font-family: 'Georgia', 'Hiragino Mincho ProN', 'Yu Mincho', 'YuMincho', serif;
+  background: var(--cream); color: var(--ink);
+  overflow-x: hidden; -webkit-font-smoothing: antialiased;
+}
+
+/* ── LANGUAGE ───────────────────────────────────────────── */
+.t-en { display: none !important; }
+.lang-en .t-ja { display: none !important; }
+.lang-en .t-en { display: block !important; }
+.lang-en span.t-en, .lang-en small.t-en { display: inline !important; }
+.lang-en a.t-en, .lang-en button.t-en { display: inline-block !important; }
+
+.lang-toggle {
+  font-family: -apple-system, 'Helvetica Neue', sans-serif;
+  font-size: 9px; letter-spacing: 0.22em; text-transform: uppercase;
+  background: none; border: 1px solid rgba(255,255,255,0.20);
+  color: rgba(255,255,255,0.45); cursor: pointer;
+  padding: 6px 14px; transition: all 0.3s; margin-left: 8px;
+}
+.lang-toggle:hover { border-color: var(--gold); color: var(--gold); }
+
+/* ── NAV ─────────────────────────────────────────────────── */
+.nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+  padding: 36px 64px;
+  display: flex; align-items: center; justify-content: space-between;
+  transition: all 0.5s ease;
+}
+.nav.scrolled {
+  background: rgba(245,242,236,0.96); backdrop-filter: blur(20px);
+  padding: 20px 64px; box-shadow: 0 1px 0 rgba(0,0,0,0.05);
+}
+.nav-brand {
+  text-decoration: none; display: flex; flex-direction: column; gap: 1px;
+}
+.nav-brand .n-main {
+  font-size: 13px; letter-spacing: 0.32em; text-transform: uppercase;
+  color: var(--white); transition: color 0.4s; font-family: 'Georgia', serif;
+}
+.nav-brand .n-sub {
+  font-size: 8px; letter-spacing: 0.28em; text-transform: uppercase;
+  color: rgba(255,255,255,0.45); font-family: -apple-system, 'Helvetica Neue', sans-serif;
+}
+.nav.scrolled .nav-brand .n-main { color: var(--ink); }
+.nav.scrolled .nav-brand .n-sub { color: var(--mid); }
+.nav-links {
+  display: flex; align-items: center; gap: 40px;
+}
+.nav-links a {
+  font-family: -apple-system, 'Helvetica Neue', sans-serif;
+  font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase;
+  text-decoration: none; color: rgba(255,255,255,0.65); transition: color 0.3s;
+}
+.nav.scrolled .nav-links a { color: var(--mid); }
+.nav-links a:hover { color: var(--gold); }
+.nav-back {
+  font-family: -apple-system, 'Helvetica Neue', sans-serif;
+  font-size: 9px; letter-spacing: 0.22em; text-transform: uppercase;
+  text-decoration: none; color: rgba(255,255,255,0.55);
+  display: flex; align-items: center; gap: 10px;
+  padding-bottom: 2px; border-bottom: 1px solid rgba(255,255,255,0.20);
+  transition: all 0.3s;
+}
+.nav-back::before { content: '←'; font-style: normal; }
+.nav.scrolled .nav-back { color: var(--mid); border-bottom-color: var(--sand); }
+.nav-back:hover { color: var(--gold); border-bottom-color: var(--gold); }
+
+/* ── HERO ─────────────────────────────────────────────────── */
+.hero {
+  height: 100vh; min-height: 680px;
+  position: relative; overflow: hidden;
+}
+.hero-bg {
+  position: absolute; inset: 0;
+  background: url('images_corp/experience_doors.jpg') center 30% / cover no-repeat;
+  animation: hZoom 18s ease-out forwards;
+}
+@keyframes hZoom { from { transform: scale(1.05); } to { transform: scale(1.0); } }
+.hero-veil {
+  position: absolute; inset: 0;
+  background: linear-gradient(
+    160deg,
+    rgba(10,8,5,0.82) 0%,
+    rgba(10,8,5,0.40) 45%,
+    rgba(10,8,5,0.75) 100%
+  );
+}
+.hero-body {
+  position: relative; z-index: 2; height: 100%;
+  display: flex; flex-direction: column; justify-content: flex-end;
+  padding: 0 64px 10%;
+}
+.hero-eyebrow {
+  font-family: -apple-system, 'Helvetica Neue', sans-serif;
+  font-size: 9px; letter-spacing: 0.38em; text-transform: uppercase;
+  color: var(--gold); margin-bottom: 20px; display: block;
+}
+.hero-h {
+  font-size: clamp(32px, 4.2vw, 60px); font-weight: 400;
+  color: var(--white); letter-spacing: -0.02em; line-height: 0.95;
+  margin-bottom: 20px;
+}
+.hero-h em { font-style: italic; color: rgba(255,255,255,0.40); }
+.hero-sub {
+  font-family: -apple-system, 'Helvetica Neue', sans-serif;
+  font-size: 12px; letter-spacing: 0.12em; color: rgba(255,255,255,0.38);
+  max-width: 480px; line-height: 1.85; margin-bottom: 32px;
+}
+.hero-tags {
+  display: flex; gap: 24px; flex-wrap: wrap;
+}
+.hero-tag-item {
+  font-family: -apple-system, 'Helvetica Neue', sans-serif;
+  font-size: 9px; letter-spacing: 0.28em; text-transform: uppercase;
+  color: rgba(255,255,255,0.28);
+}
+.hero-tag-item::before { content: '·'; margin-right: 10px; color: var(--gold); }
+
+/* ── MANIFESTO BAR ────────────────────────────────────────── */
+.manifesto-bar {
+  background: var(--ink); padding: 60px 80px;
+  border-top: 1px solid rgba(255,255,255,0.04);
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+}
+.manifesto-bar-inner {
+  max-width: 1120px; margin: 0 auto;
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 0;
+}
+.mb-item {
+  padding: 0 48px;
+  border-left: 1px solid rgba(255,255,255,0.06);
+}
+.mb-item:first-child { border-left: none; padding-left: 0; }
+.mb-label {
+  font-family: -apple-system, 'Helvetica Neue', sans-serif;
+  font-size: 8px; letter-spacing: 0.32em; text-transform: uppercase;
+  color: var(--gold); display: block; margin-bottom: 14px;
+}
+.mb-text {
+  font-size: 15px; font-weight: 400; line-height: 1.55;
+  color: rgba(255,255,255,0.80); font-style: italic;
+}
+
+/* ── INTRO ───────────────────────────────────────────────── */
+.intro {
+  background: var(--cream);
+  padding: 120px 80px;
+}
+.intro-inner {
+  max-width: 1120px; margin: 0 auto;
+  display: grid; grid-template-columns: 1fr 1.4fr; gap: 120px; align-items: start;
+}
+.intro-label {
+  font-family: -apple-system, 'Helvetica Neue', sans-serif;
+  font-size: 9px; letter-spacing: 0.34em; text-transform: uppercase;
+  color: var(--gold); padding-top: 6px;
+}
+.intro-content {}
+.intro-h {
+  font-size: clamp(24px, 2.8vw, 36px); font-weight: 400; line-height: 1.5;
+  color: var(--ink); margin-bottom: 32px;
+}
+.intro-body {
+  font-size: 15px; line-height: 2.1; color: var(--mid); letter-spacing: 0.04em;
+  margin-bottom: 20px;
+}
+.intro-quote {
+  margin-top: 44px; padding: 28px 32px;
+  border-left: 2px solid var(--gold);
+  background: rgba(184,150,90,0.06);
+}
+.intro-quote p {
+  font-size: 14px; line-height: 1.9; color: var(--charcoal);
+  font-style: italic; letter-spacing: 0.03em;
+}
+
+/* ── PROPERTIES ──────────────────────────────────────────── */
+.properties { background: var(--cream-d); padding: 100px 80px 140px; }
+.properties-header {
+  max-width: 1120px; margin: 0 auto 72px;
+  display: flex; align-items: flex-end; justify-content: space-between;
+}
+.properties-tag {
+  font-family: -apple-system, 'Helvetica Neue', sans-serif;
+  font-size: 9px; letter-spacing: 0.34em; text-transform: uppercase;
+  color: var(--gold); display: block; margin-bottom: 16px;
+}
+.properties-h {
+  font-size: clamp(22px, 2.8vw, 34px); font-weight: 400;
+  color: var(--ink); letter-spacing: 0.02em; line-height: 1.3;
+}
+.properties-count {
+  font-family: -apple-system, 'Helvetica Neue', sans-serif;
+  font-size: 11px; color: var(--warm); letter-spacing: 0.12em;
+}
+.prop-grid {
+  max-width: 1120px; margin: 0 auto;
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: 3px;
+}
+
+/* Property Card */
+.pcard {
+  position: relative; overflow: hidden;
+  display: block; text-decoration: none; background: var(--charcoal);
+}
+.pcard:hover .pcard-img { transform: scale(1.05); }
+.pcard:hover .pcard-cta-arrow { transform: translateX(4px); }
+.pcard-img {
+  width: 100%; aspect-ratio: 4/5; object-fit: cover; display: block;
+  transition: transform 1.0s ease;
+}
+.pcard-veil {
+  position: absolute; inset: 0;
+  background: linear-gradient(to top, rgba(10,8,5,0.95) 0%, rgba(10,8,5,0.12) 55%);
+}
+.pcard-body {
+  position: absolute; bottom: 0; left: 0; right: 0; padding: 44px 40px;
+}
+.pcard-num {
+  font-family: -apple-system, 'Helvetica Neue', sans-serif;
+  font-size: 9px; letter-spacing: 0.32em; text-transform: uppercase;
+  color: var(--gold); display: block; margin-bottom: 12px;
+}
+.pcard-name {
+  font-size: 22px; font-weight: 400; color: var(--white);
+  letter-spacing: 0.03em; line-height: 1.3; margin-bottom: 10px;
+}
+.pcard-tagline {
+  font-family: -apple-system, 'Helvetica Neue', sans-serif;
+  font-size: 11px; color: rgba(255,255,255,0.35); letter-spacing: 0.10em;
+  margin-bottom: 24px; display: block; line-height: 1.7;
+}
+.pcard-features { display: flex; gap: 20px; flex-wrap: wrap; margin-bottom: 32px; }
+.pcard-feat {
+  font-family: -apple-system, 'Helvetica Neue', sans-serif;
+  font-size: 8px; letter-spacing: 0.24em; text-transform: uppercase;
+  color: rgba(255,255,255,0.28);
+}
+.pcard-feat::before { content: '·'; margin-right: 6px; color: var(--gold); }
+.pcard-cta {
+  display: flex; align-items: center; gap: 12px;
+  font-family: -apple-system, 'Helvetica Neue', sans-serif;
+  font-size: 9px; letter-spacing: 0.28em; text-transform: uppercase;
+  color: rgba(255,255,255,0.42); transition: color 0.3s;
+}
+.pcard:hover .pcard-cta { color: var(--white); }
+.pcard-cta-arrow {
+  display: inline-block; width: 28px; height: 1px;
+  background: currentColor; position: relative; transition: transform 0.3s;
+}
+.pcard-cta-arrow::after {
+  content: ''; position: absolute; right: 0; top: -3px;
+  width: 7px; height: 7px;
+  border-right: 1px solid currentColor; border-top: 1px solid currentColor;
+  transform: rotate(45deg);
+}
+.pcard-badge {
+  display: inline-block; margin-bottom: 20px;
+  font-family: -apple-system, 'Helvetica Neue', sans-serif;
+  font-size: 8px; letter-spacing: 0.28em; text-transform: uppercase;
+  color: var(--gold); border: 1px solid rgba(184,150,90,0.4); padding: 5px 14px;
+}
+.pcard.coming-soon { cursor: default; }
+
+/* ── PROCESS (How it works) ────────────────────────────── */
+.process { background: var(--cream); padding: 120px 80px; }
+.process-inner { max-width: 1120px; margin: 0 auto; }
+.process-tag {
+  font-family: -apple-system, 'Helvetica Neue', sans-serif;
+  font-size: 9px; letter-spacing: 0.34em; text-transform: uppercase;
+  color: var(--gold); display: block; margin-bottom: 16px;
+}
+.process-h {
+  font-size: clamp(22px, 2.5vw, 32px); font-weight: 400; color: var(--ink);
+  line-height: 1.4; margin-bottom: 72px; max-width: 560px;
+}
+.process-steps {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 3px;
+}
+.step {
+  background: rgba(0,0,0,0.03); padding: 40px 36px;
+  border-top: 1px solid rgba(184,150,90,0.35);
+}
+.step-n {
+  font-family: -apple-system, 'Helvetica Neue', sans-serif;
+  font-size: 9px; letter-spacing: 0.30em; text-transform: uppercase;
+  color: var(--gold); display: block; margin-bottom: 20px;
+}
+.step-h {
+  font-size: 17px; font-weight: 400; color: var(--ink); margin-bottom: 14px; line-height: 1.4;
+}
+.step-body {
+  font-family: -apple-system, 'Helvetica Neue', sans-serif;
+  font-size: 12px; line-height: 1.9; color: var(--mid); letter-spacing: 0.02em;
+}
+
+/* ── CTA ─────────────────────────────────────────────────── */
+.cta-section { background: var(--dark); padding: 130px 80px; text-align: center; }
+.cta-inner { max-width: 680px; margin: 0 auto; }
+.cta-tag {
+  font-family: -apple-system, 'Helvetica Neue', sans-serif;
+  font-size: 9px; letter-spacing: 0.34em; text-transform: uppercase;
+  color: var(--gold); display: block; margin-bottom: 36px;
+}
+.cta-h {
+  font-size: clamp(26px, 3.5vw, 48px); font-weight: 400; color: var(--white);
+  letter-spacing: 0.01em; line-height: 1.4; margin-bottom: 24px;
+}
+.cta-h em { font-style: italic; color: var(--white); }
+.cta-body {
+  font-size: 14px; color: rgba(255,255,255,0.72); line-height: 2.0; letter-spacing: 0.04em;
+  margin-bottom: 60px;
+}
+.cta-buttons { display: flex; align-items: center; justify-content: center; gap: 40px; flex-wrap: wrap; }
+.btn-primary {
+  display: inline-block;
+  font-family: -apple-system, 'Helvetica Neue', sans-serif;
+  font-size: 10px; letter-spacing: 0.26em; text-transform: uppercase;
+  text-decoration: none; color: var(--dark);
+  padding: 18px 52px; background: var(--gold); transition: all 0.3s;
+}
+.btn-primary:hover { background: #c9a868; }
+.btn-ghost-line {
+  display: inline-block;
+  font-family: -apple-system, 'Helvetica Neue', sans-serif;
+  font-size: 10px; letter-spacing: 0.24em; text-transform: uppercase;
+  text-decoration: none; color: rgba(255,255,255,0.45);
+  padding: 17px 44px; border: 1px solid rgba(255,255,255,0.18);
+  transition: all 0.35s;
+}
+.btn-ghost-line:hover { border-color: var(--gold); color: var(--gold); }
+
+/* ── SWITCH CTA ──────────────────────────────────────────── */
+.switch-cta {
+  background: var(--cream-d); padding: 72px 80px;
+  border-top: 1px solid rgba(0,0,0,0.06);
+  text-align: center;
+}
+.switch-inner {
+  max-width: 600px; margin: 0 auto;
+  display: flex; align-items: center; justify-content: space-between; gap: 40px;
+}
+.switch-label {
+  font-family: -apple-system, 'Helvetica Neue', sans-serif;
+  font-size: 9px; letter-spacing: 0.32em; text-transform: uppercase;
+  color: var(--warm); display: block; margin-bottom: 12px;
+}
+.switch-h {
+  font-size: 17px; font-weight: 400; color: var(--charcoal); line-height: 1.55;
+}
+.btn-ghost-sm {
+  flex-shrink: 0;
+  font-family: -apple-system, 'Helvetica Neue', sans-serif;
+  font-size: 9px; letter-spacing: 0.26em; text-transform: uppercase;
+  text-decoration: none; color: var(--mid);
+  padding-bottom: 3px; border-bottom: 1px solid var(--sand);
+  transition: all 0.3s; white-space: nowrap;
+}
+.btn-ghost-sm:hover { color: var(--gold); border-color: var(--gold); }
+
+/* ── FOOTER ──────────────────────────────────────────────── */
+footer { background: var(--dark); padding: 64px 80px 36px; border-top: 1px solid rgba(255,255,255,0.04); }
+.foot-inner {
+  display: grid; grid-template-columns: 1.8fr 1fr 1fr; gap: 64px;
+  padding-bottom: 48px; border-bottom: 1px solid rgba(255,255,255,0.04);
+  max-width: 1120px; margin: 0 auto;
+}
+.foot-brand .fb-main { font-size: 12px; letter-spacing: 0.28em; text-transform: uppercase; color: rgba(255,255,255,0.45); display: block; margin-bottom: 4px; font-family: 'Georgia', serif; }
+.foot-brand .fb-sub { font-size: 8px; letter-spacing: 0.26em; text-transform: uppercase; color: rgba(255,255,255,0.18); display: block; margin-bottom: 20px; font-family: -apple-system, 'Helvetica Neue', sans-serif; }
+.foot-brand p { font-family: -apple-system, 'Helvetica Neue', sans-serif; font-size: 11px; color: rgba(255,255,255,0.20); line-height: 1.9; }
+.foot-col h4 { font-family: -apple-system, 'Helvetica Neue', sans-serif; font-size: 8px; letter-spacing: 0.30em; text-transform: uppercase; color: var(--gold); margin-bottom: 18px; font-weight: 400; }
+.foot-col a { display: block; font-family: -apple-system, 'Helvetica Neue', sans-serif; font-size: 11px; color: rgba(255,255,255,0.25); text-decoration: none; margin-bottom: 10px; letter-spacing: 0.04em; transition: color 0.3s; }
+.foot-col a:hover { color: rgba(255,255,255,0.60); }
+.foot-bottom { max-width: 1120px; margin: 28px auto 0; display: flex; justify-content: space-between; align-items: center; }
+.foot-bottom p { font-family: -apple-system, 'Helvetica Neue', sans-serif; font-size: 9px; color: rgba(255,255,255,0.14); letter-spacing: 0.10em; }
+
+/* ── RESPONSIVE ──────────────────────────────────────────── */
+@media (max-width: 960px) {
+  .nav { padding: 24px 32px; } .nav.scrolled { padding: 16px 32px; }
+  .hero-body { padding: 0 32px 8vh; }
+  .manifesto-bar { padding: 48px 32px; }
+  .manifesto-bar-inner { grid-template-columns: 1fr; gap: 32px; }
+  .mb-item { border-left: none; padding-left: 0; padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.06); }
+  .mb-item:first-child { padding-top: 0; border-top: none; }
+  .intro { padding: 80px 32px; }
+  .intro-inner { grid-template-columns: 1fr; gap: 40px; }
+  .properties { padding: 80px 32px 100px; }
+  .properties-header { flex-direction: column; align-items: flex-start; gap: 16px; }
+  .prop-grid { grid-template-columns: 1fr; }
+  .pcard-img { aspect-ratio: 16/9; }
+  .process { padding: 80px 32px; }
+  .process-steps { grid-template-columns: 1fr; gap: 2px; }
+  .cta-section { padding: 90px 32px; }
+  .switch-cta { padding: 56px 32px; }
+  .switch-inner { flex-direction: column; text-align: center; }
+  footer { padding: 56px 32px 32px; }
+  .foot-inner { grid-template-columns: 1fr; gap: 36px; }
+  .foot-bottom { flex-direction: column; gap: 10px; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav" id="mainNav">
+  <a href="index.html" class="nav-brand">
+    <span class="n-main">Fukuda Hotel Management</span>
+    <span class="n-sub">合同会社フクダホテルマネジメント</span>
+  </a>
+  <div class="nav-links">
+    <a href="index.html#philosophy">Philosophy</a>
+    <a href="stay.html">Stay</a>
+    <a href="index.html" class="nav-back">All Properties</a>
+    <button class="lang-toggle" id="langToggle" aria-label="Switch language">
+      <span class="t-ja">EN</span><span class="t-en">日本語</span>
+    </button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-veil"></div>
+  <div class="hero-body">
+    <span class="hero-eyebrow t-ja">法人・経営合宿・チーム利用</span>
+    <span class="hero-eyebrow t-en">Corporate · Leadership · Offsite</span>
+    <h1 class="hero-h">Retreat</h1>
+    <p class="hero-sub t-ja">
+      ノイズを排除した環境だけが、本質的な思考を生む。<br>
+      意思決定者のための、完全プライベートな空間。
+    </p>
+    <p class="hero-sub t-en">
+      Only an environment stripped of noise can produce genuine thinking.<br>
+      A completely private space, designed for those who decide.
+    </p>
+    <div class="hero-tags">
+      <span class="hero-tag-item t-ja">完全一棟貸し</span>
+      <span class="hero-tag-item t-en">Whole-building exclusive</span>
+      <span class="hero-tag-item t-ja">経営合宿対応</span>
+      <span class="hero-tag-item t-en">Executive retreats</span>
+      <span class="hero-tag-item t-ja">戦略立案</span>
+      <span class="hero-tag-item t-en">Strategic planning</span>
+      <span class="hero-tag-item t-ja">完全プライベート</span>
+      <span class="hero-tag-item t-en">Total privacy</span>
+    </div>
+  </div>
+</section>
+
+<!-- MANIFESTO BAR -->
+<div class="manifesto-bar">
+  <div class="manifesto-bar-inner">
+    <div class="mb-item">
+      <span class="mb-label">Think</span>
+      <p class="mb-text t-ja">思考のノイズを、ゼロにする。</p>
+      <p class="mb-text t-en">Reduce the noise of thought to zero.</p>
+    </div>
+    <div class="mb-item">
+      <span class="mb-label">Reset</span>
+      <p class="mb-text t-ja">日常から切り離され、本質に戻る。</p>
+      <p class="mb-text t-en">Severed from the everyday, return to what matters.</p>
+    </div>
+    <div class="mb-item">
+      <span class="mb-label">Decide</span>
+      <p class="mb-text t-ja">帰る頃には、何かが決まっている。</p>
+      <p class="mb-text t-en">By the time you leave, something has been decided.</p>
+    </div>
+  </div>
+</div>
+
+<!-- INTRO -->
+<section class="intro">
+  <div class="intro-inner">
+    <span class="intro-label t-ja">Retreatとは</span>
+    <span class="intro-label t-en">About Retreat</span>
+    <div class="intro-content">
+      <h2 class="intro-h t-ja">「研修施設」ではない。<br>思考を設計する<br>空間です。</h2>
+      <h2 class="intro-h t-en">Not a conference facility.<br>A space designed<br>for thinking.</h2>
+      <p class="intro-body t-ja">
+        私たちのRetreatプランは、経営判断・戦略立案・チームの重要な節目に特化した
+        法人向けの一棟貸しプランです。
+        他のゲストは存在せず、他社の目も音もない空間で、
+        本質的な対話を行うことができます。
+      </p>
+      <p class="intro-body t-en">
+        Our Retreat offering is a whole-building corporate plan, designed specifically
+        for executive decision-making, strategic planning, and pivotal team moments.
+        No other guests. No other companies. A space where conversation of real substance can take place.
+      </p>
+      <p class="intro-body t-ja">
+        Amanや世界最高水準のリトリート施設が証明しているように、
+        環境そのものが思考の質を変えます。都市のオフィスで生まれない決断が、
+        ここでは生まれます。
+      </p>
+      <p class="intro-body t-en">
+        As demonstrated by Aman and the world's finest retreat properties,
+        the environment itself changes the quality of thought.
+        Decisions that cannot be reached in a city office are reached here.
+      </p>
+      <blockquote class="intro-quote t-ja">
+        <p>「二日間ここに滞在することで、三年間の方向性が変わることがある。それがRetreatの価値です。」</p>
+      </blockquote>
+      <blockquote class="intro-quote t-en">
+        <p>"Two days here can change the direction of three years. That is the value of a Retreat."</p>
+      </blockquote>
+    </div>
+  </div>
+</section>
+
+<!-- PROPERTIES -->
+<section class="properties">
+  <div class="properties-header">
+    <div>
+      <span class="properties-tag">Retreat Properties</span>
+      <h2 class="properties-h t-ja">法人プランでご利用可能な施設</h2>
+      <h2 class="properties-h t-en">Available for corporate retreat</h2>
+    </div>
+    <span class="properties-count t-ja">2 施設</span>
+    <span class="properties-count t-en">2 Properties</span>
+  </div>
+
+  <div class="prop-grid">
+
+    <!-- Ocean View Retreat -->
+    <div class="pcard coming-soon">
+      <img class="pcard-img" src="images_corp/ovr_living.jpg" alt="Atami Ocean View Retreat">
+      <div class="pcard-veil"></div>
+      <div class="pcard-body">
+        <span class="pcard-num">01 — Atami, Shizuoka</span>
+        <h3 class="pcard-name">Atami<br>Ocean View Retreat</h3>
+        <span class="pcard-tagline t-ja">相模湾を望む開放的な空間 — チームの集中合宿・戦略立案に</span>
+        <span class="pcard-tagline t-en">Open space overlooking Sagami Bay — built for focused strategy sessions</span>
+        <div class="pcard-features">
+          <span class="pcard-feat t-ja">完全一棟貸し</span>
+          <span class="pcard-feat t-en">Whole-building rental</span>
+          <span class="pcard-feat t-ja">オーシャンビュー</span>
+          <span class="pcard-feat t-en">Ocean panorama</span>
+          <span class="pcard-feat t-ja">合宿・ワーク対応</span>
+          <span class="pcard-feat t-en">Retreat-ready</span>
+        </div>
+        <div class="pcard-badge">Coming Soon...</div>
+      </div>
+    </div>
+
+    <!-- Takeoka Private Beach Retreat -->
+    <div class="pcard coming-soon">
+      <img class="pcard-img" src="images_corp/takeoka_beach.jpg" alt="Takeoka Private Beach Retreat">
+      <div class="pcard-veil"></div>
+      <div class="pcard-body">
+        <span class="pcard-num">02 — Kyonan, Chiba</span>
+        <h3 class="pcard-name">Takeoka<br>Private Beach Retreat</h3>
+        <span class="pcard-tagline t-ja">プライベートビーチ独占 — 思考と自然が交わる経営合宿の場</span>
+        <span class="pcard-tagline t-en">Exclusive private beach — where strategic thinking meets nature</span>
+        <div class="pcard-features">
+          <span class="pcard-feat t-ja">プライベートビーチ</span>
+          <span class="pcard-feat t-en">Private beach</span>
+          <span class="pcard-feat t-ja">経営合宿対応</span>
+          <span class="pcard-feat t-en">Executive retreat</span>
+        </div>
+        <div class="pcard-badge">Coming Soon...</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="process">
+  <div class="process-inner">
+    <span class="process-tag t-ja">Retreatの流れ</span>
+    <span class="process-tag t-en">How it works</span>
+    <h2 class="process-h t-ja">ご相談から滞在まで、<br>シンプルに進みます。</h2>
+    <h2 class="process-h t-en">From enquiry to arrival,<br>a simple process.</h2>
+    <div class="process-steps">
+      <div class="step">
+        <span class="step-n">01</span>
+        <p class="step-h t-ja">ご相談・目的の確認</p>
+        <p class="step-h t-en">Enquiry & Purpose</p>
+        <p class="step-body t-ja">利用人数、目的（経営合宿・戦略立案・チームビルディングなど）、希望日程をメールでご共有ください。</p>
+        <p class="step-body t-en">Share your group size, objectives (strategy, planning, team offsites), and preferred dates by email.</p>
+      </div>
+      <div class="step">
+        <span class="step-n">02</span>
+        <p class="step-h t-ja">施設提案・法人見積もり</p>
+        <p class="step-h t-en">Proposal & Quote</p>
+        <p class="step-body t-ja">目的に最適な施設をご提案し、法人向け料金・オプションをご案内します。</p>
+        <p class="step-body t-en">We recommend the most suitable property and provide corporate pricing with available options.</p>
+      </div>
+      <div class="step">
+        <span class="step-n">03</span>
+        <p class="step-h t-ja">ご予約確定・滞在</p>
+        <p class="step-h t-en">Confirm & Arrive</p>
+        <p class="step-body t-ja">ご予約確定後は、準備はすべてこちらで整えます。あとは到着するだけ。</p>
+        <p class="step-body t-en">Once confirmed, we handle all preparation. You simply arrive.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="cta-inner">
+    <span class="cta-tag t-ja">法人プランのご相談</span>
+    <span class="cta-tag t-en">Corporate Enquiry</span>
+    <h2 class="cta-h t-ja">
+      次のRetreatを、<br>
+      <em>この場所で計画してください。</em>
+    </h2>
+    <h2 class="cta-h t-en">
+      Plan your next Retreat<br>
+      <em>in this place.</em>
+    </h2>
+    <p class="cta-body t-ja">
+      経営合宿・戦略立案・リーダーシップオフサイトに関するご相談は、
+      メールにてお気軽にお問い合わせください。
+      日程、人数、ご予算に応じたご提案をいたします。
+    </p>
+    <p class="cta-body t-en">
+      For corporate retreats, strategy sessions, and leadership offsites,
+      please contact us by email. We'll tailor a proposal to your timeline,
+      group size, and objectives.
+    </p>
+    <div class="cta-buttons">
+      <a href="mailto:yfukuda@fukudahotel.com?subject=Retreat%20Plan%20Enquiry" class="btn-primary t-ja">法人プランを相談する</a>
+      <a href="mailto:yfukuda@fukudahotel.com?subject=Retreat%20Plan%20Enquiry" class="btn-primary t-en">Enquire About Retreat</a>
+      <a href="ocean-view-retreat-lp.html" class="btn-ghost-line t-ja">Ocean View Retreatを見る</a>
+      <a href="ocean-view-retreat-lp.html" class="btn-ghost-line t-en">View Ocean View Retreat</a>
+    </div>
+  </div>
+</section>
+
+<!-- SWITCH TO STAY CTA -->
+<div class="switch-cta">
+  <div class="switch-inner">
+    <div class="switch-text">
+      <span class="switch-label t-ja">個人・ご家族でのご利用をお探しの方</span>
+      <span class="switch-label t-en">Looking for personal or leisure stays?</span>
+      <p class="switch-h t-ja">解放し、くつろぐための滞在。<br>個人向けStayプランはこちら。</p>
+      <p class="switch-h t-en">A stay designed to relax and restore.<br>Explore our personal Stay offering.</p>
+    </div>
+    <a href="stay.html" class="btn-ghost-sm t-ja">Stayへ →</a>
+    <a href="stay.html" class="btn-ghost-sm t-en">Explore Stay →</a>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="foot-inner">
+    <div class="foot-brand">
+      <span class="fb-main">Fukuda Hotel Management</span>
+      <span class="fb-sub">合同会社フクダホテルマネジメント</span>
+      <p class="t-ja">旅館業法に基づく一棟貸し専用施設の<br>企画・運営・管理を手がけます。<br><br>〒152-0035 東京都目黒区自由が丘1-24-22</p>
+      <p class="t-en">Exclusively whole-building rental properties<br>under Japan's Hotel Business Act.<br><br>1-24-22 Jiyugaoka, Meguro-ku, Tokyo 152-0035</p>
+    </div>
+    <div class="foot-col">
+      <h4>Navigate</h4>
+      <a href="index.html">Home</a>
+      <a href="stay.html">Stay</a>
+      <a href="retreat.html">Retreat</a>
+      <a href="founder-message.html">Founder</a>
+    </div>
+    <div class="foot-col">
+      <h4>Properties</h4>
+      <a href="kiten-harbor-view-lp.html">The Kiten, Atami</a>
+      <a href="ocean-view-retreat-lp.html">Ocean View Retreat</a>
+      <a href="#">Takeoka Private Beach Villa</a>
+    </div>
+  </div>
+  <div class="foot-bottom">
+    <p>© 2026 Fukuda Hotel Management LLC. All rights reserved.</p>
+    <p>Japan</p>
+  </div>
+</footer>
+
+<script>
+  const nav = document.getElementById('mainNav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 80);
+  }, { passive: true });
+
+  const langBtn = document.getElementById('langToggle');
+  const applyLang = (lang) => {
+    document.body.classList.toggle('lang-en', lang === 'en');
+  };
+  const savedLang = localStorage.getItem('fhm-lang') || 'ja';
+  applyLang(savedLang);
+  langBtn.addEventListener('click', () => {
+    const isEn = document.body.classList.contains('lang-en');
+    const newLang = isEn ? 'ja' : 'en';
+    applyLang(newLang);
+    localStorage.setItem('fhm-lang', newLang);
+  });
+</script>
+</body>
+</html>

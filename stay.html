@@ -1,0 +1,729 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Stay — Fukuda Hotel Management</title>
+<meta name="description" content="Quiet luxury for private stays, families, and escapes. Exclusive whole-building rentals along Japan's most storied coastlines.">
+
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; font-size: 16px; }
+
+:root {
+  --cream:   #F5F2EC;
+  --cream-d: #EDE9E1;
+  --ink:     #1A1714;
+  --charcoal:#2E2820;
+  --mid:     #6B5E52;
+  --warm:    #96877A;
+  --sand:    #D4C9BA;
+  --gold:    #B8965A;
+  --white:   #FFFFFF;
+  --dark:    #0F0D0A;
+}
+
+body {
+  font-family: 'Georgia', 'Hiragino Mincho ProN', 'Yu Mincho', 'YuMincho', serif;
+  background: var(--cream); color: var(--ink);
+  overflow-x: hidden; -webkit-font-smoothing: antialiased;
+}
+
+/* ── LANGUAGE ───────────────────────────────────────────── */
+.t-en { display: none !important; }
+.lang-en .t-ja { display: none !important; }
+.lang-en .t-en { display: block !important; }
+.lang-en span.t-en, .lang-en small.t-en { display: inline !important; }
+.lang-en a.t-en, .lang-en button.t-en { display: inline-block !important; }
+
+.lang-toggle {
+  font-family: -apple-system, 'Helvetica Neue', sans-serif;
+  font-size: 9px; letter-spacing: 0.22em; text-transform: uppercase;
+  background: none; border: 1px solid rgba(255,255,255,0.28);
+  color: rgba(255,255,255,0.60); cursor: pointer;
+  padding: 6px 14px; transition: all 0.3s; margin-left: 8px;
+}
+.nav.scrolled .lang-toggle { border-color: var(--sand); color: var(--mid); }
+.lang-toggle:hover { border-color: var(--gold); color: var(--gold); }
+
+/* ── NAV ─────────────────────────────────────────────────── */
+.nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+  padding: 36px 64px;
+  display: flex; align-items: center; justify-content: space-between;
+  transition: all 0.5s ease;
+}
+.nav.scrolled {
+  background: rgba(245,242,236,0.96); backdrop-filter: blur(20px);
+  padding: 20px 64px; box-shadow: 0 1px 0 rgba(0,0,0,0.05);
+}
+.nav-brand {
+  text-decoration: none; display: flex; flex-direction: column; gap: 1px;
+}
+.nav-brand .n-main {
+  font-size: 13px; letter-spacing: 0.32em; text-transform: uppercase;
+  color: var(--white); transition: color 0.4s; font-family: 'Georgia', serif;
+}
+.nav-brand .n-sub {
+  font-size: 8px; letter-spacing: 0.28em; text-transform: uppercase;
+  color: rgba(255,255,255,0.45); transition: color 0.4s;
+  font-family: -apple-system, 'Helvetica Neue', sans-serif;
+}
+.nav.scrolled .nav-brand .n-main { color: var(--ink); }
+.nav.scrolled .nav-brand .n-sub  { color: var(--mid); }
+.nav-links {
+  display: flex; align-items: center; gap: 40px;
+}
+.nav-links a {
+  font-family: -apple-system, 'Helvetica Neue', sans-serif;
+  font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase;
+  text-decoration: none; color: rgba(255,255,255,0.65); transition: color 0.3s;
+}
+.nav.scrolled .nav-links a { color: var(--mid); }
+.nav-links a:hover { color: var(--gold); }
+.nav-back {
+  font-family: -apple-system, 'Helvetica Neue', sans-serif;
+  font-size: 9px; letter-spacing: 0.22em; text-transform: uppercase;
+  text-decoration: none; color: rgba(255,255,255,0.55);
+  display: flex; align-items: center; gap: 10px;
+  padding-bottom: 2px; border-bottom: 1px solid rgba(255,255,255,0.20);
+  transition: all 0.3s;
+}
+.nav-back::before { content: '←'; font-style: normal; }
+.nav.scrolled .nav-back { color: var(--mid); border-bottom-color: var(--sand); }
+.nav-back:hover { color: var(--gold); border-bottom-color: var(--gold); }
+
+/* ── HERO ─────────────────────────────────────────────────── */
+.hero {
+  height: 100vh; min-height: 640px;
+  position: relative; overflow: hidden;
+}
+.hero-bg {
+  position: absolute; inset: 0;
+  background: url('images_corp/takeoka_beach.jpg') center 65% / cover no-repeat;
+  animation: hZoom 18s ease-out forwards;
+}
+@keyframes hZoom { from { transform: scale(1.05); } to { transform: scale(1.0); } }
+.hero-veil {
+  position: absolute; inset: 0;
+  background: linear-gradient(180deg, rgba(15,13,10,0.20) 0%, rgba(15,13,10,0.08) 40%, rgba(15,13,10,0.65) 100%);
+}
+.hero-body {
+  position: relative; z-index: 2; height: 100%;
+  display: flex; flex-direction: column; justify-content: flex-end;
+  padding: 0 64px 10%;
+}
+.hero-eyebrow {
+  font-family: -apple-system, 'Helvetica Neue', sans-serif;
+  font-size: 9px; letter-spacing: 0.38em; text-transform: uppercase;
+  color: var(--gold); margin-bottom: 20px; display: block;
+}
+.hero-h {
+  font-size: clamp(32px, 4.2vw, 60px); font-weight: 400;
+  color: var(--white); letter-spacing: -0.02em; line-height: 0.95;
+  margin-bottom: 20px;
+}
+.hero-h em { font-style: italic; color: rgba(255,255,255,0.55); }
+.hero-sub {
+  font-family: -apple-system, 'Helvetica Neue', sans-serif;
+  font-size: 12px; letter-spacing: 0.12em; color: rgba(255,255,255,0.45);
+  max-width: 440px; line-height: 1.85; margin-bottom: 32px;
+}
+.hero-tags {
+  display: flex; gap: 24px; flex-wrap: wrap;
+}
+.hero-tag-item {
+  font-family: -apple-system, 'Helvetica Neue', sans-serif;
+  font-size: 9px; letter-spacing: 0.28em; text-transform: uppercase;
+  color: rgba(255,255,255,0.35);
+}
+.hero-tag-item::before { content: '·'; margin-right: 10px; color: var(--gold); }
+
+/* ── HERO TAGLINE STRIP ─────────────────────────────────── */
+.hero-tagline-strip {
+  background: var(--cream);
+  border-bottom: 1px solid var(--sand);
+  padding: 32px 80px;
+  text-align: center;
+}
+.hero-tagline-strip p {
+  font-family: 'Georgia', 'Hiragino Mincho ProN', 'Yu Mincho', serif;
+  font-size: clamp(14px, 1.4vw, 18px);
+  color: var(--ink);
+  letter-spacing: 0.08em;
+  line-height: 1.6;
+}
+.hero-tagline-strip em {
+  font-style: normal;
+  border-bottom: 1px solid var(--gold);
+  padding-bottom: 1px;
+}
+
+/* ── HIGHLIGHTS ─────────────────────────────────────────── */
+.highlights {}
+.hl-block {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 560px;
+}
+.hl-block--reverse .hl-img { order: 2; }
+.hl-block--reverse .hl-text { order: 1; }
+.hl-img {
+  position: relative; overflow: hidden;
+}
+.hl-img img {
+  width: 100%; height: 100%;
+  object-fit: cover; display: block;
+}
+.hl-text {
+  background: var(--cream);
+  padding: 80px 72px;
+  display: flex; flex-direction: column; justify-content: center;
+}
+.hl-text--alt { background: var(--cream-d); }
+.hl-eyebrow {
+  font-family: -apple-system, 'Helvetica Neue', sans-serif;
+  font-size: 9px; letter-spacing: 0.36em; text-transform: uppercase;
+  color: var(--gold); display: block; margin-bottom: 20px;
+}
+.hl-h {
+  font-size: clamp(22px, 2.6vw, 38px);
+  font-weight: 400; color: var(--ink);
+  line-height: 1.25; margin-bottom: 28px;
+  letter-spacing: -0.01em;
+}
+.hl-body {
+  font-size: 14px; line-height: 2.0;
+  color: var(--mid); letter-spacing: 0.04em;
+  max-width: 420px;
+}
+.hl-stat {
+  margin-top: 36px; padding-top: 28px;
+  border-top: 1px solid var(--sand);
+  display: flex; gap: 48px;
+}
+.hl-stat-num {
+  font-family: 'Georgia', serif;
+  font-size: clamp(28px, 3vw, 44px);
+  color: var(--gold); display: block;
+  line-height: 1; margin-bottom: 6px;
+}
+.hl-stat-label {
+  font-family: -apple-system, 'Helvetica Neue', sans-serif;
+  font-size: 9px; letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--warm);
+}
+
+/* ── INTRO ───────────────────────────────────────────────── */
+.intro {
+  padding: 120px 80px;
+  max-width: 1200px; margin: 0 auto;
+  display: grid; grid-template-columns: 1fr 1.4fr; gap: 120px; align-items: start;
+}
+.intro-label {
+  font-family: -apple-system, 'Helvetica Neue', sans-serif;
+  font-size: 9px; letter-spacing: 0.34em; text-transform: uppercase;
+  color: var(--gold); padding-top: 6px;
+}
+.intro-content {}
+.intro-h {
+  font-size: clamp(24px, 2.8vw, 36px); font-weight: 400; line-height: 1.5;
+  color: var(--ink); margin-bottom: 32px;
+}
+.intro-body {
+  font-size: 15px; line-height: 2.1; color: var(--mid); letter-spacing: 0.04em;
+  max-width: 560px; margin-bottom: 20px;
+}
+.intro-promise {
+  margin-top: 44px; padding: 28px 32px;
+  border-left: 2px solid var(--gold); background: var(--cream-d);
+}
+.intro-promise p {
+  font-size: 14px; line-height: 1.9; color: var(--ink);
+  font-style: italic; letter-spacing: 0.03em;
+}
+
+/* ── PROPERTIES ──────────────────────────────────────────── */
+.properties { background: var(--cream-d); padding: 100px 80px 140px; }
+.properties-header {
+  max-width: 1120px; margin: 0 auto 72px;
+  display: flex; align-items: flex-end; justify-content: space-between;
+}
+.properties-tag {
+  font-family: -apple-system, 'Helvetica Neue', sans-serif;
+  font-size: 9px; letter-spacing: 0.34em; text-transform: uppercase;
+  color: var(--gold); display: block; margin-bottom: 16px;
+}
+.properties-h {
+  font-size: clamp(22px, 2.8vw, 34px); font-weight: 400;
+  color: var(--ink); letter-spacing: 0.02em; line-height: 1.3;
+}
+.properties-count {
+  font-family: -apple-system, 'Helvetica Neue', sans-serif;
+  font-size: 11px; color: var(--warm);
+  letter-spacing: 0.12em;
+}
+.prop-grid {
+  max-width: 1120px; margin: 0 auto;
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: 3px;
+}
+
+/* Property Card */
+.pcard {
+  position: relative; overflow: hidden;
+  display: block; text-decoration: none;
+  background: var(--charcoal);
+}
+.pcard:hover .pcard-img { transform: scale(1.05); }
+.pcard:hover .pcard-cta-arrow { transform: translateX(4px); }
+.pcard-img {
+  width: 100%; aspect-ratio: 4/5; object-fit: cover; display: block;
+  transition: transform 1.0s ease;
+}
+.pcard-veil {
+  position: absolute; inset: 0;
+  background: linear-gradient(to top, rgba(10,8,5,0.92) 0%, rgba(10,8,5,0.10) 55%);
+}
+.pcard-body {
+  position: absolute; bottom: 0; left: 0; right: 0; padding: 44px 40px;
+}
+.pcard-num {
+  font-family: -apple-system, 'Helvetica Neue', sans-serif;
+  font-size: 9px; letter-spacing: 0.32em; text-transform: uppercase;
+  color: var(--gold); display: block; margin-bottom: 12px;
+}
+.pcard-name {
+  font-size: 22px; font-weight: 400; color: var(--white);
+  letter-spacing: 0.03em; line-height: 1.3; margin-bottom: 10px;
+}
+.pcard-tagline {
+  font-family: -apple-system, 'Helvetica Neue', sans-serif;
+  font-size: 11px; color: rgba(255,255,255,0.38); letter-spacing: 0.10em;
+  margin-bottom: 28px; display: block; line-height: 1.7;
+}
+.pcard-features {
+  display: flex; gap: 20px; flex-wrap: wrap; margin-bottom: 32px;
+}
+.pcard-feat {
+  font-family: -apple-system, 'Helvetica Neue', sans-serif;
+  font-size: 8px; letter-spacing: 0.24em; text-transform: uppercase;
+  color: rgba(255,255,255,0.30);
+}
+.pcard-feat::before { content: '·'; margin-right: 6px; color: var(--gold); }
+.pcard-cta {
+  display: flex; align-items: center; gap: 12px;
+  font-family: -apple-system, 'Helvetica Neue', sans-serif;
+  font-size: 9px; letter-spacing: 0.28em; text-transform: uppercase;
+  color: rgba(255,255,255,0.50); transition: color 0.3s;
+}
+.pcard:hover .pcard-cta { color: var(--white); }
+.pcard-cta-arrow {
+  display: inline-block; width: 28px; height: 1px;
+  background: currentColor; position: relative; transition: transform 0.3s;
+}
+.pcard-cta-arrow::after {
+  content: ''; position: absolute; right: 0; top: -3px;
+  width: 7px; height: 7px;
+  border-right: 1px solid currentColor; border-top: 1px solid currentColor;
+  transform: rotate(45deg);
+}
+.pcard-badge {
+  display: inline-block; margin-bottom: 20px;
+  font-family: -apple-system, 'Helvetica Neue', sans-serif;
+  font-size: 8px; letter-spacing: 0.28em; text-transform: uppercase;
+  color: var(--gold); border: 1px solid rgba(184,150,90,0.4);
+  padding: 5px 14px;
+}
+.pcard.coming-soon { cursor: default; }
+
+/* ── CTA ─────────────────────────────────────────────────── */
+.cta-section { padding: 130px 80px; text-align: center; max-width: 1200px; margin: 0 auto; }
+.cta-tag {
+  font-family: -apple-system, 'Helvetica Neue', sans-serif;
+  font-size: 9px; letter-spacing: 0.34em; text-transform: uppercase;
+  color: var(--gold); display: block; margin-bottom: 28px;
+}
+.cta-h {
+  font-size: clamp(24px, 3vw, 40px); font-weight: 400; color: var(--ink);
+  letter-spacing: 0.02em; line-height: 1.45; margin-bottom: 20px;
+}
+.cta-body {
+  font-size: 15px; color: var(--mid); line-height: 2.0; letter-spacing: 0.04em;
+  max-width: 400px; margin: 0 auto 52px;
+}
+.cta-buttons { display: flex; align-items: center; justify-content: center; gap: 40px; flex-wrap: wrap; }
+.btn-primary {
+  display: inline-block;
+  font-family: -apple-system, 'Helvetica Neue', sans-serif;
+  font-size: 10px; letter-spacing: 0.24em; text-transform: uppercase;
+  text-decoration: none; color: var(--dark);
+  padding: 17px 48px; background: var(--gold); transition: all 0.3s;
+}
+.btn-primary:hover { background: #c9a868; }
+.btn-line {
+  display: inline-block;
+  font-family: -apple-system, 'Helvetica Neue', sans-serif;
+  font-size: 10px; letter-spacing: 0.24em; text-transform: uppercase;
+  text-decoration: none; color: var(--ink);
+  padding: 15px 44px; border: 1px solid var(--sand); transition: all 0.35s;
+}
+.btn-line:hover { border-color: var(--ink); }
+
+/* ── SWITCH CTA ──────────────────────────────────────────── */
+.switch-cta {
+  background: var(--cream-d); padding: 72px 80px; text-align: center;
+  border-top: 1px solid rgba(0,0,0,0.06);
+}
+.switch-inner {
+  max-width: 600px; margin: 0 auto;
+  display: flex; align-items: center; justify-content: space-between; gap: 40px;
+}
+.switch-text {}
+.switch-label {
+  font-family: -apple-system, 'Helvetica Neue', sans-serif;
+  font-size: 9px; letter-spacing: 0.32em; text-transform: uppercase;
+  color: var(--warm); display: block; margin-bottom: 12px;
+}
+.switch-h {
+  font-size: 18px; font-weight: 400; color: var(--charcoal); line-height: 1.5;
+}
+.btn-ghost {
+  flex-shrink: 0;
+  font-family: -apple-system, 'Helvetica Neue', sans-serif;
+  font-size: 9px; letter-spacing: 0.26em; text-transform: uppercase;
+  text-decoration: none; color: var(--mid);
+  padding-bottom: 3px; border-bottom: 1px solid var(--sand);
+  transition: all 0.3s; white-space: nowrap;
+}
+.btn-ghost:hover { color: var(--gold); border-color: var(--gold); }
+
+/* ── FOOTER ──────────────────────────────────────────────── */
+footer { background: var(--dark); padding: 64px 80px 36px; border-top: 1px solid rgba(255,255,255,0.05); }
+.foot-inner {
+  display: grid; grid-template-columns: 1.8fr 1fr 1fr; gap: 64px;
+  padding-bottom: 48px; border-bottom: 1px solid rgba(255,255,255,0.05);
+  max-width: 1120px; margin: 0 auto;
+}
+.foot-brand .fb-main { font-size: 12px; letter-spacing: 0.28em; text-transform: uppercase; color: rgba(255,255,255,0.50); display: block; margin-bottom: 4px; font-family: 'Georgia', serif; }
+.foot-brand .fb-sub { font-size: 8px; letter-spacing: 0.26em; text-transform: uppercase; color: rgba(255,255,255,0.20); display: block; margin-bottom: 20px; font-family: -apple-system, 'Helvetica Neue', sans-serif; }
+.foot-brand p { font-family: -apple-system, 'Helvetica Neue', sans-serif; font-size: 11px; color: rgba(255,255,255,0.24); line-height: 1.9; }
+.foot-col h4 { font-family: -apple-system, 'Helvetica Neue', sans-serif; font-size: 8px; letter-spacing: 0.30em; text-transform: uppercase; color: var(--gold); margin-bottom: 18px; font-weight: 400; }
+.foot-col a { display: block; font-family: -apple-system, 'Helvetica Neue', sans-serif; font-size: 11px; color: rgba(255,255,255,0.30); text-decoration: none; margin-bottom: 10px; letter-spacing: 0.04em; transition: color 0.3s; }
+.foot-col a:hover { color: rgba(255,255,255,0.65); }
+.foot-bottom { max-width: 1120px; margin: 28px auto 0; display: flex; justify-content: space-between; align-items: center; }
+.foot-bottom p { font-family: -apple-system, 'Helvetica Neue', sans-serif; font-size: 9px; color: rgba(255,255,255,0.16); letter-spacing: 0.10em; }
+
+/* ── RESPONSIVE ──────────────────────────────────────────── */
+@media (max-width: 960px) {
+  .nav { padding: 24px 32px; } .nav.scrolled { padding: 16px 32px; }
+  .hero-body { padding: 0 32px 8vh; }
+  .intro { grid-template-columns: 1fr; gap: 40px; padding: 80px 32px; }
+  .properties { padding: 80px 32px 100px; }
+  .properties-header { flex-direction: column; align-items: flex-start; gap: 16px; }
+  .prop-grid { grid-template-columns: 1fr; }
+  .pcard-img { aspect-ratio: 16/9; }
+  .hero-tagline-strip { padding: 24px 32px; }
+  .hl-block { grid-template-columns: 1fr; }
+  .hl-block--reverse .hl-img { order: 0; }
+  .hl-block--reverse .hl-text { order: 1; }
+  .hl-img img { aspect-ratio: 4/3; height: auto; }
+  .hl-text { padding: 56px 32px; }
+  .cta-section { padding: 90px 32px; }
+  .switch-cta { padding: 56px 32px; }
+  .switch-inner { flex-direction: column; text-align: center; }
+  footer { padding: 56px 32px 32px; }
+  .foot-inner { grid-template-columns: 1fr; gap: 36px; }
+  .foot-bottom { flex-direction: column; gap: 10px; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav" id="mainNav">
+  <a href="index.html" class="nav-brand">
+    <span class="n-main">Fukuda Hotel Management</span>
+    <span class="n-sub">合同会社フクダホテルマネジメント</span>
+  </a>
+  <div class="nav-links">
+    <a href="index.html#philosophy">Philosophy</a>
+    <a href="retreat.html">Retreat</a>
+    <a href="index.html" class="nav-back">All Properties</a>
+    <button class="lang-toggle" id="langToggle" aria-label="Switch language">
+      <span class="t-ja">EN</span><span class="t-en">日本語</span>
+    </button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-veil"></div>
+  <div class="hero-body">
+    <span class="hero-eyebrow t-ja">個人・ご家族・レジャー向け</span>
+    <span class="hero-eyebrow t-en">Personal · Family · Leisure</span>
+    <h1 class="hero-h">Stay</h1>
+    <p class="hero-sub t-ja">
+      日常から切り離された時間を、あなただけのために。<br>
+      波の音。温泉の湯気。誰にも邪魔されない空白——
+    </p>
+    <p class="hero-sub t-en">
+      Private time, removed from the everyday.<br>
+      The sound of waves. Steam from the onsen. Silence that belongs only to you.
+    </p>
+    <div class="hero-tags">
+      <span class="hero-tag-item t-ja">完全一棟貸し</span>
+      <span class="hero-tag-item t-en">Whole-building exclusive</span>
+      <span class="hero-tag-item t-ja">天然温泉付き</span>
+      <span class="hero-tag-item t-en">Private onsen</span>
+      <span class="hero-tag-item t-ja">プライベートビーチ</span>
+      <span class="hero-tag-item t-en">Private beach</span>
+      <span class="hero-tag-item t-ja">海の一望</span>
+      <span class="hero-tag-item t-en">Ocean panorama</span>
+    </div>
+  </div>
+</section>
+
+<!-- HERO TAGLINE STRIP -->
+<div class="hero-tagline-strip">
+  <p class="t-ja">「宿泊」ではなく、<em>「場所と時間」</em>を提供する。</p>
+  <p class="t-en">Not accommodation. <em>Time, and place.</em></p>
+</div>
+
+<!-- HIGHLIGHTS: 花火 / 大人数 / 夜景 -->
+<section class="highlights">
+
+  <!-- 花火 -->
+  <div class="hl-block">
+    <div class="hl-img">
+      <img src="images_corp/vista.jpg" alt="熱海の花火">
+    </div>
+    <div class="hl-text">
+      <span class="hl-eyebrow t-ja">熱海の花火 — Atami Fireworks</span>
+      <span class="hl-eyebrow t-en">Atami Fireworks</span>
+      <h2 class="hl-h t-ja">花火を、<br>テラスから<br>独占する。</h2>
+      <h2 class="hl-h t-en">The fireworks,<br>entirely yours.</h2>
+      <p class="hl-body t-ja">熱海の打ち上げ花火を、混雑する海岸からではなく——完全プライベートのテラスから、誰とも共有しない特等席で。熱海港を一望するこの場所でしか味わえない体験です。</p>
+      <p class="hl-body t-en">Atami's legendary fireworks — not from a crowded shoreline, but from your own private terrace above the harbor. A front-row seat that belongs to no one else.</p>
+    </div>
+  </div>
+
+  <!-- 大人数利用 -->
+  <div class="hl-block hl-block--reverse">
+    <div class="hl-img">
+      <img src="images_corp/experience.jpg" alt="大人数での滞在">
+    </div>
+    <div class="hl-text hl-text--alt">
+      <span class="hl-eyebrow t-ja">大人数での滞在 — Large Group Stays</span>
+      <span class="hl-eyebrow t-en">Large Group Stays</span>
+      <h2 class="hl-h t-ja">最大26名。<br>それでも、<br>「プライベート」。</h2>
+      <h2 class="hl-h t-en">Up to 26 guests.<br>Still entirely<br>private.</h2>
+      <p class="hl-body t-ja">家族の集まり、同窓会、親族一同での特別な節目に。一般的なホテルでは叶わない「一棟まるごと貸し切り」の贅沢を、最大26名でお楽しみいただけます。</p>
+      <p class="hl-body t-en">Family reunions, milestone gatherings, multi-generational stays. Whole-building exclusivity — for up to 26 guests, and still entirely to yourselves.</p>
+      <div class="hl-stat">
+        <div>
+          <span class="hl-stat-num">26</span>
+          <span class="hl-stat-label t-ja">名まで収容可能</span>
+          <span class="hl-stat-label t-en">Max. capacity</span>
+        </div>
+        <div>
+          <span class="hl-stat-num">100%</span>
+          <span class="hl-stat-label t-ja">完全プライベート</span>
+          <span class="hl-stat-label t-en">Exclusive rental</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 夜景 -->
+  <div class="hl-block">
+    <div class="hl-img">
+      <img src="images_corp/kiten_entrance.jpg" alt="熱海の夜景">
+    </div>
+    <div class="hl-text">
+      <span class="hl-eyebrow t-ja">熱海の夜景 — Night Over Atami</span>
+      <span class="hl-eyebrow t-en">Night Over Atami</span>
+      <h2 class="hl-h t-ja">夜が更けるほど、<br>この場所は<br>美しくなる。</h2>
+      <h2 class="hl-h t-en">As the night deepens,<br>so does<br>the view.</h2>
+      <p class="hl-body t-ja">熱海港を見下ろす高台から、街の灯りが水面に映る夜景を——二人きりで、あるいは皆と、誰の邪魔もなく眺める夜があります。</p>
+      <p class="hl-body t-en">From the hilltop above Atami Harbor, the city lights spill across the water. A view that deepens as the evening does — shared with whomever you choose, and no one else.</p>
+    </div>
+  </div>
+
+</section>
+
+<!-- INTRO -->
+<section class="intro">
+  <span class="intro-label t-ja">Stayとは</span>
+  <span class="intro-label t-en">About Stay</span>
+  <div class="intro-content">
+    <h2 class="intro-h t-ja">「宿泊」ではなく、<br>「場所との時間」を<br>提供します。</h2>
+    <h2 class="intro-h t-en">Not a hotel stay.<br>Time spent<br>with a place.</h2>
+    <p class="intro-body t-ja">
+      私たちのStayプランは、完全一棟貸し専用の滞在です。
+      他のゲストは存在せず、スタッフの姿もBGMもありません。
+      ただ、この場所と、あなただけの時間が残ります。
+    </p>
+    <p class="intro-body t-en">
+      Our Stay offering is exclusively whole-building rental.
+      No other guests. No staff presence. No background music.
+      Only the place and your time remain.
+    </p>
+    <p class="intro-body t-ja">
+      温泉、海、食卓——それらをあなた自身のペースで。
+      何もしない贅沢を、世界水準のロケーションで体験してください。
+    </p>
+    <p class="intro-body t-en">
+      Hot springs, ocean, the dining table — all at your own pace.
+      The luxury of doing nothing, at a world-class location.
+    </p>
+    <blockquote class="intro-promise t-ja">
+      <p>「ここに滞在した人は、帰るときに少し、顔が変わっている。それが私たちの基準です。」</p>
+    </blockquote>
+    <blockquote class="intro-promise t-en">
+      <p>"Those who stay here leave looking a little different. That is our standard."</p>
+    </blockquote>
+  </div>
+</section>
+
+<div style="width:100%;height:1px;background:var(--sand);"></div>
+
+<!-- PROPERTIES -->
+<section class="properties">
+  <div class="properties-header">
+    <div>
+      <span class="properties-tag">Stay Properties</span>
+      <h2 class="properties-h t-ja">ご滞在いただける施設</h2>
+      <h2 class="properties-h t-en">Available for your stay</h2>
+    </div>
+    <span class="properties-count t-ja">2 施設</span>
+    <span class="properties-count t-en">2 Properties</span>
+  </div>
+
+  <div class="prop-grid">
+
+    <!-- The Kiten -->
+    <div class="pcard coming-soon">
+      <img class="pcard-img" src="images_corp/kiten_entrance.jpg" alt="The Kiten — Harbor View &amp; Private Spa">
+      <div class="pcard-veil"></div>
+      <div class="pcard-body">
+        <span class="pcard-num">01 — Atami, Shizuoka</span>
+        <h3 class="pcard-name">The Kiten<br>Harbor View &amp; Private Spa</h3>
+        <span class="pcard-tagline t-ja">熱海港を見下ろす高台の別邸 — 天然温泉でリセットする特別な滞在</span>
+        <span class="pcard-tagline t-en">A hilltop villa above Atami Harbor — with private onsen to truly restore</span>
+        <div class="pcard-features">
+          <span class="pcard-feat t-ja">完全一棟貸し</span>
+          <span class="pcard-feat t-en">Exclusive rental</span>
+          <span class="pcard-feat t-ja">天然温泉付き</span>
+          <span class="pcard-feat t-en">Private onsen</span>
+          <span class="pcard-feat t-ja">熱海港一望</span>
+          <span class="pcard-feat t-en">Harbor panorama</span>
+        </div>
+        <div class="pcard-badge">Coming Soon...</div>
+      </div>
+    </div>
+
+    <!-- Takeoka -->
+    <div class="pcard coming-soon">
+      <img class="pcard-img" src="images_corp/takeoka_beach.jpg" alt="Takeoka Private Beach Villa">
+      <div class="pcard-veil"></div>
+      <div class="pcard-body">
+        <span class="pcard-num">02 — Kyonan, Chiba</span>
+        <h3 class="pcard-name">Takeoka<br>Private Beach Villa</h3>
+        <span class="pcard-tagline t-ja">庭を出れば10秒で波打ち際 — プライベートビーチ独占</span>
+        <span class="pcard-tagline t-en">Step outside your door. Ten seconds to the water's edge.</span>
+        <div class="pcard-features">
+          <span class="pcard-feat t-ja">プライベートビーチ</span>
+          <span class="pcard-feat t-en">Private beach</span>
+          <span class="pcard-feat t-ja">千葉 · 南房総</span>
+          <span class="pcard-feat t-en">Southern Chiba</span>
+        </div>
+        <div class="pcard-badge">Coming Soon...</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <span class="cta-tag t-ja">ご予約・お問い合わせ</span>
+  <span class="cta-tag t-en">Enquire & Reserve</span>
+  <h2 class="cta-h t-ja">あなたのための時間を、<br>今日から計画してください。</h2>
+  <h2 class="cta-h t-en">Begin planning your stay.<br>Your time awaits.</h2>
+  <p class="cta-body t-ja">
+    ご予約、空き状況のご確認、特別なご要望はメールにてお気軽にご相談ください。
+  </p>
+  <p class="cta-body t-en">
+    For reservations, availability enquiries, or special requests, please contact us by email.
+  </p>
+  <div class="cta-buttons">
+    <a href="mailto:yfukuda@fukudahotel.com" class="btn-primary t-ja">メールで問い合わせる</a>
+    <a href="mailto:yfukuda@fukudahotel.com" class="btn-primary t-en">Send an Enquiry</a>
+  </div>
+</section>
+
+<!-- SWITCH TO RETREAT CTA -->
+<div class="switch-cta">
+  <div class="switch-inner">
+    <div class="switch-text">
+      <span class="switch-label t-ja">法人・経営合宿をお探しの方</span>
+      <span class="switch-label t-en">Looking for corporate or team use?</span>
+      <p class="switch-h t-ja">思考し、決断するための空間。<br>法人向けRetreatプランはこちら。</p>
+      <p class="switch-h t-en">Space designed for thinking and deciding.<br>Explore our corporate Retreat offering.</p>
+    </div>
+    <a href="retreat.html" class="btn-ghost t-ja">Retreatへ →</a>
+    <a href="retreat.html" class="btn-ghost t-en">Explore Retreat →</a>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="foot-inner">
+    <div class="foot-brand">
+      <span class="fb-main">Fukuda Hotel Management</span>
+      <span class="fb-sub">合同会社フクダホテルマネジメント</span>
+      <p class="t-ja">旅館業法に基づく一棟貸し専用施設の<br>企画・運営・管理を手がけます。<br><br>〒152-0035 東京都目黒区自由が丘1-24-22</p>
+      <p class="t-en">Exclusively whole-building rental properties<br>under Japan's Hotel Business Act.<br><br>1-24-22 Jiyugaoka, Meguro-ku, Tokyo 152-0035</p>
+    </div>
+    <div class="foot-col">
+      <h4>Navigate</h4>
+      <a href="index.html">Home</a>
+      <a href="stay.html">Stay</a>
+      <a href="retreat.html">Retreat</a>
+      <a href="founder-message.html">Founder</a>
+    </div>
+    <div class="foot-col">
+      <h4>Properties</h4>
+      <a href="kiten-harbor-view-lp.html">The Kiten, Atami</a>
+      <a href="ocean-view-retreat-lp.html">Ocean View Retreat</a>
+      <a href="#">Takeoka Private Beach Villa</a>
+    </div>
+  </div>
+  <div class="foot-bottom">
+    <p>© 2026 Fukuda Hotel Management LLC. All rights reserved.</p>
+    <p>Japan</p>
+  </div>
+</footer>
+
+<script>
+  const nav = document.getElementById('mainNav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 80);
+  }, { passive: true });
+
+  const langBtn = document.getElementById('langToggle');
+  const applyLang = (lang) => {
+    document.body.classList.toggle('lang-en', lang === 'en');
+  };
+  const savedLang = localStorage.getItem('fhm-lang') || 'ja';
+  applyLang(savedLang);
+  langBtn.addEventListener('click', () => {
+    const isEn = document.body.classList.contains('lang-en');
+    const newLang = isEn ? 'ja' : 'en';
+    applyLang(newLang);
+    localStorage.setItem('fhm-lang', newLang);
+  });
+</script>
+</body>
+</html>

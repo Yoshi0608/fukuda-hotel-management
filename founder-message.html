@@ -1,0 +1,1211 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Founder's Message — Fukuda Hotel Management</title>
+<meta name="description" content="A Place Where Thinking Becomes Clear. 代表 福田喜天より——場所は、人を変える。そしてその変化は、人生を変える。">
+
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; font-size: 16px; }
+
+:root {
+  --cream:   #F5F2EC;
+  --cream-d: #EDE9E1;
+  --ink:     #1A1714;
+  --charcoal:#2E2820;
+  --mid:     #6B5E52;
+  --warm:    #96877A;
+  --sand:    #D4C9BA;
+  --gold:    #B8965A;
+  --white:   #FFFFFF;
+  --dark:    #0F0D0A;
+  --dark2:   #161210;
+}
+
+body {
+  font-family: 'Georgia', 'Hiragino Mincho ProN', 'Yu Mincho', 'YuMincho', serif;
+  background: var(--cream);
+  color: var(--ink);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── LANGUAGE TOGGLE ──────────────────────────────────────── */
+.t-en { display: none !important; }
+.lang-en .t-ja { display: none !important; }
+.lang-en .t-en { display: block !important; }
+.lang-en span.t-en,
+.lang-en small.t-en,
+.lang-en em.t-en { display: inline !important; }
+.lang-en a.t-en, .lang-en button.t-en { display: inline-block !important; }
+
+.lang-toggle {
+  font-family: -apple-system, 'Helvetica Neue', sans-serif;
+  font-size: 9px; letter-spacing: 0.22em; text-transform: uppercase;
+  background: none; border: 1px solid var(--sand);
+  color: var(--mid); cursor: pointer;
+  padding: 6px 14px; transition: all 0.3s; margin-left: 8px;
+}
+.lang-toggle:hover { border-color: var(--gold); color: var(--gold); }
+
+/* ── NAV ──────────────────────────────────────────────────── */
+.nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+  padding: 24px 64px;
+  display: flex; align-items: center; justify-content: space-between;
+  background: rgba(245,242,236,0.97);
+  backdrop-filter: blur(20px);
+  box-shadow: 0 1px 0 rgba(0,0,0,0.06);
+}
+.nav-brand {
+  text-decoration: none; display: flex; flex-direction: column; gap: 2px;
+}
+.nav-brand .n-main {
+  font-size: 12px; letter-spacing: 0.30em; text-transform: uppercase;
+  color: var(--ink); font-weight: 400; font-family: 'Georgia', serif;
+}
+.nav-brand .n-sub {
+  font-size: 8px; letter-spacing: 0.26em; text-transform: uppercase;
+  color: var(--mid); font-family: -apple-system, 'Helvetica Neue', sans-serif;
+}
+.nav-links {
+  display: flex; align-items: center; gap: 40px;
+}
+.nav-links a {
+  font-family: -apple-system, 'Helvetica Neue', sans-serif;
+  font-size: 10px; letter-spacing: 0.20em; text-transform: uppercase;
+  text-decoration: none; color: var(--mid); transition: color 0.3s;
+}
+.nav-links a:hover { color: var(--gold); }
+.nav-enquire {
+  font-family: -apple-system, 'Helvetica Neue', sans-serif;
+  font-size: 9px; letter-spacing: 0.22em; text-transform: uppercase;
+  text-decoration: none; color: var(--mid);
+  padding-bottom: 2px; border-bottom: 1px solid var(--sand);
+  transition: all 0.3s;
+}
+.nav-enquire:hover { color: var(--ink); border-color: var(--ink); }
+
+/* ── HERO ─────────────────────────────────────────────────── */
+.hero {
+  position: relative; height: 100vh; min-height: 680px; overflow: hidden;
+}
+.hero-bg {
+  position: absolute; inset: 0;
+  background: url('images_corp/experience_doors.jpg') center 30% / cover no-repeat;
+}
+.hero-veil {
+  position: absolute; inset: 0;
+  background: linear-gradient(
+    160deg,
+    rgba(15,13,10,0.75) 0%,
+    rgba(15,13,10,0.45) 45%,
+    rgba(15,13,10,0.72) 100%
+  );
+}
+.hero-body {
+  position: absolute; bottom: 0; left: 0; right: 0;
+  padding: 0 80px 10%;
+  max-width: 900px;
+}
+.hero-eyebrow {
+  font-family: -apple-system, 'Helvetica Neue', sans-serif;
+  font-size: 9px; letter-spacing: 0.38em; text-transform: uppercase;
+  color: var(--gold); margin-bottom: 24px; display: block;
+}
+.hero-h {
+  font-size: clamp(26px, 3.5vw, 48px);
+  font-weight: 400; line-height: 1.15;
+  color: var(--white); letter-spacing: -0.01em;
+}
+.hero-h em { font-style: italic; color: var(--white); }
+.hero-catch {
+  margin-top: 36px;
+  font-family: -apple-system, 'Helvetica Neue', sans-serif;
+  font-size: 12px; letter-spacing: 0.26em; text-transform: uppercase;
+  color: rgba(255,255,255,0.38);
+  font-style: italic;
+}
+.hero-name {
+  margin-top: 48px;
+  display: flex; align-items: center; gap: 20px;
+}
+.hero-name-text {
+  font-family: -apple-system, 'Helvetica Neue', sans-serif;
+  font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase;
+  color: rgba(255,255,255,0.40);
+}
+.hero-name-line {
+  width: 40px; height: 1px; background: rgba(255,255,255,0.20);
+}
+
+/* ── SECTION BASE ─────────────────────────────────────────── */
+.section-wrap {
+  max-width: 1120px; margin: 0 auto; padding: 0 64px;
+}
+.rule { border: none; border-top: 1px solid var(--sand); max-width: 1120px; margin: 0 auto; }
+.section-tag {
+  font-family: -apple-system, 'Helvetica Neue', sans-serif;
+  font-size: 9px; letter-spacing: 0.36em; text-transform: uppercase;
+  color: var(--gold); display: block;
+}
+
+/* ── BLOCK: WHY (原点) ────────────────────────────────────── */
+.why-block {
+  padding: 120px 0 100px;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 100px; align-items: center;
+}
+.why-text {}
+.why-tag { margin-bottom: 28px; }
+.why-en {
+  font-size: clamp(28px, 3vw, 42px); font-weight: 400; line-height: 1.3;
+  color: var(--ink); margin-bottom: 12px;
+  font-style: italic;
+}
+.why-ja {
+  font-size: 13px; letter-spacing: 0.12em; color: var(--warm);
+  font-family: -apple-system, 'Helvetica Neue', sans-serif;
+  margin-bottom: 44px;
+}
+.why-body {
+  font-size: 15px; line-height: 2.1; color: var(--charcoal); letter-spacing: 0.04em;
+}
+.why-body p + p { margin-top: 1.5em; }
+.why-img img {
+  width: 100%; aspect-ratio: 4/5; object-fit: cover; display: block;
+}
+.why-img-cap {
+  margin-top: 14px;
+  font-family: -apple-system, 'Helvetica Neue', sans-serif;
+  font-size: 9px; letter-spacing: 0.20em; text-transform: uppercase; color: var(--warm);
+}
+
+/* ── BLOCK: JOURNEY ───────────────────────────────────────── */
+.journey-block { padding: 100px 0; }
+.journey-intro { margin-bottom: 72px; }
+.journey-intro-h {
+  font-size: clamp(26px, 2.8vw, 38px); font-weight: 400; line-height: 1.35;
+  color: var(--ink); max-width: 560px; margin-top: 24px;
+}
+
+.chapter {
+  display: grid; grid-template-columns: 180px 1fr;
+  gap: 64px; padding: 56px 0;
+  border-top: 1px solid var(--sand);
+}
+.chapter:last-child { border-bottom: 1px solid var(--sand); }
+.ch-meta {}
+.ch-num {
+  font-family: -apple-system, 'Helvetica Neue', sans-serif;
+  font-size: 9px; letter-spacing: 0.28em; text-transform: uppercase;
+  color: var(--gold); display: block; margin-bottom: 14px;
+}
+.ch-place { font-size: 20px; font-weight: 400; color: var(--ink); margin-bottom: 4px; }
+.ch-period {
+  font-family: -apple-system, 'Helvetica Neue', sans-serif;
+  font-size: 10px; letter-spacing: 0.14em; color: var(--warm);
+}
+.ch-body {}
+.ch-lead {
+  font-size: clamp(17px, 1.9vw, 22px); font-weight: 400;
+  line-height: 1.6; color: var(--ink); font-style: italic;
+  margin-bottom: 22px;
+}
+.ch-text {
+  font-size: 14.5px; line-height: 2.05; color: var(--charcoal); letter-spacing: 0.04em;
+}
+.ch-text p + p { margin-top: 1.3em; }
+.ch-text strong { color: var(--ink); font-weight: 400; border-bottom: 1px solid var(--sand); }
+.ch-keyword {
+  margin-top: 24px; display: inline-block;
+  font-family: -apple-system, 'Helvetica Neue', sans-serif;
+  font-size: 9px; letter-spacing: 0.28em; text-transform: uppercase;
+  color: var(--gold); border: 1px solid rgba(184,150,90,0.35);
+  padding: 6px 16px;
+}
+
+/* ── DARK MANIFESTO ───────────────────────────────────────── */
+.manifesto {
+  background: var(--dark);
+  padding: 140px 64px;
+}
+.manifesto-inner {
+  max-width: 900px; margin: 0 auto;
+}
+.manifesto-tag {
+  font-family: -apple-system, 'Helvetica Neue', sans-serif;
+  font-size: 9px; letter-spacing: 0.36em; text-transform: uppercase;
+  color: var(--gold); display: block; margin-bottom: 48px;
+}
+.manifesto-h {
+  font-size: clamp(30px, 4vw, 52px); font-weight: 400; line-height: 1.4;
+  color: var(--white); margin-bottom: 64px;
+}
+.manifesto-h em { font-style: italic; color: var(--white); }
+.manifesto-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 48px 80px;
+  margin-bottom: 72px;
+}
+.manifesto-item {}
+.mi-label {
+  font-family: -apple-system, 'Helvetica Neue', sans-serif;
+  font-size: 8px; letter-spacing: 0.30em; text-transform: uppercase;
+  color: var(--gold); display: block; margin-bottom: 12px;
+}
+.mi-text {
+  font-size: 14px; line-height: 1.9; color: rgba(255,255,255,0.60);
+  letter-spacing: 0.04em;
+}
+.manifesto-divider {
+  border: none; border-top: 1px solid rgba(255,255,255,0.08); margin-bottom: 72px;
+}
+.manifesto-catch {
+  font-family: -apple-system, 'Helvetica Neue', sans-serif;
+  font-size: clamp(16px, 2vw, 22px); letter-spacing: 0.18em; text-transform: uppercase;
+  color: rgba(255,255,255,0.20); font-style: italic; text-align: right;
+}
+.manifesto-catch em { color: rgba(184,150,90,0.60); font-style: normal; }
+
+/* ── BLOCK: JAPAN (差別化) ────────────────────────────────── */
+.japan-block {
+  padding: 120px 0;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 100px; align-items: center;
+}
+.japan-img img {
+  width: 100%; aspect-ratio: 3/4; object-fit: cover; display: block;
+}
+.japan-text {}
+.japan-tag { margin-bottom: 28px; }
+.japan-h {
+  font-size: clamp(26px, 3vw, 38px); font-weight: 400; line-height: 1.4;
+  color: var(--ink); margin-bottom: 36px;
+}
+.japan-body {
+  font-size: 15px; line-height: 2.1; color: var(--charcoal); letter-spacing: 0.04em;
+}
+.japan-body p + p { margin-top: 1.5em; }
+.japan-body strong { color: var(--ink); font-weight: 400; }
+.japan-quote {
+  margin-top: 44px; padding: 28px 32px;
+  border-left: 2px solid var(--gold);
+  background: var(--cream-d);
+}
+.japan-quote p {
+  font-size: 15px; line-height: 1.85; color: var(--ink);
+  font-style: italic; letter-spacing: 0.03em;
+}
+
+/* ── BLOCK: WHO (ターゲット) ──────────────────────────────── */
+.who-block {
+  background: var(--dark2); padding: 120px 64px;
+}
+.who-inner { max-width: 1120px; margin: 0 auto; }
+.who-tag { margin-bottom: 32px; }
+.who-h {
+  font-size: clamp(26px, 3vw, 42px); font-weight: 400; line-height: 1.35;
+  color: var(--white); margin-bottom: 24px; max-width: 700px;
+}
+.who-sub {
+  font-size: 14px; line-height: 1.85; color: rgba(255,255,255,0.45);
+  max-width: 600px; margin-bottom: 72px; letter-spacing: 0.04em;
+}
+.who-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px;
+  margin-bottom: 80px;
+}
+.who-card {
+  background: rgba(255,255,255,0.04); padding: 40px 36px;
+  border-top: 1px solid rgba(184,150,90,0.30);
+}
+.wc-icon {
+  font-family: -apple-system, 'Helvetica Neue', sans-serif;
+  font-size: 9px; letter-spacing: 0.30em; text-transform: uppercase;
+  color: var(--gold); margin-bottom: 20px; display: block;
+}
+.wc-title {
+  font-size: 18px; font-weight: 400; color: var(--white);
+  margin-bottom: 14px; line-height: 1.4;
+}
+.wc-desc {
+  font-family: -apple-system, 'Helvetica Neue', sans-serif;
+  font-size: 12px; line-height: 1.9; color: rgba(255,255,255,0.42);
+  letter-spacing: 0.02em;
+}
+.who-statement {
+  max-width: 700px;
+  font-size: clamp(18px, 2.2vw, 26px); font-weight: 400; line-height: 1.7;
+  color: rgba(255,255,255,0.75); font-style: italic;
+  border-top: 1px solid rgba(255,255,255,0.08); padding-top: 56px;
+}
+.who-statement em { color: var(--gold); font-style: normal; }
+
+/* ── PROMISE + SIGN ───────────────────────────────────────── */
+.promise-block {
+  padding: 120px 0;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 100px; align-items: start;
+}
+.promise-text {}
+.promise-tag { margin-bottom: 28px; }
+.promise-h {
+  font-size: clamp(24px, 2.8vw, 36px); font-weight: 400; line-height: 1.4;
+  color: var(--ink); margin-bottom: 40px;
+}
+.promise-body {
+  font-size: 15px; line-height: 2.1; color: var(--charcoal); letter-spacing: 0.04em;
+}
+.promise-body p + p { margin-top: 1.5em; }
+.sign {
+  margin-top: 60px; padding-top: 40px; border-top: 1px solid var(--sand);
+  display: flex; flex-direction: column; gap: 8px;
+}
+.sign-name-ja { font-size: 22px; font-weight: 400; color: var(--ink); letter-spacing: 0.08em; }
+.sign-name-en {
+  font-family: -apple-system, 'Helvetica Neue', sans-serif;
+  font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--warm);
+}
+.sign-title {
+  font-family: -apple-system, 'Helvetica Neue', sans-serif;
+  font-size: 10px; letter-spacing: 0.14em; color: var(--sand); margin-top: 4px;
+}
+.promise-img img {
+  width: 100%; aspect-ratio: 3/4; object-fit: cover; display: block;
+}
+.promise-img-note {
+  margin-top: 14px;
+  font-family: -apple-system, 'Helvetica Neue', sans-serif;
+  font-size: 9px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--warm);
+}
+
+/* ── CTA ──────────────────────────────────────────────────── */
+.cta-section {
+  background: var(--dark);
+  padding: 120px 64px; text-align: center;
+}
+.cta-eyebrow {
+  font-family: -apple-system, 'Helvetica Neue', sans-serif;
+  font-size: 9px; letter-spacing: 0.38em; text-transform: uppercase;
+  color: var(--gold); display: block; margin-bottom: 36px;
+}
+.cta-h {
+  font-size: clamp(26px, 3.5vw, 48px); font-weight: 400;
+  line-height: 1.45; color: var(--white); margin-bottom: 20px;
+}
+.cta-h em { font-style: italic; color: var(--white); }
+.cta-sub {
+  font-size: 14px; line-height: 1.9; color: rgba(255,255,255,0.42);
+  max-width: 520px; margin: 0 auto 56px; letter-spacing: 0.04em;
+}
+.cta-btns { display: flex; align-items: center; justify-content: center; gap: 40px; }
+.btn-primary {
+  font-family: -apple-system, 'Helvetica Neue', sans-serif;
+  font-size: 10px; letter-spacing: 0.26em; text-transform: uppercase;
+  text-decoration: none; color: var(--dark);
+  padding: 18px 48px; background: var(--gold);
+  transition: all 0.3s;
+}
+.btn-primary:hover { background: #c9a868; }
+.btn-ghost {
+  font-family: -apple-system, 'Helvetica Neue', sans-serif;
+  font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase;
+  text-decoration: none; color: rgba(255,255,255,0.55);
+  padding-bottom: 3px; border-bottom: 1px solid rgba(255,255,255,0.20);
+  transition: all 0.3s;
+}
+.btn-ghost:hover { color: var(--white); border-color: rgba(255,255,255,0.60); }
+
+/* ── FOOTER ───────────────────────────────────────────────── */
+footer { background: var(--dark); padding: 80px 64px 40px; border-top: 1px solid rgba(255,255,255,0.06); }
+.foot-inner {
+  display: grid; grid-template-columns: 2fr 1fr 1fr;
+  gap: 64px; padding-bottom: 60px;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+.foot-brand { display: flex; flex-direction: column; gap: 10px; }
+.fb-main { font-size: 12px; letter-spacing: 0.28em; text-transform: uppercase; color: rgba(255,255,255,0.55); font-family: 'Georgia', serif; }
+.fb-sub { font-size: 9px; letter-spacing: 0.22em; color: rgba(255,255,255,0.22); font-family: -apple-system, 'Helvetica Neue', sans-serif; text-transform: uppercase; margin-bottom: 8px; }
+footer p { font-family: -apple-system, 'Helvetica Neue', sans-serif; font-size: 11px; line-height: 1.9; color: rgba(255,255,255,0.28); }
+.foot-col { display: flex; flex-direction: column; gap: 14px; }
+.foot-col h4 { font-family: -apple-system, 'Helvetica Neue', sans-serif; font-size: 8px; letter-spacing: 0.30em; text-transform: uppercase; color: rgba(255,255,255,0.22); margin-bottom: 6px; }
+.foot-col a { font-family: -apple-system, 'Helvetica Neue', sans-serif; font-size: 11px; letter-spacing: 0.06em; color: rgba(255,255,255,0.38); text-decoration: none; transition: color 0.3s; }
+.foot-col a:hover { color: rgba(255,255,255,0.72); }
+.foot-bottom { margin-top: 36px; display: flex; justify-content: space-between; align-items: center; }
+.foot-bottom p { font-family: -apple-system, 'Helvetica Neue', sans-serif; font-size: 9px; letter-spacing: 0.14em; color: rgba(255,255,255,0.16); }
+
+/* ── CTA TWIN (inline conversion) ──────────────────────── */
+.cta-twin {
+  background: var(--cream-d);
+  padding: 60px 80px;
+  border-top: 1px solid var(--sand);
+  border-bottom: 1px solid var(--sand);
+}
+.cta-twin-inner {
+  max-width: 1120px; margin: 0 auto;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 3px;
+}
+.cta-twin-card {
+  background: var(--cream);
+  padding: 44px 52px;
+  display: flex; flex-direction: column; gap: 14px;
+  text-decoration: none;
+  border-top: 2px solid transparent;
+  transition: border-color 0.3s, background 0.3s;
+}
+.cta-twin-card:hover { border-top-color: var(--gold); }
+.ctc-label {
+  font-family: -apple-system, 'Helvetica Neue', sans-serif;
+  font-size: 8px; letter-spacing: 0.36em; text-transform: uppercase;
+  color: var(--gold); display: block;
+}
+.ctc-h {
+  font-size: clamp(18px, 1.9vw, 24px); font-weight: 400;
+  color: var(--ink); line-height: 1.35;
+}
+.ctc-items { display: flex; gap: 20px; flex-wrap: wrap; }
+.ctc-item {
+  font-family: -apple-system, 'Helvetica Neue', sans-serif;
+  font-size: 9px; letter-spacing: 0.20em; text-transform: uppercase;
+  color: var(--warm);
+}
+.ctc-item::before { content: '·'; margin-right: 6px; color: var(--gold); }
+.ctc-arrow-wrap {
+  margin-top: 12px;
+  display: flex; align-items: center; gap: 12px;
+  font-family: -apple-system, 'Helvetica Neue', sans-serif;
+  font-size: 9px; letter-spacing: 0.26em; text-transform: uppercase;
+  color: var(--mid); transition: color 0.3s;
+}
+.cta-twin-card:hover .ctc-arrow-wrap { color: var(--gold); }
+.ctc-dash {
+  display: inline-block; width: 24px; height: 1px;
+  background: currentColor; position: relative; flex-shrink: 0;
+}
+.ctc-dash::after {
+  content: ''; position: absolute; right: 0; top: -3px;
+  width: 6px; height: 6px;
+  border-right: 1px solid currentColor; border-top: 1px solid currentColor;
+  transform: rotate(45deg);
+}
+/* Dark variant (inside dark sections) */
+.cta-twin--dark {
+  background: transparent;
+  border-color: rgba(255,255,255,0.08);
+  padding: 60px 0;
+}
+.cta-twin--dark .cta-twin-card { background: rgba(255,255,255,0.04); }
+.cta-twin--dark .cta-twin-card:hover { background: rgba(255,255,255,0.08); }
+.cta-twin--dark .ctc-h { color: var(--white); }
+.cta-twin--dark .ctc-item { color: rgba(255,255,255,0.42); }
+.cta-twin--dark .ctc-arrow-wrap { color: rgba(255,255,255,0.42); }
+.cta-twin--dark .cta-twin-card:hover .ctc-arrow-wrap { color: var(--gold); }
+
+/* ── RESPONSIVE ───────────────────────────────────────────── */
+@media (max-width: 960px) {
+  .nav { padding: 20px 32px; }
+  .hero-body { padding: 0 32px 8vh; }
+  .section-wrap { padding: 0 32px; }
+  .why-block, .japan-block, .promise-block { grid-template-columns: 1fr; gap: 48px; padding: 80px 32px; }
+  .journey-block { padding: 80px 32px; }
+  .chapter { grid-template-columns: 1fr; gap: 24px; }
+  .manifesto { padding: 100px 32px; }
+  .manifesto-grid { grid-template-columns: 1fr; gap: 36px; }
+  .who-block { padding: 100px 32px; }
+  .who-grid { grid-template-columns: 1fr; }
+  .cta-twin { padding: 48px 32px; }
+  .cta-twin-inner { grid-template-columns: 1fr; }
+  .cta-twin--dark { padding: 48px 0; }
+  .cta-twin-card { padding: 36px 32px; }
+  .cta-section { padding: 100px 32px; }
+  .cta-btns { flex-direction: column; gap: 28px; }
+  footer { padding: 60px 32px 32px; }
+  .foot-inner { grid-template-columns: 1fr; gap: 40px; }
+  .foot-bottom { flex-direction: column; gap: 8px; text-align: center; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <a href="index.html" class="nav-brand">
+    <span class="n-main">Fukuda Hotel Management</span>
+    <span class="n-sub">合同会社フクダホテルマネジメント</span>
+  </a>
+  <div class="nav-links">
+    <a href="index.html#philosophy">Philosophy</a>
+    <a href="index.html#portfolio">Properties</a>
+    <a href="index.html#about">Company</a>
+    <a href="mailto:yfukuda@fukudahotel.com" class="nav-enquire">Enquire</a>
+    <button class="lang-toggle" id="langToggle" aria-label="Switch language">
+      <span class="t-ja">EN</span><span class="t-en">日本語</span>
+    </button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-veil"></div>
+  <div class="hero-body">
+    <span class="hero-eyebrow">Founder's Message — 代表挨拶</span>
+    <h1 class="hero-h t-ja">
+      場所は、人を変える。<br>
+      <em>そしてその変化は、</em><br>
+      <em>人生を変える。</em>
+    </h1>
+    <h1 class="hero-h t-en">
+      A place changes<br>
+      <em>a person.</em><br>
+      <em>And that change</em><br>
+      <em>changes a life.</em>
+    </h1>
+    <p class="hero-catch">"A Place Where Thinking Becomes Clear."</p>
+    <div class="hero-name">
+      <div class="hero-name-line"></div>
+      <span class="hero-name-text">Yoshitaka Fukuda — 福田 喜天 · Founder &amp; CEO</span>
+    </div>
+  </div>
+</section>
+
+<!-- CTA TWIN: Hero直下 -->
+<div class="cta-twin">
+  <div class="cta-twin-inner">
+    <a href="stay.html" class="cta-twin-card">
+      <span class="ctc-label t-ja">滞在を計画する — Stay</span>
+      <span class="ctc-label t-en">Stay</span>
+      <p class="ctc-h t-ja">特別な滞在を<br>見つける</p>
+      <p class="ctc-h t-en">Find your<br>private stay</p>
+      <div class="ctc-items">
+        <span class="ctc-item t-ja">最大26名</span>
+        <span class="ctc-item t-en">Up to 26 guests</span>
+        <span class="ctc-item t-ja">温泉</span>
+        <span class="ctc-item t-en">Private onsen</span>
+        <span class="ctc-item t-ja">花火</span>
+        <span class="ctc-item t-en">Fireworks</span>
+      </div>
+      <div class="ctc-arrow-wrap t-ja">施設を見る <span class="ctc-dash"></span></div>
+      <div class="ctc-arrow-wrap t-en">Explore Stay <span class="ctc-dash"></span></div>
+    </a>
+    <a href="retreat.html" class="cta-twin-card">
+      <span class="ctc-label t-ja">リトリートを計画する — Retreat</span>
+      <span class="ctc-label t-en">Retreat</span>
+      <p class="ctc-h t-ja">リトリートを<br>計画する</p>
+      <p class="ctc-h t-en">Plan your<br>leadership retreat</p>
+      <div class="ctc-items">
+        <span class="ctc-item t-ja">経営合宿</span>
+        <span class="ctc-item t-en">Leadership retreats</span>
+        <span class="ctc-item t-ja">チームビルディング</span>
+        <span class="ctc-item t-en">Team building</span>
+      </div>
+      <div class="ctc-arrow-wrap t-ja">法人プランを見る <span class="ctc-dash"></span></div>
+      <div class="ctc-arrow-wrap t-en">Explore Retreat <span class="ctc-dash"></span></div>
+    </a>
+  </div>
+</div>
+
+<!-- WHY: 原点 -->
+<section class="section-wrap">
+  <div class="why-block">
+    <div class="why-text">
+      <span class="section-tag why-tag">01 — Origin / 原点</span>
+      <p class="why-en">Why I build<br>places, not hotels.</p>
+      <p class="why-ja t-ja">なぜ私は、ホテルではなく「場所」をつくるのか</p>
+      <div class="why-body t-ja">
+        <p>
+          私はこれまで、香港・スイス・カリフォルニアという
+          異なる文化と価値観の中で時間を過ごしてきました。
+        </p>
+        <p>
+          その中で強く感じたのは、<strong>「場所そのものが、人の思考や感性を形づくる」</strong>という事実です。
+          空間の空気、光、音、余白——それらは静かに、しかし確実に
+          人の内面に影響を与えます。
+        </p>
+        <p>
+          だからこそ私は、単なる宿泊施設ではなく、
+          人の状態を変える「場所」をつくることを志しました。
+        </p>
+      </div>
+      <div class="why-body t-en">
+        <p>
+          I have spent time in Hong Kong, Switzerland, and California —
+          each shaped by its own distinct culture and values.
+        </p>
+        <p>
+          What I came to feel most strongly was this: <strong>places themselves shape how we think and what we feel.</strong>
+          The air of a space, its light, its sounds, its silences — these quietly yet surely
+          leave their mark on a person.
+        </p>
+        <p>
+          That is why I chose to create not mere accommodations, but places —
+          spaces that genuinely alter the state of those who enter them.
+        </p>
+      </div>
+    </div>
+    <div class="why-img">
+      <img src="images_corp/kiten_entrance.jpg" alt="The Kiten — Entrance Hall">
+      <p class="why-img-cap">The Kiten, Atami — 4F Entrance</p>
+    </div>
+  </div>
+</section>
+
+<hr class="rule">
+
+<!-- JOURNEY -->
+<section class="section-wrap">
+  <div class="journey-block">
+    <div class="journey-intro">
+      <span class="section-tag">02 — Journey / 経歴</span>
+      <h2 class="journey-intro-h t-ja">三つの場所が<br>つくった、確信。</h2>
+      <h2 class="journey-intro-h t-en">Three places.<br>One conviction.</h2>
+    </div>
+
+    <!-- Hong Kong -->
+    <div class="chapter">
+      <div class="ch-meta">
+        <span class="ch-num">Chapter 01</span>
+        <p class="ch-place t-ja">香港</p>
+        <p class="ch-place t-en">Hong Kong</p>
+        <p class="ch-period">Childhood · Hong Kong</p>
+      </div>
+      <div class="ch-body">
+        <p class="ch-lead t-ja">「幼い頃に過ごした香港は、すでに世界が交差する場所だった。」</p>
+        <p class="ch-lead t-en">"The Hong Kong of my childhood was already a place where worlds collide."</p>
+        <div class="ch-text t-ja">
+          <p>
+            幼少期を過ごした香港は、東西の文化が一つの街に凝縮された、
+            密度の高い場所でした。英国的な秩序と中国的な生命力、
+            そして世界中から集まった人々の美意識が、日常の中に共存していた。
+          </p>
+          <p>
+            あの街が教えてくれたのは、<strong>「場所には固有の質があり、そこに住む人はその質に染まっていく」</strong>
+            ということです。どこで育つかは、何を美しいと感じるかを決める——
+            その感覚が、私のすべての原点にあります。
+          </p>
+        </div>
+        <div class="ch-text t-en">
+          <p>
+            The Hong Kong I grew up in was a city where Eastern and Western cultures
+            existed in concentrated form within a single space. British order and Chinese vitality,
+            along with the aesthetic sensibilities of people gathered from around the world —
+            all coexisted within everyday life.
+          </p>
+          <p>
+            What that city taught me was this: <strong>places carry their own inherent quality,
+            and those who inhabit them gradually take on that quality.</strong>
+            Where you grow up determines what you find beautiful —
+            that feeling is the origin of everything I do.
+          </p>
+        </div>
+        <span class="ch-keyword">Energy × Density</span>
+      </div>
+    </div>
+
+    <!-- Switzerland -->
+    <div class="chapter">
+      <div class="ch-meta">
+        <span class="ch-num">Chapter 02</span>
+        <p class="ch-place t-ja">スイス</p>
+        <p class="ch-place t-en">Switzerland</p>
+        <p class="ch-period">High School · Switzerland</p>
+      </div>
+      <div class="ch-body">
+        <p class="ch-lead t-ja">「本物の豊かさとは、余白のことだと知った。」</p>
+        <p class="ch-lead t-en">"It was in Switzerland that I first understood what true abundance really means."</p>
+        <div class="ch-text t-ja">
+          <p>
+            16歳でヨーロッパに渡り、スイスのボーディングスクールで学びました。
+            アルプスの麓に広がるその環境で、私は初めて「本物の豊かさ」の
+            感覚と向き合いました。
+          </p>
+          <p>
+            欧州の「ラグジュアリー」は、派手さではありませんでした。
+            百年を超える建築の佇まい。音のない朝の食堂。
+            手入れの行き届いた庭園と、何も主張しない空間——
+            <strong>質の高いものほど、声を上げない</strong>。
+            スイスでの数年間が、その感覚を私に刻みました。
+          </p>
+        </div>
+        <div class="ch-text t-en">
+          <p>
+            At sixteen I travelled to Europe, where I studied at a boarding school in Switzerland.
+            In that environment at the foot of the Alps, I confronted for the first time
+            the feeling of genuine richness.
+          </p>
+          <p>
+            European 'luxury' was not about spectacle. It was the quiet dignity of a century-old building.
+            The silent morning dining room. A well-tended garden and spaces that made no demands —
+            <strong>the finest things do not raise their voice.</strong>
+            The years I spent in Switzerland imprinted that sensibility in me.
+          </p>
+        </div>
+        <span class="ch-keyword">Silence × Order</span>
+      </div>
+    </div>
+
+    <!-- California -->
+    <div class="chapter">
+      <div class="ch-meta">
+        <span class="ch-num">Chapter 03</span>
+        <p class="ch-place t-ja">カリフォルニア</p>
+        <p class="ch-place t-en">California</p>
+        <p class="ch-period">UC Berkeley, California</p>
+      </div>
+      <div class="ch-body">
+        <p class="ch-lead t-ja">「世界最高水準の豊かさとは、体験の設計だと気づいた。」</p>
+        <p class="ch-lead t-en">"In California, I discovered that world-class luxury is the design of experience itself."</p>
+        <div class="ch-text t-ja">
+          <p>
+            UC Berkeleyへの進学は、世界で最も洗練されたラグジュアリーと
+            直接向き合う時間でもありました。
+            ナパバレーのワイナリーに流れる時間の贅沢さ、
+            ビッグサーの断崖に建つロッジが持つ圧倒的な自然との対話、
+            サンフランシスコで追求される精緻な食の一皿——
+          </p>
+          <p>
+            カリフォルニアが見せてくれたのは、<strong>「体験の水準を上げることへの、妥協しない姿勢」</strong>でした。
+            豪華さではなく、訪れた人の感覚と思考を変えることへの真剣な設計。
+            その水準を体で知ったことが、後に日本に戻ったとき、
+            ある確信へと変わっていきます。
+          </p>
+        </div>
+        <div class="ch-text t-en">
+          <p>
+            Entering UC Berkeley brought me into direct contact with some of the world's most refined luxury.
+            The unhurried extravagance of a Napa Valley winery, the overwhelming dialogue with nature
+            at a lodge perched on the cliffs of Big Sur, the meticulous artistry of a single dish
+            pursued in San Francisco —
+          </p>
+          <p>
+            What California showed me was <strong>an uncompromising commitment to elevating the quality of experience.</strong>
+            Not lavishness, but a serious and deliberate design for changing how a visitor thinks and feels.
+            Knowing that standard in my bones became, upon returning to Japan, a deep conviction.
+          </p>
+        </div>
+        <span class="ch-keyword">Design × Intention</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- CTA TWIN: Journey後 × Manifesto前 -->
+<div class="cta-twin">
+  <div class="cta-twin-inner">
+    <a href="stay.html" class="cta-twin-card">
+      <span class="ctc-label t-ja">滞在を計画する — Stay</span>
+      <span class="ctc-label t-en">Stay</span>
+      <p class="ctc-h t-ja">特別な滞在を<br>見つける</p>
+      <p class="ctc-h t-en">Find your<br>private stay</p>
+      <div class="ctc-items">
+        <span class="ctc-item t-ja">最大26名</span>
+        <span class="ctc-item t-en">Up to 26 guests</span>
+        <span class="ctc-item t-ja">温泉</span>
+        <span class="ctc-item t-en">Private onsen</span>
+        <span class="ctc-item t-ja">花火</span>
+        <span class="ctc-item t-en">Fireworks</span>
+      </div>
+      <div class="ctc-arrow-wrap t-ja">施設を見る <span class="ctc-dash"></span></div>
+      <div class="ctc-arrow-wrap t-en">Explore Stay <span class="ctc-dash"></span></div>
+    </a>
+    <a href="retreat.html" class="cta-twin-card">
+      <span class="ctc-label t-ja">リトリートを計画する — Retreat</span>
+      <span class="ctc-label t-en">Retreat</span>
+      <p class="ctc-h t-ja">リトリートを<br>計画する</p>
+      <p class="ctc-h t-en">Plan your<br>leadership retreat</p>
+      <div class="ctc-items">
+        <span class="ctc-item t-ja">経営合宿</span>
+        <span class="ctc-item t-en">Leadership retreats</span>
+        <span class="ctc-item t-ja">チームビルディング</span>
+        <span class="ctc-item t-en">Team building</span>
+      </div>
+      <div class="ctc-arrow-wrap t-ja">法人プランを見る <span class="ctc-dash"></span></div>
+      <div class="ctc-arrow-wrap t-en">Explore Retreat <span class="ctc-dash"></span></div>
+    </a>
+  </div>
+</div>
+
+<!-- DARK MANIFESTO: WHAT + HOW -->
+<section class="manifesto">
+  <div class="manifesto-inner">
+    <span class="manifesto-tag">03 — Manifesto / 事業定義</span>
+    <h2 class="manifesto-h t-ja">
+      Fukuda Hotel Managementは、<br>
+      宿泊施設を運営する会社では<em>ありません。</em>
+    </h2>
+    <h2 class="manifesto-h t-en">
+      Fukuda Hotel Management is not<br>
+      a company that <em>operates accommodations.</em>
+    </h2>
+    <div class="manifesto-grid">
+      <div class="manifesto-item">
+        <span class="mi-label">What We Build</span>
+        <p class="mi-text t-ja">
+          私たちが設計するのは、人の思考と感性を整えるための空間です。
+          空間設計、素材、光、景色、滞在動線——すべては意図を持って配置されています。
+        </p>
+        <p class="mi-text t-en">
+          What we design are spaces that restore clarity to a person's thinking and sensibility.
+          Space planning, materials, light, landscape, movement through the property —
+          everything is placed with intention.
+        </p>
+      </div>
+      <div class="manifesto-item">
+        <span class="mi-label">How We Design</span>
+        <p class="mi-text t-ja">
+          何もしない時間が、最も価値を持つように。
+          思考が整理される余白が生まれるように。
+          滞在そのものが、ひとつの「体験」として機能するように。
+        </p>
+        <p class="mi-text t-en">
+          So that the time of doing nothing holds the greatest value.
+          So that space is created for thoughts to settle and order to emerge.
+          So that the stay itself functions as a single unified experience.
+        </p>
+      </div>
+      <div class="manifesto-item">
+        <span class="mi-label">Our Standard</span>
+        <p class="mi-text t-ja">
+          一棟貸し専用。他のゲストは存在しない。
+          スタッフの姿も、BGMも、不要な演出もない。
+          ただ、場所と人だけが残ります。
+        </p>
+        <p class="mi-text t-en">
+          Whole-building rental only. No other guests exist.
+          No staff presence, no background music, no unnecessary staging.
+          Only the place and the person remain.
+        </p>
+      </div>
+      <div class="manifesto-item">
+        <span class="mi-label">Our Difference</span>
+        <p class="mi-text t-ja">
+          「癒し」を売るのではなく、「思考の変化」を届けます。
+          訪れた人が、帰るときに何かを決めている——
+          そういう場所であることが、私たちの基準です。
+        </p>
+        <p class="mi-text t-en">
+          We do not sell 'healing.' We deliver a shift in how you think.
+          That those who visit leave having decided something —
+          that is our standard.
+        </p>
+      </div>
+    </div>
+    <hr class="manifesto-divider">
+    <p class="manifesto-catch">"A Place Where <em>Thinking Becomes Clear.</em>"</p>
+  </div>
+</section>
+
+<!-- JAPAN: 差別化 -->
+<section class="section-wrap">
+  <div class="japan-block">
+    <div class="japan-img">
+      <img src="images_corp/ovr_living.jpg" alt="Living space — a room for thought">
+    </div>
+    <div class="japan-text">
+      <span class="section-tag japan-tag">04 — Japan / 日本との接続</span>
+      <h2 class="japan-h t-ja">世界を見たからこそ、<br>日本の本質が見えた。</h2>
+      <h2 class="japan-h t-en">It was only by seeing the world<br>that I could see Japan's true essence.</h2>
+      <div class="japan-body t-ja">
+        <p>
+          香港のエネルギー、スイスの余白、カリフォルニアの設計水準——
+          それらを経た眼で日本を見たとき、この国が持つものの
+          稀有さが、初めて輪郭を持って見えてきました。
+        </p>
+        <p>
+          過剰ではなく、<strong>削ぎ落とす美しさ</strong>。
+          主張しないことで生まれる、深い豊かさ。
+          熱海の高台から相模湾を見下ろす夜明けの光。
+          庭を満たす松と潮の香り。
+        </p>
+        <p>
+          世界が求める「深さ」と「本物」は、日本の各地に確かに存在しています。
+          私たちはその思想を、現代のラグジュアリーとして
+          きちんとお届けできる形に設計したいと思っています。
+        </p>
+      </div>
+      <div class="japan-body t-en">
+        <p>
+          Seen through eyes that had encountered Hong Kong's energy, Switzerland's spaciousness,
+          and California's standards of design, the rare quality of what Japan possesses
+          came into focus for the very first time.
+        </p>
+        <p>
+          Not excess, but <strong>the beauty of what is stripped away.</strong>
+          The quiet depth born of making no claims.
+          The light of dawn seen over Sagami Bay from a hilltop in Atami.
+          The garden filled with pine and the scent of the sea.
+        </p>
+        <p>
+          The 'depth' and 'authenticity' that the world seeks truly exist throughout Japan.
+          We want to design and deliver that philosophy in a form worthy of contemporary luxury.
+        </p>
+      </div>
+      <blockquote class="japan-quote t-ja">
+        <p>
+          「世界の豊かさを知っているからこそ、<br>
+          日本の奥行きの価値が、はっきりと見えてきました。」
+        </p>
+      </blockquote>
+      <blockquote class="japan-quote t-en">
+        <p>
+          "Having come to know the richness of the world,<br>
+          I found I could see, with absolute clarity,<br>
+          the depth and value of Japan."
+        </p>
+      </blockquote>
+    </div>
+  </div>
+</section>
+
+<!-- WHO: ターゲット -->
+<section class="who-block">
+  <div class="who-inner">
+    <span class="section-tag who-tag">05 — For Whom / こんな方へ</span>
+    <h2 class="who-h t-ja">日常の延長ではなく、<br>一度思考をリセットしたい方へ。</h2>
+    <h2 class="who-h t-en">For those who seek not an extension<br>of daily life, but a reset.</h2>
+    <p class="who-sub t-ja">
+      ここは「観光地」ではありません。
+      意思決定を担う人々にとって、考えるための空間として機能します。
+    </p>
+    <p class="who-sub t-en">
+      This is not a tourist destination.
+      It functions as a space for thinking — for those entrusted with decisions.
+    </p>
+    <div class="who-grid">
+      <div class="who-card">
+        <span class="wc-icon">Executive</span>
+        <p class="wc-title t-ja">経営者・<br>意思決定者</p>
+        <p class="wc-title t-en">Executives &<br>Decision-Makers</p>
+        <p class="wc-desc t-ja">
+          重要な判断を前に、ノイズのない環境で思考を整えたい。
+          合宿でも、単独でも。完全プライベートな空間が、
+          最良の状態を引き出します。
+        </p>
+        <p class="wc-desc t-en">
+          Before a critical decision, you want to organise your thinking
+          in an environment free from noise. Alone or as a retreat —
+          the completely private space draws out your best.
+        </p>
+      </div>
+      <div class="who-card">
+        <span class="wc-icon">Creative</span>
+        <p class="wc-title t-ja">クリエイター・<br>プロフェッショナル</p>
+        <p class="wc-title t-en">Creatives &<br>Professionals</p>
+        <p class="wc-desc t-ja">
+          次のプロジェクトの輪郭を掴みたい。
+          日常から切り離されたこの場所が、
+          思考の密度を高めます。
+        </p>
+        <p class="wc-desc t-en">
+          You want to grasp the shape of the next project.
+          This place, severed from the everyday,
+          deepens the density of your thinking.
+        </p>
+      </div>
+      <div class="who-card">
+        <span class="wc-icon">Corporate</span>
+        <p class="wc-title t-ja">法人・<br>エグゼクティブチーム</p>
+        <p class="wc-title t-en">Corporate &<br>Executive Teams</p>
+        <p class="wc-desc t-ja">
+          経営合宿、戦略立案、チームの重要な節目に。
+          完全一棟貸しだからこそ、
+          本質的な対話が生まれます。
+        </p>
+        <p class="wc-desc t-en">
+          For strategy retreats, planning sessions, or pivotal moments in a team's journey.
+          Because it's an entire building, exclusively yours,
+          conversations of true substance can take place.
+        </p>
+      </div>
+    </div>
+    <!-- CTA TWIN: 05 For Whom 内 -->
+    <div class="cta-twin cta-twin--dark">
+      <div class="cta-twin-inner">
+        <a href="stay.html" class="cta-twin-card">
+          <span class="ctc-label t-ja">滞在を計画する — Stay</span>
+          <span class="ctc-label t-en">Stay</span>
+          <p class="ctc-h t-ja">特別な滞在を<br>見つける</p>
+          <p class="ctc-h t-en">Find your<br>private stay</p>
+          <div class="ctc-items">
+            <span class="ctc-item t-ja">最大26名</span>
+            <span class="ctc-item t-en">Up to 26 guests</span>
+            <span class="ctc-item t-ja">温泉</span>
+            <span class="ctc-item t-en">Private onsen</span>
+            <span class="ctc-item t-ja">花火</span>
+            <span class="ctc-item t-en">Fireworks</span>
+          </div>
+          <div class="ctc-arrow-wrap t-ja">施設を見る <span class="ctc-dash"></span></div>
+          <div class="ctc-arrow-wrap t-en">Explore Stay <span class="ctc-dash"></span></div>
+        </a>
+        <a href="retreat.html" class="cta-twin-card">
+          <span class="ctc-label t-ja">リトリートを計画する — Retreat</span>
+          <span class="ctc-label t-en">Retreat</span>
+          <p class="ctc-h t-ja">リトリートを<br>計画する</p>
+          <p class="ctc-h t-en">Plan your<br>leadership retreat</p>
+          <div class="ctc-items">
+            <span class="ctc-item t-ja">経営合宿</span>
+            <span class="ctc-item t-en">Leadership retreats</span>
+            <span class="ctc-item t-ja">チームビルディング</span>
+            <span class="ctc-item t-en">Team building</span>
+          </div>
+          <div class="ctc-arrow-wrap t-ja">法人プランを見る <span class="ctc-dash"></span></div>
+          <div class="ctc-arrow-wrap t-en">Explore Retreat <span class="ctc-dash"></span></div>
+        </a>
+      </div>
+    </div>
+
+    <p class="who-statement t-ja">
+      もし、あなたが<em>本質的な時間</em>を求めるのであれば——<br>
+      ぜひ一度、この場所を体験してください。
+    </p>
+    <p class="who-statement t-en">
+      If you are seeking <em>time that is genuinely meaningful</em> —<br>
+      we invite you to experience this place.
+    </p>
+  </div>
+</section>
+
+<!-- PROMISE + SIGN -->
+<section class="section-wrap">
+  <div class="promise-block">
+    <div class="promise-text">
+      <span class="section-tag promise-tag">06 — Promise / 約束</span>
+      <h2 class="promise-h t-ja">施設を運営するのではなく、<br>場所の価値を守る。</h2>
+      <h2 class="promise-h t-en">Not to operate facilities,<br>but to protect the value<br>of each place.</h2>
+      <div class="promise-body t-ja">
+        <p>
+          私たちは「宿」を経営しているのではありません。
+          日本の海岸線に点在する稀有な場所が持つ佇まいを、
+          損なうことなく手渡す仕事をしています。
+        </p>
+        <p>
+          一棟貸しにこだわるのは、その場所を訪れる人に、
+          完全にその時間を委ねてほしいからです。
+          他のゲストへの配慮も、他者の存在も、必要としない時間——
+          それだけが、真の意味での「プライベートな滞在」だと考えています。
+        </p>
+        <p>
+          香港で培った感性、スイスで知った余白の意味、カリフォルニアで学んだ設計の水準——
+          すべてが、この仕事のために、あったように思います。
+          ここに滞在する方が、日本の本質に触れることができるよう。
+          それが、私たちの唯一の約束です。
+        </p>
+      </div>
+      <div class="promise-body t-en">
+        <p>
+          We are not running an inn. We are in the work of passing on —
+          without diminishing — the quiet presence held by rare places
+          along Japan's coastline.
+        </p>
+        <p>
+          The reason we insist on whole-building rental is that we want
+          those who visit to surrender entirely to their time here.
+          Time that requires no consideration of other guests, no awareness
+          of others' presence — only that is what we consider a truly private stay.
+        </p>
+        <p>
+          The sensibility cultivated in Hong Kong, the meaning of space discovered in Switzerland,
+          the standards of design learned in California — it all feels as if it existed
+          for the sake of this work. So that those who stay here may encounter
+          the true essence of Japan. That is our only promise.
+        </p>
+      </div>
+      <div class="sign">
+        <span class="sign-name-ja">福田 喜天</span>
+        <span class="sign-name-en">Yoshitaka "Yoshi" Fukuda</span>
+        <span class="sign-title">Founder &amp; CEO · 合同会社フクダホテルマネジメント</span>
+      </div>
+    </div>
+    <div class="promise-img">
+      <img src="images_corp/experience_doors.jpg" alt="The entrance — where stillness begins">
+      <p class="promise-img-note">The Kiten, Atami — A threshold.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <span class="cta-eyebrow">Experience It Yourself</span>
+  <h2 class="cta-h t-ja">
+    私たちが守る場所を、<br>
+    <em>ご自身で確かめてください。</em>
+  </h2>
+  <h2 class="cta-h t-en">
+    Come and see for yourself<br>
+    <em>what we are here to protect.</em>
+  </h2>
+  <p class="cta-sub t-ja">
+    各施設の詳細、ご予約、法人・経営合宿プランのご相談は各施設ページまたはメールにてお問い合わせください。
+  </p>
+  <p class="cta-sub t-en">
+    For property details, reservations, or corporate retreat inquiries, please visit each property page or contact us directly by email.
+  </p>
+  <div class="cta-btns">
+    <a href="index.html#portfolio" class="btn-primary">View All Properties</a>
+    <a href="mailto:yfukuda@fukudahotel.com" class="btn-ghost">Send an Enquiry</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="foot-inner">
+    <div class="foot-brand">
+      <span class="fb-main">Fukuda Hotel Management</span>
+      <span class="fb-sub">合同会社フクダホテルマネジメント</span>
+      <p class="t-ja">
+        旅館業法に基づく一棟貸し専用施設の<br>
+        企画・運営・管理を手がけます。<br><br>
+        〒152-0035 東京都目黒区自由が丘1-24-22<br>
+        旅館業法許可取得済
+      </p>
+      <p class="t-en">
+        Planning, management, and operations of<br>
+        exclusively whole-building rental properties.<br><br>
+        1-24-22 Jiyugaoka, Meguro-ku, Tokyo 152-0035<br>
+        Licensed under the Hotel Business Act
+      </p>
+    </div>
+    <div class="foot-col">
+      <h4>Navigate</h4>
+      <a href="index.html#philosophy">Philosophy</a>
+      <a href="index.html#about">Company</a>
+      <a href="index.html#portfolio">Properties</a>
+      <a href="founder-message.html">Founder's Message</a>
+    </div>
+    <div class="foot-col">
+      <h4>Properties</h4>
+      <a href="kiten-harbor-view-lp.html">The Kiten, Atami</a>
+      <a href="ocean-view-retreat-lp.html">Ocean View Retreat</a>
+      <a href="#">Takeoka Private Beach Villa</a>
+    </div>
+  </div>
+  <div class="foot-bottom">
+    <p>© 2026 Fukuda Hotel Management LLC. All rights reserved.</p>
+    <p>Atami · Shizuoka · Japan</p>
+  </div>
+</footer>
+
+<script>
+  // LANGUAGE TOGGLE
+  const langBtn = document.getElementById('langToggle');
+  const applyLang = (lang) => {
+    if (lang === 'en') {
+      document.body.classList.add('lang-en');
+    } else {
+      document.body.classList.remove('lang-en');
+    }
+  };
+
+  // Restore saved preference (shared with HP via localStorage)
+  const savedLang = localStorage.getItem('fhm-lang') || 'ja';
+  applyLang(savedLang);
+
+  langBtn.addEventListener('click', () => {
+    const isEn = document.body.classList.contains('lang-en');
+    const newLang = isEn ? 'ja' : 'en';
+    applyLang(newLang);
+    localStorage.setItem('fhm-lang', newLang);
+  });
+</script>
+</body>
+</html>
