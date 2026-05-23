@@ -397,31 +397,8 @@ body {
 }
 .btn-ghost:hover { color: var(--gold); border-color: var(--gold); }
 
-/* ── JOURNAL INSIGHTS ────────────────────────────────────── */
-.journal-insights {
-  padding: 120px 64px 100px;
-  max-width: 1120px; margin: 0 auto;
-}
-.journal-insights-header {
-  text-align: center; margin-bottom: 64px;
-}
-.journal-insights-tag {
-  font-family: -apple-system, 'Helvetica Neue', sans-serif;
-  font-size: 9px; letter-spacing: 0.34em; text-transform: uppercase;
-  color: var(--gold); display: block; margin-bottom: 18px;
-}
-.journal-insights-h {
-  font-size: clamp(22px, 2.8vw, 32px); font-weight: 400;
-  color: var(--ink); letter-spacing: 0.02em; line-height: 1.4;
-}
-.journal-insights-sub {
-  font-family: -apple-system, 'Helvetica Neue', sans-serif;
-  font-size: 12px; color: var(--warm); line-height: 1.9;
-  letter-spacing: 0.03em; margin-top: 18px;
-}
-.journal-insights-grid {
-  display: grid; grid-template-columns: repeat(3, 1fr); gap: 48px;
-}
+/* ── FOOTER ──────────────────────────────────────────────── */
+/* (journal-insights CSS removed) */
 .ji-card {
   text-decoration: none; color: inherit;
   display: flex; flex-direction: column;
@@ -524,8 +501,6 @@ footer { background: var(--dark); padding: 64px 80px 36px; border-top: 1px solid
   .cta-section { padding: 90px 32px; }
   .switch-cta { padding: 56px 32px; }
   .switch-inner { flex-direction: column; text-align: center; }
-  .journal-insights { padding: 80px 32px 72px; }
-  .journal-insights-grid { grid-template-columns: 1fr; gap: 36px; }
   footer { padding: 56px 32px 32px; }
   .foot-inner { grid-template-columns: 1fr; gap: 36px; }
   .foot-bottom { flex-direction: column; gap: 10px; }
@@ -758,52 +733,6 @@ footer { background: var(--dark); padding: 64px 80px 36px; border-top: 1px solid
   </div>
 </section>
 
-<!-- JOURNAL INSIGHTS -->
-<section class="journal-insights">
-  <div class="journal-insights-header">
-    <span class="journal-insights-tag">Stay Journal</span>
-    <h2 class="journal-insights-h t-ja">滞在をより深く知る</h2>
-    <h2 class="journal-insights-h t-en">Insights for Your Stay</h2>
-    <p class="journal-insights-sub t-ja">熱海の一棟貸し貸別荘の選び方や過ごし方をご紹介します。</p>
-    <p class="journal-insights-sub t-en">Perspectives on choosing and enjoying private villa stays in Atami.</p>
-  </div>
-  <div class="journal-insights-grid">
-    <a href="journal/stay-13.html" class="ji-card">
-      <span class="ji-card-kicker">Stay</span>
-      <h3 class="ji-card-title t-ja">熱海の高級一棟貸し貸別荘</h3>
-      <h3 class="ji-card-title t-en">Luxury Private Villas in Atami</h3>
-      <p class="ji-card-desc t-ja">東京から新幹線45分、オーシャンビュー・温泉・サウナ完備の高級貸別荘の魅力をご紹介します。</p>
-      <p class="ji-card-desc t-en">Ocean-view private villas with hot springs and sauna, just 45 minutes from Tokyo.</p>
-      <span class="ji-card-cta">
-        記事を読む <span class="ji-card-cta-arrow"></span>
-      </span>
-    </a>
-    <a href="journal/stay-10.html" class="ji-card">
-      <span class="ji-card-kicker">Stay</span>
-      <h3 class="ji-card-title t-ja">熱海の一棟貸し・貸別荘 おすすめガイド</h3>
-      <h3 class="ji-card-title t-en">Atami Private Villa Guide</h3>
-      <p class="ji-card-desc t-ja">高級施設の選び方、比較ポイント、料金目安まで2026年最新版で解説します。</p>
-      <p class="ji-card-desc t-en">How to choose, compare, and budget for premium private villas — 2026 edition.</p>
-      <span class="ji-card-cta">
-        記事を読む <span class="ji-card-cta-arrow"></span>
-      </span>
-    </a>
-    <a href="journal/stay-15.html" class="ji-card">
-      <span class="ji-card-kicker">Stay</span>
-      <h3 class="ji-card-title t-ja">熱海のオーシャンビュー一棟貸し貸別荘</h3>
-      <h3 class="ji-card-title t-en">Ocean-View Private Villas in Atami</h3>
-      <p class="ji-card-desc t-ja">全室から海を望む絶景施設で叶える、最高の貸別荘ステイの条件を解説します。</p>
-      <p class="ji-card-desc t-en">What makes an ocean-view villa stay truly exceptional.</p>
-      <span class="ji-card-cta">
-        記事を読む <span class="ji-card-cta-arrow"></span>
-      </span>
-    </a>
-  </div>
-  <div class="journal-insights-more">
-    <a href="journal/" class="t-ja">すべての記事を見る</a>
-    <a href="journal/" class="t-en">View All Articles</a>
-  </div>
-</section>
 
 <!-- SWITCH TO RETREAT CTA -->
 <div class="switch-cta">
