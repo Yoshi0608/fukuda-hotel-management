@@ -187,11 +187,6 @@ body {
   font-size: 16px; line-height: 1.9; letter-spacing: 0.04em;
   color: var(--charcoal); font-style: italic;
 }
-.phi-q-ja {
-  font-size: 13px; line-height: 2.1; letter-spacing: 0.06em;
-  color: var(--mid); font-style: normal;
-  margin-top: 18px; display: block;
-}
 .phi-q-attr {
   font-family: -apple-system, 'Helvetica Neue', sans-serif;
   font-size: 10px; letter-spacing: 0.28em; text-transform: uppercase;
@@ -394,6 +389,61 @@ body {
   transition: all 0.3s;
 }
 .btn-link:hover { color: var(--ink); border-bottom-color: var(--ink); }
+
+/* ─── JOURNAL ───────────────────────────────────────────── */
+.journal-section {
+  padding: 140px 64px 120px;
+  max-width: 1280px; margin: 0 auto;
+}
+.journal-section-header {
+  text-align: center; margin-bottom: 72px;
+}
+.journal-section-tag {
+  font-family: -apple-system, 'Helvetica Neue', sans-serif;
+  font-size: 9px; letter-spacing: 0.34em; text-transform: uppercase;
+  color: var(--gold); display: block; margin-bottom: 18px;
+}
+.journal-section-h {
+  font-size: clamp(24px, 3vw, 38px); font-weight: 400;
+  color: var(--ink); letter-spacing: 0.02em; line-height: 1.3;
+}
+.journal-section-sub {
+  font-family: -apple-system, 'Helvetica Neue', sans-serif;
+  font-size: 13px; color: var(--warm); line-height: 1.9;
+  letter-spacing: 0.03em; margin-top: 20px;
+}
+.journal-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 48px;
+}
+.journal-card {
+  text-decoration: none; color: inherit;
+  display: flex; flex-direction: column;
+  padding-bottom: 40px;
+  border-bottom: 1px solid rgba(0,0,0,0.1);
+}
+.journal-card-kicker {
+  font-family: -apple-system, 'Helvetica Neue', sans-serif;
+  font-size: 9px; letter-spacing: 0.28em; text-transform: uppercase;
+  color: var(--gold); margin-bottom: 20px; display: block;
+}
+.journal-card-title {
+  font-size: 18px; font-weight: 400;
+  color: var(--ink); line-height: 1.5; letter-spacing: 0.02em;
+  margin-bottom: 16px;
+  transition: color 0.3s;
+}
+.journal-card:hover .journal-card-title { color: var(--charcoal); }
+.journal-card-desc {
+  font-family: -apple-system, 'Helvetica Neue', sans-serif;
+  font-size: 12px; color: var(--warm); line-height: 1.9;
+  letter-spacing: 0.03em; margin-bottom: 28px; flex: 1;
+}
+.journal-card-cta {
+  font-family: -apple-system, 'Helvetica Neue', sans-serif;
+  font-size: 11px; color: var(--mid); letter-spacing: 0.04em;
+  transition: color 0.3s; text-decoration: none;
+}
+.journal-card:hover .journal-card-cta { color: var(--ink); }
 
 /* ─── FOOTER ─────────────────────────────────────────────── */
 footer {
@@ -612,6 +662,8 @@ footer {
   .exp-divider { display: none; }
   .exp-card-body { padding: 52px 48px; }
   .foot-inner { grid-template-columns: 1fr 1fr; gap: 48px; }
+  .journal-grid { grid-template-columns: 1fr 1fr; gap: 40px; }
+  .journal-section { padding: 120px 48px 100px; }
 }
 @media (max-width: 768px) {
   .nav { padding: 28px 32px; }
@@ -629,6 +681,9 @@ footer {
   footer { padding: 56px 32px 32px; }
   .foot-inner { grid-template-columns: 1fr; }
   .foot-bottom { flex-direction: column; gap: 12px; text-align: center; }
+  .journal-grid { grid-template-columns: 1fr; gap: 40px; }
+  .journal-section { padding: 96px 32px 80px; }
+  .journal-section-header { margin-bottom: 48px; }
 }
 </style>
 </head>
@@ -645,7 +700,8 @@ footer {
     <a href="#portfolio">Properties</a>
     <a href="#about">Company</a>
     <a href="#founder">Founder</a>
-    <a href="mailto:info@fukudahotel.com" class="nav-enquire">Enquire</a>
+    <a href="journal/">Journal</a>
+    <a href="mailto:yfukuda@fukudahotel.com" class="nav-enquire">Enquire</a>
     <button class="lang-toggle" id="langToggle" aria-label="Switch language">
       <span class="t-ja">EN</span><span class="t-en">日本語</span>
     </button>
@@ -739,7 +795,7 @@ footer {
 <section class="phi" id="philosophy">
   <div class="phi-statement">
     <span class="phi-tag">Our Philosophy</span>
-    <h2 class="phi-h t-ja">私たちは施設を運営しているのではない。<br>場所に宿る、静けさを<br>守っている。</h2>
+    <h2 class="phi-h t-ja">私たちは施設を<br>運営しているのではない。<br>場所に宿る、<br>静けさを守っている。</h2>
     <h2 class="phi-h t-en">We do not manage facilities.<br>We protect the stillness<br>that lives within<br>each place.</h2>
     <p class="phi-body t-ja">
       Fukuda Hotel Management は、日本の海岸線に点在する稀有な場所を選び、そこにある静けさを損なうことなく、人を迎え入れる空間を作ります。施設とは背景であり、体験そのものではない——その信念が、私たちの設計の根拠です。
@@ -756,11 +812,8 @@ footer {
     <blockquote>
       <p class="phi-q">
         "There are places in Japan where time moves differently.<br>
-        We exist to make those places accessible — without compromise."
-      </p>
-      <p class="phi-q-ja">
-        日本には、時間の流れが異なる場所がある。<br>
-        私たちは、それらの場所を妥協なく届けるために存在する。
+        We exist to make those places accessible —<br>
+        without compromise."
       </p>
       <cite class="phi-q-attr">— Yoshitaka Fukuda, Founder</cite>
     </blockquote>
@@ -781,7 +834,7 @@ footer {
     </p>
     <p class="about-body t-en">
       Fukuda Hotel Management plans and operates exclusively whole-building rental properties
-      We offer completely private stays at premier coastal
+      under Japan's Hotel Business Act. We offer completely private stays at premier coastal
       locations for high-net-worth individuals and corporate clients.
     </p>
     <p class="about-body t-ja">
@@ -797,25 +850,22 @@ footer {
         <span class="t-ja">合同会社フクダホテルマネジメント<br><small style="color:var(--warm);font-size:11px">Fukuda Hotel Management LLC.</small></span>
         <span class="t-en">Fukuda Hotel Management LLC.</span>
       </dd>
-      <dt>Founder</dt>
-      <dd>
-        <span class="t-ja">福田 喜天（Yoshitaka Fukuda）</span>
-        <span class="t-en">Yoshitaka Fukuda</span>
-      </dd>
+      <dt>Founded</dt>
+      <dd>2026</dd>
       <dt>Location</dt>
       <dd>
         <span class="t-ja">東京都目黒区自由が丘1-24-22-1階</span>
         <span class="t-en">1F, 1-24-22 Jiyugaoka, Meguro-ku, Tokyo</span>
       </dd>
-      <dt>Founded</dt>
-      <dd>2026</dd>
-      <dt>Capital</dt>
+      <dt>Founder</dt>
+      <dd>福田 喜天（Yoshitaka Fukuda）</dd>
+      <dt>Licence</dt>
       <dd>
-        <span class="t-ja">500,000円</span>
-        <span class="t-en">¥500,000</span>
+        <span class="t-ja">旅館業法許可取得済 · 消防法適合確認済</span>
+        <span class="t-en">Licensed under the Hotel Business Act · Fire Safety Code Compliant</span>
       </dd>
       <dt>Contact</dt>
-      <dd><a href="mailto:info@fukudahotel.com" style="color:var(--gold);text-decoration:none;font-size:13px">info@fukudahotel.com</a></dd>
+      <dd><a href="mailto:yfukuda@fukudahotel.com" style="color:var(--gold);text-decoration:none;font-size:13px">yfukuda@fukudahotel.com</a></dd>
     </dl>
   </div>
 </section>
@@ -855,6 +905,41 @@ footer {
   </div>
 </section>
 
+<!-- JOURNAL -->
+<section class="journal-section" id="journal">
+  <div class="journal-section-header">
+    <span class="journal-section-tag">Journal</span>
+    <h2 class="journal-section-h t-ja">場所が変われば、思考が変わる。</h2>
+    <h2 class="journal-section-h t-en">When the place changes,<br>thinking follows.</h2>
+    <p class="journal-section-sub t-ja">経営者・リーダー、そして特別な時間を求める方のための、熱海のプライベートリトリート。</p>
+    <p class="journal-section-sub t-en">A private retreat in Atami for leaders, executives, and those seeking an exceptional escape.</p>
+  </div>
+  <div class="journal-grid">
+
+    <a class="journal-card" href="journal/retreat-28.html">
+      <span class="journal-card-kicker">Retreat Insights</span>
+      <h3 class="journal-card-title">思考を変えるための場所</h3>
+      <p class="journal-card-desc">熱海の海を望む一棟貸し空間で、経営合宿や法人リトリートにふさわしい静けさと集中を整えます。</p>
+      <span class="journal-card-cta">詳しく見る →</span>
+    </a>
+
+    <a class="journal-card" href="journal/stay-13.html">
+      <span class="journal-card-kicker">Stay Journal</span>
+      <h3 class="journal-card-title">一組だけに開かれた、熱海の滞在</h3>
+      <p class="journal-card-desc">オーシャンビュー、温泉、完全貸切。大切な人たちと過ごすための高級一棟貸し貸別荘です。</p>
+      <span class="journal-card-cta">滞在について見る →</span>
+    </a>
+
+    <a class="journal-card" href="journal/studio-07.html">
+      <span class="journal-card-kicker">Studio / Location</span>
+      <h3 class="journal-card-title">世界観を撮るためのロケーション</h3>
+      <p class="journal-card-desc">ブランド撮影、映像制作、ロケハンに対応する、熱海の一棟貸し撮影ロケーションです。</p>
+      <span class="journal-card-cta">撮影利用について見る →</span>
+    </a>
+
+  </div>
+</section>
+
 <!-- CTA -->
 <section class="cta-section">
   <span class="cta-tag">
@@ -874,7 +959,7 @@ footer {
       <span class="t-ja">View All Properties</span>
       <span class="t-en">View All Properties</span>
     </a>
-    <a href="mailto:info@fukudahotel.com" class="btn-link">
+    <a href="mailto:yfukuda@fukudahotel.com" class="btn-link">
       <span class="t-ja">Send an Enquiry</span>
       <span class="t-en">Send an Enquiry</span>
     </a>
@@ -891,13 +976,13 @@ footer {
         旅館業法に基づく一棟貸し専用施設の<br>
         企画・運営・管理を手がけます。<br><br>
         〒152-0035 東京都目黒区自由が丘1-24-22-1階<br>
-        消防法適合確認済
+        旅館業法許可取得済
       </p>
       <p class="t-en">
         Planning, management, and operations of<br>
         exclusively whole-building rental properties.<br><br>
         1-24-22 Jiyugaoka, Meguro-ku, Tokyo 152-0035<br>
-        Fire Safety Code Compliant
+        Licensed under the Hotel Business Act
       </p>
     </div>
     <div class="foot-col">
@@ -906,17 +991,18 @@ footer {
       <a href="#about">Company</a>
       <a href="#portfolio">Properties</a>
       <a href="founder-message.html">Founder's Message</a>
+      <a href="journal/">Journal</a>
     </div>
     <div class="foot-col">
       <h4>Properties</h4>
-      <a>The Kiten, Atami</a>
-      <a>Ocean View Retreat</a>
-      <a>Takeoka Retreat (2027)</a>
+      <a href="kiten-harbor-view-lp.html">The Kiten, Atami</a>
+      <a href="ocean-view-retreat-lp.html">Ocean View Retreat</a>
+      <a href="#">Takeoka Retreat (2027)</a>
     </div>
   </div>
   <div class="foot-bottom">
     <p>© 2026 Fukuda Hotel Management LLC. All rights reserved.</p>
-    <p>Tokyo · Japan</p>
+    <p>Atami · Shizuoka · Japan</p>
   </div>
 </footer>
 

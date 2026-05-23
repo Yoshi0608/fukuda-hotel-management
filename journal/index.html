@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Journal | Fukuda Hotel Management</title>
+<meta name="description" content="フクダホテルマネジメントのJournal。法人リトリート・高級貸別荘・撮影スタジオに関するインサイトをお届けします。">
+<link rel="canonical" href="https://fukudahotel.com/journal/">
+<meta property="og:title" content="Journal — Fukuda Hotel Management">
+<meta property="og:description" content="法人リトリート・高級貸別荘・撮影スタジオに関するインサイトをお届けします。">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://fukudahotel.com/journal/">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:site_name" content="Fukuda Hotel Management">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; font-size: 16px; }
+
+:root {
+  --cream:   #F5F2EC;
+  --cream-d: #EDE9E1;
+  --ink:     #1A1714;
+  --charcoal:#2E2820;
+  --mid:     #6B5E52;
+  --warm:    #96877A;
+  --sand:    #D4C9BA;
+  --gold:    #B8965A;
+  --white:   #FFFFFF;
+  --dark:    #0F0D0A;
+}
+
+body {
+  font-family: 'Georgia', 'Hiragino Mincho ProN', 'Yu Mincho', 'YuMincho', serif;
+  background: var(--cream); color: var(--ink);
+  line-height: 1.9; -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+/* ── NAV ── */
+.nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+  padding: 28px 64px;
+  display: flex; align-items: center; justify-content: space-between;
+  background: rgba(245,242,236,0.96); backdrop-filter: blur(20px);
+  box-shadow: 0 1px 0 rgba(0,0,0,0.05);
+  transition: all 0.4s ease;
+}
+.nav-brand { text-decoration: none; display: flex; flex-direction: column; gap: 1px; }
+.nav-brand .n-main {
+  font-size: 13px; letter-spacing: 0.32em; text-transform: uppercase;
+  color: var(--ink); font-weight: 400; font-family: 'Georgia', serif;
+}
+.nav-brand .n-sub {
+  font-size: 8px; letter-spacing: 0.28em; text-transform: uppercase;
+  color: var(--mid); font-family: -apple-system, 'Helvetica Neue', sans-serif;
+}
+.nav-links { display: flex; align-items: center; gap: 40px; }
+.nav-links a {
+  font-family: -apple-system, 'Helvetica Neue', sans-serif;
+  font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase;
+  text-decoration: none; color: var(--mid); transition: color 0.3s;
+}
+.nav-links a:hover { color: var(--gold); }
+.nav-links a.active { color: var(--gold); }
+
+/* ── JOURNAL INDEX HERO ── */
+.j-hero {
+  padding: 140px 48px 72px; text-align: center;
+}
+.j-hero h1 {
+  font-family: -apple-system, 'Helvetica Neue', sans-serif;
+  font-size: 11px; letter-spacing: 0.45em; text-transform: uppercase;
+  color: var(--gold); font-weight: 400; margin-bottom: 20px;
+}
+.j-hero-lead {
+  font-size: 30px; font-weight: 400; color: var(--ink);
+  letter-spacing: 0.06em; line-height: 1.5;
+}
+
+/* ── FEATURED ── */
+.featured { max-width: 1120px; margin: 0 auto; padding: 0 48px 96px; }
+.featured-label {
+  font-family: -apple-system, 'Helvetica Neue', sans-serif;
+  font-size: 10px; letter-spacing: 0.3em; text-transform: uppercase;
+  color: var(--gold); margin-bottom: 28px;
+}
+.featured-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
+.f-card {
+  display: block; text-decoration: none; color: var(--ink);
+  background: var(--white); padding: 44px 32px;
+  border: 1px solid var(--sand); transition: border-color 0.3s, transform 0.3s;
+}
+.f-card:hover { border-color: var(--gold); transform: translateY(-3px); }
+.f-card .fc-kicker {
+  font-family: -apple-system, 'Helvetica Neue', sans-serif;
+  font-size: 9px; letter-spacing: 0.25em; text-transform: uppercase;
+  color: var(--gold); display: block; margin-bottom: 18px;
+}
+.f-card h3 { font-size: 17px; font-weight: 400; line-height: 1.65; margin-bottom: 14px; letter-spacing: 0.02em; }
+.f-card .fc-desc { font-size: 13px; color: var(--mid); line-height: 1.75; }
+
+/* ── CATEGORY SECTIONS ── */
+.cat-section { max-width: 1120px; margin: 0 auto; padding: 56px 48px 72px; border-top: 1px solid var(--sand); }
+.cat-section h2 {
+  font-family: -apple-system, 'Helvetica Neue', sans-serif;
+  font-size: 11px; letter-spacing: 0.3em; text-transform: uppercase;
+  color: var(--mid); font-weight: 400; margin-bottom: 32px;
+}
+.cat-list { display: flex; flex-direction: column; }
+.cat-item {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 22px 0; border-bottom: 1px solid var(--sand);
+  text-decoration: none; color: var(--ink); transition: color 0.3s;
+}
+.cat-item:first-child { border-top: 1px solid var(--sand); }
+.cat-item:hover { color: var(--gold); }
+.cat-item span:last-child { font-size: 14px; color: var(--warm); transition: color 0.3s; }
+.cat-item:hover span:last-child { color: var(--gold); }
+
+/* ── ARTICLE HERO ── */
+.a-hero { padding: 140px 48px 64px; max-width: 860px; margin: 0 auto; text-align: center; }
+.a-hero .kicker {
+  font-family: -apple-system, 'Helvetica Neue', sans-serif;
+  font-size: 10px; letter-spacing: 0.32em; text-transform: uppercase;
+  color: var(--gold); margin-bottom: 28px; display: block;
+}
+.a-hero h1 {
+  font-size: 34px; line-height: 1.55; font-weight: 400; color: var(--ink);
+  margin-bottom: 24px; letter-spacing: 0.02em;
+}
+.a-hero .a-meta {
+  font-family: -apple-system, 'Helvetica Neue', sans-serif;
+  font-size: 11px; letter-spacing: 0.15em; color: var(--warm); margin-top: 32px;
+}
+
+/* ── ARTICLE BODY ── */
+.article { max-width: 760px; margin: 0 auto; padding: 48px; font-size: 17px; color: var(--charcoal); }
+.article .lede {
+  font-size: 18px; line-height: 1.9; color: var(--ink);
+  padding: 32px 0 40px; border-bottom: 1px solid var(--sand); margin-bottom: 48px;
+}
+.article h2 {
+  font-size: 24px; font-weight: 400; color: var(--ink);
+  margin: 64px 0 24px; border-top: 2px solid var(--gold); padding-top: 32px;
+  letter-spacing: 0.02em;
+}
+.article h3 {
+  font-size: 19px; font-weight: 400; color: var(--charcoal);
+  margin: 40px 0 16px; letter-spacing: 0.02em;
+}
+.article p { margin-bottom: 22px; line-height: 1.9; }
+.article ul, .article ol { margin: 0 0 24px 24px; }
+.article li { margin-bottom: 10px; line-height: 1.8; }
+.article a { color: var(--ink); text-decoration: none; border-bottom: 1px solid var(--gold); padding-bottom: 1px; transition: color 0.3s; }
+.article a:hover { color: var(--gold); }
+.article strong { font-weight: 600; }
+
+/* ── TABLE ── */
+.tbl-wrap { overflow-x: auto; margin: 32px 0; }
+.tbl-wrap table { width: 100%; border-collapse: collapse; font-size: 14px; }
+.tbl-wrap th, .tbl-wrap td { padding: 12px 16px; text-align: left; border-bottom: 1px solid var(--sand); }
+.tbl-wrap th {
+  font-family: -apple-system, 'Helvetica Neue', sans-serif;
+  font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--mid); font-weight: 400; border-bottom: 2px solid var(--gold);
+}
+
+/* ── MID CTA ── */
+.cta-mid {
+  background: var(--cream-d); border: 1px solid var(--sand);
+  padding: 40px; margin: 56px 0; text-align: center;
+}
+.cta-mid a {
+  display: inline-block;
+  font-family: -apple-system, 'Helvetica Neue', sans-serif;
+  font-size: 13px; letter-spacing: 0.12em;
+  color: var(--ink); border: 1px solid var(--gold);
+  padding: 14px 32px; text-decoration: none; transition: all 0.3s;
+}
+.cta-mid a:hover { background: var(--gold); color: var(--white); border-bottom: 1px solid var(--gold); }
+.cta-mid .cta-note {
+  display: block; margin-top: 14px; font-size: 12px; color: var(--warm);
+  font-family: -apple-system, 'Helvetica Neue', sans-serif;
+}
+
+/* ── RELATED BOX ── */
+.related-box {
+  background: var(--cream-d); padding: 32px; margin: 72px 0 0;
+  border: 1px solid var(--sand);
+}
+.related-box h4 {
+  font-family: -apple-system, 'Helvetica Neue', sans-serif;
+  font-size: 10px; letter-spacing: 0.25em; text-transform: uppercase;
+  color: var(--gold); margin-bottom: 16px; font-weight: 400;
+}
+.related-box a {
+  display: block; margin-bottom: 12px; color: var(--ink); text-decoration: none;
+  border-bottom: 1px solid var(--gold); padding-bottom: 3px; font-size: 15px;
+  transition: color 0.3s;
+}
+.related-box a:hover { color: var(--gold); }
+
+/* ── BOTTOM CTA ── */
+.bottom-cta {
+  background: var(--ink); color: var(--cream);
+  padding: 88px 48px; text-align: center; margin-top: 96px;
+}
+.bottom-cta h3 {
+  font-size: 22px; font-weight: 400; margin-bottom: 16px;
+  color: var(--cream); letter-spacing: 0.04em;
+}
+.bottom-cta p { font-size: 14px; color: rgba(245,242,236,0.65); margin-bottom: 36px; }
+.bottom-cta a {
+  display: inline-block;
+  font-family: -apple-system, 'Helvetica Neue', sans-serif;
+  font-size: 11px; letter-spacing: 0.28em; text-transform: uppercase;
+  color: var(--gold); border: 1px solid var(--gold);
+  padding: 16px 40px; text-decoration: none; transition: all 0.3s;
+}
+.bottom-cta a:hover { background: var(--gold); color: var(--ink); }
+
+/* ── FOOTER ── */
+.site-footer {
+  border-top: 1px solid var(--sand); padding: 56px 64px 40px;
+}
+.foot-inner {
+  max-width: 1120px; margin: 0 auto;
+  display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 48px;
+}
+.foot-brand .fb-main {
+  display: block; font-size: 12px; letter-spacing: 0.3em; text-transform: uppercase;
+  margin-bottom: 4px;
+}
+.foot-brand .fb-sub {
+  display: block; font-size: 9px; letter-spacing: 0.2em;
+  color: var(--mid); margin-bottom: 16px;
+  font-family: -apple-system, 'Helvetica Neue', sans-serif;
+}
+.foot-brand p { font-size: 12px; color: var(--warm); line-height: 1.8; }
+.foot-col h4 {
+  font-family: -apple-system, 'Helvetica Neue', sans-serif;
+  font-size: 9px; letter-spacing: 0.25em; text-transform: uppercase;
+  color: var(--gold); margin-bottom: 16px; font-weight: 400;
+}
+.foot-col a {
+  display: block; font-size: 13px; color: var(--mid);
+  text-decoration: none; margin-bottom: 10px; transition: color 0.3s;
+}
+.foot-col a:hover { color: var(--gold); }
+.foot-bottom {
+  max-width: 1120px; margin: 40px auto 0;
+  padding-top: 24px; border-top: 1px solid var(--sand);
+  display: flex; justify-content: space-between;
+  font-family: -apple-system, 'Helvetica Neue', sans-serif;
+  font-size: 10px; letter-spacing: 0.15em; color: var(--warm);
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 768px) {
+  .nav { padding: 18px 24px; }
+  .nav-links { gap: 20px; }
+  .j-hero { padding: 110px 24px 48px; }
+  .j-hero-lead { font-size: 22px; }
+  .featured { padding: 0 24px 56px; }
+  .featured-grid { grid-template-columns: 1fr; gap: 20px; }
+  .cat-section { padding: 36px 24px 48px; }
+  .a-hero { padding: 110px 24px 40px; }
+  .a-hero h1 { font-size: 24px; }
+  .article { padding: 24px; font-size: 16px; }
+  .article h2 { font-size: 20px; }
+  .article .lede { font-size: 15px; }
+  .bottom-cta { padding: 56px 24px; }
+  .site-footer { padding: 40px 24px; }
+  .foot-inner { grid-template-columns: 1fr; gap: 32px; }
+  .foot-bottom { flex-direction: column; gap: 8px; }
+}
+</style>
+</head>
+<body>
+
+<nav class="nav" id="mainNav">
+  <a href="../index.html" class="nav-brand">
+    <span class="n-main">Fukuda Hotel Management</span>
+    <span class="n-sub">合同会社フクダホテルマネジメント</span>
+  </a>
+  <div class="nav-links">
+    <a href="../stay.html">Stay</a>
+    <a href="../retreat.html">Retreat</a>
+    <a href="index.html" class="active">Journal</a>
+    <a href="mailto:yfukuda@fukudahotel.com">Enquire</a>
+  </div>
+</nav>
+
+<header class="j-hero">
+  <h1>Journal</h1>
+  <p class="j-hero-lead">場所が変われば、思考が変わる。</p>
+</header>
+
+<section class="featured">
+  <div class="featured-label">Featured</div>
+  <div class="featured-grid">
+    <a class="f-card" href="retreat-28.html">
+      <span class="fc-kicker">Retreat Insights</span>
+      <h3>熱海の一棟貸し経営合宿施設</h3>
+      <p class="fc-desc">熱海のオーシャンビュー一棟貸し施設で行う経営合宿の魅力を紹介。完全貸切のプライベート空間、温泉・サウナ・プール完備の法人リトリート施設です。…</p>
+    </a>
+    <a class="f-card" href="stay-13.html">
+      <span class="fc-kicker">Stay Journal</span>
+      <h3>熱海の高級一棟貸し貸別荘</h3>
+      <p class="fc-desc">熱海の高級一棟貸し貸別荘のおすすめを紹介。東京から新幹線45分、オーシャンビュー・温泉・サウナ完備の施設の魅力を詳しく解説します。…</p>
+    </a>
+    <a class="f-card" href="studio-07.html">
+      <span class="fc-kicker">Studio / Location</span>
+      <h3>熱海の撮影スタジオ・ロケ地</h3>
+      <p class="fc-desc">熱海の撮影スタジオ・ロケ地のおすすめを紹介。オーシャンビュー一棟貸しの撮影施設の魅力と、利用プラン・設備情報を詳しく解説します。…</p>
+    </a>
+  </div>
+</section>
+
+
+<section class="cat-section">
+  <h2>Retreat Insights</h2>
+  <div class="cat-list">
+      <a class="cat-item" href="retreat-28.html">
+        <span>熱海の一棟貸し経営合宿施設</span>
+        <span>&rarr;</span>
+      </a>
+      <a class="cat-item" href="retreat-39.html">
+        <span>法人リトリート施設の年間契約・定額プラン</span>
+        <span>&rarr;</span>
+      </a>
+      <a class="cat-item" href="retreat-20.html">
+        <span>経営合宿の場所 おすすめ</span>
+        <span>&rarr;</span>
+      </a>
+      <a class="cat-item" href="retreat-21.html">
+        <span>法人研修施設の比較</span>
+        <span>&rarr;</span>
+      </a>
+      <a class="cat-item" href="retreat-24.html">
+        <span>法人リトリート施設の選び方</span>
+        <span>&rarr;</span>
+      </a>
+      <a class="cat-item" href="retreat-36.html">
+        <span>経営合宿の費用相場はいくら？</span>
+        <span>&rarr;</span>
+      </a>
+      <a class="cat-item" href="retreat-31.html">
+        <span>経営合宿を一棟貸しで行うメリット</span>
+        <span>&rarr;</span>
+      </a>
+  </div>
+</section>
+<section class="cat-section">
+  <h2>Stay Journal</h2>
+  <div class="cat-list">
+      <a class="cat-item" href="stay-10.html">
+        <span>熱海の一棟貸し・貸別荘 おすすめガイド</span>
+        <span>&rarr;</span>
+      </a>
+      <a class="cat-item" href="stay-13.html">
+        <span>熱海の高級一棟貸し貸別荘</span>
+        <span>&rarr;</span>
+      </a>
+      <a class="cat-item" href="stay-15.html">
+        <span>熱海のオーシャンビュー一棟貸し貸別荘</span>
+        <span>&rarr;</span>
+      </a>
+      <a class="cat-item" href="stay-05.html">
+        <span>大人数で泊まれる熱海の一棟貸し貸別荘</span>
+        <span>&rarr;</span>
+      </a>
+      <a class="cat-item" href="stay-09.html">
+        <span>一棟貸しとホテルの違いを徹底比較</span>
+        <span>&rarr;</span>
+      </a>
+      <a class="cat-item" href="stay-20.html">
+        <span>熱海の高級一棟貸し貸別荘の予約方法</span>
+        <span>&rarr;</span>
+      </a>
+  </div>
+</section>
+<section class="cat-section">
+  <h2>Studio / Location</h2>
+  <div class="cat-list">
+      <a class="cat-item" href="studio-07.html">
+        <span>熱海の撮影スタジオ・ロケ地</span>
+        <span>&rarr;</span>
+      </a>
+      <a class="cat-item" href="studio-10.html">
+        <span>熱海の撮影スタジオ 予約方法・料金</span>
+        <span>&rarr;</span>
+      </a>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="foot-inner">
+    <div class="foot-brand">
+      <span class="fb-main">Fukuda Hotel Management</span>
+      <span class="fb-sub">合同会社フクダホテルマネジメント</span>
+      <p>旅館業法に基づく一棟貸し専用施設の<br>企画・運営・管理を手がけます。<br><br>〒152-0035 東京都目黒区自由が丘1-24-22</p>
+    </div>
+    <div class="foot-col">
+      <h4>Navigate</h4>
+      <a href="../index.html">Home</a>
+      <a href="../stay.html">Stay</a>
+      <a href="../retreat.html">Retreat</a>
+      <a href="index.html">Journal</a>
+      <a href="../founder-message.html">Founder</a>
+    </div>
+    <div class="foot-col">
+      <h4>Properties</h4>
+      <a href="../kiten-harbor-view-lp.html">The Kiten, Atami</a>
+      <a href="../ocean-view-retreat-lp.html">Ocean View Retreat</a>
+    </div>
+  </div>
+  <div class="foot-bottom">
+    <p>&copy; 2026 Fukuda Hotel Management LLC. All rights reserved.</p>
+    <p>Japan</p>
+  </div>
+</footer>
+
+<script>
+  // No scroll behavior needed - nav is always solid on journal pages
+</script>
+</body>
+</html>

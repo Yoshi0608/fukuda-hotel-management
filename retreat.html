@@ -385,6 +385,88 @@ body {
 }
 .btn-ghost-sm:hover { color: var(--gold); border-color: var(--gold); }
 
+/* ── JOURNAL INSIGHTS ────────────────────────────────────── */
+.journal-insights {
+  padding: 120px 64px 100px;
+  max-width: 1120px; margin: 0 auto;
+}
+.journal-insights-header {
+  text-align: center; margin-bottom: 64px;
+}
+.journal-insights-tag {
+  font-family: -apple-system, 'Helvetica Neue', sans-serif;
+  font-size: 9px; letter-spacing: 0.34em; text-transform: uppercase;
+  color: var(--gold); display: block; margin-bottom: 18px;
+}
+.journal-insights-h {
+  font-size: clamp(22px, 2.8vw, 32px); font-weight: 400;
+  color: var(--ink); letter-spacing: 0.02em; line-height: 1.4;
+}
+.journal-insights-sub {
+  font-family: -apple-system, 'Helvetica Neue', sans-serif;
+  font-size: 12px; color: var(--warm); line-height: 1.9;
+  letter-spacing: 0.03em; margin-top: 18px;
+}
+.journal-insights-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 48px;
+}
+.ji-card {
+  text-decoration: none; color: inherit;
+  display: flex; flex-direction: column;
+  border-top: 1px solid var(--sand);
+  padding-top: 32px;
+  transition: border-color 0.4s;
+}
+.ji-card:hover { border-top-color: var(--gold); }
+.ji-card-kicker {
+  font-family: -apple-system, 'Helvetica Neue', sans-serif;
+  font-size: 9px; letter-spacing: 0.28em; text-transform: uppercase;
+  color: var(--gold); margin-bottom: 18px; display: block;
+}
+.ji-card-title {
+  font-size: 17px; font-weight: 400;
+  color: var(--ink); line-height: 1.55; letter-spacing: 0.02em;
+  margin-bottom: 14px; transition: color 0.3s;
+}
+.ji-card:hover .ji-card-title { color: var(--charcoal); }
+.ji-card-desc {
+  font-family: -apple-system, 'Helvetica Neue', sans-serif;
+  font-size: 12px; color: var(--warm); line-height: 1.9;
+  letter-spacing: 0.03em; margin-bottom: 28px; flex: 1;
+}
+.ji-card-cta {
+  display: inline-flex; align-items: center; gap: 12px;
+  font-family: -apple-system, 'Helvetica Neue', sans-serif;
+  font-size: 9px; letter-spacing: 0.26em; text-transform: uppercase;
+  color: var(--mid); transition: color 0.3s;
+}
+.ji-card:hover .ji-card-cta { color: var(--ink); }
+.ji-card-cta-arrow {
+  display: inline-block; width: 24px; height: 1px;
+  background: currentColor; position: relative;
+  transition: transform 0.3s;
+}
+.ji-card:hover .ji-card-cta-arrow { transform: translateX(6px); }
+.ji-card-cta-arrow::after {
+  content: ''; position: absolute; right: 0; top: -3px;
+  width: 6px; height: 6px;
+  border-right: 1px solid currentColor;
+  border-top: 1px solid currentColor;
+  transform: rotate(45deg);
+}
+.journal-insights-more {
+  text-align: center; margin-top: 56px;
+}
+.journal-insights-more a {
+  display: inline-block;
+  font-family: -apple-system, 'Helvetica Neue', sans-serif;
+  font-size: 10px; letter-spacing: 0.24em; text-transform: uppercase;
+  text-decoration: none; color: var(--mid);
+  padding: 14px 40px; border: 1px solid var(--sand);
+  transition: all 0.35s;
+}
+.journal-insights-more a:hover { border-color: var(--ink); color: var(--ink); }
+
 /* ── FOOTER ──────────────────────────────────────────────── */
 footer { background: var(--dark); padding: 64px 80px 36px; border-top: 1px solid rgba(255,255,255,0.04); }
 .foot-inner {
@@ -420,6 +502,8 @@ footer { background: var(--dark); padding: 64px 80px 36px; border-top: 1px solid
   .cta-section { padding: 90px 32px; }
   .switch-cta { padding: 56px 32px; }
   .switch-inner { flex-direction: column; text-align: center; }
+  .journal-insights { padding: 80px 32px 72px; }
+  .journal-insights-grid { grid-template-columns: 1fr; gap: 36px; }
   footer { padding: 56px 32px 32px; }
   .foot-inner { grid-template-columns: 1fr; gap: 36px; }
   .foot-bottom { flex-direction: column; gap: 10px; }
@@ -430,14 +514,15 @@ footer { background: var(--dark); padding: 64px 80px 36px; border-top: 1px solid
 
 <!-- NAV -->
 <nav class="nav" id="mainNav">
-  <a href="index.html" class="nav-brand">
+  <a href="fukuda-hotel-management-hp.html" class="nav-brand">
     <span class="n-main">Fukuda Hotel Management</span>
     <span class="n-sub">合同会社フクダホテルマネジメント</span>
   </a>
   <div class="nav-links">
-    <a href="index.html#philosophy">Philosophy</a>
+    <a href="fukuda-hotel-management-hp.html#philosophy">Philosophy</a>
     <a href="stay.html">Stay</a>
-    <a href="index.html" class="nav-back">All Properties</a>
+    <a href="journal/">Journal</a>
+    <a href="fukuda-hotel-management-hp.html" class="nav-back">All Properties</a>
     <button class="lang-toggle" id="langToggle" aria-label="Switch language">
       <span class="t-ja">EN</span><span class="t-en">日本語</span>
     </button>
@@ -647,9 +732,58 @@ footer { background: var(--dark); padding: 64px 80px 36px; border-top: 1px solid
       group size, and objectives.
     </p>
     <div class="cta-buttons">
-      <a href="mailto:info@fukudahotel.com?subject=Retreat%20Plan%20Enquiry" class="btn-primary t-ja">法人プランを相談する</a>
-      <a href="mailto:info@fukudahotel.com?subject=Retreat%20Plan%20Enquiry" class="btn-primary t-en">Enquire About Retreat</a>
+      <a href="mailto:yfukuda@fukudahotel.com?subject=Retreat%20Plan%20Enquiry" class="btn-primary t-ja">法人プランを相談する</a>
+      <a href="mailto:yfukuda@fukudahotel.com?subject=Retreat%20Plan%20Enquiry" class="btn-primary t-en">Enquire About Retreat</a>
+      <a href="ocean-view-retreat-lp.html" class="btn-ghost-line t-ja">Ocean View Retreatを見る</a>
+      <a href="ocean-view-retreat-lp.html" class="btn-ghost-line t-en">View Ocean View Retreat</a>
     </div>
+  </div>
+</section>
+
+<!-- JOURNAL INSIGHTS -->
+<section class="journal-insights">
+  <div class="journal-insights-header">
+    <span class="journal-insights-tag">Retreat Insights</span>
+    <h2 class="journal-insights-h t-ja">法人リトリートを深く知る</h2>
+    <h2 class="journal-insights-h t-en">Insights for Corporate Retreats</h2>
+    <p class="journal-insights-sub t-ja">経営合宿・オフサイトの計画に役立つ知見をお届けします。</p>
+    <p class="journal-insights-sub t-en">Perspectives to help you plan meaningful corporate retreats.</p>
+  </div>
+  <div class="journal-insights-grid">
+    <a href="journal/retreat-28.html" class="ji-card">
+      <span class="ji-card-kicker">Retreat</span>
+      <h3 class="ji-card-title t-ja">熱海の一棟貸し経営合宿施設</h3>
+      <h3 class="ji-card-title t-en">Whole-Building Retreat Facility in Atami</h3>
+      <p class="ji-card-desc t-ja">オーシャンビューの完全貸切空間、温泉・サウナ・プール完備の法人リトリート施設をご紹介します。</p>
+      <p class="ji-card-desc t-en">Discover our ocean-view private retreat facility with hot springs, sauna, and pool.</p>
+      <span class="ji-card-cta">
+        記事を読む <span class="ji-card-cta-arrow"></span>
+      </span>
+    </a>
+    <a href="journal/retreat-39.html" class="ji-card">
+      <span class="ji-card-kicker">Retreat</span>
+      <h3 class="ji-card-title t-ja">法人リトリート施設の年間契約・定額プラン</h3>
+      <h3 class="ji-card-title t-en">Annual Plans for Corporate Retreat Facilities</h3>
+      <p class="ji-card-desc t-ja">経営合宿を定期的に開催するメリットと、コストを抑えた年間契約の活用法を解説します。</p>
+      <p class="ji-card-desc t-en">How annual contracts enable regular offsites at reduced cost.</p>
+      <span class="ji-card-cta">
+        記事を読む <span class="ji-card-cta-arrow"></span>
+      </span>
+    </a>
+    <a href="journal/retreat-20.html" class="ji-card">
+      <span class="ji-card-kicker">Retreat</span>
+      <h3 class="ji-card-title t-ja">経営合宿の場所 おすすめ</h3>
+      <h3 class="ji-card-title t-en">Best Locations for Executive Offsites</h3>
+      <p class="ji-card-desc t-ja">関東・熱海エリアを中心に、失敗しない経営合宿の場所選びのポイントを解説します。</p>
+      <p class="ji-card-desc t-en">Key criteria for choosing the right offsite location in the Kanto region.</p>
+      <span class="ji-card-cta">
+        記事を読む <span class="ji-card-cta-arrow"></span>
+      </span>
+    </a>
+  </div>
+  <div class="journal-insights-more">
+    <a href="journal/" class="t-ja">すべての記事を見る</a>
+    <a href="journal/" class="t-en">View All Articles</a>
   </div>
 </section>
 
@@ -673,21 +807,22 @@ footer { background: var(--dark); padding: 64px 80px 36px; border-top: 1px solid
     <div class="foot-brand">
       <span class="fb-main">Fukuda Hotel Management</span>
       <span class="fb-sub">合同会社フクダホテルマネジメント</span>
-      <p class="t-ja">旅館業法に基づく一棟貸し専用施設の<br>企画・運営・管理を手がけます。<br><br>〒152-0035 東京都目黒区自由が丘1-24-22<br>消防法適合確認済</p>
-      <p class="t-en">Planning, management, and operations of<br>exclusively whole-building rental properties.<br><br>1-24-22 Jiyugaoka, Meguro-ku, Tokyo 152-0035<br>Fire Safety Code Compliant</p>
+      <p class="t-ja">旅館業法に基づく一棟貸し専用施設の<br>企画・運営・管理を手がけます。<br><br>〒152-0035 東京都目黒区自由が丘1-24-22</p>
+      <p class="t-en">Exclusively whole-building rental properties<br>under Japan's Hotel Business Act.<br><br>1-24-22 Jiyugaoka, Meguro-ku, Tokyo 152-0035</p>
     </div>
     <div class="foot-col">
       <h4>Navigate</h4>
-      <a href="index.html">Home</a>
+      <a href="fukuda-hotel-management-hp.html">Home</a>
       <a href="stay.html">Stay</a>
       <a href="retreat.html">Retreat</a>
       <a href="founder-message.html">Founder</a>
+      <a href="journal/">Journal</a>
     </div>
     <div class="foot-col">
       <h4>Properties</h4>
-      <a>The Kiten, Atami</a>
-      <a>Ocean View Retreat</a>
-      <a>Takeoka Private Beach Villa</a>
+      <a href="kiten-harbor-view-lp.html">The Kiten, Atami</a>
+      <a href="ocean-view-retreat-lp.html">Ocean View Retreat</a>
+      <a href="#">Takeoka Private Beach Villa</a>
     </div>
   </div>
   <div class="foot-bottom">
