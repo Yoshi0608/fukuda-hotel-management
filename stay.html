@@ -503,7 +503,17 @@ footer { background: var(--dark); padding: 64px 80px 36px; border-top: 1px solid
   .properties { padding: 80px 32px 100px; }
   .properties-header { flex-direction: column; align-items: flex-start; gap: 16px; }
   .prop-grid { grid-template-columns: 1fr; }
-  .pcard-img { aspect-ratio: 16/9; }
+
+  /* ── Property card: スマホでは画像＋テキストの縦積みに切り替え ── */
+  .pcard { display: flex; flex-direction: column; }
+  .pcard-img { aspect-ratio: 4/3; width: 100%; }
+  .pcard-veil { display: none; }  /* オーバーレイグラデーション非表示 */
+  .pcard-body {
+    position: static;             /* absoluteを解除 */
+    background: var(--charcoal);
+    padding: 28px 28px 36px;
+  }
+
   .hero-tagline-strip { padding: 24px 32px; }
   .hl-block { grid-template-columns: 1fr; }
   .hl-block--reverse .hl-img { order: 0; }
