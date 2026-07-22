@@ -73,7 +73,7 @@ body {
 .nav-links {
   display: flex; align-items: center; gap: 40px;
 }
-.nav-links a {
+.nav-links a, .nav-links .nav-item {
   font-family: -apple-system, 'Helvetica Neue', sans-serif;
   font-size: 10px; letter-spacing: 0.20em; text-transform: uppercase;
   text-decoration: none; color: var(--mid); transition: color 0.3s;
@@ -533,10 +533,10 @@ footer p { font-family: -apple-system, 'Helvetica Neue', sans-serif; font-size: 
     <span class="n-sub">合同会社フクダホテルマネジメント</span>
   </a>
   <div class="nav-links">
-    <a href="fukuda-hotel-management-hp.html#philosophy">Philosophy</a>
-    <a href="fukuda-hotel-management-hp.html#portfolio">Properties</a>
-    <a href="fukuda-hotel-management-hp.html#about">Company</a>
-    <a href="journal/">Journal</a>
+    <span class="nav-item">Philosophy</span>
+    <span class="nav-item">Properties</span>
+    <span class="nav-item">Company</span>
+    <span class="nav-item">Journal</span>
     <a href="mailto:yfukuda@fukudahotel.com" class="nav-enquire">Enquire</a>
     <button class="lang-toggle" id="langToggle" aria-label="Switch language">
       <span class="t-ja">EN</span><span class="t-en">日本語</span>
@@ -1168,11 +1168,11 @@ footer p { font-family: -apple-system, 'Helvetica Neue', sans-serif; font-size: 
     </div>
     <div class="foot-col">
       <h4>Navigate</h4>
-      <a href="fukuda-hotel-management-hp.html#philosophy">Philosophy</a>
-      <a href="fukuda-hotel-management-hp.html#about">Company</a>
-      <a href="fukuda-hotel-management-hp.html#portfolio">Properties</a>
-      <a href="founder-message.html">Founder's Message</a>
-      <a href="journal/">Journal</a>
+      <span class="foot-col-item">Philosophy</span>
+      <span class="foot-col-item">Company</span>
+      <span class="foot-col-item">Properties</span>
+      <span class="foot-col-item">Founder's Message</span>
+      <span class="foot-col-item">Journal</span>
     </div>
     <div class="foot-col">
       <h4>Properties</h4>
