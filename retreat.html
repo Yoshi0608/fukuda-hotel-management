@@ -564,6 +564,28 @@ body.pm-open{ overflow:hidden; }
 .form-error{ grid-column:1/-1; font-size:12px; color:#B0563E; letter-spacing:0.04em; display:none; }
 .form-error.show{ display:block; }
 
+/* ── AI MODAL EXTRAS ─────────────────────────────────────── */
+.pm-sec{
+  font-family:Georgia,serif; font-weight:400; font-size:16px; letter-spacing:0.08em;
+  color:var(--ink); margin:34px 0 6px; padding-top:22px; border-top:1px solid var(--line);
+}
+.pm-sec small{ display:block; font-size:10px; letter-spacing:0.2em; text-transform:uppercase; color:var(--gold); margin-bottom:4px; }
+.comp-list{ display:grid; gap:10px; margin-top:14px; }
+.comp-list > div{ display:grid; grid-template-columns:110px 1fr; gap:12px; padding:12px 14px; background:var(--ivory); border:1px solid var(--line); }
+.comp-list b{ font-size:13px; letter-spacing:0.06em; color:var(--ink); font-weight:600; }
+.comp-list b i{ font-style:normal; color:var(--gold); font-family:Georgia,serif; margin-right:8px; }
+.comp-list span{ font-size:12px; line-height:1.9; color:var(--mid); letter-spacing:0.03em; }
+@media (max-width:560px){ .comp-list > div{ grid-template-columns:1fr; gap:4px; } }
+.yz-stats{ display:grid; grid-template-columns:repeat(4,1fr); gap:1px; background:var(--line); border:1px solid var(--line); margin-top:14px; }
+.yz-stats > div{ background:var(--white); padding:16px 12px; text-align:center; }
+.yz-stats b{ display:block; font-family:Georgia,serif; font-weight:400; font-size:22px; color:var(--ink); }
+.yz-stats span{ font-size:10px; letter-spacing:0.08em; color:var(--warm); line-height:1.6; display:block; margin-top:4px; }
+@media (max-width:560px){ .yz-stats{ grid-template-columns:1fr 1fr; } }
+.case-item{ border:1px solid var(--line); padding:16px 18px; margin-top:10px; background:var(--white); }
+.case-item b{ font-size:12px; letter-spacing:0.06em; color:var(--ink); font-weight:600; display:block; margin-bottom:4px; }
+.case-item span{ font-size:12px; line-height:1.9; color:var(--mid); letter-spacing:0.03em; }
+.src-note{ font-size:10px; letter-spacing:0.06em; color:var(--stone); margin-top:10px; line-height:1.8; }
+
 /* ── FOOTER ──────────────────────────────────────────────── */
 footer{ background:var(--dark); padding:72px 56px 40px; }
 .foot-inner{
@@ -770,25 +792,26 @@ footer{ background:var(--dark); padding:72px 56px 40px; }
       <!-- PROGRAM 03 -->
       <article class="prog-item fade">
         <div class="prog-media">
-          <img class="stock-img" alt="ビジネスチームが業務でのAI活用について議論するAI Retreatのプログラムイメージ"
+          <img class="stock-img" alt="経営チームがAI Workflowと業務活用について議論するAI Retreatのプログラムイメージ"
                style="object-position:center 40%;"
                src="https://images.unsplash.com/photo-1565350897149-38dfafa81d83?auto=format&fit=crop&w=1200&q=70">
         </div>
         <span class="prog-num">Program 03</span>
         <h3 class="prog-title">AI RETREAT</h3>
         <p class="prog-with">with YZ PARTNERS</p>
-        <p class="prog-lead">生成AIを学ぶだけで終わらせず、自社の優先ユースケースと次の実装アクションへ。</p>
+        <p class="prog-lead">AIを経営の言葉で理解し、自社課題を解くDEMOと実装計画へ。</p>
         <p class="prog-body">
-          生成AI、AI活用、AI Transformationに関する共通理解をつくり、自社の業務課題からAI活用候補を
-          発掘する宿泊型企業研修です。ユースケースの定義、PrototypeまたはPrompt Workshop、
-          事業価値と実現性による優先順位付けを行い、検証計画と導入ロードマップの素案まで整理します。
+          生成AIの市況・仕組み・リスクを経営の視点で理解し、自社業務の棚卸し、AI適用候補の選定、
+          ROI・投資判断、AIワークフローまたはAIエージェントのDEMO構築まで進める
+          役員・経営層向けの実践プログラムです。学習だけで終わらず、AI経営戦略と
+          次の実装アクションを持ち帰ります。
         </p>
         <div class="prog-rows">
-          <div><b>Recommended For</b><span>経営層 / 部門責任者 / AI推進チーム / DX推進チーム / 実務チーム</span></div>
-          <div><b>Key Focus</b><span>Generative AI / Business Challenge Mapping / Use Case Discovery / Use Case Definition / Prototype・Prompt Workshop / Prioritization / Implementation Planning</span></div>
-          <div><b>Program Flow</b><span>AIの共通理解 → 業務課題の整理 → ユースケース発掘 → ユースケース定義 → Prototype / Prompt Workshop → 優先順位付け → 検証・実装計画</span></div>
-          <div><b>Structure</b><span>YZ PARTNERS × KIKYŪ / FHM<small>Partnerが研修設計・専門Sessionを担い、KIKYŪ / FHMが宿泊・食事・施設・運営環境を提供します。</small></span></div>
-          <div><b>Expected Outcomes</b><span>AI活用候補一覧 / 優先ユースケース / ユースケース定義 / 検証計画 / 次の実装アクション / 導入ロードマップの素案</span></div>
+          <div><b>Recommended For</b><span>経営者 / 役員 / 部門責任者 / AI推進責任者 / DX推進責任者 / 次世代経営リーダー</span></div>
+          <div><b>Key Focus</b><span>AI経営リテラシー / 生成AIの仕組みと限界 / 役員業務ハンズオン / 業務棚卸し / AI適用マップ / ROI・投資判断 / AIガバナンス / AI Workflow・AI Agent / AI経営戦略</span></div>
+          <div><b>Program Flow</b><span>AI市況・仕組みの理解 → 役員業務ハンズオン → 自社業務の棚卸し → AI適用候補の選定 → ROI・リスク評価 → AI Workflow / Agent DEMO → AI経営戦略・実装計画</span></div>
+          <div><b>Structure</b><span>YZ PARTNERS × KIKYŪ / FHM<small>YZ PARTNERSがAI・DX領域の専門設計、講義、演習、DEMO共創、戦略設計を担い、KIKYŪ / FHMが宿泊、研修環境、食事、運営、経営層同士の対話環境を提供します。</small></span></div>
+          <div><b>Expected Outcomes</b><span>役員業務で使用するプロンプト / 自社AI活用候補 / AI適用マップ / 優先ユースケース / ROI試算の骨子 / AI利用ルール・ガバナンス論点 / AI WorkflowまたはAgent DEMO / 90日アクションプラン / AI経営戦略・ロードマップの骨子<small>※成果物例です。企業の課題、事前準備、参加者、実施時間によって異なります。</small></span></div>
           <div><b>Optional</b><span>Natural Onsen / Pool / Free Time<small>※本編外・自由参加です。温泉・プールは滞在中の自由時間にご利用いただけます。</small></span></div>
         </div>
         <button type="button" class="prog-more" data-modal="pm-3">
@@ -899,29 +922,93 @@ footer{ background:var(--dark); padding:72px 56px 40px; }
 <dialog class="pmodal" id="pm-3" aria-labelledby="pm3-t" aria-describedby="pm3-d">
   <div class="pm-scroll">
     <div class="pm-head">
-      <img src="https://images.unsplash.com/photo-1565350897149-38dfafa81d83?auto=format&fit=crop&w=1600&q=70" alt="ビジネスチームが業務でのAI活用について議論するAI Retreatのプログラムイメージ" style="object-position:center 40%;">
+      <img src="https://images.unsplash.com/photo-1565350897149-38dfafa81d83?auto=format&fit=crop&w=1600&q=70" alt="経営チームがAI Workflowと業務活用について議論するAI Retreatのプログラムイメージ" style="object-position:center 40%;">
       <button type="button" class="pm-close" data-close aria-label="閉じる">✕</button>
     </div>
     <div class="pm-body">
-      <span class="pm-num">Program 03</span>
-      <h3 class="pm-title" id="pm3-t">AI RETREAT — with YZ PARTNERS</h3>
-      <p class="pm-lead">生成AIを学ぶだけで終わらせず、自社業務での活用テーマと次の行動へ。</p>
+      <span class="pm-num">Program 03 — with YZ PARTNERS</span>
+      <h3 class="pm-title" id="pm3-t">AI RETREAT</h3>
+      <p class="pm-lead">AIを、経営の言葉で。— 触れる・語れる・見極められる・守れる・導ける経営層へ。</p>
       <p class="pm-desc" id="pm3-d">
-        生成AI、AI活用、AI Transformation等をテーマに、学習、実践、自社業務への適用検討を
-        2泊3日で行う宿泊型企業研修です。チームで共通理解をつくり、ユースケースと
-        次の実装アクションまで整理します。
+        生成AIの市況・仕組み・リスクを経営の視点で理解し、自社業務の棚卸し、AI適用候補の選定、
+        ROI・投資判断、AIワークフローまたはAIエージェントのDEMO構築まで進める役員・経営層向けの
+        実践プログラムです。講義だけでなく全員がPCで演習し、自社業務・自社課題を題材に、
+        AI経営戦略と次の実装アクションを持ち帰ります。
       </p>
-      <div class="pm-rows">
-        <div><b>Recommended For</b><span>経営層 / 部門責任者 / AI推進チーム / DX推進チーム / 実務チーム</span></div>
-        <div><b>Key Objectives</b><span>AIに関する共通理解 / 自社課題の整理 / ユースケースの発掘 / 優先順位の決定 / 次の実装アクションの設計</span></div>
-        <div><b>Session Examples</b><span>AI Landscape &amp; Common Understanding / Business Challenge Mapping / Use Case Discovery / Use Case Definition / Prototype・Prompt Workshop / Prioritization / Implementation Dialogue / Implementation Planning</span></div>
-        <div><b>2泊3日の構成例</b><span>Day 1: AIの共通理解 / 自社課題の共有<br>Day 2: ユースケース発掘 / 業務適用Workshop / 優先順位付け<br>Day 3: 実装アクション / ロードマップ整理</span></div>
-        <div><b>Program Structure</b><span>YZ PARTNERS × KIKYŪ / FHM<br><small>Partnerが研修設計・専門Sessionを担い、KIKYŪ / FHMが宿泊・食事・施設・運営環境を提供します。</small></span></div>
-        <div><b>Expected Outcomes</b><span>AI活用候補一覧 / 優先ユースケース / ユースケース定義 / 検証計画 / 次の実装アクション / 導入ロードマップの素案<br><small>※内容は成果例です。目的に応じて設計します。</small></span></div>
-        <div><b>Optional Elements</b><span>Natural Onsen / Pool / Free Time<br><small>※本編外です。温泉・プールは滞在中の自由時間にご利用いただける施設です。</small></span></div>
+
+      <h4 class="pm-sec"><small>Competencies</small>経営層が身につける5つのAIコンピテンシー</h4>
+      <div class="comp-list">
+        <div><b><i>01</i>語れる</b><span>AI市況、技術トレンド、自社業界への影響を、経営の言葉で説明できる。</span></div>
+        <div><b><i>02</i>使える</b><span>調査、資料読解、文書作成、意思決定の壁打ち等で、生成AIを実際に活用できる。</span></div>
+        <div><b><i>03</i>見極められる</b><span>投資対効果、ベンダー提案、社内稟議、技術的な実現可能性を評価できる。</span></div>
+        <div><b><i>04</i>守れる</b><span>情報漏洩、著作権、ハルシネーション、シャドーAI等のリスクを理解し、利用ルールを考えられる。</span></div>
+        <div><b><i>05</i>導ける</b><span>AIを前提とした業務、組織、人材、データ、ガバナンスの方向性を構想できる。</span></div>
       </div>
+
+      <h4 class="pm-sec"><small>Program Levels</small>3段階のプログラム設計</h4>
+      <div class="pm-rows">
+        <div><b>Foundation<br><small style="color:var(--stone);">AI経営リテラシー</small></b><span>AI市況と生成AIの仕組み / 役員業務ハンズオン / プロンプトの基本 / リスクとガバナンス</span></div>
+        <div><b>Implementation<br><small style="color:var(--stone);">業務変革・実装</small></b><span>業務棚卸し / AI適用マップ / ノーコードAI Workflow / 投資判断・ROI / ベンダー評価</span></div>
+        <div><b>Strategy<br><small style="color:var(--stone);">AIエージェント・経営戦略</small></b><span>AIエージェント最前線 / 自社課題の要件定義 / AI Agent DEMO共創 / AI経営戦略 / 実装ロードマップ</span></div>
+      </div>
+      <p class="src-note">
+        企業のAI活用状況に応じて、各段階の比重を調整します。2泊3日の実施時間と事前準備に合わせて設計します。
+      </p>
+
+      <h4 class="pm-sec"><small>2 Nights / 3 Days</small>2泊3日の進め方</h4>
+      <div class="pm-rows">
+        <div><b>Day 1 — Understand</b><span>AI Readiness Check / AI市況と仕組み / 役員ハンズオン / Executive Night Session</span></div>
+        <div><b>Day 2 — Design &amp; Build</b><span>業務棚卸し / AI適用マップ / AI Workflow Workshop / ROI・ベンダー評価 / ガバナンス / Agent要件定義</span></div>
+        <div><b>Day 3 — Demo &amp; Commit</b><span>DEMO確認 / AI戦略・90日プラン / Executive Commitment</span></div>
+      </div>
+      <p class="src-note">詳細な時間割は「A RETREAT AT KIKYŪ — 2 NIGHTS / 3 DAYS」のAI RETREATタブをご覧ください。</p>
+
+      <h4 class="pm-sec"><small>Deliverables</small>持ち帰る成果物(成果物例)</h4>
+      <div class="pm-rows">
+        <div><b>成果物例</b><span>役員業務で使用するプロンプト / 自社AI活用候補 / AI適用マップ / 優先ユースケース / ROI試算の骨子 / AI利用ルール・ガバナンス論点 / AI WorkflowまたはAgent DEMO / 90日アクションプラン / AI経営戦略・ロードマップの骨子<br><small>※企業の課題、事前準備、参加者、実施時間によって異なります。</small></span></div>
+      </div>
+
+      <h4 class="pm-sec"><small>Before / During / After</small>研修前後の支援</h4>
+      <div class="pm-rows">
+        <div><b>Before</b><span>受講者アンケート / AI活用度診断 / 経営課題のヒアリング / DEMO候補テーマの整理 / 機微情報の取扱確認</span></div>
+        <div><b>During</b><span>講義 / ハンズオン / 自社課題Workshop / DEMO共創 / 90日アクションプラン</span></div>
+        <div><b>After</b><span>ご要望に応じて、研修後のフォローアップや実装支援も個別に設計します。<br><small>例:進捗確認 / 導入上の課題整理 / 本番実装・全社展開の個別相談</small></span></div>
+      </div>
+
+      <h4 class="pm-sec"><small>AI Program Partner</small>YZ PARTNERSについて</h4>
+      <p class="pm-desc">
+        YZ PARTNERSは、AIドリブンなコンサルティングを通じて、経営・業務変革の構想、導入、定着、
+        成果創出までを支援するProgram Partnerです。KIKYŪのAI RETREATでは、AI経営リテラシー、
+        自社業務への適用、AI Workflow・Agentの構想、実装ロードマップ等を、企業の課題に応じて設計します。
+      </p>
+      <div class="pm-rows" style="margin-top:14px;">
+        <div><b>Fields</b><span>AIX Consulting / DX Consulting / AI SaaS / AI Native / AI Workflow / AI Agent / Implementation Support</span></div>
+      </div>
+
+      <h4 class="pm-sec"><small>Public Track Record</small>YZ PARTNERS公式サイト掲載情報</h4>
+      <div class="yz-stats">
+        <div><b>10社+</b><span>累計支援者数</span></div>
+        <div><b>100%</b><span>継続・再発注率</span></div>
+        <div><b>50%</b><span>AI関連プロジェクト比率</span></div>
+        <div><b>5件</b><span>自社開発AI PoC</span></div>
+      </div>
+      <p class="src-note">As of June 2026(2026年6月時点) — 出典:<a href="https://yz-partners.co.jp/" target="_blank" rel="noopener noreferrer" style="color:var(--gold);">YZ PARTNERS公式サイト</a></p>
+
+      <h4 class="pm-sec"><small>Selected Consulting Cases</small>YZ PARTNERSの支援事例(公式サイト掲載・匿名)</h4>
+      <div class="case-item"><b>電力業 / 年商100億円規模 — エージェントAIによる契約取次・契約管理の自動化</b>
+        <span>公開成果:人力工数を約80%削減(必要人員5名→1名)、書類発送・更新漏れをゼロ化。</span></div>
+      <div class="case-item"><b>グローバル大手製造業 / 年商3兆円規模 — 大規模システム導入における指揮型PMO</b>
+        <span>公開成果:3か月の遅延見込みを1か月に圧縮。継続支援中。</span></div>
+      <div class="case-item"><b>AIスタートアップ / 年商2億円以下規模 — 新規事業立ち上げに向けた販売戦略・案件推進</b>
+        <span>公開成果:アポイント獲得率が2か月で5倍に向上。新規案件の顧客満足度100%で継続中。</span></div>
+      <p class="src-note">
+        YZ PARTNERS公式サイト掲載のコンサルティング・AI導入支援事例です。KIKYŪでのAI RETREAT実施事例ではありません。
+        成果は各案件の条件によるものであり、同一の結果を保証するものではありません。
+        出典:<a href="https://yz-partners.co.jp/" target="_blank" rel="noopener noreferrer" style="color:var(--gold);">yz-partners.co.jp</a>
+      </p>
+
       <div class="pm-foot">
-        <button type="button" class="pm-cta" data-consult="AI Retreat">このProgramについて相談する</button>
+        <button type="button" class="pm-cta" data-consult="AI Retreat">AI RETREATを相談する</button>
         <button type="button" class="pm-dismiss" data-close>閉じる</button>
       </div>
     </div>
@@ -1088,14 +1175,17 @@ footer{ background:var(--dark); padding:72px 56px 40px; }
         <p class="exp-sub">YZ PARTNERS</p>
       </div>
       <div>
+        <p class="exp-lead">AIを前提に、経営・業務変革を構想から導入・定着まで支援。</p>
         <div class="exp-body">
           <p>
-            企業向けAI領域のProgram Partner。生成AI、AI活用、AI Transformation等をテーマとした
-            宿泊型企業研修を設計します。
+            YZ PARTNERSは、AIドリブンなコンサルティングを通じて、経営・業務変革の構想、導入、定着、
+            成果創出までを支援するProgram Partnerです。KIKYŪのAI RETREATでは、AI経営リテラシー、
+            自社業務への適用、AI Workflow・Agentの構想、実装ロードマップ等を、企業の課題に応じて設計します。
           </p>
         </div>
         <div class="exp-keys">
-          <span>Generative AI</span><span>AI Utilization</span><span>AI Transformation</span>
+          <span>AIX Consulting</span><span>DX Consulting</span><span>AI SaaS</span>
+          <span>AI Native</span><span>AI Workflow</span><span>AI Agent</span><span>Implementation Support</span>
         </div>
       </div>
       <div class="exp-side">
@@ -1254,57 +1344,63 @@ footer{ background:var(--dark); padding:72px 56px 40px; }
 
     <!-- ── PLAN 3: AI ── -->
     <div class="tab-panel" id="tab-ai" role="tabpanel">
-      <p class="plan-purpose">生成AIを学ぶだけで終わらせず、自社業務での優先ユースケースと次の実装アクションをつくる。<span style="color:var(--gold);font-weight:400;font-style:italic;"> with YZ PARTNERS</span></p>
-      <p class="plan-for">Recommended For:経営層 / 部門責任者 / AI推進チーム / DX推進チーム / 実務チーム — Structure:YZ PARTNERS × KIKYŪ</p>
+      <p class="plan-purpose">AIを経営の言葉で理解し、自社課題を解くDEMOと実装計画へ。<span style="color:var(--gold);font-weight:400;font-style:italic;"> with YZ PARTNERS</span></p>
+      <p class="plan-for">Recommended For:経営者 / 役員 / 部門責任者 / AI推進責任者 / DX推進責任者 — Structure:YZ PARTNERS × KIKYŪ / FHM</p>
       <div class="plan-legend"><span><b>Core Program</b> = 本編</span><span class="lg-opt">Optional / Free Participation = 自由参加(本編外)</span></div>
       <div class="days">
         <div class="day fade">
-          <h4>Day 1</h4><h5>Align</h5>
+          <h4>Day 1</h4><h5>Understand &amp; Align</h5>
           <dl>
             <dt>15:00</dt><dd>Arrival / Check-in</dd>
-            <dt>15:30</dt><dd>Orientation<small>目的、参加者の前提知識、守秘ルールを共有</small></dd>
-            <dt>16:00</dt><dd>AI Landscape &amp; Common Understanding<small>生成AI、Enterprise AI、AI Transformationの共通理解</small></dd>
-            <dt>17:30</dt><dd>Business Challenge Mapping<small>各部門の課題と期待を共有</small></dd>
-            <dt>18:30</dt><dd>Dinner</dd>
-            <dt>20:00</dt><dd>AI Dialogue<small>AI導入に対する期待、懸念、組織課題を対話</small></dd>
-            <dt>21:30</dt><dd class="opt">Free Time / Natural Onsen<span class="optchip">Optional</span></dd>
-          </dl>
-        </div>
-        <div class="day fade">
-          <h4>Day 2</h4><h5>Discover &amp; Design</h5>
-          <dl>
-            <dt>08:30</dt><dd>Breakfast</dd>
-            <dt>09:30</dt><dd>Use Case Discovery<small>業務プロセスからAI活用候補を発掘</small></dd>
-            <dt>11:00</dt><dd>Use Case Definition<small>利用者、課題、データ、期待成果を整理</small></dd>
-            <dt>12:30</dt><dd>Lunch</dd>
-            <dt>13:30</dt><dd>Prototype / Prompt Workshop<small>選定したテーマを使った実践Workshop</small></dd>
-            <dt>15:30</dt><dd>Break</dd>
-            <dt>16:00</dt><dd>Prioritization<small>事業価値、実現性、リスクから優先順位を決定</small></dd>
-            <dt>17:30</dt><dd class="opt">Free Time<small>自由時間 — Natural Onsen / Pool / Free Time</small></dd>
+            <dt>15:30</dt><dd>AI Readiness Check<small>参加者のAI活用状況、経営課題、期待成果を共有</small></dd>
+            <dt>16:00</dt><dd>AI Landscape for Executives<small>AI市況、企業競争への影響、経営層が押さえるべき変化</small></dd>
+            <dt>17:00</dt><dd>How Generative AI Works<small>生成AIが賢く見える理由、間違える理由、限界</small></dd>
+            <dt>18:00</dt><dd>Executive AI Hands-on<small>調査、資料要約、意思決定の壁打ち等を実際に操作</small></dd>
             <dt>19:00</dt><dd>Dinner</dd>
-            <dt>20:30</dt><dd>Implementation Dialogue<small>導入障壁、ガバナンス、推進体制を議論</small></dd>
-            <dt>21:30</dt><dd class="opt">Free Time / Natural Onsen<span class="optchip">Optional</span></dd>
+            <dt>20:30</dt><dd>Executive Night Session<small>AI時代の競争優位、組織、人材、ガバナンスについて経営層同士で議論</small></dd>
+            <dt>22:00</dt><dd class="opt">Free Time<small>自由時間 — Natural Onsen / Pool / Free Time</small></dd>
           </dl>
         </div>
         <div class="day fade">
-          <h4>Day 3</h4><h5>Move to Action</h5>
+          <h4>Day 2</h4><h5>Design &amp; Build</h5>
           <dl>
             <dt>08:30</dt><dd>Breakfast</dd>
-            <dt>09:30</dt><dd>Implementation Planning<small>検証方法、担当、期限、必要データを整理</small></dd>
-            <dt>10:15</dt><dd>Roadmap &amp; Commitment</dd>
-            <dt>10:40</dt><dd>Final Sharing</dd>
+            <dt>09:30</dt><dd>Business Process Mapping<small>自社の業務、課題、時間のかかる作業を棚卸し</small></dd>
+            <dt>11:00</dt><dd>AI Opportunity Mapping<small>インパクトと実現性からAI適用候補を整理</small></dd>
+            <dt>12:30</dt><dd>Lunch</dd>
+            <dt>13:30</dt><dd>AI Workflow Workshop<small>自社課題を題材に、AI WorkflowまたはPrototypeを構築</small></dd>
+            <dt>15:00</dt><dd>ROI &amp; Vendor Evaluation<small>投資対効果、費用構造、内製・外注・SaaSの判断</small></dd>
+            <dt>16:00</dt><dd>AI Governance<small>情報漏洩、著作権、誤情報、利用ルール、責任体制</small></dd>
+            <dt>17:00</dt><dd>AI Agent Requirement Design<small>入力、判断、処理、出力、人間の関与を整理</small></dd>
+            <dt>18:00</dt><dd class="opt">Free Time<small>自由時間 — Natural Onsen / Pool / Free Time</small></dd>
+            <dt>19:00</dt><dd>Dinner</dd>
+            <dt>20:30</dt><dd>Implementation Dialogue<small>導入障壁、社内展開、推進体制について議論</small></dd>
+            <dt>22:00</dt><dd class="opt">Free Time<small>自由時間 — Natural Onsen / Pool / Free Time</small></dd>
+          </dl>
+        </div>
+        <div class="day fade">
+          <h4>Day 3</h4><h5>Demo &amp; Commit</h5>
+          <dl>
+            <dt>08:30</dt><dd>Breakfast</dd>
+            <dt>09:30</dt><dd>AI Agent / Workflow DEMO<small>構築したDEMOまたはPrototypeを確認</small></dd>
+            <dt>10:00</dt><dd>AI Strategy &amp; 90-Day Plan<small>優先テーマ、担当、期限、データ、予算、効果測定を整理</small></dd>
+            <dt>10:30</dt><dd>Executive Commitment<small>経営チームとしての次の一手を共有</small></dd>
             <dt>11:00</dt><dd>Check-out</dd>
           </dl>
         </div>
       </div>
       <div class="plan-outcome fade">
-        <b>Expected Outcomes</b>
-        AI活用候補一覧 / 優先ユースケース / ユースケース定義 / 検証計画 / 次の実装アクション / 導入ロードマップの素案
+        <b>Expected Outcomes(成果物例)</b>
+        AI活用度・経営課題の整理 / AI適用マップ / 優先ユースケース / AI WorkflowまたはAgent DEMO / ROI・投資判断の論点 / AIガバナンス論点 / 90日アクションプラン / AI経営戦略骨子
       </div>
       <div class="plan-outcome fade" style="border-left-color:var(--stone);">
         <b>Optional Elements(自由参加・本編外)</b>
         Natural Onsen / Pool / Free Time<br><small>※温泉・プールは滞在中の自由時間にご利用いただける施設です。</small>
       </div>
+      <p class="sched-note fade" style="margin-top:20px;">
+        上記は2泊3日のモデル例です。DEMO構築の範囲、使用データ、研修レベル、成果物は、
+        事前ヒアリングと実施条件に応じて個別に設計します。
+      </p>
     </div>
 
     <!-- ── PLAN 4: WOMEN'S LEADERSHIP ── -->
