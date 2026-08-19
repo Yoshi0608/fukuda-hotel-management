@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Stay — Fukuda Hotel Management</title>
-<meta name="description" content="Quiet luxury for private stays, families, and escapes. Exclusive whole-building rentals along Japan's most storied coastlines.">
+<title>STAY|福田ホテルマネジメントの宿泊施設</title>
+<meta name="description" content="Fukuda Hotel Managementが企画・運営するホテル・一棟貸し宿泊施設をご案内します。営業中のThe KIKYŪ Atamiと、開業予定のTakeoka Private Beach Villaをご覧いただけます。">
 
 <style>
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
@@ -129,90 +129,6 @@ body {
   font-size: 12px; letter-spacing: 0.12em; color: rgba(255,255,255,0.45);
   max-width: 440px; line-height: 1.85; margin-bottom: 32px;
 }
-.hero-tags {
-  display: flex; gap: 24px; flex-wrap: wrap;
-}
-.hero-tag-item {
-  font-family: -apple-system, 'Helvetica Neue', sans-serif;
-  font-size: 9px; letter-spacing: 0.28em; text-transform: uppercase;
-  color: rgba(255,255,255,0.35);
-}
-.hero-tag-item::before { content: '·'; margin-right: 10px; color: var(--gold); }
-
-/* ── HERO TAGLINE STRIP ─────────────────────────────────── */
-.hero-tagline-strip {
-  background: var(--cream);
-  border-bottom: 1px solid var(--sand);
-  padding: 32px 80px;
-  text-align: center;
-}
-.hero-tagline-strip p {
-  font-family: 'Georgia', 'Hiragino Mincho ProN', 'Yu Mincho', serif;
-  font-size: clamp(14px, 1.4vw, 18px);
-  color: var(--ink);
-  letter-spacing: 0.08em;
-  line-height: 1.6;
-}
-.hero-tagline-strip em {
-  font-style: normal;
-  border-bottom: 1px solid var(--gold);
-  padding-bottom: 1px;
-}
-
-/* ── HIGHLIGHTS ─────────────────────────────────────────── */
-.highlights {}
-.hl-block {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  min-height: 560px;
-}
-.hl-block--reverse .hl-img { order: 2; }
-.hl-block--reverse .hl-text { order: 1; }
-.hl-img {
-  position: relative; overflow: hidden;
-}
-.hl-img img {
-  width: 100%; height: 100%;
-  object-fit: cover; display: block;
-}
-.hl-text {
-  background: var(--cream);
-  padding: 80px 72px;
-  display: flex; flex-direction: column; justify-content: center;
-}
-.hl-text--alt { background: var(--cream-d); }
-.hl-eyebrow {
-  font-family: -apple-system, 'Helvetica Neue', sans-serif;
-  font-size: 9px; letter-spacing: 0.36em; text-transform: uppercase;
-  color: var(--gold); display: block; margin-bottom: 20px;
-}
-.hl-h {
-  font-size: clamp(22px, 2.6vw, 38px);
-  font-weight: 400; color: var(--ink);
-  line-height: 1.25; margin-bottom: 28px;
-  letter-spacing: -0.01em;
-}
-.hl-body {
-  font-size: 14px; line-height: 2.0;
-  color: var(--mid); letter-spacing: 0.04em;
-  max-width: 420px;
-}
-.hl-stat {
-  margin-top: 36px; padding-top: 28px;
-  border-top: 1px solid var(--sand);
-  display: flex; gap: 48px;
-}
-.hl-stat-num {
-  font-family: 'Georgia', serif;
-  font-size: clamp(28px, 3vw, 44px);
-  color: var(--gold); display: block;
-  line-height: 1; margin-bottom: 6px;
-}
-.hl-stat-label {
-  font-family: -apple-system, 'Helvetica Neue', sans-serif;
-  font-size: 9px; letter-spacing: 0.22em; text-transform: uppercase;
-  color: var(--warm);
-}
 
 /* ── INTRO ───────────────────────────────────────────────── */
 .intro {
@@ -233,14 +149,6 @@ body {
 .intro-body {
   font-size: 15px; line-height: 2.1; color: var(--mid); letter-spacing: 0.04em;
   max-width: 560px; margin-bottom: 20px;
-}
-.intro-promise {
-  margin-top: 44px; padding: 28px 32px;
-  border-left: 2px solid var(--gold); background: var(--cream-d);
-}
-.intro-promise p {
-  font-size: 14px; line-height: 1.9; color: var(--ink);
-  font-style: italic; letter-spacing: 0.03em;
 }
 
 /* ── PROPERTIES ──────────────────────────────────────────── */
@@ -334,7 +242,20 @@ body {
   color: var(--gold); border: 1px solid rgba(184,150,90,0.4);
   padding: 5px 14px;
 }
-.pcard.coming-soon { cursor: default; }
+.pcard.coming-soon { cursor: default; pointer-events: none; }
+.pcard.coming-soon:hover .pcard-img { transform: none; }
+.pcard-badge-open { color: var(--white); background: var(--gold); border-color: var(--gold); }
+a.pcard { text-decoration: none; display: block; }
+a.pcard:focus-visible { outline: 2px solid var(--gold); outline-offset: 4px; }
+.hero-select-cta {
+  display: inline-block; text-decoration: none;
+  font-family: -apple-system, 'Helvetica Neue', sans-serif;
+  font-size: 12px; letter-spacing: 0.14em; color: #fff;
+  background: var(--gold); border: 1px solid var(--gold);
+  padding: 15px 40px; transition: all .3s;
+}
+.hero-select-cta:hover { background: #fff; color: var(--ink); border-color: #fff; }
+#properties { scroll-margin-top: 90px; }
 
 /* ── CTA ─────────────────────────────────────────────────── */
 .cta-section { padding: 130px 80px; text-align: center; max-width: 1200px; margin: 0 auto; }
@@ -492,12 +413,6 @@ footer { background: var(--dark); padding: 64px 80px 36px; border-top: 1px solid
     padding: 28px 28px 36px;
   }
 
-  .hero-tagline-strip { padding: 24px 32px; }
-  .hl-block { grid-template-columns: 1fr; }
-  .hl-block--reverse .hl-img { order: 0; }
-  .hl-block--reverse .hl-text { order: 1; }
-  .hl-img img { aspect-ratio: 4/3; height: auto; }
-  .hl-text { padding: 56px 32px; }
   .cta-section { padding: 90px 32px; }
   .switch-cta { padding: 56px 32px; }
   .switch-inner { flex-direction: column; text-align: center; }
@@ -530,185 +445,77 @@ footer { background: var(--dark); padding: 64px 80px 36px; border-top: 1px solid
   <div class="hero-bg"></div>
   <div class="hero-veil"></div>
   <div class="hero-body">
-    <span class="hero-eyebrow t-ja">個人・ご家族・レジャー向け</span>
-    <span class="hero-eyebrow t-en">Personal · Family · Leisure</span>
-    <h1 class="hero-h">Stay</h1>
-    <p class="hero-sub t-ja">
-      日常から切り離された時間を、あなただけのために。<br>
-      波の音。温泉の湯気。誰にも邪魔されない空白。
+    <span class="hero-eyebrow">Private Stays</span>
+    <h1 class="hero-h" style="font-size:clamp(26px,3.4vw,46px);letter-spacing:0.02em;line-height:1.4;">目的に合わせて選べる、<br>2つの滞在先。</h1>
+    <p class="hero-sub" style="font-size:14px;letter-spacing:0.05em;color:rgba(255,255,255,0.8);max-width:560px;line-height:1.95;">
+      Fukuda Hotel Managementが企画・運営する、ホテル・一棟貸し宿泊施設をご案内します。
+      それぞれの施設ページから、滞在の特徴や宿泊情報をご確認いただけます。
     </p>
-    <p class="hero-sub t-en">
-      Private time, removed from the everyday.<br>
-      The sound of waves. Steam from the onsen. Silence that belongs only to you.
-    </p>
-    <div class="hero-tags">
-      <span class="hero-tag-item t-ja">完全一棟貸し</span>
-      <span class="hero-tag-item t-en">Whole-building exclusive</span>
-      <span class="hero-tag-item t-ja">天然温泉付き</span>
-      <span class="hero-tag-item t-en">Private onsen</span>
-      <span class="hero-tag-item t-ja">プライベートビーチ</span>
-      <span class="hero-tag-item t-en">Private beach</span>
-      <span class="hero-tag-item t-ja">海の一望</span>
-      <span class="hero-tag-item t-en">Ocean panorama</span>
-    </div>
+    <div><a href="#properties" class="hero-select-cta">施設を選ぶ</a></div>
   </div>
 </section>
 
-<!-- HERO TAGLINE STRIP -->
-<div class="hero-tagline-strip">
-  <p class="t-ja">「宿泊」ではなく、<em>「場所と時間」</em>を提供する。</p>
-  <p class="t-en">Not accommodation. <em>Time, and place.</em></p>
-</div>
 
-<!-- HIGHLIGHTS: 花火 / 大人数 / 夜景 -->
-<section class="highlights">
 
-  <!-- 花火 -->
-  <div class="hl-block">
-    <div class="hl-img">
-      <img src="images_corp/vista.jpg" alt="熱海の花火">
-    </div>
-    <div class="hl-text">
-      <span class="hl-eyebrow t-ja">熱海の花火</span>
-      <span class="hl-eyebrow t-en">Atami Fireworks</span>
-      <h2 class="hl-h t-ja">花火を、<br>テラスから<br>独占する。</h2>
-      <h2 class="hl-h t-en">The fireworks,<br>entirely yours.</h2>
-      <p class="hl-body t-ja">熱海の打ち上げ花火を、混雑する海岸からではなく、完全プライベートのテラスから、誰とも共有しない特等席で。熱海港を一望するこの場所でしか味わえない体験です。</p>
-      <p class="hl-body t-en">Atami's legendary fireworks. Not from a crowded shoreline, but from your own private terrace above the harbor. A front-row seat that belongs to no one else.</p>
-    </div>
-  </div>
 
-  <!-- 大人数利用 -->
-  <div class="hl-block hl-block--reverse">
-    <div class="hl-img">
-      <img src="images_corp/experience.jpg" alt="大人数での滞在">
-    </div>
-    <div class="hl-text hl-text--alt">
-      <span class="hl-eyebrow t-ja">大人数での滞在</span>
-      <span class="hl-eyebrow t-en">Large Group Stays</span>
-      <h2 class="hl-h t-ja">最大26名。<br>それでも、<br>「プライベート」。</h2>
-      <h2 class="hl-h t-en">Up to 26 guests.<br>Still entirely<br>private.</h2>
-      <p class="hl-body t-ja">家族の集まり、同窓会、親族一同での特別な節目に。一般的なホテルでは叶わない「一棟まるごと貸し切り」の贅沢を、最大26名でお楽しみいただけます。</p>
-      <p class="hl-body t-en">Family reunions, milestone gatherings, multi-generational stays. Whole-building exclusivity, for up to 26 guests. Still entirely to yourselves.</p>
-      <div class="hl-stat">
-        <div>
-          <span class="hl-stat-num">26</span>
-          <span class="hl-stat-label t-ja">名まで収容可能</span>
-          <span class="hl-stat-label t-en">Max. capacity</span>
-        </div>
-        <div>
-          <span class="hl-stat-num">100%</span>
-          <span class="hl-stat-label t-ja">完全プライベート</span>
-          <span class="hl-stat-label t-en">Exclusive rental</span>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- 夜景 -->
-  <div class="hl-block">
-    <div class="hl-img">
-      <img src="images_corp/kiten_entrance.jpg" alt="熱海の夜景">
-    </div>
-    <div class="hl-text">
-      <span class="hl-eyebrow t-ja">熱海の夜景</span>
-      <span class="hl-eyebrow t-en">Night Over Atami</span>
-      <h2 class="hl-h t-ja">夜が更けるほど、<br>この場所は<br>美しくなる。</h2>
-      <h2 class="hl-h t-en">As the night deepens,<br>so does<br>the view.</h2>
-      <p class="hl-body t-ja">熱海港を見下ろす高台から、街の灯りが水面に映る夜景を。二人きりで、あるいは皆と、誰の邪魔もなく眺める夜があります。</p>
-      <p class="hl-body t-en">From the hilltop above Atami Harbor, the city lights spill across the water. A view that deepens as the evening does. Shared with whomever you choose, and no one else.</p>
-    </div>
-  </div>
-
-</section>
 
 <!-- INTRO -->
 <section class="intro">
-  <span class="intro-label t-ja">Stayとは</span>
-  <span class="intro-label t-en">About Stay</span>
+  <span class="intro-label">Stay with Fukuda Hotel Management</span>
   <div class="intro-content">
-    <h2 class="intro-h t-ja">「宿泊」ではなく、<br>「場所との時間」を<br>提供します。</h2>
-    <h2 class="intro-h t-en">Not a hotel stay.<br>Time spent<br>with a place.</h2>
+    <h2 class="intro-h t-ja">個人・ご家族のための、<br>宿泊施設をご案内します。</h2>
+    <h2 class="intro-h t-en">Stays for individuals<br>and families.</h2>
     <p class="intro-body t-ja">
-      私たちのStayプランは、完全一棟貸し専用の滞在です。
-      他のゲストは存在せず、スタッフの姿もBGMもありません。
-      ただ、この場所と、あなただけの時間が残ります。
+      Fukuda Hotel Managementは、ホテルや一棟貸し施設など、宿泊施設の企画・運営を行っています。
+      プライベートな休暇、ご家族や大切な方との滞在など、目的に合った施設をお選びください。
     </p>
     <p class="intro-body t-en">
-      Our Stay offering is exclusively whole-building rental.
-      No other guests. No staff presence. No background music.
-      Only the place and your time remain.
+      Fukuda Hotel Management plans and operates hotels and whole-villa rental properties.
+      Choose the property that fits your stay — a private holiday, or time with family and loved ones.
     </p>
-    <p class="intro-body t-ja">
-      温泉、海、食卓。それらをあなた自身のペースで。
-      何もしない贅沢を、世界水準のロケーションで体験してください。
-    </p>
-    <p class="intro-body t-en">
-      Hot springs, ocean, the dining table. All at your own pace.
-      The luxury of doing nothing, at a world-class location.
-    </p>
-    <blockquote class="intro-promise t-ja">
-      <p>「ここに滞在した人は、帰るときに少し、顔が変わっている。それが私たちの基準です。」</p>
-    </blockquote>
-    <blockquote class="intro-promise t-en">
-      <p>"Those who stay here leave looking a little different. That is our standard."</p>
-    </blockquote>
   </div>
 </section>
 
 <div style="width:100%;height:1px;background:var(--sand);"></div>
 
 <!-- PROPERTIES -->
-<section class="properties">
+<section class="properties" id="properties">
   <div class="properties-header">
     <div>
-      <span class="properties-tag">Stay Properties</span>
-      <h2 class="properties-h t-ja">ご滞在いただける施設</h2>
-      <h2 class="properties-h t-en">Available for your stay</h2>
+      <span class="properties-tag">Our Stays</span>
+      <h2 class="properties-h t-ja">滞在先を選ぶ。</h2>
+      <h2 class="properties-h t-en">Choose your stay.</h2>
     </div>
-    <span class="properties-count t-ja">2 施設</span>
-    <span class="properties-count t-en">2 Properties</span>
+    <span class="properties-count t-ja">現在営業中の熱海の施設と、今後開業予定の竹岡の施設をご案内します。</span>
+    <span class="properties-count t-en">One property now open in Atami, and one opening soon in Takeoka.</span>
   </div>
 
   <div class="prop-grid">
 
-    <!-- The Kiten -->
-    <div class="pcard coming-soon">
-      <img class="pcard-img" src="images_corp/kiten_entrance.jpg" alt="Atami Ocean View Villa with Private Spa">
+    <!-- The KIKYU Atami (OPEN, links to existing LP) -->
+    <a class="pcard" href="ocean-view-retreat-lp.html" aria-label="The KIKYŪ Atami の施設ページを見る">
+      <img class="pcard-img" src="images_corp/kiten_entrance.jpg" alt="The KIKYŪ Atami">
       <div class="pcard-veil"></div>
       <div class="pcard-body">
         <span class="pcard-num">01 · Atami, Shizuoka</span>
-        <h3 class="pcard-name">Atami Ocean View Villa<br>with Private Spa</h3>
-        <span class="pcard-tagline t-ja">熱海港を見下ろす高台の別邸。天然温泉でリセットする特別な滞在。</span>
-        <span class="pcard-tagline t-en">A hilltop villa above Atami Harbor, with private onsen to truly restore.</span>
-        <div class="pcard-features">
-          <span class="pcard-feat t-ja">完全一棟貸し</span>
-          <span class="pcard-feat t-en">Exclusive rental</span>
-          <span class="pcard-feat t-ja">天然温泉付き</span>
-          <span class="pcard-feat t-en">Private onsen</span>
-          <span class="pcard-feat t-ja">熱海港一望</span>
-          <span class="pcard-feat t-en">Harbor panorama</span>
-        </div>
-        <div class="pcard-badge">Coming Soon...</div>
+        <h3 class="pcard-name">The KIKYŪ Atami</h3>
+        <span class="pcard-tagline t-ja">熱海の高台から相模湾を望む、温泉・プール付きの一棟貸し宿泊施設。</span>
+        <span class="pcard-tagline t-en">A whole-villa stay above Atami with onsen and pool, overlooking Sagami Bay.</span>
+        <div class="pcard-badge pcard-badge-open">Open</div>
+        <div class="pcard-cta"><span class="t-ja">The KIKYŪ Atamiを見る</span><span class="t-en">View The KIKYŪ Atami</span><span class="pcard-cta-arrow"></span></div>
       </div>
-    </div>
+    </a>
 
-    <!-- Takeoka -->
-    <div class="pcard coming-soon">
-      <img class="pcard-img" src="images_corp/takeoka_beach.jpg" alt="Takeoka Private Beach Villa">
+    <!-- Takeoka (COMING SOON, not interactive) -->
+    <div class="pcard coming-soon" data-property="takeoka-private-beach-villa" aria-disabled="true">
+      <img class="pcard-img" src="images_corp/takeoka_beach.jpg" alt="Takeoka Private Beach Villa(開業準備中)">
       <div class="pcard-veil"></div>
       <div class="pcard-body">
         <span class="pcard-num">02 · Kyonan, Chiba</span>
         <h3 class="pcard-name">Takeoka<br>Private Beach Villa</h3>
-        <span class="pcard-tagline t-ja">庭を出れば10秒で波打ち際。プライベートビーチ独占。</span>
-        <span class="pcard-tagline t-en">Step outside your door. Ten seconds to the water's edge.</span>
-        <div class="pcard-features">
-          <span class="pcard-feat t-ja">プライベートビーチ</span>
-          <span class="pcard-feat t-en">Private beach</span>
-          <span class="pcard-feat t-ja">千葉 · 南房総</span>
-          <span class="pcard-feat t-en">Southern Chiba</span>
-        </div>
-        <div class="pcard-badge">Coming Soon...</div>
+        <span class="pcard-tagline t-ja">千葉・竹岡で開業を予定している、プライベートビーチを備えた宿泊施設。</span>
+        <span class="pcard-tagline t-en">A private-beach property now in preparation in Takeoka, Chiba.</span>
+        <div class="pcard-badge">Coming Soon</div>
       </div>
     </div>
 
