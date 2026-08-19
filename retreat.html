@@ -487,17 +487,35 @@ body.pm-open{ overflow:hidden; }
 .glance-row span{ font-size:13.5px; letter-spacing:0.05em; color:var(--mid); padding:16px 22px; line-height:1.8; }
 
 /* ── PROPERTY GALLERY ────────────────────────────────────── */
-.prop-hero-img{ width:100%; aspect-ratio:21/10; object-fit:cover; display:block; }
-.prop-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:26px; margin-top:26px; }
-.prop-grid figure{ margin:0; }
-.prop-grid img{ width:100%; aspect-ratio:4/3; object-fit:cover; display:block; }
+.prop-hero-box{
+  position:relative; width:100%; aspect-ratio:21/10; overflow:hidden; background:var(--ivory-d);
+}
+.prop-hero-box img{
+  display:block; width:100%; height:100%; max-width:none;
+  object-fit:cover; object-position:center;
+}
+.prop-grid{
+  display:grid; grid-template-columns:repeat(3, minmax(0,1fr));
+  gap:32px 24px; margin-top:28px; align-items:start;
+}
+.prop-grid figure{ margin:0; min-width:0; }
+.prop-imgbox{
+  position:relative; width:100%; aspect-ratio:4/3; overflow:hidden; background:var(--ivory-d);
+}
+.prop-imgbox img{
+  display:block; width:100%; height:100%; max-width:none;
+  object-fit:cover; object-position:center;
+}
 .prop-cap{
-  font-size:10px; letter-spacing:0.14em; color:var(--warm); margin-top:9px;
+  font-size:10px; letter-spacing:0.14em; color:var(--warm); margin-top:10px;
   text-transform:uppercase;
 }
-.prop-note{ font-size:11px; letter-spacing:0.05em; color:var(--stone); margin-top:22px; line-height:1.9; }
-@media (max-width:900px){ .prop-grid{ grid-template-columns:1fr 1fr; gap:14px; } }
-@media (max-width:560px){ .prop-grid{ grid-template-columns:1fr; } }
+@media (max-width:900px){
+  .prop-grid{ grid-template-columns:repeat(2, minmax(0,1fr)); gap:24px 14px; }
+}
+@media (max-width:600px){
+  .prop-grid{ grid-template-columns:1fr; gap:24px; }
+}
 
 /* ── FAQ ─────────────────────────────────────────────────── */
 .faq{ border-top:1px solid var(--line); }
@@ -1558,25 +1576,27 @@ footer{ background:var(--dark); padding:72px 56px 40px; }
     </div>
 
     <figure class="fade" style="margin:0;">
-      <img class="prop-hero-img" src="images_corp/kikyu-living-2.jpg" alt="The KIKYŪ 4階リビングダイニング — 相模湾を望む大開口の空間" width="1567" height="1045">
+      <div class="prop-hero-box">
+        <img src="images_corp/kikyu-living-2.jpg" alt="The KIKYŪ 4階リビングダイニング — 相模湾を望む大開口の空間" width="1567" height="1045">
+      </div>
       <figcaption class="prop-cap">4F Living &amp; Dining</figcaption>
     </figure>
     <div class="prop-grid">
-      <figure class="fade"><img src="images_corp/kikyu-living-3.jpg" alt="The KIKYŪ 4階リビングダイニング 吹き抜け" loading="lazy" width="1567" height="1045"><figcaption class="prop-cap">4F Living — 吹き抜け</figcaption></figure>
-      <figure class="fade"><img src="images_corp/kikyu-hall-4f.jpg" alt="The KIKYŪ 4階廊下からの眺望" loading="lazy" width="1567" height="1045"><figcaption class="prop-cap">4F Hall</figcaption></figure>
-      <figure class="fade"><img src="images_corp/kikyu-lounge-4f.jpg" alt="The KIKYŪ 4階ラウンジ" loading="lazy" width="1567" height="1045"><figcaption class="prop-cap">4F Lounge</figcaption></figure>
-      <figure class="fade"><img src="images_corp/kikyu-playroom.jpg" alt="The KIKYŪ プレイルーム" loading="lazy" width="1567" height="1045"><figcaption class="prop-cap">Play Room</figcaption></figure>
-      <figure class="fade"><img src="images_corp/kikyu-terrace-5f.jpg" alt="The KIKYŪ 5階テラス" loading="lazy" width="1567" height="1045"><figcaption class="prop-cap">5F Terrace</figcaption></figure>
-      <figure class="fade"><img src="images_corp/kikyu-balcony-5f.jpg" alt="The KIKYŪ 5階バルコニー" loading="lazy" width="1567" height="1045"><figcaption class="prop-cap">5F Balcony</figcaption></figure>
-      <figure class="fade"><img src="images_corp/kikyu-master-5f.jpg" alt="The KIKYŪ 5階マスターベッドルーム" loading="lazy" width="1567" height="1045"><figcaption class="prop-cap">5F Master Bedroom</figcaption></figure>
-      <figure class="fade"><img src="images_corp/kikyu-bedroom-5f.jpg" alt="The KIKYŪ 5階ベッドルーム" loading="lazy" width="1567" height="1045"><figcaption class="prop-cap">5F Bedroom</figcaption></figure>
-      <figure class="fade"><img src="images_corp/kikyu-bedroom-4f.jpg" alt="The KIKYŪ 4階寝室" loading="lazy" width="1567" height="1045"><figcaption class="prop-cap">4F Bedroom</figcaption></figure>
-      <figure class="fade"><img src="images_corp/kikyu-washitsu-large.jpg" alt="The KIKYŪ 3階和室(大)" loading="lazy" width="1567" height="1045"><figcaption class="prop-cap">3F 和室(大)</figcaption></figure>
-      <figure class="fade"><img src="images_corp/kikyu-washitsu-small.jpg" alt="The KIKYŪ 3階和室(小)" loading="lazy" width="1567" height="1045"><figcaption class="prop-cap">3F 和室(小)</figcaption></figure>
-      <figure class="fade"><img src="images_corp/kikyu-hallway-3f.jpg" alt="The KIKYŪ 3階廊下" loading="lazy" width="1567" height="1045"><figcaption class="prop-cap">3F Hallway</figcaption></figure>
-      <figure class="fade"><img src="images_corp/kikyu-bath-2.jpg" alt="The KIKYŪ 1階大浴場" loading="lazy" width="1567" height="1045"><figcaption class="prop-cap">1F 大浴場</figcaption></figure>
-      <figure class="fade"><img src="images_corp/kikyu-bath-1.jpg" alt="The KIKYŪ 1階大浴場・洗面" loading="lazy" width="1567" height="1045"><figcaption class="prop-cap">1F 大浴場・洗面</figcaption></figure>
-      <figure class="fade"><img src="images_corp/kikyu-pool.jpg" alt="The KIKYŪ 屋外プールと外観" loading="lazy" width="1086" height="1448" style="object-position:center 60%;"><figcaption class="prop-cap">Outdoor Pool</figcaption></figure>
+      <figure class="fade"><div class="prop-imgbox"><img src="images_corp/kikyu-living-3.jpg" alt="The KIKYŪ 4階リビングダイニング 吹き抜け" loading="lazy" width="1567" height="1045"></div><figcaption class="prop-cap">4F Living — 吹き抜け</figcaption></figure>
+      <figure class="fade"><div class="prop-imgbox"><img src="images_corp/kikyu-hall-4f.jpg" alt="The KIKYŪ 4階廊下からの眺望" loading="lazy" width="1567" height="1045"></div><figcaption class="prop-cap">4F Hall</figcaption></figure>
+      <figure class="fade"><div class="prop-imgbox"><img src="images_corp/kikyu-lounge-4f.jpg" alt="The KIKYŪ 4階ラウンジ" loading="lazy" width="1567" height="1045"></div><figcaption class="prop-cap">4F Lounge</figcaption></figure>
+      <figure class="fade"><div class="prop-imgbox"><img src="images_corp/kikyu-playroom.jpg" alt="The KIKYŪ プレイルーム" loading="lazy" width="1567" height="1045"></div><figcaption class="prop-cap">Play Room</figcaption></figure>
+      <figure class="fade"><div class="prop-imgbox"><img src="images_corp/kikyu-terrace-5f.jpg" alt="The KIKYŪ 5階テラス" loading="lazy" width="1567" height="1045"></div><figcaption class="prop-cap">5F Terrace</figcaption></figure>
+      <figure class="fade"><div class="prop-imgbox"><img src="images_corp/kikyu-balcony-5f.jpg" alt="The KIKYŪ 5階バルコニー" loading="lazy" width="1567" height="1045"></div><figcaption class="prop-cap">5F Balcony</figcaption></figure>
+      <figure class="fade"><div class="prop-imgbox"><img src="images_corp/kikyu-master-5f.jpg" alt="The KIKYŪ 5階マスターベッドルーム" loading="lazy" width="1567" height="1045"></div><figcaption class="prop-cap">5F Master Bedroom</figcaption></figure>
+      <figure class="fade"><div class="prop-imgbox"><img src="images_corp/kikyu-bedroom-5f.jpg" alt="The KIKYŪ 5階ベッドルーム" loading="lazy" width="1567" height="1045"></div><figcaption class="prop-cap">5F Bedroom</figcaption></figure>
+      <figure class="fade"><div class="prop-imgbox"><img src="images_corp/kikyu-bedroom-4f.jpg" alt="The KIKYŪ 4階寝室" loading="lazy" width="1567" height="1045"></div><figcaption class="prop-cap">4F Bedroom</figcaption></figure>
+      <figure class="fade"><div class="prop-imgbox"><img src="images_corp/kikyu-washitsu-large.jpg" alt="The KIKYŪ 3階和室(大)" loading="lazy" width="1567" height="1045"></div><figcaption class="prop-cap">3F 和室(大)</figcaption></figure>
+      <figure class="fade"><div class="prop-imgbox"><img src="images_corp/kikyu-washitsu-small.jpg" alt="The KIKYŪ 3階和室(小)" loading="lazy" width="1567" height="1045"></div><figcaption class="prop-cap">3F 和室(小)</figcaption></figure>
+      <figure class="fade"><div class="prop-imgbox"><img src="images_corp/kikyu-hallway-3f.jpg" alt="The KIKYŪ 3階廊下" loading="lazy" width="1567" height="1045"></div><figcaption class="prop-cap">3F Hallway</figcaption></figure>
+      <figure class="fade"><div class="prop-imgbox"><img src="images_corp/kikyu-bath-2.jpg" alt="The KIKYŪ 1階大浴場" loading="lazy" width="1567" height="1045"></div><figcaption class="prop-cap">1F 大浴場</figcaption></figure>
+      <figure class="fade"><div class="prop-imgbox"><img src="images_corp/kikyu-bath-1.jpg" alt="The KIKYŪ 1階大浴場・洗面" loading="lazy" width="1567" height="1045"></div><figcaption class="prop-cap">1F 大浴場・洗面</figcaption></figure>
+      <figure class="fade"><div class="prop-imgbox"><img src="images_corp/kikyu-pool.jpg" alt="The KIKYŪ 屋外プールと外観" loading="lazy" width="1086" height="1448" style="object-position:center 60%;"></div><figcaption class="prop-cap">Outdoor Pool</figcaption></figure>
     </div>
 
     <h3 class="h-en fade" style="font-size:20px;margin:72px 0 24px;">CORPORATE USE AT A GLANCE</h3>
