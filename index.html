@@ -660,6 +660,20 @@ footer {
 .founder-cta:hover { color: var(--gold); border-bottom-color: var(--gold); }
 
 /* ─── RESPONSIVE ─────────────────────────────────────────── */
+@media (hover: none), (max-width: 1024px) {
+  /* Touch devices: hover-reveal states must be readable by default */
+  .exp-card-sub { color: rgba(255,255,255,0.88); }
+  .exp-card-cta { color: rgba(255,255,255,0.85); }
+  .exp-card-eyebrow { opacity: 1; }
+  .exp-card-veil {
+    background: linear-gradient(
+      to top,
+      rgba(10,8,5,0.92) 0%,
+      rgba(10,8,5,0.55) 55%,
+      rgba(10,8,5,0.45) 100%
+    );
+  }
+}
 @media (max-width: 1024px) {
   .phi { grid-template-columns: 1fr; gap: 72px; padding: 120px 48px; }
   .about { grid-template-columns: 1fr; gap: 32px; padding: 100px 48px; }
