@@ -3,1035 +3,674 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ocean View Retreat Atami — 相模湾を独り占めする、静寂の別邸</title>
-<meta name="description" content="熱海の高台に佇む完全貸切の別邸。相模湾を一望する開放的な眺望と、プライベート温泉が迎える非日常の時間。">
+<title>The KIKYŪ Atami|熱海の一棟貸しプライベートヴィラ(温泉・プール・花火)</title>
+<meta name="description" content="相模湾を望む、熱海の一棟貸しプライベートヴィラ The KIKYŪ Atami。天然温泉、屋外プール、DAMカラオケ、BBQ・焚き火。熱海海上花火大会の開催日には邸宅から花火を。空室・料金はお気軽にお問い合わせください。">
+<link rel="canonical" href="https://www.fukudahotel.com/ocean-view-retreat-lp">
+<meta property="og:title" content="The KIKYŪ Atami|熱海の一棟貸しプライベートヴィラ">
+<meta property="og:description" content="相模湾を望む熱海の一棟貸しヴィラ。天然温泉・プール・花火とともに、大切な方だけの滞在を。">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.fukudahotel.com/ocean-view-retreat-lp">
+<meta property="og:image" content="https://www.fukudahotel.com/images_corp/hero-slide-1.jpg">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LodgingBusiness",
+  "name": "The KIKYŪ Atami",
+  "alternateName": "The KIKYŪ",
+  "url": "https://www.fukudahotel.com/ocean-view-retreat-lp",
+  "image": "https://www.fukudahotel.com/images_corp/hero-slide-1.jpg",
+  "address": {"@type": "PostalAddress", "addressLocality": "熱海市", "addressRegion": "静岡県", "addressCountry": "JP"},
+  "email": "info@fukudahotel.com",
+  "parentOrganization": {"@type": "Organization", "name": "Fukuda Hotel Management LLC"}
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.fukudahotel.com/"},
+    {"@type": "ListItem", "position": 2, "name": "Stay", "item": "https://www.fukudahotel.com/stay"},
+    {"@type": "ListItem", "position": 3, "name": "The KIKYŪ Atami", "item": "https://www.fukudahotel.com/ocean-view-retreat-lp"}
+  ]
+}
+</script>
 <style>
-  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+:root {
+  --cream:   #F5F2EC;
+  --cream-d: #EDE9E1;
+  --ink:     #1A1714;
+  --charcoal:#2E2820;
+  --mid:     #6B5E52;
+  --warm:    #96877A;
+  --sand:    #D4C9BA;
+  --gold:    #B8965A;
+  --white:   #FFFFFF;
+  --dark:    #0F0D0A;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Georgia', 'Hiragino Mincho ProN', 'Yu Mincho', serif;
+  background: var(--cream); color: var(--ink);
+  -webkit-font-smoothing: antialiased;
+}
+img { max-width: 100%; }
+section[id] { scroll-margin-top: 84px; }
 
-  :root {
-    --cream:    #F5F2EC;
-    --sand:     #E8E0D0;
-    --stone:    #C8B99A;
-    --warm:     #A89070;
-    --dark:     #1A1714;
-    --mid:      #5A4E42;
-    --light:    #FAF8F5;
-    --white:    #FFFFFF;
-    --gold:     #B8965A;
-    --gold-lt:  #D4B07A;
-  }
+/* NAV */
+.nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 300;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 22px 40px; transition: background .4s, padding .4s;
+}
+.nav.scrolled { background: rgba(245,242,236,0.96); padding: 14px 40px; box-shadow: 0 1px 0 rgba(0,0,0,0.05); }
+.nav-brand { text-decoration: none; display: flex; flex-direction: column; gap: 2px; }
+.nav-brand .n-main { font-size: 14px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--white); font-family: Georgia, serif; transition: color .4s; }
+.nav-brand .n-sub { font-size: 8px; letter-spacing: 0.26em; text-transform: uppercase; color: rgba(255,255,255,0.5); font-family: -apple-system,'Helvetica Neue',sans-serif; transition: color .4s; }
+.nav.scrolled .n-main { color: var(--ink); }
+.nav.scrolled .n-sub { color: var(--mid); }
+.nav-links { display: flex; align-items: center; gap: 26px; }
+.nav-links a {
+  font-family: -apple-system,'Helvetica Neue',sans-serif;
+  font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase;
+  text-decoration: none; color: rgba(255,255,255,0.7); transition: color .3s;
+}
+.nav.scrolled .nav-links a { color: var(--mid); }
+.nav-links a:hover { color: var(--gold); }
+.nav-book {
+  font-size: 11px !important; color: #fff !important; background: var(--gold);
+  padding: 11px 20px; letter-spacing: 0.14em !important;
+}
+.nav-book:hover { background: var(--ink); color: #fff !important; }
 
-  html { scroll-behavior: smooth; }
+/* HERO (same system as FHM top) */
+.hero { height: 100vh; min-height: 640px; position: relative; overflow: hidden; }
+.hero-slides { position: absolute; inset: 0; }
+.hs { position: absolute; inset: 0; opacity: 0; transition: opacity 1.2s ease; }
+.hs.is-active { opacity: 1; }
+.hs picture { display: block; width: 100%; height: 100%; }
+.hs img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.hs-1 img { object-position: center 55%; }
+.hs-2 img { object-position: center 40%; }
+.hs-3 img { object-position: center 50%; }
+.hs-4 img { object-position: 55% 50%; }
+.hs-5 img { object-position: center 45%; }
+.hs-bright::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(15,13,10,0.14) 0%, rgba(15,13,10,0.06) 45%, rgba(15,13,10,0.32) 100%); }
+.hero-veil { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(15,13,10,0.30) 0%, rgba(15,13,10,0.10) 40%, rgba(15,13,10,0.55) 100%); }
+.hero-body {
+  position: relative; z-index: 2; height: 100%;
+  display: flex; flex-direction: column; justify-content: flex-end;
+  padding: 0 64px 9%;
+}
+.hero-loc { font-family: -apple-system,'Helvetica Neue',sans-serif; font-size: 9px; letter-spacing: 0.38em; text-transform: uppercase; color: rgba(255,255,255,0.55); margin-bottom: 20px; }
+.hero-h { font-size: clamp(34px, 4.6vw, 64px); font-weight: 400; color: var(--white); letter-spacing: 0.04em; line-height: 1.1; margin-bottom: 18px; }
+.hero-lead { font-size: 15px; line-height: 2; letter-spacing: 0.05em; color: rgba(255,255,255,0.88); margin-bottom: 30px; }
+.hero-lead .hl-u { display: inline-block; }
+.hero-ctas { display: flex; align-items: center; gap: 18px; flex-wrap: wrap; }
+.hero-btn-solid {
+  display: inline-block; text-decoration: none; text-align: center;
+  font-size: 13px; letter-spacing: 0.12em; color: #fff;
+  background: var(--gold); border: 1px solid var(--gold);
+  padding: 15px 36px; transition: all .3s;
+}
+.hero-btn-solid:hover { background: #fff; color: var(--ink); border-color: #fff; }
+.hero-nav { position: absolute; right: 40px; bottom: 34px; z-index: 3; display: flex; align-items: center; gap: 10px; }
+.hn-arrow { background: none; border: none; cursor: pointer; color: rgba(255,255,255,0.55); font-size: 24px; line-height: 1; padding: 10px 12px; transition: color .3s; }
+.hn-arrow:hover, .hn-arrow:focus-visible { color: #fff; }
+.hn-dots { display: flex; gap: 6px; }
+.hn-dot { width: 22px; height: 14px; padding: 6px 0; box-sizing: border-box; background: rgba(255,255,255,0.30); background-clip: content-box; border: none; cursor: pointer; transition: background-color .3s; }
+.hn-dot.is-on { background-color: rgba(255,255,255,0.95); }
+@media (prefers-reduced-motion: reduce) { .hs { transition: none; } }
 
-  body {
-    font-family: 'Georgia', 'Yu Mincho', 'YuMincho', 'Hiragino Mincho ProN', serif;
-    background: var(--white);
-    color: var(--dark);
-    overflow-x: hidden;
-    -webkit-font-smoothing: antialiased;
-  }
+/* STICKY CTA (mobile) */
+.sticky-book {
+  display: none; position: fixed; left: 0; right: 0; bottom: 0; z-index: 280;
+  background: var(--gold); color: #fff; text-align: center; text-decoration: none;
+  font-size: 13px; letter-spacing: 0.12em;
+  padding: 14px 16px calc(14px + env(safe-area-inset-bottom, 0px));
+}
+.sticky-book.hidden { display: none !important; }
 
-  /* ─── NAV ─────────────────────────────────────── */
-  nav {
-    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-    padding: 24px 48px;
-    display: flex; align-items: center; justify-content: space-between;
-    transition: background 0.4s, padding 0.4s;
-  }
-  nav.scrolled {
-    background: rgba(250,248,245,0.96);
-    backdrop-filter: blur(12px);
-    padding: 16px 48px;
-    box-shadow: 0 1px 0 rgba(0,0,0,0.08);
-  }
-  .nav-logo {
-    font-size: 13px; letter-spacing: 0.25em; text-transform: uppercase;
-    color: var(--white); font-family: 'Georgia', serif; text-decoration: none;
-    transition: color 0.4s;
-  }
-  nav.scrolled .nav-logo { color: var(--dark); }
-  .nav-links { display: flex; gap: 36px; }
-  .nav-links a {
-    font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase;
-    text-decoration: none; color: rgba(255,255,255,0.85);
-    transition: color 0.3s;
-  }
-  nav.scrolled .nav-links a { color: var(--mid); }
-  .nav-links a:hover { color: var(--gold); }
-  .nav-book {
-    font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase;
-    padding: 10px 28px; border: 1px solid rgba(255,255,255,0.6);
-    text-decoration: none; color: var(--white); transition: all 0.3s;
-  }
-  nav.scrolled .nav-book {
-    border-color: var(--gold); color: var(--gold);
-  }
-  .nav-book:hover { background: var(--gold); border-color: var(--gold); color: var(--white); }
+/* SHARED */
+.sec { padding: 96px 40px; max-width: 1200px; margin: 0 auto; }
+.sec-label { font-family: -apple-system,'Helvetica Neue',sans-serif; font-size: 9px; letter-spacing: 0.34em; text-transform: uppercase; color: var(--gold); display: block; margin-bottom: 18px; }
+.sec-h { font-size: clamp(24px, 3vw, 38px); font-weight: 400; line-height: 1.5; letter-spacing: 0.02em; margin-bottom: 18px; }
+.sec-lead { font-size: 14.5px; line-height: 2.05; color: var(--mid); letter-spacing: 0.04em; max-width: 680px; }
+.note { font-family: -apple-system,'Helvetica Neue',sans-serif; font-size: 11px; line-height: 1.9; color: var(--warm); }
 
-  /* ─── HERO ────────────────────────────────────── */
-  .hero {
-    position: relative; height: 100vh; min-height: 600px;
-    overflow: hidden;
-  }
-  .hero-img {
-    position: absolute; inset: 0;
-    background: url('images_ovr/hero.jpg') center center / cover no-repeat;
-    transform: scale(1.05);
-    animation: heroZoom 12s ease-out forwards;
-  }
-  @keyframes heroZoom {
-    from { transform: scale(1.05); }
-    to   { transform: scale(1.0);  }
-  }
-  .hero-overlay {
-    position: absolute; inset: 0;
-    background: linear-gradient(
-      to bottom,
-      rgba(10,8,6,0.25) 0%,
-      rgba(10,8,6,0.05) 40%,
-      rgba(10,8,6,0.40) 100%
-    );
-  }
-  .hero-content {
-    position: relative; z-index: 2;
-    height: 100%; display: flex; flex-direction: column;
-    align-items: center; justify-content: center;
-    text-align: center; padding: 0 24px;
-  }
-  .hero-eyebrow {
-    font-size: 11px; letter-spacing: 0.35em; text-transform: uppercase;
-    color: var(--stone); margin-bottom: 24px;
-  }
-  .hero-title {
-    font-size: clamp(32px, 4.2vw, 60px);
-    font-weight: 400; color: var(--white);
-    letter-spacing: 0.05em; line-height: 1.1;
-    margin-bottom: 20px;
-  }
-  .hero-sub {
-    font-size: clamp(14px, 1.8vw, 18px);
-    color: rgba(255,255,255,0.75);
-    letter-spacing: 0.08em; font-style: italic;
-    max-width: 560px; line-height: 1.7;
-    margin-bottom: 48px;
-  }
-  .hero-cta {
-    display: inline-block; padding: 16px 56px;
-    border: 1px solid rgba(255,255,255,0.7);
-    font-size: 11px; letter-spacing: 0.25em; text-transform: uppercase;
-    text-decoration: none; color: var(--white);
-    transition: all 0.35s;
-  }
-  .hero-cta:hover {
-    background: var(--white); color: var(--dark);
-  }
-  .hero-scroll {
-    position: absolute; bottom: 36px; left: 50%; transform: translateX(-50%);
-    display: flex; flex-direction: column; align-items: center; gap: 8px;
-    color: rgba(255,255,255,0.5); font-size: 10px; letter-spacing: 0.2em;
-    text-transform: uppercase;
-  }
-  .hero-scroll::after {
-    content: ''; display: block; width: 1px; height: 48px;
-    background: rgba(255,255,255,0.4); animation: scrollLine 2s infinite;
-  }
-  @keyframes scrollLine {
-    0%   { transform: scaleY(0); transform-origin: top; }
-    50%  { transform: scaleY(1); transform-origin: top; }
-    51%  { transform: scaleY(1); transform-origin: bottom; }
-    100% { transform: scaleY(0); transform-origin: bottom; }
-  }
+/* VALUES (THE KIKYU) */
+.values { display: grid; grid-template-columns: repeat(2, 1fr); gap: 40px 32px; margin-top: 48px; }
+.value-card img { width: 100%; aspect-ratio: 4/3; object-fit: cover; display: block; }
+.value-card b { display: block; font-family: -apple-system,'Helvetica Neue',sans-serif; font-weight: 400; font-size: 10px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold); margin: 18px 0 8px; }
+.value-card p { font-size: 13.5px; line-height: 1.95; color: var(--mid); letter-spacing: 0.04em; }
 
-  /* ─── DIVIDER ─────────────────────────────────── */
-  .divider {
-    display: flex; align-items: center; justify-content: center;
-    gap: 20px; padding: 60px 0 0;
-  }
-  .divider::before, .divider::after {
-    content: ''; flex: 1; max-width: 80px; height: 1px;
-    background: var(--stone);
-  }
-  .divider-diamond {
-    width: 6px; height: 6px; border: 1px solid var(--gold);
-    transform: rotate(45deg);
-  }
+/* EXPERIENCE */
+.exp-feature { margin-top: 48px; }
+.exp-feature img { width: 100%; aspect-ratio: 16/10; object-fit: cover; display: block; }
+.exp-feature .cap { padding: 20px 0 0; }
+.exp-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px 24px; margin-top: 40px; }
+.exp-cell img { width: 100%; aspect-ratio: 4/3; object-fit: cover; display: block; }
+.exp-cell b { display: block; font-family: -apple-system,'Helvetica Neue',sans-serif; font-weight: 400; font-size: 9.5px; letter-spacing: 0.26em; text-transform: uppercase; color: var(--charcoal); margin: 14px 0 6px; }
+.exp-cell p { font-size: 12.5px; line-height: 1.9; color: var(--mid); }
 
-  /* ─── INTRO ───────────────────────────────────── */
-  .intro {
-    padding: 80px 24px 100px;
-    text-align: center; max-width: 760px; margin: 0 auto;
-  }
-  .eyebrow {
-    font-size: 10px; letter-spacing: 0.35em; text-transform: uppercase;
-    color: var(--gold); margin-bottom: 28px; display: block;
-  }
-  .intro h2 {
-    font-size: clamp(26px, 3.5vw, 40px); font-weight: 400;
-    line-height: 1.45; color: var(--dark); letter-spacing: 0.03em;
-    margin-bottom: 32px;
-  }
-  .intro p {
-    font-size: 16px; line-height: 2.0; color: var(--mid);
-    letter-spacing: 0.04em;
-  }
+/* DINING / WELLNESS cards */
+.split { display: grid; grid-template-columns: 1fr 1fr; gap: 40px 32px; margin-top: 44px; }
+.split-card { background: var(--white); border: 1px solid var(--sand); }
+.split-card img { width: 100%; aspect-ratio: 3/2; object-fit: cover; display: block; }
+.split-card .in { padding: 26px 26px 28px; }
+.split-card b { display: block; font-family: -apple-system,'Helvetica Neue',sans-serif; font-weight: 400; font-size: 10px; letter-spacing: 0.28em; text-transform: uppercase; color: var(--gold); margin-bottom: 10px; }
+.split-card p { font-size: 13.5px; line-height: 2; color: var(--mid); letter-spacing: 0.03em; }
+.img-cap { font-family: -apple-system,'Helvetica Neue',sans-serif; font-size: 10px; line-height: 1.8; color: var(--warm); padding: 8px 26px 0; }
+.btn-line-dark {
+  display: inline-block; text-decoration: none; margin-top: 28px;
+  font-family: -apple-system,'Helvetica Neue',sans-serif;
+  font-size: 11px; letter-spacing: 0.16em; color: var(--charcoal);
+  border: 1px solid var(--sand); padding: 13px 30px; transition: all .3s;
+}
+.btn-line-dark:hover { border-color: var(--gold); color: var(--gold); }
+.btn-gold {
+  display: inline-block; text-decoration: none;
+  font-size: 13px; letter-spacing: 0.12em; color: #fff;
+  background: var(--gold); border: 1px solid var(--gold);
+  padding: 16px 44px; transition: all .3s;
+}
+.btn-gold:hover { background: var(--ink); border-color: var(--ink); }
 
-  /* ─── STATS ───────────────────────────────────── */
-  .stats {
-    background: var(--dark);
-    display: grid; grid-template-columns: repeat(4, 1fr);
-  }
-  .stat-item {
-    padding: 60px 32px;
-    text-align: center; border-right: 1px solid rgba(255,255,255,0.08);
-  }
-  .stat-item:last-child { border-right: none; }
-  .stat-num {
-    font-size: 42px; color: var(--gold-lt); font-weight: 400;
-    letter-spacing: -0.02em; margin-bottom: 8px; display: block;
-  }
-  .stat-label {
-    font-size: 11px; letter-spacing: 0.2em; color: rgba(255,255,255,0.5);
-    text-transform: uppercase;
-  }
+/* HOUSE grid */
+.house-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 26px 22px; margin-top: 44px; }
+.house-cell img { width: 100%; aspect-ratio: 4/3; object-fit: cover; display: block; }
+.house-cell figcaption { font-family: -apple-system,'Helvetica Neue',sans-serif; font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--mid); margin-top: 10px; }
+.house-note { margin-top: 30px; font-size: 12.5px; line-height: 2; color: var(--mid); }
 
-  /* ─── SPLIT SECTION ───────────────────────────── */
-  .split {
-    display: grid; grid-template-columns: 1fr 1fr;
-    min-height: 70vh;
-  }
-  .split.reverse { direction: rtl; }
-  .split.reverse > * { direction: ltr; }
-  .split-img {
-    position: relative; overflow: hidden; min-height: 500px;
-  }
-  .split-img img {
-    width: 100%; height: 100%; object-fit: cover;
-    display: block; transition: transform 0.8s ease;
-  }
-  .split-img:hover img { transform: scale(1.04); }
-  .split-text {
-    display: flex; align-items: center; justify-content: center;
-    padding: 80px 72px; background: var(--light);
-  }
-  .split-text-inner { max-width: 440px; }
-  .split-text-inner h3 {
-    font-size: clamp(22px, 2.8vw, 34px); font-weight: 400;
-    color: var(--dark); line-height: 1.4; letter-spacing: 0.02em;
-    margin-bottom: 24px;
-  }
-  .split-text-inner p {
-    font-size: 15px; line-height: 1.95; color: var(--mid);
-    letter-spacing: 0.04em; margin-bottom: 20px;
-  }
-  .link-btn {
-    display: inline-flex; align-items: center; gap: 12px;
-    font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase;
-    color: var(--gold); text-decoration: none; margin-top: 12px;
-    border-bottom: 1px solid transparent; padding-bottom: 2px;
-    transition: border-color 0.3s;
-  }
-  .link-btn:hover { border-color: var(--gold); }
-  .link-btn::after { content: '→'; font-size: 14px; }
+/* GALLERY */
+.gal { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; margin-top: 44px; }
+.gal figure img { width: 100%; aspect-ratio: 3/2; object-fit: cover; display: block; }
+.gal .wide { grid-column: 1 / -1; }
+.gal .wide img { aspect-ratio: 21/10; }
 
-  /* ─── FULL BLEED ──────────────────────────────── */
-  .full-bleed {
-    position: relative; height: 75vh; overflow: hidden;
-  }
-  .full-bleed img {
-    width: 100%; height: 100%; object-fit: cover; display: block;
-  }
-  .full-bleed-caption {
-    position: absolute; bottom: 48px; right: 60px;
-    text-align: right;
-  }
-  .full-bleed-caption span {
-    display: block; font-size: 11px; letter-spacing: 0.25em;
-    text-transform: uppercase; color: rgba(255,255,255,0.6);
-    margin-bottom: 6px;
-  }
-  .full-bleed-caption h3 {
-    font-size: clamp(20px, 2.5vw, 32px); font-weight: 400;
-    color: var(--white); letter-spacing: 0.04em;
-    text-shadow: 0 2px 20px rgba(0,0,0,0.4);
-  }
+/* VOICES */
+.voice-block { margin-top: 40px; border: 1px solid var(--sand); background: var(--white); padding: 36px 40px; display: grid; grid-template-columns: 1.2fr 1fr; gap: 36px; align-items: center; }
+.voice-stats { display: grid; grid-template-columns: repeat(3, 1fr); text-align: center; }
+.voice-stats > div { padding: 4px 8px; border-left: 1px solid var(--sand); }
+.voice-stats > div:first-child { border-left: none; }
+.voice-stats b { display: block; font-weight: 400; font-size: 17px; }
+.voice-stats span { display: block; margin-top: 6px; font-family: -apple-system,'Helvetica Neue',sans-serif; font-size: 8.5px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--mid); }
 
-  /* ─── EXPERIENCE GRID ─────────────────────────── */
-  .exp-section {
-    padding: 100px 24px;
-    max-width: 1200px; margin: 0 auto;
-  }
-  .section-header {
-    text-align: center; margin-bottom: 64px;
-  }
-  .section-header h2 {
-    font-size: clamp(24px, 3vw, 36px); font-weight: 400;
-    color: var(--dark); letter-spacing: 0.04em;
-  }
-  .exp-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2px;
-  }
-  .exp-card { position: relative; overflow: hidden; }
-  .exp-card img {
-    width: 100%; aspect-ratio: 3/4; object-fit: cover;
-    display: block; transition: transform 0.7s ease;
-  }
-  .exp-card.wide {
-    grid-column: span 2;
-  }
-  .exp-card.wide img { aspect-ratio: 16/9; }
-  .exp-card:hover img { transform: scale(1.05); }
-  .exp-card-label {
-    position: absolute; bottom: 0; left: 0; right: 0;
-    padding: 48px 28px 24px;
-    background: linear-gradient(to top, rgba(0,0,0,0.65), transparent);
-  }
-  .exp-card-label span {
-    font-size: 10px; letter-spacing: 0.25em; text-transform: uppercase;
-    color: var(--stone); display: block; margin-bottom: 4px;
-  }
-  .exp-card-label h4 {
-    font-size: 17px; font-weight: 400; color: var(--white);
-    letter-spacing: 0.04em;
-  }
+/* INFO / FAQ */
+.info-grid { display: grid; grid-template-columns: 220px 1fr; margin-top: 36px; border-top: 1px solid var(--sand); }
+.info-grid dt { font-family: -apple-system,'Helvetica Neue',sans-serif; font-size: 9.5px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--warm); padding: 15px 20px 15px 0; border-bottom: 1px solid var(--sand); }
+.info-grid dd { font-size: 13px; color: var(--charcoal); line-height: 1.9; padding: 14px 0; border-bottom: 1px solid var(--sand); }
+.faq { margin-top: 48px; border-top: 1px solid var(--sand); }
+.faq details { border-bottom: 1px solid var(--sand); }
+.faq summary { cursor: pointer; list-style: none; padding: 20px 30px 20px 0; font-size: 14.5px; position: relative; }
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary::after { content: '+'; position: absolute; right: 4px; top: 18px; color: var(--gold); font-size: 18px; }
+.faq details[open] summary::after { content: '–'; }
+.faq .a { padding: 0 0 22px; font-size: 13.5px; line-height: 2; color: var(--mid); max-width: 720px; }
 
-  /* ─── FLOOR GUIDE ─────────────────────────────── */
-  .floor-section {
-    background: var(--cream); padding: 100px 24px;
-  }
-  .floor-inner { max-width: 1100px; margin: 0 auto; }
-  .floor-tabs {
-    display: flex; justify-content: center; gap: 0;
-    margin-bottom: 60px; border-bottom: 1px solid var(--sand);
-  }
-  .floor-tab {
-    font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase;
-    padding: 16px 40px; cursor: pointer; border: none; background: none;
-    color: var(--mid); border-bottom: 2px solid transparent;
-    margin-bottom: -1px; transition: all 0.3s; font-family: inherit;
-  }
-  .floor-tab.active { color: var(--dark); border-bottom-color: var(--gold); }
-  .floor-panel { display: none; }
-  .floor-panel.active { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
-  .floor-panel img {
-    width: 100%; border-radius: 2px;
-    box-shadow: 0 8px 40px rgba(0,0,0,0.12);
-  }
-  .floor-info h3 {
-    font-size: 24px; font-weight: 400; margin-bottom: 20px;
-    color: var(--dark); letter-spacing: 0.03em;
-  }
-  .floor-info p {
-    font-size: 15px; line-height: 1.9; color: var(--mid);
-    letter-spacing: 0.03em; margin-bottom: 28px;
-  }
-  .room-list {
-    list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 8px;
-  }
-  .room-list li {
-    font-size: 13px; color: var(--mid); letter-spacing: 0.05em;
-    padding: 8px 0; border-bottom: 1px solid var(--sand);
-    display: flex; align-items: center; gap: 8px;
-  }
-  .room-list li::before {
-    content: ''; width: 4px; height: 4px;
-    background: var(--gold); border-radius: 50%; flex-shrink: 0;
-  }
+/* BOOK */
+.book-sec { background: var(--dark); color: #fff; }
+.book-sec .inner { max-width: 1200px; margin: 0 auto; padding: 110px 40px; text-align: center; }
+.book-sec .sec-label { color: var(--gold); }
+.book-sec h2 { font-size: clamp(26px, 3.4vw, 44px); font-weight: 400; line-height: 1.5; margin-bottom: 18px; }
+.book-sec p { font-size: 14px; line-height: 2.05; color: rgba(255,255,255,0.75); max-width: 620px; margin: 0 auto 34px; }
 
-  /* ─── AMENITIES ───────────────────────────────── */
-  .amenities-section {
-    padding: 100px 24px; max-width: 1000px; margin: 0 auto;
-  }
-  .amenities-grid {
-    display: grid; grid-template-columns: repeat(4, 1fr);
-    gap: 48px 24px; margin-top: 60px;
-  }
-  .amenity-item { text-align: center; }
-  .amenity-icon {
-    width: 56px; height: 56px; border: 1px solid var(--stone);
-    border-radius: 50%; margin: 0 auto 16px;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 22px;
-  }
-  .amenity-item h4 {
-    font-size: 13px; font-weight: 400; letter-spacing: 0.1em;
-    color: var(--dark); margin-bottom: 6px;
-  }
-  .amenity-item p {
-    font-size: 12px; color: var(--warm); letter-spacing: 0.04em;
-    line-height: 1.6;
-  }
+/* FOOTER */
+footer { background: var(--dark); border-top: 1px solid rgba(255,255,255,0.08); padding: 56px 40px 40px; }
+.foot { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 40px; }
+.foot .fb-main { display: block; font-size: 15px; letter-spacing: 0.24em; text-transform: uppercase; color: #fff; }
+.foot .fb-sub { display: block; margin-top: 4px; font-family: -apple-system,'Helvetica Neue',sans-serif; font-size: 8.5px; letter-spacing: 0.22em; text-transform: uppercase; color: rgba(255,255,255,0.4); }
+.foot p { margin-top: 18px; font-size: 11px; line-height: 2; color: rgba(255,255,255,0.4); }
+.foot h4 { font-family: -apple-system,'Helvetica Neue',sans-serif; font-size: 8px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold); margin-bottom: 16px; font-weight: 400; }
+.foot a { display: block; text-decoration: none; font-size: 12px; color: rgba(255,255,255,0.6); line-height: 2.2; }
+.foot a:hover { color: var(--gold); }
 
-  /* ─── PRICING ─────────────────────────────────── */
-  .pricing-section {
-    background: var(--dark); padding: 100px 24px;
-  }
-  .pricing-inner { max-width: 1100px; margin: 0 auto; }
-  .pricing-inner .section-header h2 { color: var(--white); }
-  .pricing-inner .section-header .eyebrow { color: var(--gold-lt); }
-  .pricing-grid {
-    display: grid; grid-template-columns: repeat(3, 1fr);
-    gap: 2px; margin-top: 56px;
-  }
-  .price-card {
-    background: rgba(255,255,255,0.04);
-    padding: 52px 40px;
-    border: 1px solid rgba(255,255,255,0.06);
-    text-align: center; transition: background 0.3s;
-    position: relative;
-  }
-  .price-card:hover { background: rgba(255,255,255,0.07); }
-  .price-card.featured {
-    background: rgba(184,150,90,0.15);
-    border-color: rgba(184,150,90,0.4);
-  }
-  .price-badge {
-    position: absolute; top: -12px; left: 50%; transform: translateX(-50%);
-    background: var(--gold); color: var(--white);
-    font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase;
-    padding: 4px 20px; white-space: nowrap;
-  }
-  .price-card h3 {
-    font-size: 14px; letter-spacing: 0.25em; text-transform: uppercase;
-    color: var(--stone); margin-bottom: 24px; font-weight: 400;
-  }
-  .price-amount {
-    font-size: 44px; color: var(--white); font-weight: 400;
-    letter-spacing: -0.02em; margin-bottom: 4px;
-  }
-  .price-unit {
-    font-size: 12px; color: rgba(255,255,255,0.4); letter-spacing: 0.1em;
-    margin-bottom: 32px;
-  }
-  .price-divider { width: 40px; height: 1px; background: rgba(255,255,255,0.1); margin: 0 auto 32px; }
-  .price-features { list-style: none; text-align: left; }
-  .price-features li {
-    font-size: 13px; color: rgba(255,255,255,0.55); letter-spacing: 0.05em;
-    padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,0.06);
-    display: flex; align-items: flex-start; gap: 10px; line-height: 1.5;
-  }
-  .price-features li::before {
-    content: ''; width: 4px; height: 4px; background: var(--gold);
-    border-radius: 50%; flex-shrink: 0; margin-top: 6px;
-  }
-  .price-cta {
-    display: block; margin-top: 36px; padding: 14px;
-    border: 1px solid rgba(255,255,255,0.2); color: rgba(255,255,255,0.7);
-    font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase;
-    text-decoration: none; text-align: center; transition: all 0.3s;
-  }
-  .price-card.featured .price-cta {
-    background: var(--gold); border-color: var(--gold); color: var(--white);
-  }
-  .price-cta:hover { background: var(--gold); border-color: var(--gold); color: var(--white); }
+/* Fade-in */
+.fade { opacity: 0; transform: translateY(20px); transition: opacity .9s ease, transform .9s ease; }
+.fade.visible { opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce) { .fade { opacity: 1; transform: none; transition: none; } }
 
-  /* ─── QUOTE ───────────────────────────────────── */
-  .quote-section {
-    padding: 120px 24px; text-align: center;
-    background: var(--light);
-  }
-  .quote-section blockquote {
-    font-size: clamp(20px, 3vw, 36px); font-weight: 400;
-    font-style: italic; color: var(--dark);
-    max-width: 780px; margin: 0 auto; line-height: 1.6;
-    letter-spacing: 0.03em;
-  }
-  .quote-section cite {
-    display: block; margin-top: 32px;
-    font-size: 11px; letter-spacing: 0.3em; text-transform: uppercase;
-    color: var(--warm); font-style: normal;
-  }
-
-  /* ─── ACCESS ──────────────────────────────────── */
-  .access-section {
-    padding: 100px 24px; max-width: 1100px; margin: 0 auto;
-    display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center;
-  }
-  .access-text h2 {
-    font-size: clamp(22px, 2.8vw, 34px); font-weight: 400;
-    color: var(--dark); margin-bottom: 32px; letter-spacing: 0.03em;
-  }
-  .access-list { list-style: none; }
-  .access-list li {
-    display: grid; grid-template-columns: 140px 1fr;
-    gap: 16px; padding: 18px 0;
-    border-bottom: 1px solid var(--sand); font-size: 14px;
-    line-height: 1.6;
-  }
-  .access-list .label {
-    font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase;
-    color: var(--warm); padding-top: 2px;
-  }
-  .access-list .val { color: var(--dark); letter-spacing: 0.03em; }
-  .access-map {
-    position: relative; border-radius: 2px; overflow: hidden;
-    box-shadow: 0 12px 60px rgba(0,0,0,0.12);
-  }
-  .access-map iframe {
-    width: 100%; height: 420px; border: none; display: block;
-    filter: grayscale(20%);
-  }
-
-  /* ─── BOOKING CTA ─────────────────────────────── */
-  .booking-section {
-    position: relative; height: 60vh; min-height: 400px; overflow: hidden;
-  }
-  .booking-bg {
-    position: absolute; inset: 0;
-    background: url('images_ovr/fireworks.jpg') center center / cover no-repeat;
-    filter: brightness(0.45);
-  }
-  .booking-content {
-    position: relative; z-index: 2;
-    height: 100%; display: flex; flex-direction: column;
-    align-items: center; justify-content: center;
-    text-align: center; padding: 0 24px;
-    gap: 24px;
-  }
-  .booking-content .eyebrow { color: var(--stone); }
-  .booking-content h2 {
-    font-size: clamp(28px, 4vw, 52px); font-weight: 400;
-    color: var(--white); letter-spacing: 0.04em;
-  }
-  .booking-content p {
-    font-size: 15px; color: rgba(255,255,255,0.65);
-    letter-spacing: 0.06em; max-width: 480px; line-height: 1.8;
-  }
-  .booking-btn {
-    display: inline-block; padding: 18px 64px;
-    background: var(--gold); color: var(--white);
-    font-size: 12px; letter-spacing: 0.25em; text-transform: uppercase;
-    text-decoration: none; transition: background 0.3s; margin-top: 8px;
-  }
-  .booking-btn:hover { background: var(--gold-lt); }
-  .tel-link {
-    font-size: 13px; letter-spacing: 0.15em;
-    color: rgba(255,255,255,0.6); text-decoration: none;
-  }
-  .tel-link:hover { color: var(--white); }
-
-  /* ─── FOOTER ──────────────────────────────────── */
-  footer {
-    background: var(--dark); padding: 64px 48px 40px;
-    display: grid; grid-template-columns: 1fr 1fr 1fr;
-    gap: 48px;
-  }
-  .footer-brand .brand-name {
-    font-size: 15px; letter-spacing: 0.2em; text-transform: uppercase;
-    color: var(--white); margin-bottom: 6px; display: block;
-  }
-  .footer-brand .brand-sub {
-    font-size: 11px; letter-spacing: 0.15em; color: var(--warm);
-    text-transform: uppercase; display: block; margin-bottom: 20px;
-  }
-  .footer-brand p {
-    font-size: 12px; color: rgba(255,255,255,0.4); line-height: 1.9;
-    letter-spacing: 0.04em;
-  }
-  .footer-col h4 {
-    font-size: 10px; letter-spacing: 0.25em; text-transform: uppercase;
-    color: var(--stone); margin-bottom: 20px; font-weight: 400;
-  }
-  .footer-col a, .footer-col p {
-    display: block; font-size: 13px; color: rgba(255,255,255,0.5);
-    text-decoration: none; margin-bottom: 10px; letter-spacing: 0.04em;
-    transition: color 0.3s; line-height: 1.7;
-  }
-  .footer-col a:hover { color: var(--white); }
-  .footer-bottom {
-    grid-column: 1/-1; margin-top: 40px; padding-top: 32px;
-    border-top: 1px solid rgba(255,255,255,0.06);
-    display: flex; justify-content: space-between; align-items: center;
-  }
-  .footer-bottom p {
-    font-size: 11px; color: rgba(255,255,255,0.25); letter-spacing: 0.1em;
-  }
-
-  /* ─── RESPONSIVE ──────────────────────────────── */
-  @media (max-width: 900px) {
-    nav { padding: 20px 24px; }
-    nav.scrolled { padding: 14px 24px; }
-    .nav-links { display: none; }
-    .stats { grid-template-columns: repeat(2, 1fr); }
-    .stat-item { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.08); }
-    .split, .split.reverse { grid-template-columns: 1fr; direction: ltr; }
-    .split-img { min-height: 360px; }
-    .split-text { padding: 60px 32px; }
-    .split-text-inner { max-width: none; }
-    .exp-grid { grid-template-columns: 1fr; }
-    .exp-card.wide { grid-column: span 1; }
-    .exp-card.wide img { aspect-ratio: 4/3; }
-    .floor-panel.active { grid-template-columns: 1fr; }
-    .amenities-grid { grid-template-columns: repeat(2, 1fr); }
-    .pricing-grid { grid-template-columns: 1fr; }
-    .access-section { grid-template-columns: 1fr; gap: 48px; }
-    footer { grid-template-columns: 1fr; }
-    .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
-  }
+/* ── RESPONSIVE ── */
+@media (max-width: 1024px) {
+  .exp-grid, .house-grid { grid-template-columns: repeat(2, 1fr); }
+  .voice-block { grid-template-columns: 1fr; }
+}
+@media (max-width: 768px) {
+  .nav { padding: 20px 24px; }
+  .nav.scrolled { padding: 12px 24px; }
+  .nav-links a:not(.nav-book) { display: none; }
+  .hero { height: auto; min-height: 100vh; min-height: 100svh; }
+  .hero-body { display: block; height: auto; padding: calc(72px + env(safe-area-inset-top, 0px) + 44px) 24px 96px; }
+  .hero-loc { white-space: nowrap; font-size: 8.5px; letter-spacing: 0.3em; margin-bottom: 16px; }
+  .hero-h { font-size: clamp(30px, 9vw, 40px); }
+  .hero-lead { font-size: 16px; line-height: 1.95; }
+  .hero-lead br { display: none; }
+  .hero-ctas { flex-direction: column; align-items: stretch; gap: 14px; }
+  .hero-ctas a { width: 100%; box-sizing: border-box; height: 56px; padding: 0 20px; display: flex; align-items: center; justify-content: center; }
+  .hero-nav { right: 16px; bottom: 16px; }
+  .hs-1 img, .hs-3 img, .hs-5 img { object-position: center 50%; }
+  .hs-2 img { object-position: center 45%; }
+  .hs-4 img { object-position: center 48%; }
+  .sticky-book { display: block; }
+  body { padding-bottom: calc(50px + env(safe-area-inset-bottom, 0px)); }
+  .sec { padding: 72px 24px; }
+  .values, .split, .exp-grid, .house-grid, .gal { grid-template-columns: 1fr; }
+  .gal .wide img { aspect-ratio: 3/2; }
+  .info-grid { grid-template-columns: 1fr; }
+  .info-grid dt { padding: 12px 0 2px; border-bottom: none; }
+  .info-grid dd { padding: 0 0 12px; }
+  .voice-stats { grid-template-columns: repeat(3, 1fr); }
+  .book-sec .inner { padding: 88px 24px; }
+  .foot { grid-template-columns: 1fr; gap: 34px; }
+}
 </style>
 </head>
 <body>
 
 <!-- NAV -->
-<nav id="mainNav">
-  <a href="#" class="nav-logo">Ocean View Retreat</a>
+<nav class="nav" id="mainNav">
+  <a href="index.html" class="nav-brand">
+    <span class="n-main">The KIKYŪ Atami</span>
+    <span class="n-sub">Fukuda Hotel Management</span>
+  </a>
   <div class="nav-links">
-    <a href="#experience">体験</a>
-    <a href="#floors">館内</a>
-    <a href="#pricing">料金</a>
-    <a href="#access">アクセス</a>
-    <a href="journal/">Journal</a>
+    <a href="stay.html">Stay</a>
+    <a href="retreat.html">法人の方へ</a>
+    <a href="#book" class="nav-book">空室・料金を確認</a>
   </div>
-  <a href="#contact" class="nav-book">予約・お問い合わせ</a>
 </nav>
 
-<!-- HERO -->
-<section class="hero">
-  <div class="hero-img"></div>
-  <div class="hero-overlay"></div>
-  <div class="hero-content">
-    <p class="hero-eyebrow">Atami · Sagami Bay · Private Villa</p>
-    <h1 class="hero-title">Ocean View<br>Retreat</h1>
-    <p class="hero-sub">相模湾を独り占めする、完全貸切の海上別邸。<br>波音と潮風だけが静寂を破る、非日常の休息。</p>
-    <a href="#experience" class="hero-cta">Explore</a>
-  </div>
-  <div class="hero-scroll">Scroll</div>
-</section>
+<!-- Mobile sticky booking CTA (confirmed contact route: email) -->
+<a href="#book" class="sticky-book" id="stickyBook">空室・料金を見る</a>
 
-<!-- INTRO -->
-<div class="divider"><div class="divider-diamond"></div></div>
-<section class="intro">
-  <span class="eyebrow">A Sanctuary Above the Sea</span>
-  <h2>熱海の高台に、相模湾を独占する<br>プライベートな休息の場がある。</h2>
-  <p>
-    忙しい日常から完全に切り離された場所で、本当の意味での「休む」を体験してください。水平線まで広がる相模湾、吹き抜ける潮風、夜空に溶ける星々——Ocean View Retreat は、特別な時間をより特別にするために存在します。
-  </p>
-</section>
-
-<!-- STATS -->
-<div class="stats">
-  <div class="stat-item">
-    <span class="stat-num">B1〜R</span>
-    <span class="stat-label">7 Floors</span>
+<!-- ══ 01 HERO ══ -->
+<header class="hero">
+  <!-- Slides: same KIKYU set & order as FHM top (5→4→3→1→2), mobile crops via <source> -->
+  <div class="hero-slides" aria-hidden="true">
+    <div class="hs hs-5 is-active hs-bright"><picture><source media="(max-width: 768px)" srcset="images_corp/hero-slide-5-m2.jpg"><img src="images_corp/hero-slide-5.jpg" alt="" fetchpriority="high" decoding="async"></picture></div>
+    <div class="hs hs-4 hs-bright"><picture><source media="(max-width: 768px)" srcset="images_corp/hero-slide-4-m2.jpg"><img src="images_corp/hero-slide-4.jpg" alt="" loading="lazy" fetchpriority="low" decoding="async"></picture></div>
+    <div class="hs hs-3"><picture><source media="(max-width: 768px)" srcset="images_corp/hero-slide-3-m2.jpg"><img src="images_corp/hero-slide-3.jpg" alt="" loading="lazy" fetchpriority="low" decoding="async"></picture></div>
+    <div class="hs hs-1 hs-bright"><picture><source media="(max-width: 768px)" srcset="images_corp/hero-slide-1-m2.jpg"><img src="images_corp/hero-slide-1.jpg" alt="" loading="lazy" fetchpriority="low" decoding="async"></picture></div>
+    <div class="hs hs-2"><picture><source media="(max-width: 768px)" srcset="images_corp/hero-m2.jpg"><img src="images_corp/hero.jpg" alt="" loading="lazy" fetchpriority="low" decoding="async"></picture></div>
   </div>
-  <div class="stat-item">
-    <span class="stat-num">最大<span style="font-size:28px">16</span>名</span>
-    <span class="stat-label">Private Occupancy</span>
-  </div>
-  <div class="stat-item">
-    <span class="stat-num">180°</span>
-    <span class="stat-label">Ocean Panorama</span>
-  </div>
-  <div class="stat-item">
-    <span class="stat-num">24h</span>
-    <span class="stat-label">Private Onsen</span>
-  </div>
-</div>
-
-<!-- SPLIT 1: OCEAN VIEW LIVING -->
-<section class="split" id="experience">
-  <div class="split-img">
-    <img src="images_ovr/living_night.jpg" alt="相模湾を望むリビングダイニング（夜）">
-  </div>
-  <div class="split-text">
-    <div class="split-text-inner">
-      <span class="eyebrow">The Living Space</span>
-      <h3>水平線と語らう<br>リビングダイニング</h3>
-      <p>
-        4階に広がるメインリビングは、相模湾を正面に捉える大開口の窓が特徴です。
-        日中は太陽の反射が海面を輝かせ、夜になると漁火や熱海の街灯が宝石のように瞬きます。
-      </p>
-      <p>
-        暖炉を囲んで語り合う夜、窓越しに打ち上がる花火を眺める夏の夜——
-        ここでの記憶は、生涯忘れられないものになるでしょう。
-      </p>
+  <div class="hero-veil"></div>
+  <div class="hero-body">
+    <p class="hero-loc">Private Stay in Atami</p>
+    <h1 class="hero-h">The KIKYŪ Atami</h1>
+    <p class="hero-lead"><span class="hl-u">相模湾を望む、</span><br><span class="hl-u">熱海の一棟貸し</span><span class="hl-u">プライベートヴィラ。</span></p>
+    <div class="hero-ctas">
+      <a href="#book" class="hero-btn-solid">空室・料金を確認する</a>
+      <!-- Secondary LINE CTA: 公式LINEのURL未確認のため本番非表示(確認後に有効化)
+      <a href="__LINE_URL__" class="hero-btn-line">LINEで最新情報を受け取る</a> -->
     </div>
   </div>
+  <div class="hero-nav" role="group" aria-label="スライドショー操作">
+    <button class="hn-arrow" id="hsPrev" aria-label="前のスライドを表示">‹</button>
+    <div class="hn-dots" id="hsDots"></div>
+    <button class="hn-arrow" id="hsNext" aria-label="次のスライドを表示">›</button>
+  </div>
+</header>
+
+<!-- ══ 02 THE KIKYU ══ -->
+<section class="sec" id="kikyu">
+  <span class="sec-label fade">The KIKYŪ</span>
+  <h2 class="sec-h fade">海と過ごす、<br>一棟貸切の滞在。</h2>
+  <div class="values">
+    <figure class="value-card fade">
+      <img src="images_ovr/view.jpg" alt="The KIKYŪから望む相模湾の眺望" loading="lazy">
+      <b>Ocean</b>
+      <p>相模湾を望む眺望。窓の向こうに、海と空が広がります。</p>
+    </figure>
+    <figure class="value-card fade">
+      <img src="images_corp/hero-slide-5.jpg" alt="The KIKYŪ 玄関ホール" loading="lazy">
+      <b>Private</b>
+      <p>一棟を貸切り、大切な方だけで過ごす滞在。他のゲストはいません。</p>
+    </figure>
+    <figure class="value-card fade">
+      <img src="images_corp/kikyu-living-3.jpg" alt="吹き抜けの4階リビング" loading="lazy">
+      <b>Gather</b>
+      <p>吹き抜けのリビングで、家族や仲間と過ごす。食卓も対話も、ひとつ屋根の下で。</p>
+    </figure>
+    <figure class="value-card fade">
+      <img src="images_corp/kikyu-bath-2.jpg" alt="館内の天然温泉大浴場" loading="lazy">
+      <b>Onsen</b>
+      <p>館内で楽しめる、熱海の天然温泉。滞在の合間に、何度でも。</p>
+    </figure>
+  </div>
 </section>
 
-<!-- SPLIT 2: MASTER BEDROOM -->
-<section class="split reverse">
-  <div class="split-img">
-    <img src="images_ovr/bedroom.jpg" alt="5階マスターベッドルーム">
-  </div>
-  <div class="split-text">
-    <div class="split-text-inner">
-      <span class="eyebrow">The Master Retreat</span>
-      <h3>目覚めた瞬間から<br>海が迎える朝</h3>
-      <p>
-        5階に位置するマスターベッドルームは、バルコニーへとつながる全面ガラスドアを設けています。
-        目を開ければ相模湾、鳥のさえずりと波音だけが聞こえる朝——
-        東京では決して味わえない目覚めです。
-      </p>
-      <p>
-        アジアンテイストを基調とした落ち着いた内装は、
-        心身が深いところから弛緩するのを促します。
-      </p>
+<!-- ══ 03 EXPERIENCE ══ -->
+<section class="sec" id="experience" style="padding-top:0;">
+  <span class="sec-label fade">Experience</span>
+  <h2 class="sec-h fade">この家でできること。</h2>
+
+  <figure class="exp-feature fade">
+    <img src="images_ovr/fireworks.jpg" alt="The KIKYŪの窓越しに望む熱海海上花火大会" loading="lazy">
+    <div class="cap">
+      <b style="display:block;font-family:-apple-system,'Helvetica Neue',sans-serif;font-size:10px;letter-spacing:0.3em;text-transform:uppercase;color:var(--gold);margin-bottom:8px;">Fireworks from KIKYŪ</b>
+      <p style="font-size:14.5px;line-height:2;color:var(--mid);">熱海海上花火大会を、邸宅から。</p>
+      <p class="note" style="margin-top:8px;">※花火大会の開催日程は主催者発表をご確認ください。天候、開催状況、館内の位置などにより見え方は異なります。</p>
     </div>
-  </div>
-</section>
+  </figure>
 
-<!-- FULL BLEED: ROOFTOP -->
-<section class="full-bleed">
-  <img src="images_ovr/rooftop.jpg" alt="屋上テラスから望む相模湾">
-  <div class="full-bleed-caption">
-    <span>Rooftop Terrace</span>
-    <h3>空と海と、あなただけの屋上</h3>
-  </div>
-</section>
-
-<!-- SPLIT 3: ONSEN -->
-<section class="split">
-  <div class="split-img">
-    <img src="images_ovr/onsen.jpg" alt="プライベート温泉大浴場（夜）">
-  </div>
-  <div class="split-text">
-    <div class="split-text-inner">
-      <span class="eyebrow">The Private Onsen</span>
-      <h3>天然温泉が、<br>旅の疲れを溶かす</h3>
-      <p>
-        熱海の名泉を引いたプライベート温泉は、24時間いつでもご利用いただけます。
-        夜はキャンドルの炎が湯面に揺れ、窓の外には照らされた庭の緑が広がります。
-      </p>
-      <p>
-        貸切で使えるからこそ、時間を気にせず、思うままに浸かる贅沢があります。
-        アロマバス、岩盤浴モードなど、多様な設定でお楽しみください。
-      </p>
-    </div>
-  </div>
-</section>
-
-<!-- EXPERIENCE GRID -->
-<section class="exp-section">
-  <div class="section-header">
-    <span class="eyebrow">Experiences</span>
-    <h2>Ocean View Retreat での一日</h2>
-  </div>
   <div class="exp-grid">
-    <div class="exp-card wide">
-      <img src="images_ovr/view.jpg" alt="相模湾の眺望">
-      <div class="exp-card-label">
-        <span>Morning</span>
-        <h4>相模湾を独り占めする朝</h4>
+    <figure class="exp-cell fade"><img src="images_corp/kikyu-terrace-5f.jpg" alt="5階テラスから望む海" loading="lazy"><b>Ocean View</b><p>海を望むテラスとバルコニー。</p></figure>
+    <figure class="exp-cell fade"><img src="images_corp/kikyu-pool.jpg" alt="屋外プライベートプール" loading="lazy"><b>Private Pool</b><p>貸切で使える屋外プール。</p></figure>
+    <figure class="exp-cell fade"><img src="images_corp/kikyu-bath-1.jpg" alt="天然温泉大浴場と洗面" loading="lazy"><b>Natural Onsen</b><p>熱海の天然温泉を館内で。</p></figure>
+    <figure class="exp-cell fade"><img src="images_corp/kikyu-playroom.jpg" alt="DAMカラオケを備えたプレイルーム" loading="lazy"><b>DAM Karaoke / Play Room</b><p>DAMカラオケ完備のプレイルーム。</p></figure>
+    <figure class="exp-cell fade"><img src="images_corp/kikyu-bbq-b1f.jpg" alt="焚き火台テラスに隣接するBBQエリア" loading="lazy"><b>BBQ</b><p>キッチン付きのBBQエリア。※事前相談・天候等の条件があります。</p></figure>
+    <figure class="exp-cell fade"><img src="images_corp/kikyu-firepit-b1f.jpg" alt="B1Fの焚き火台" loading="lazy"><b>Fire Pit</b><p>夜は火を囲んで。※事前相談・天候等の条件があります。</p></figure>
+    <figure class="exp-cell fade"><img src="images_ovr/living_night.jpg" alt="夜のリビングダイニング" loading="lazy"><b>Night</b><p>夜は灯りを落として、静かな時間を。</p></figure>
+    <figure class="exp-cell fade"><img src="images_ovr/entrance.jpg" alt="夜の玄関アプローチ" loading="lazy"><b>Private Time</b><p>誰にも気兼ねのない、貸切の時間。</p></figure>
+  </div>
+</section>
+
+<!-- ══ 04 DINING ══ -->
+<section class="sec" id="dining">
+  <span class="sec-label fade">Dining — On Request</span>
+  <h2 class="sec-h fade">DINING, YOUR WAY.</h2>
+  <p class="sec-lead fade">滞在の目的や人数に合わせて、館内でのお食事をご相談いただけます。</p>
+  <div class="split">
+    <figure class="split-card fade">
+      <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=1600&q=70" alt="専属栄養士が滞在に合わせて設計する食事の提供イメージ" loading="lazy">
+      <figcaption class="img-cap">お食事の提供イメージ ※実際のメニューは季節、人数、ご要望、食材の仕入れ状況により異なります。</figcaption>
+      <div class="in">
+        <b>Nutritionist's Table</b>
+        <p>事前のご相談により、専属栄養士が滞在の目的やご要望に合わせたお食事を設計します。地元の野菜や旬の食材を取り入れたメニューについてもご相談いただけます。</p>
       </div>
+    </figure>
+    <figure class="split-card fade">
+      <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=1600&q=70" alt="出張シェフによるPrivate Diningの提供イメージ" loading="lazy">
+      <figcaption class="img-cap">Private Diningのイメージ ※シェフ、料理内容、日程により対応可否と料金が異なります。</figcaption>
+      <div class="in">
+        <b>Private Chef</b>
+        <p>事前のご相談により、フレンチ、イタリアンなど、ご希望に応じた出張シェフによるPrivate Diningをご案内します。</p>
+      </div>
+    </figure>
+  </div>
+  <p class="note fade" style="margin-top:24px;">※内容、日程、人数、アレルギー、食事制限、シェフやスタッフの手配状況により、対応可否と料金が異なります。事前予約・個別見積りです。</p>
+  <a class="btn-line-dark fade" href="mailto:info@fukudahotel.com?subject=The KIKYŪ Atami 食事・特別なご要望の相談">食事について相談する</a>
+</section>
+
+<!-- ══ 05 WELLNESS ══ -->
+<section class="sec" id="wellness" style="padding-top:0;">
+  <span class="sec-label fade">Wellness</span>
+  <h2 class="sec-h fade">RESET BY THE SEA.</h2>
+  <div class="split">
+    <figure class="split-card fade">
+      <img src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=1600&q=70" alt="海を望むテラスで行うSunset Yogaのプログラムイメージ" loading="lazy">
+      <figcaption class="img-cap">プログラムイメージ ※実施場所・内容は事前相談および天候等により異なります。</figcaption>
+      <div class="in">
+        <b>Sunset Yoga</b>
+        <p>海を望む開放的なテラスで行う、事前相談制のSunset Yoga。</p>
+      </div>
+    </figure>
+    <figure class="split-card fade">
+      <img src="https://images.unsplash.com/photo-1600334129128-685c5582fd35?auto=format&fit=crop&w=1600&q=70" alt="滞在中に相談できるエステ・トリートメントの施術イメージ" loading="lazy">
+      <figcaption class="img-cap">施術イメージ ※内容、対応人数、料金は事前にご案内します。</figcaption>
+      <div class="in">
+        <b>Treatment</b>
+        <p>ご希望に応じて相談できるエステ、マッサージ、トリートメント。1Fにエステルーム・マッサージルームを備えています。</p>
+      </div>
+    </figure>
+    <figure class="split-card fade">
+      <img src="images_corp/kikyu-bath-2.jpg" alt="館内の天然温泉大浴場" loading="lazy">
+      <div class="in">
+        <b>Natural Onsen</b>
+        <p>館内で楽しめる熱海の天然温泉。</p>
+      </div>
+    </figure>
+    <figure class="split-card fade">
+      <img src="images_corp/kikyu-pool.jpg" alt="一棟貸切で利用できるプライベートプール" loading="lazy">
+      <div class="in">
+        <b>Private Pool</b>
+        <p>一棟貸切の滞在中に利用できるプライベートプール。</p>
+      </div>
+    </figure>
+  </div>
+  <p class="note fade" style="margin-top:24px;">※Sunset Yoga、エステ、マッサージは標準の宿泊プランには含まれません。事前相談制で、対応人数・手配状況により追加料金にてご案内します。美容・健康に関する効果を保証するものではありません。</p>
+</section>
+
+<!-- ══ 06 THE HOUSE ══ -->
+<section class="sec" id="house">
+  <span class="sec-label fade">The House</span>
+  <h2 class="sec-h fade">家のなかを、歩く。</h2>
+  <div class="house-grid">
+    <figure class="house-cell fade"><img src="images_corp/kikyu-living-2.jpg" alt="4階リビングダイニング — 相模湾を望む大開口" loading="lazy"><figcaption>4F Living &amp; Dining</figcaption></figure>
+    <figure class="house-cell fade"><img src="images_corp/kikyu-living-3.jpg" alt="4階リビング 吹き抜け" loading="lazy"><figcaption>4F Living</figcaption></figure>
+    <figure class="house-cell fade"><img src="images_corp/kikyu-hall-4f.jpg" alt="4階ホール" loading="lazy"><figcaption>4F Hall</figcaption></figure>
+    <figure class="house-cell fade"><img src="images_corp/kikyu-lounge-4f.jpg" alt="4階ラウンジ" loading="lazy"><figcaption>4F Lounge</figcaption></figure>
+    <figure class="house-cell fade"><img src="images_corp/kikyu-playroom.jpg" alt="プレイルーム(DAMカラオケ完備)" loading="lazy"><figcaption>Play Room / DAM Karaoke</figcaption></figure>
+    <figure class="house-cell fade"><img src="images_corp/kikyu-terrace-5f.jpg" alt="5階テラス" loading="lazy"><figcaption>5F Terrace</figcaption></figure>
+    <figure class="house-cell fade"><img src="images_corp/kikyu-balcony-5f.jpg" alt="5階バルコニー" loading="lazy"><figcaption>5F Balcony</figcaption></figure>
+    <figure class="house-cell fade"><img src="images_corp/kikyu-master-5f.jpg" alt="5階マスターベッドルーム" loading="lazy"><figcaption>5F Master Bedroom</figcaption></figure>
+    <figure class="house-cell fade"><img src="images_corp/kikyu-bedroom-5f.jpg" alt="5階ベッドルーム" loading="lazy"><figcaption>5F Bedroom</figcaption></figure>
+    <figure class="house-cell fade"><img src="images_corp/kikyu-bedroom-4f.jpg" alt="4階ベッドルーム" loading="lazy"><figcaption>4F Bedroom</figcaption></figure>
+    <figure class="house-cell fade"><img src="images_corp/kikyu-washitsu-large.jpg" alt="3階 和室(大)" loading="lazy"><figcaption>3F 和室(大)</figcaption></figure>
+    <figure class="house-cell fade"><img src="images_corp/kikyu-washitsu-small.jpg" alt="3階 和室(小)" loading="lazy"><figcaption>3F 和室(小)</figcaption></figure>
+    <figure class="house-cell fade"><img src="images_corp/kikyu-hallway-3f.jpg" alt="3階廊下" loading="lazy"><figcaption>3F Hallway</figcaption></figure>
+    <figure class="house-cell fade"><img src="images_corp/kikyu-bath-2.jpg" alt="1階 大浴場" loading="lazy"><figcaption>1F 大浴場</figcaption></figure>
+    <figure class="house-cell fade"><img src="images_corp/kikyu-bath-1.jpg" alt="1階 大浴場・洗面" loading="lazy"><figcaption>1F 大浴場・洗面</figcaption></figure>
+    <figure class="house-cell fade"><img src="images_corp/kikyu-firepit-b1f.jpg" alt="B1F 焚き火台" loading="lazy"><figcaption>B1F Fire Pit</figcaption></figure>
+    <figure class="house-cell fade"><img src="images_corp/kikyu-bbq-b1f.jpg" alt="B1F BBQエリア(キッチン付き)" loading="lazy"><figcaption>B1F BBQ Area / Kitchen</figcaption></figure>
+    <figure class="house-cell fade"><img src="images_corp/kikyu-pool.jpg" alt="屋外プール" loading="lazy"><figcaption>Outdoor Pool</figcaption></figure>
+  </div>
+  <p class="house-note fade">このほか、1F Esthetic Room(エステ専用ルーム)・1F Massage Room(マッサージ専用ルーム)を備えています。いずれも事前相談制のオプショナルサービスでご利用いただけます。</p>
+</section>
+
+<!-- ══ 07 GALLERY ══ -->
+<section class="sec" id="gallery" style="padding-top:0;">
+  <span class="sec-label fade">Gallery</span>
+  <h2 class="sec-h fade">The KIKYŪの風景。</h2>
+  <div class="gal">
+    <figure class="wide fade"><img src="images_ovr/view.jpg" alt="相模湾の眺望" loading="lazy" style="object-position:center 55%;"></figure>
+    <figure class="fade"><img src="images_corp/kikyu-living-day.jpg" alt="陽の入るリビング" loading="lazy"></figure>
+    <figure class="fade"><img src="images_ovr/fireworks.jpg" alt="窓越しの熱海海上花火" loading="lazy"></figure>
+    <figure class="fade"><img src="images_corp/kikyu-bath-1.jpg" alt="天然温泉の大浴場" loading="lazy"></figure>
+    <figure class="fade"><img src="images_corp/kikyu-pool.jpg" alt="屋外プール" loading="lazy"></figure>
+    <figure class="fade"><img src="images_corp/kikyu-master-5f.jpg" alt="マスターベッドルーム" loading="lazy"></figure>
+    <figure class="fade"><img src="images_corp/kikyu-washitsu-large.jpg" alt="和室(大)" loading="lazy"></figure>
+    <figure class="fade"><img src="images_corp/hero-slide-4.jpg" alt="緑を望む客間" loading="lazy"></figure>
+    <figure class="fade"><img src="images_corp/kikyu-glass.jpg" alt="グラスの並ぶ棚" loading="lazy"></figure>
+    <figure class="fade"><img src="images_ovr/living_night.jpg" alt="夜のリビング" loading="lazy"></figure>
+    <figure class="fade"><img src="images_corp/kikyu-firepit-b1f.jpg" alt="夜の焚き火台テラス" loading="lazy"></figure>
+    <figure class="wide fade"><img src="images_corp/kikyu-terrace-5f.jpg" alt="5階テラスと海" loading="lazy" style="object-position:center 60%;"></figure>
+  </div>
+  <div class="fade" style="text-align:center;margin-top:44px;">
+    <a href="#book" class="btn-gold">空室・料金を確認する</a>
+  </div>
+</section>
+
+<!-- ══ 08 KIKYU PRIVATE MEMBERS / LINE ══
+     公式LINEのURLが未確認のため、本セクションは本番非表示。
+     URL確定後、以下のマークアップを有効化してください。
+<section class="sec" id="members">
+  <span class="sec-label">KIKYŪ Private Members</span>
+  <h2 class="sec-h">LINEで、一般公開前のご案内を。</h2>
+  <p class="sec-lead">KIKYŪ公式LINEでは、空室・キャンセル情報や熱海海上花火大会開催日のご案内、LINE会員向けの特典・プレゼント、一般予約サイトではご案内していない滞在サービスなどをお届けします。</p>
+  <div class="values">
+    <div class="value-card"><b>Priority Availability</b><p>空室・キャンセル発生時のご案内</p></div>
+    <div class="value-card"><b>Fireworks Priority</b><p>花火大会開催日の先行・優先案内</p></div>
+    <div class="value-card"><b>Private Offers</b><p>LINE会員向けの特典・プレゼント</p></div>
+    <div class="value-card"><b>Members-only Experiences</b><p>一般予約サイトではご案内していない滞在サービス</p></div>
+  </div>
+  <a class="btn-gold" href="__LINE_URL__">LINEでKIKYŪを追加する</a>
+</section>
+-->
+
+<!-- ══ 09 LOCATION ══ -->
+<section class="sec" id="location">
+  <span class="sec-label fade">Location</span>
+  <h2 class="sec-h fade">ATAMI, JUST BEYOND TOKYO.</h2>
+  <p class="sec-lead fade">東京からアクセスできる、熱海の滞在先。</p>
+  <dl class="info-grid fade">
+    <dt>所在地</dt><dd>静岡県熱海市(詳細な住所・道順は、ご予約確定後にご案内します)</dd>
+    <dt>電車でのアクセス</dt><dd>東京駅から熱海駅まで、新幹線で約40〜50分。熱海駅からのアクセスはご予約確定後にご案内します。</dd>
+    <dt>車でのアクセス</dt><dd>道順はご予約確定後にご案内します。</dd>
+    <dt>駐車場</dt><dd>普通車:5台</dd>
+    <dt>相模湾</dt><dd>邸内の各所から相模湾を望みます。</dd>
+    <dt>熱海海上花火大会</dt><dd>開催日は主催者の発表をご確認ください。天候・開催状況等により見え方は異なります。</dd>
+    <dt>周辺環境</dt><dd>熱海の高台に位置する、静かな住宅エリアです。</dd>
+  </dl>
+</section>
+
+<!-- ══ 10 GUEST VOICES ══ -->
+<section class="sec" id="voices" style="padding-top:0;">
+  <span class="sec-label fade">Guest Voices</span>
+  <h2 class="sec-h fade">ご宿泊いただいた方の評価。</h2>
+  <div class="voice-block fade">
+    <div>
+      <p style="font-size:14px;line-height:2.05;color:var(--mid);">The KIKYŪは、一般宿泊においてAirbnb『ゲストチョイス(Guest Favourite)』に選ばれています。</p>
+      <p class="note" style="margin-top:12px;">2026年8月時点。一般宿泊における評価です。</p>
     </div>
-    <div class="exp-card">
-      <img src="images_ovr/entrance.jpg" alt="玄関アプローチ（夜）">
-      <div class="exp-card-label">
-        <span>Arrival</span>
-        <h4>光に誘われる夜の到着</h4>
-      </div>
-    </div>
-    <div class="exp-card">
-      <img src="images_ovr/bbq.jpg" alt="BBQエリア">
-      <div class="exp-card-label">
-        <span>Evening</span>
-        <h4>海風とBBQの宴</h4>
-      </div>
-    </div>
-    <div class="exp-card wide">
-      <img src="images_ovr/fireworks.jpg" alt="窓越しに望む熱海の花火">
-      <div class="exp-card-label">
-        <span>Summer Special</span>
-        <h4>リビングから望む、熱海花火大会</h4>
-      </div>
-    </div>
-    <div class="exp-card">
-      <img src="images_ovr/rooftop2.jpg" alt="屋上テラス（別角度）">
-      <div class="exp-card-label">
-        <span>Night</span>
-        <h4>星空の下、屋上でのひととき</h4>
-      </div>
+    <div class="voice-stats">
+      <div><b>Guest Favourite</b><span>Airbnb ゲストチョイス</span></div>
+      <div><b>5.0</b><span>評価</span></div>
+      <div><b>10件</b><span>レビュー</span></div>
     </div>
   </div>
 </section>
 
-<!-- FLOOR GUIDE -->
-<section class="floor-section" id="floors">
-  <div class="floor-inner">
-    <div class="section-header">
-      <span class="eyebrow">Floor Guide</span>
-      <h2>館内フロアガイド</h2>
-    </div>
-    <div class="floor-tabs">
-      <button class="floor-tab active" onclick="showFloor('1f')">1F｜エントランス</button>
-      <button class="floor-tab" onclick="showFloor('3f')">3F｜ゲスト棟</button>
-      <button class="floor-tab" onclick="showFloor('roof')">屋上｜テラス</button>
-    </div>
-    <div id="floor-1f" class="floor-panel active">
-      <img src="images_ovr/floor_1f.jpg" alt="1階 Cohoom図面">
-      <div class="floor-info">
-        <h3>1F — エントランス &amp; 温泉棟</h3>
-        <p>
-          正面玄関から続くアプローチを抜けると、石張りのエントランスホールが出迎えます。
-          1階には大浴場（天然温泉）、シャワールーム、会議スペース、ランドリーを設置。
-          チェックイン直後から温泉に入れる動線設計です。
-        </p>
-        <ul class="room-list">
-          <li>エントランスホール</li>
-          <li>大浴場（天然温泉）</li>
-          <li>シャワールーム</li>
-          <li>会議・研修室</li>
-          <li>ランドリー</li>
-          <li>駐車場（3台）</li>
-        </ul>
-      </div>
-    </div>
-    <div id="floor-3f" class="floor-panel">
-      <img src="images_ovr/floor_3f.jpg" alt="3階 Cohoom図面">
-      <div class="floor-info">
-        <h3>3F — ゲストルーム棟</h3>
-        <p>
-          3階は2部屋の和室ゲストルームと、檜風呂を備えるフロアです。
-          廊下に面したバルコニーからも相模湾を望むことができます。
-          ファミリーや友人グループでのご利用に最適なプライベート空間です。
-        </p>
-        <ul class="room-list">
-          <li>大和室（8畳）</li>
-          <li>小和室（6畳）</li>
-          <li>檜風呂（個室）</li>
-          <li>バルコニー</li>
-          <li>脱衣所・洗面</li>
-          <li>共用トイレ</li>
-        </ul>
-      </div>
-    </div>
-    <div id="floor-roof" class="floor-panel">
-      <img src="images_ovr/floor_roof.jpg" alt="屋上 Cohoom図面">
-      <div class="floor-info">
-        <h3>Rooftop — 展望テラス</h3>
-        <p>
-          相模湾を360°パノラマで望む、プライベート屋上テラス。
-          熱海港、初島、伊豆半島まで見渡せる絶景スポットです。
-          夏は花火観覧、冬は星空観察にも最適。BBQグリルの設置も可能です。
-        </p>
-        <ul class="room-list">
-          <li>展望テラス（全面開放）</li>
-          <li>BBQスペース</li>
-          <li>アウトドアチェア・テーブル</li>
-          <li>180°オーシャンビュー</li>
-          <li>花火観覧スポット</li>
-          <li>星空観察スポット</li>
-        </ul>
-      </div>
-    </div>
+<!-- ══ 11 STAY INFORMATION / FAQ ══ -->
+<section class="sec" id="stay-info">
+  <span class="sec-label fade">Stay Information</span>
+  <h2 class="sec-h fade">ご予約の前に。</h2>
+  <dl class="info-grid fade">
+    <dt>最大宿泊人数</dt><dd>最大14名(一般宿泊)</dd>
+    <dt>寝室・ベッド</dt><dd>寝室5・ベッド13(和室の布団を含む構成はお問い合わせください)</dd>
+    <dt>バスルーム</dt><dd>バスルーム2・トイレ2</dd>
+    <dt>建物</dt><dd>一棟貸切(滞在中、他のゲストは滞在しません)/延床約1,065㎡</dd>
+    <dt>Check-in / Check-out</dt><dd>お問い合わせください</dd>
+    <dt>温泉</dt><dd>館内の大浴場で天然温泉をご利用いただけます</dd>
+    <dt>プール</dt><dd>屋外プライベートプール(利用条件はお問い合わせください)</dd>
+    <dt>キッチン</dt><dd>キッチンを備えています(B1F BBQエリアにもキッチンあり)</dd>
+    <dt>Wi-Fi</dt><dd>高速Wi-Fi</dd>
+    <dt>食事</dt><dd>事前相談制(専属栄養士の食事設計/出張シェフのご相談が可能)</dd>
+    <dt>アレルギー対応</dt><dd>事前相談に応じて個別に対応します</dd>
+    <dt>BBQ・焚き火</dt><dd>B1Fの焚き火台・BBQエリアで対応 ※事前相談および当日の天候・利用条件によります</dd>
+    <dt>子どもの宿泊 / ペット / 喫煙</dt><dd>お問い合わせください</dd>
+    <dt>キャンセル条件</dt><dd>ご予約時にご案内します</dd>
+    <dt>ハウスルール</dt><dd>ご予約時にご案内します</dd>
+  </dl>
+
+  <div class="faq fade">
+    <details><summary>何名まで宿泊できますか?</summary><p class="a">一般宿泊では最大14名までご宿泊いただけます(寝室5・ベッド13)。人数構成に応じたご案内はお問い合わせください。</p></details>
+    <details><summary>子どもも宿泊できますか?</summary><p class="a">お子様連れのご滞在についてはお問い合わせください。人数・年齢に応じてご案内します。</p></details>
+    <details><summary>食事を依頼できますか?</summary><p class="a">事前のご相談により、専属栄養士によるお食事の設計や、出張シェフによるPrivate Diningをご案内できます。内容・人数・日程により対応可否と料金が異なります。</p></details>
+    <details><summary>アレルギーへ対応できますか?</summary><p class="a">事前相談に応じて個別に対応します。ご予約時にお知らせください。</p></details>
+    <details><summary>温泉とプールは利用できますか?</summary><p class="a">館内の大浴場で天然温泉をご利用いただけます。屋外プールの利用条件はお問い合わせください。</p></details>
+    <details><summary>駐車場はありますか?</summary><p class="a">普通車5台分の駐車スペースがあります。</p></details>
+    <details><summary>BBQや焚き火はできますか?</summary><p class="a">B1Fの焚き火台・BBQエリアをご利用いただけます。事前相談および当日の天候・利用条件によります。</p></details>
+    <details><summary>花火大会は施設から見えますか?</summary><p class="a">熱海海上花火大会の開催日には、邸宅から花火をお楽しみいただけます。開催日程は主催者発表をご確認ください。天候、開催状況、館内の位置などにより見え方は異なります。</p></details>
+    <details><summary>キャンセル条件を確認したい</summary><p class="a">キャンセル条件はご予約時にご案内します。お気軽にお問い合わせください。</p></details>
+    <details><summary>特別なリクエストを相談できますか?</summary><p class="a">記念日のご準備、食事、エステ・マッサージ、Yogaなど、可能な範囲でご要望に合わせてご案内します。まずはご相談ください。</p></details>
   </div>
 </section>
 
-<!-- AMENITIES -->
-<section class="amenities-section">
-  <div class="section-header">
-    <span class="eyebrow">Amenities</span>
-    <h2>充実した設備とアメニティ</h2>
-  </div>
-  <div class="amenities-grid">
-    <div class="amenity-item">
-      <div class="amenity-icon">♨</div>
-      <h4>天然温泉</h4>
-      <p>24時間 プライベート貸切</p>
-    </div>
-    <div class="amenity-item">
-      <div class="amenity-icon">🏠</div>
-      <h4>完全貸切</h4>
-      <p>他のゲストと共有なし</p>
-    </div>
-    <div class="amenity-item">
-      <div class="amenity-icon">🌊</div>
-      <h4>180°海景</h4>
-      <p>相模湾・初島・伊豆パノラマ</p>
-    </div>
-    <div class="amenity-item">
-      <div class="amenity-icon">🌿</div>
-      <h4>プライベート庭園</h4>
-      <p>手入れされた緑が四季を彩る</p>
-    </div>
-    <div class="amenity-item">
-      <div class="amenity-icon">🍖</div>
-      <h4>BBQテラス</h4>
-      <p>グリル完備、海を見ながら</p>
-    </div>
-    <div class="amenity-item">
-      <div class="amenity-icon">🚗</div>
-      <h4>無料駐車場</h4>
-      <p>3台分 敷地内駐車スペース</p>
-    </div>
-    <div class="amenity-item">
-      <div class="amenity-icon">📶</div>
-      <h4>高速Wi-Fi</h4>
-      <p>ワーケーション対応 全室完備</p>
-    </div>
-    <div class="amenity-item">
-      <div class="amenity-icon">🎮</div>
-      <h4>プレイルーム</h4>
-      <p>ゲーム・映像設備完備</p>
-    </div>
-  </div>
-</section>
-
-<!-- QUOTE -->
-<section class="quote-section">
-  <blockquote>
-    "熱海の海を見下ろしながら、<br>時間を忘れて過ごす——<br>それが Ocean View Retreat の約束です。"
-  </blockquote>
-  <cite>— 合同会社フクダホテルマネジメント</cite>
-</section>
-
-<!-- PRICING -->
-<section class="pricing-section" id="pricing">
-  <div class="pricing-inner">
-    <div class="section-header">
-      <span class="eyebrow">Rates</span>
-      <h2 style="color:#fff">ご利用料金</h2>
-    </div>
-    <p style="text-align:center;color:rgba(255,255,255,0.45);font-size:13px;letter-spacing:0.1em;margin-top:-40px;margin-bottom:40px;">
-      料金はすべて1棟貸切・税込表示 ／ チェックイン 15:00、チェックアウト 11:00
+<!-- ══ 12 AVAILABILITY & BOOK ══ -->
+<section class="book-sec" id="book">
+  <div class="inner">
+    <span class="sec-label fade">Your Stay at KIKYŪ</span>
+    <h2 class="fade">空室と料金を確認する。</h2>
+    <p class="fade">
+      ご希望の日程と人数をお知らせください。空室状況とお見積りを、メールにてご案内します。
+      お食事やエステ・マッサージなど、特別なご要望もあわせてご相談いただけます。
     </p>
-    <div class="pricing-grid">
-      <div class="price-card">
-        <h3>平日</h3>
-        <div class="price-amount">¥80,000</div>
-        <div class="price-unit">1泊 / 棟全体（〜8名）</div>
-        <div class="price-divider"></div>
-        <ul class="price-features">
-          <li>月〜木（祝前日除く）</li>
-          <li>温泉・全設備利用込み</li>
-          <li>9名以上 +¥5,000/名</li>
-          <li>最大16名まで対応可</li>
-        </ul>
-        <a href="#contact" class="price-cta">空き確認・予約</a>
-      </div>
-      <div class="price-card featured">
-        <div class="price-badge">Most Popular</div>
-        <h3>休前日</h3>
-        <div class="price-amount">¥120,000</div>
-        <div class="price-unit">1泊 / 棟全体（〜8名）</div>
-        <div class="price-divider"></div>
-        <ul class="price-features">
-          <li>金・土・祝前日</li>
-          <li>温泉・全設備利用込み</li>
-          <li>9名以上 +¥8,000/名</li>
-          <li>最大16名まで対応可</li>
-        </ul>
-        <a href="#contact" class="price-cta">空き確認・予約</a>
-      </div>
-      <div class="price-card">
-        <h3>特別シーズン</h3>
-        <div class="price-amount">¥160,000</div>
-        <div class="price-unit">1泊 / 棟全体（〜8名）</div>
-        <div class="price-divider"></div>
-        <ul class="price-features">
-          <li>GW・お盆・年末年始・花火大会日</li>
-          <li>温泉・全設備利用込み</li>
-          <li>9名以上 +¥10,000/名</li>
-          <li>2泊以上でのご利用推奨</li>
-        </ul>
-        <a href="#contact" class="price-cta">空き確認・予約</a>
-      </div>
+    <div class="fade">
+      <a class="btn-gold" href="mailto:info@fukudahotel.com?subject=The KIKYŪ Atami 空室・料金の確認&body=ご希望日程:%0D%0Aご人数:%0D%0Aご要望(食事・エステ等):">空室・料金を確認する</a>
     </div>
-    <p style="text-align:center;color:rgba(255,255,255,0.3);font-size:12px;letter-spacing:0.08em;margin-top:32px;">
-      ※ 法人契約（年間契約・複数回利用）は別途ご相談ください。割引プランをご用意しています。
-    </p>
-  </div>
-</section>
-
-<!-- ACCESS -->
-<section class="access-section" id="access">
-  <div class="access-text">
-    <span class="eyebrow">Access</span>
-    <h2>東京から<br>最短65分の別世界</h2>
-    <ul class="access-list">
-      <li>
-        <span class="label">所在地</span>
-        <span class="val">静岡県熱海市<br>（詳細住所はご予約確定後にご案内）</span>
-      </li>
-      <li>
-        <span class="label">新幹線</span>
-        <span class="val">東京駅 → 熱海駅（こだま）約65分<br>熱海駅よりタクシー約15分</span>
-      </li>
-      <li>
-        <span class="label">在来線</span>
-        <span class="val">東京駅 → 熱海駅（踊り子号）約90分</span>
-      </li>
-      <li>
-        <span class="label">お車</span>
-        <span class="val">東名高速 沼津ICより約40分<br>敷地内駐車場 3台無料</span>
-      </li>
-      <li>
-        <span class="label">送迎</span>
-        <span class="val">熱海駅からの送迎サービス<br>（要事前予約、有料）</span>
-      </li>
-    </ul>
-  </div>
-  <div class="access-map">
-    <iframe
-      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d26325.46516!2d139.07!3d35.1!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x601b75acfe0d9c45%3A0x5069c6e3b9c7d91!2z54aK5rW3!5e0!3m2!1sja!2sjp!4v1000000000000"
-      allowfullscreen loading="lazy"
-      referrerpolicy="no-referrer-when-downgrade">
-    </iframe>
-  </div>
-</section>
-
-<!-- BOOKING CTA -->
-<section class="booking-section" id="contact">
-  <div class="booking-bg"></div>
-  <div class="booking-content">
-    <span class="eyebrow">Reservations</span>
-    <h2>特別な時間を、<br>今すぐ予約する</h2>
-    <p>
-      空き状況の確認、ご料金のご相談、法人利用のご要望まで、まずはお気軽にお問い合わせください。
-    </p>
-    <a href="mailto:info@fukudahotel.com?subject=Ocean View Retreat 予約問い合わせ" class="booking-btn">
-      予約・お問い合わせ
-    </a>
-    <a href="tel:0557-XX-XXXX" class="tel-link">Tel: 0557-XX-XXXX</a>
+    <!-- 公式LINE未確認のため本番非表示:
+    <p style="margin-top:40px;">まだ日程がお決まりでない方へ<br>花火大会開催日や空室情報を、公式LINEでご案内します。</p>
+    <a class="btn-line-dark" href="__LINE_URL__">LINEで最新情報を受け取る</a>
+    -->
   </div>
 </section>
 
 <!-- FOOTER -->
 <footer>
-  <div class="footer-brand">
-    <span class="brand-name">Ocean View Retreat</span>
-    <span class="brand-sub">Atami, Shizuoka</span>
-    <p>相模湾を独占する完全貸切の海上別邸。<br>熱海の高台で、日常を忘れる時間を。<br><br>運営：合同会社フクダホテルマネジメント<br>旅館業法許可取得済</p>
-  </div>
-  <div class="footer-col">
-    <h4>Navigation</h4>
-    <a href="#experience">体験・施設</a>
-    <a href="#floors">フロアガイド</a>
-    <a href="#pricing">ご利用料金</a>
-    <a href="#access">アクセス</a>
-    <a href="#contact">予約・お問い合わせ</a>
-    <a href="journal/">Journal</a>
-  </div>
-  <div class="footer-col">
-    <h4>Information</h4>
-    <p>チェックイン：15:00〜</p>
-    <p>チェックアウト：〜11:00</p>
-    <p>1棟貸切（最大16名）</p>
-    <p>ペット不可</p>
-    <p>喫煙：屋外指定スペースのみ</p>
-  </div>
-  <div class="footer-bottom">
-    <p>© 2026 合同会社フクダホテルマネジメント. All rights reserved.</p>
-    <p style="font-size:11px;color:rgba(255,255,255,0.15);">プライバシーポリシー｜特定商取引法に基づく表記</p>
+  <div class="foot">
+    <div>
+      <span class="fb-main">The KIKYŪ Atami</span>
+      <span class="fb-sub">Private Stay · Atami, Shizuoka</span>
+      <p>相模湾を望む、熱海の一棟貸しプライベートヴィラ。<br>
+        Operated by Fukuda Hotel Management LLC<br>
+        The KIKYŪ(熱海) 旅館業許可番号:熱海衛保第381号の27</p>
+    </div>
+    <div>
+      <h4>Navigate</h4>
+      <a href="index.html">Home</a>
+      <a href="stay.html">Stay</a>
+      <a href="retreat.html">Retreat(法人の方へ)</a>
+      <a href="#book">空室・料金を確認</a>
+    </div>
+    <div>
+      <h4>Contact</h4>
+      <a href="mailto:info@fukudahotel.com">info@fukudahotel.com</a>
+    </div>
   </div>
 </footer>
 
 <script>
-  // NAV scroll behavior
-  const nav = document.getElementById('mainNav');
-  window.addEventListener('scroll', () => {
-    nav.classList.toggle('scrolled', window.scrollY > 60);
-  });
+/* nav scroll state */
+const nav=document.getElementById('mainNav');
+addEventListener('scroll',()=>{ nav.classList.toggle('scrolled', scrollY>40); },{passive:true});
 
-  // Floor tabs
-  function showFloor(id) {
-    document.querySelectorAll('.floor-panel').forEach(p => p.classList.remove('active'));
-    document.querySelectorAll('.floor-tab').forEach(t => t.classList.remove('active'));
-    document.getElementById('floor-' + id).classList.add('active');
-    event.target.classList.add('active');
+/* fade-in */
+const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target);}});},{threshold:0.12});
+document.querySelectorAll('.fade').forEach(el=>io.observe(el));
+
+/* hero slider (same behavior as FHM top) */
+(function(){
+  var slides=[].slice.call(document.querySelectorAll('.hero-slides .hs'));
+  if(!slides.length) return;
+  var dotsWrap=document.getElementById('hsDots');
+  slides.forEach(function(_,i){
+    var b=document.createElement('button');
+    b.className='hn-dot'+(i===0?' is-on':'');
+    b.setAttribute('aria-label','スライド'+(i+1)+'を表示');
+    b.addEventListener('click',function(){go(i);pause();});
+    dotsWrap.appendChild(b);
+  });
+  var dots=[].slice.call(dotsWrap.children);
+  var idx=0,timer=null,resumeT=null;
+  var reduced=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function go(i){
+    slides[idx].classList.remove('is-active'); dots[idx].classList.remove('is-on');
+    idx=(i+slides.length)%slides.length;
+    slides[idx].classList.add('is-active'); dots[idx].classList.add('is-on');
   }
+  function start(){ if(reduced) return; stop(); timer=setInterval(function(){go(idx+1);},5500); }
+  function stop(){ if(timer){clearInterval(timer); timer=null;} }
+  function pause(){ stop(); clearTimeout(resumeT); resumeT=setTimeout(start,12000); }
+  document.getElementById('hsPrev').addEventListener('click',function(){go(idx-1);pause();});
+  document.getElementById('hsNext').addEventListener('click',function(){go(idx+1);pause();});
+  document.addEventListener('keydown',function(e){
+    if(e.target&&/^(input|textarea|select)$/i.test(e.target.tagName)) return;
+    if(e.key==='ArrowLeft'){go(idx-1);pause();}
+    else if(e.key==='ArrowRight'){go(idx+1);pause();}
+  });
+  var hero=document.querySelector('.hero');
+  hero.addEventListener('mouseenter',stop);
+  hero.addEventListener('mouseleave',function(){ if(!resumeT) start(); });
+  document.addEventListener('visibilitychange',function(){ document.hidden?stop():start(); });
+  var tx=null;
+  hero.addEventListener('touchstart',function(e){tx=e.touches[0].clientX;},{passive:true});
+  hero.addEventListener('touchend',function(e){
+    if(tx===null) return;
+    var dx=e.changedTouches[0].clientX-tx;
+    if(Math.abs(dx)>45){ if(dx>0){go(idx-1);}else{go(idx+1);} pause(); }
+    tx=null;
+  },{passive:true});
+  start();
+})();
+
+/* sticky book CTA: hide while booking section on screen */
+const stickyBook=document.getElementById('stickyBook');
+const bookSec=document.getElementById('book');
+if('IntersectionObserver' in window){
+  new IntersectionObserver(es=>{es.forEach(e=>stickyBook.classList.toggle('hidden', e.isIntersecting));},{threshold:0.1}).observe(bookSec);
+}
 </script>
 </body>
 </html>
