@@ -220,6 +220,19 @@ body {
   font-size: 15px; line-height: 2.1; color: var(--mid);
   letter-spacing: 0.04em;
 }
+.phi-caption {
+  margin-top: 14px;
+}
+.phi-caption b {
+  display: block; font-weight: 400;
+  font-family: -apple-system, 'Helvetica Neue', sans-serif;
+  font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--charcoal); margin-bottom: 6px;
+}
+.phi-caption span {
+  display: block; font-size: 12px; line-height: 1.9; letter-spacing: 0.04em;
+  color: var(--warm); text-align: left;
+}
 .phi-quote-wrap {
   display: flex; flex-direction: column; gap: 28px;
 }
@@ -666,8 +679,9 @@ footer {
   .nav { padding: 28px 32px; }
   .nav.scrolled { padding: 16px 32px; }
   .nav-links { display: none; }
-  .hero-body { padding: 0 32px 10vh; }
+  .hero-body { padding: 0 32px 8vh; }
   .hero-h { font-size: clamp(21px, 7vw, 34px); letter-spacing: 0; }
+  .hero { height: auto; min-height: 640px; min-height: 78svh; }
   .hero-lead br { display: none; }
   .hero-ctas a { flex: 1 1 auto; min-width: 150px; }
   .hero-nav { right: 16px; bottom: 16px; }
@@ -732,17 +746,17 @@ footer {
        5th:       images_corp/hero.jpg         (旧画像2 = 既存FVの海)
        loop: 5 → 4 → 3 → 1 → 2 → 5 … (mobile: 各 *-m.jpg を同じ紐付けで使用) -->
   <div class="hero-slides" aria-hidden="true">
-    <div class="hs hs-5 is-active hs-bright"><picture><source media="(max-width: 768px)" srcset="images_corp/hero-slide-5-m.jpg"><img src="images_corp/hero-slide-5.jpg" alt="" fetchpriority="high" decoding="async"></picture></div>
-    <div class="hs hs-4 hs-bright"><picture><source media="(max-width: 768px)" srcset="images_corp/hero-slide-4-m.jpg"><img src="images_corp/hero-slide-4.jpg" alt="" loading="lazy" fetchpriority="low" decoding="async"></picture></div>
-    <div class="hs hs-3"><picture><source media="(max-width: 768px)" srcset="images_corp/hero-slide-3-m.jpg"><img src="images_corp/hero-slide-3.jpg" alt="" loading="lazy" fetchpriority="low" decoding="async"></picture></div>
-    <div class="hs hs-1 hs-bright"><picture><source media="(max-width: 768px)" srcset="images_corp/hero-slide-1-m.jpg"><img src="images_corp/hero-slide-1.jpg" alt="" loading="lazy" fetchpriority="low" decoding="async"></picture></div>
-    <div class="hs hs-2"><picture><source media="(max-width: 768px)" srcset="images_corp/hero-m.jpg"><img src="images_corp/hero.jpg" alt="" loading="lazy" fetchpriority="low" decoding="async"></picture></div>
+    <div class="hs hs-5 is-active hs-bright"><picture><source media="(max-width: 768px)" srcset="images_corp/hero-slide-5-m2.jpg"><img src="images_corp/hero-slide-5.jpg" alt="" fetchpriority="high" decoding="async"></picture></div>
+    <div class="hs hs-4 hs-bright"><picture><source media="(max-width: 768px)" srcset="images_corp/hero-slide-4-m2.jpg"><img src="images_corp/hero-slide-4.jpg" alt="" loading="lazy" fetchpriority="low" decoding="async"></picture></div>
+    <div class="hs hs-3"><picture><source media="(max-width: 768px)" srcset="images_corp/hero-slide-3-m2.jpg"><img src="images_corp/hero-slide-3.jpg" alt="" loading="lazy" fetchpriority="low" decoding="async"></picture></div>
+    <div class="hs hs-1 hs-bright"><picture><source media="(max-width: 768px)" srcset="images_corp/hero-slide-1-m2.jpg"><img src="images_corp/hero-slide-1.jpg" alt="" loading="lazy" fetchpriority="low" decoding="async"></picture></div>
+    <div class="hs hs-2"><picture><source media="(max-width: 768px)" srcset="images_corp/hero-m2.jpg"><img src="images_corp/hero.jpg" alt="" loading="lazy" fetchpriority="low" decoding="async"></picture></div>
   </div>
   <div class="hero-veil"></div>
   <div class="hero-body">
     <p class="hero-loc">Private Stays &amp; Corporate Retreats</p>
     <h1 class="hero-h"><span class="hh-u">日本の美しい場所に、</span><br><span class="hh-u">滞在の目的地をつくる。</span></h1>
-    <p class="hero-lead">一棟貸し宿泊施設の企画・運営から、<br>個人の滞在、法人リトリートの設計まで。</p>
+    <p class="hero-lead">ホテル・一棟貸し宿泊施設の企画・運営から、<br>個人の滞在、法人リトリートの設計まで。</p>
     <div class="hero-ctas">
       <a href="#portfolio" class="hero-btn-solid">運営施設を見る</a>
       <a href="#about" class="hero-btn-line">私たちについて</a>
@@ -760,12 +774,12 @@ footer {
   <div class="portfolio-header">
     <div>
       <span class="portfolio-tag">Our Services</span>
-      <h2 class="portfolio-h t-ja">目的に合わせた、<br>二つの滞在。</h2>
+      <h2 class="portfolio-h t-ja">目的に合わせた、<br>2つの滞在。</h2>
       <h2 class="portfolio-h t-en">Two stays,<br>shaped by purpose.</h2>
     </div>
     <div>
       <p class="portfolio-sub t-ja">
-        Fukuda Hotel Managementは、一棟貸し施設を基盤に、個人・ご家族のための「STAY」と、
+        Fukuda Hotel Managementは、ホテルや一棟貸し施設を基盤に、個人・ご家族のための「STAY」と、
         企業・組織のための「RETREAT」を提供しています。滞在の目的に合わせて、それぞれのサービスをご案内します。
       </p>
       <p class="portfolio-sub t-en">
@@ -842,7 +856,13 @@ footer {
     </p>
   </div>
   <div class="phi-quote-wrap">
-    <img class="phi-img" src="images_corp/philosophy-v2.jpg" alt="The KIKYŪ 4階ホール — 開かれた扉の先に相模湾を望む" width="1567" height="1045" loading="lazy" decoding="async" style="object-position:center 55%">
+    <figure style="margin:0;">
+      <img class="phi-img" src="images_corp/philosophy-v2.jpg" alt="The KIKYŪ 4階ホール — 開かれた扉の先に相模湾を望む" width="1567" height="1045" loading="lazy" decoding="async" style="object-position:center 55%">
+      <figcaption class="phi-caption">
+        <b>The KIKYŪ</b>
+        <span>Fukuda Hotel Managementが、企画・デザインから運営まで一貫して手がける宿泊施設です。</span>
+      </figcaption>
+    </figure>
   </div>
 </section>
 
