@@ -517,6 +517,28 @@ body.pm-open{ overflow:hidden; }
   .prop-grid{ grid-template-columns:1fr; gap:24px; }
 }
 
+/* ── PROPERTY EXTRAS ─────────────────────────────────────── */
+.prop-sub{
+  display:block; font-size:8.5px; letter-spacing:0.18em; text-transform:uppercase;
+  color:var(--gold); margin-top:3px;
+}
+.prop-desc{
+  font-size:11.5px; line-height:1.9; color:var(--mid); letter-spacing:0.04em;
+  margin-top:6px; text-transform:none;
+}
+.wb-fac{
+  margin-top:56px; border:1px solid var(--line);
+  display:grid; grid-template-columns:1fr 1fr; gap:1px; background:var(--line);
+}
+.wb-fac > div{ background:var(--white); padding:30px 30px; }
+.wb-fac b{
+  font-family:Georgia,serif; font-weight:400; font-size:15px; letter-spacing:0.16em;
+  text-transform:uppercase; color:var(--ink); display:block;
+}
+.wb-fac i{ font-style:normal; display:block; font-size:9px; letter-spacing:0.2em; text-transform:uppercase; color:var(--gold); margin:4px 0 12px; }
+.wb-fac p{ font-size:12.5px; line-height:2; color:var(--mid); letter-spacing:0.04em; }
+@media (max-width:900px){ .wb-fac{ grid-template-columns:1fr; } }
+
 /* ── FAQ ─────────────────────────────────────────────────── */
 .faq{ border-top:1px solid var(--line); }
 .faq details{ border-bottom:1px solid var(--line); }
@@ -777,14 +799,14 @@ footer{ background:var(--dark); padding:72px 56px 40px; }
         <p class="prog-lead">日常を離れ、自身のLeadershipの軸と組織における役割を見つめ、次の行動へ。</p>
         <p class="prog-body">
           経営・組織の重要テーマに集中すると同時に、これまでの意思決定、価値観、強み、現在の役割を
-          振り返る宿泊型Leadership Programです。個人の意思と組織の使命をつなぎ、対話と内省を通じて、
-          Leadership Statementと具体的な行動計画へ進めます。
+          振り返る宿泊型Leadership Programです。パートナー企業と連携し、個人の意思と組織の使命をつなぎ、
+          対話と内省を通じて、Leadership Statementと具体的な行動計画へ進めます。
         </p>
         <div class="prog-rows">
           <div><b>Recommended For</b><span>経営者 / 役員 / 管理職 / 次世代リーダー / プロジェクトリーダー</span></div>
           <div><b>Key Focus</b><span>Leadership Reflection / Values &amp; Personal Leadership / Strategy / Executive Dialogue / Organization &amp; Role / Action Planning</span></div>
           <div><b>Program Flow</b><span>課題と役割の整理 → 価値観・原体験の内省 → 対話とフィードバック → 個人の意思と組織の使命を接続 → Leadership Statement → Action Planning</span></div>
-          <div><b>Structure</b><span>外部の専門研修会社 × KIKYŪ / FHM<small>専門プログラムの設計・進行と、宿泊・食事・対話・Recoveryを組み合わせて設計します。</small></span></div>
+          <div><b>Structure</b><span>Leadership Development Partner × KIKYŪ / FHM<small>企業の人材・組織開発に豊富な経験を持つパートナー企業が、プログラムの設計とファシリテーションを担当。KIKYŪ / FHMが、宿泊・食事・対話・リカバリーを一体化した滞在環境を提供します。</small></span></div>
           <div><b>Expected Outcomes</b><span>Leadershipの軸 / 現在の役割と課題の整理 / Leadership Statement / チーム内の合意事項 / 具体的な行動計画</span></div>
           <div><b>Optional</b><span>Natural Onsen / Pool / Free Time<small>※本編外・自由参加です。温泉・プールは滞在中の自由時間にご利用いただけます。</small></span></div>
         </div>
@@ -811,7 +833,7 @@ footer{ background:var(--dark); padding:72px 56px 40px; }
           <div><b>Recommended For</b><span>女性管理職 / 次世代女性リーダー / 女性リーダー候補 / 女性活躍・DE&amp;I施策の対象者</span></div>
           <div><b>Key Focus</b><span>Leadership Reflection / Career &amp; Role / Leadership Challenge / Peer Dialogue / Self-management / Beauty &amp; Nutrition / Action Planning</span></div>
           <div><b>Program Flow</b><span>キャリア・役割の振り返り → Leadership課題の整理 → Peer Dialogue → Leadership Challenge Workshop → Beauty・Nutritionを含むセルフマネジメント → Leadership Statement → Action Planning</span></div>
-          <div><b>Structure</b><span>外部の女性Leadership専門プログラム × Neige Corporation × 専属栄養士 × KIKYŪ<small>※実施体制の確定後、企業の目的に応じて外部専門会社と設計します。</small></span></div>
+          <div><b>Structure</b><span>女性Leadership専門のパートナープログラム × Neige Corporation × 専属栄養士 × KIKYŪ<small>※実施体制の確定後、企業の目的に応じてパートナー企業と設計します。</small></span></div>
           <div><b>Expected Outcomes</b><span>Leadership課題の整理 / キャリアと役割に関する気づき / Leadership Statement / 個人アクションプラン / セルフマネジメントプラン / 参加者間のネットワーク</span></div>
           <div><b>Optional</b><span>Esthetic / Massage / Sunset Yoga / Boxercise / Meditation / Pool / Natural Onsen / Free Time<small>※すべて本編外・自由参加です。</small></span></div>
         </div>
@@ -841,7 +863,7 @@ footer{ background:var(--dark); padding:72px 56px 40px; }
           <div><b>Recommended For</b><span>経営者 / 役員 / 部門責任者 / AI推進責任者 / DX推進責任者 / 次世代経営リーダー</span></div>
           <div><b>Key Focus</b><span>AI経営リテラシー / 生成AIの仕組みと限界 / 役員業務ハンズオン / 業務棚卸し / AI適用マップ / ROI・投資判断 / AIガバナンス / AI Workflow・AI Agent / AI経営戦略</span></div>
           <div><b>Program Flow</b><span>AI市況・仕組みの理解 → 役員業務ハンズオン → 自社業務の棚卸し → AI適用候補の選定 → ROI・リスク評価 → AI Workflow / Agent DEMO → AI経営戦略・実装計画</span></div>
-          <div><b>Structure</b><span>YZ PARTNERS × KIKYŪ / FHM<small>YZ PARTNERSがAI・DX領域の専門設計、講義、演習、DEMO共創、戦略設計を担い、KIKYŪ / FHMが宿泊、研修環境、食事、運営、経営層同士の対話環境を提供します。</small></span></div>
+          <div><b>Structure</b><span>YZ PARTNERS × KIKYŪ / FHM<small>トップクラスのコンサルティングファーム出身者が在籍するYZ PARTNERSが、専門設計・講義・演習・DEMO共創・戦略設計を担い(内容に応じてコンサルタントが同行)、KIKYŪ / FHMが宿泊・研修環境・食事・運営・経営層同士の対話環境を提供します。</small></span></div>
           <div><b>Expected Outcomes</b><span>役員業務で使用するプロンプト / 自社AI活用候補 / AI適用マップ / 優先ユースケース / ROI試算の骨子 / AI利用ルール・ガバナンス論点 / AI WorkflowまたはAgent DEMO / 90日アクションプラン / AI経営戦略・ロードマップの骨子<small>※成果物例です。企業の課題、事前準備、参加者、実施時間によって異なります。</small></span></div>
           <div><b>Optional</b><span>Natural Onsen / Pool / Free Time<small>※本編外・自由参加です。温泉・プールは滞在中の自由時間にご利用いただけます。</small></span></div>
         </div>
@@ -898,7 +920,7 @@ footer{ background:var(--dark); padding:72px 56px 40px; }
       <p class="pm-lead">日常を離れ、自身のLeadershipの軸と組織における役割を見つめ、次の行動へ。</p>
       <p class="pm-desc" id="pm1-d">
         経営・組織の重要テーマに集中すると同時に、これまでの意思決定、価値観、強み、現在の役割を
-        振り返る宿泊型Leadership Programです。外部の専門研修会社との連携を含め、会議時間だけでなく、
+        振り返る宿泊型Leadership Programです。パートナー企業との連携を含め、会議時間だけでなく、
         食事、夜の対話、翌朝のReflectionまでを一つのプロセスとして設計し、個人の意思と組織の使命をつなぎ、
         Leadership Statementと具体的な行動計画へ進めます。
       </p>
@@ -907,7 +929,7 @@ footer{ background:var(--dark); padding:72px 56px 40px; }
         <div><b>Key Focus</b><span>Leadership Reflection / Values &amp; Personal Leadership / Strategy / Executive Dialogue / Organization &amp; Role / Action Planning</span></div>
         <div><b>Session Examples</b><span>Leadership Context / Individual Reflection / Values &amp; Strengths Exploration / Pair Dialogue / Leadership Challenge / From Self to Organization / Executive Dialogue / Leadership Statement / Action Planning</span></div>
         <div><b>2泊3日の構成例</b><span>Day 1: 課題と役割の整理 / 個人の内省 / Leadership Dialogue<br>Day 2: 価値観・原体験の探求 / 対話とフィードバック / 個人の意思と組織の使命を接続<br>Day 3: Leadership Statement / Action Planning / Commitment Sharing</span></div>
-        <div><b>Program Structure</b><span>外部の専門研修会社 × KIKYŪ / FHM<br><small>専門プログラムの設計・進行と、宿泊・食事・対話・Recoveryを組み合わせて設計します。</small></span></div>
+        <div><b>Program Structure</b><span>Leadership Development Partner × KIKYŪ / FHM<br><small>企業の人材・組織開発に豊富な経験を持つパートナー企業が、プログラムの設計とファシリテーションを担当。KIKYŪ / FHMが、宿泊・食事・対話・リカバリーを一体化した滞在環境を提供します。</small></span></div>
         <div><b>Expected Outcomes</b><span>Leadershipの軸 / 現在の役割と課題の整理 / Leadership Statement / チーム内の合意事項 / 具体的な行動計画<br><small>※内容は成果例です。目的に応じて設計します。</small></span></div>
         <div><b>Optional Elements</b><span>Natural Onsen / Pool / Free Time<br><small>※本編外です。温泉・プールは滞在中の自由時間にご利用いただける施設です。</small></span></div>
       </div>
@@ -938,7 +960,7 @@ footer{ background:var(--dark); padding:72px 56px 40px; }
         <div><b>Recommended For</b><span>女性管理職 / 次世代女性リーダー / 女性リーダー候補 / 女性活躍・DE&amp;I施策の対象者</span></div>
         <div><b>Key Objectives</b><span>Leadership課題の明確化 / キャリアと役割の再整理 / セルフマネジメント / 持続的なパフォーマンス / 参加者同士の対話と関係形成</span></div>
         <div><b>Session Examples</b><span>Leadership Reflection / Career &amp; Leadership Dialogue / Women's Leadership Session / Leadership Challenge Workshop / Beauty &amp; Self-management Session / Nutrition &amp; Performance Session / Leadership Statement / Action Planning</span></div>
-        <div><b>Program Structure</b><span>Leadership専門プログラム × Neige Corporation × 専属栄養士 × KIKYŪ<br><small>※実施体制の確定後、目的に応じて外部専門会社と設計します。</small></span></div>
+        <div><b>Program Structure</b><span>Leadership専門プログラム × Neige Corporation × 専属栄養士 × KIKYŪ<br><small>※実施体制の確定後、目的に応じてパートナー企業と設計します。</small></span></div>
         <div><b>Expected Outcomes</b><span>個人のLeadership課題 / キャリア・役割に関する気づき / セルフマネジメントプラン / 個人アクションプラン<br><small>※内容は一例です。目的に応じて設計します。</small></span></div>
         <div><b>Optional Elements</b><span>Esthetic / Massage / Sunset Yoga / Boxercise / Meditation / Pool / Natural Onsen / Free Time<br><small>※すべて本編外・自由参加です。Esthetic・Massageは事前予約制です。</small></span></div>
       </div>
@@ -1008,12 +1030,16 @@ footer{ background:var(--dark); padding:72px 56px 40px; }
 
       <h4 class="pm-sec"><small>AI Program Partner</small>YZ PARTNERSについて</h4>
       <p class="pm-desc">
-        YZ PARTNERSは、AIドリブンなコンサルティングを通じて、経営・業務変革の構想、導入、定着、
-        成果創出までを支援するProgram Partnerです。KIKYŪのAI RETREATでは、AI経営リテラシー、
-        自社業務への適用、AI Workflow・Agentの構想、実装ロードマップ等を、企業の課題に応じて設計します。
+        AI RETREATは、一般的なAI講義やツール体験だけで終わるプログラムではありません。
+        トップクラスのコンサルティングファーム(Bain &amp; Company、アクセンチュア等)で
+        経営・業務改革・DX支援の経験を積んだYZ PARTNERSのメンバーが、参加企業の経営課題と
+        業務課題を事前に整理。プログラムの内容に応じてリトリートにも同行し、経営陣との議論、
+        ユースケースの優先順位付け、AI Workflow・AI Agentのデモ構築、投資判断、
+        実装計画までを一貫して伴走します。
       </p>
       <div class="pm-rows" style="margin-top:14px;">
         <div><b>Fields</b><span>AIX Consulting / DX Consulting / AI SaaS / AI Native / AI Workflow / AI Agent / Implementation Support</span></div>
+        <div><b>Why YZ PARTNERS</b><span>Top-tier Consulting Experience / Executive Perspective / On-site Accompaniment / End-to-End Support / AI Workflow &amp; Agent / Implementation Roadmap</span></div>
       </div>
 
       <h4 class="pm-sec"><small>Public Track Record</small>YZ PARTNERS公式サイト掲載情報</h4>
@@ -1058,8 +1084,9 @@ footer{ background:var(--dark); padding:72px 56px 40px; }
       <p class="pm-lead">Beautyを学び、食べ、動き、整える2泊3日。</p>
       <p class="pm-desc" id="pm4-d">
         Neige Corporationの美容・化粧品領域の知見と、専属栄養士によるRetreat Cuisineを組み合わせた
-        宿泊型プログラムです。美容施術を受けるだけの旅行ではなく、Beauty Learning、Nutrition、
-        Movement、Recoveryを一つの滞在として構成します。
+        宿泊型プログラムです。地元の新鮮な野菜や旬の食材を取り入れ、栄養と美の両面から食事を設計。
+        美容施術を受けるだけの旅行ではなく、Beauty Learning、Nutrition、Movement、Recoveryを
+        一つの滞在として構成します。
       </p>
       <div class="pm-rows">
         <div><b>Beauty Partner</b><span>
@@ -1105,17 +1132,18 @@ footer{ background:var(--dark); padding:72px 56px 40px; }
         <h3 class="exp-title">LEADERSHIP<br>DEVELOPMENT</h3>
       </div>
       <div>
-        <p class="exp-lead">外部専門会社と設計する、宿泊型Leadership Program</p>
+        <p class="exp-lead">パートナー企業と設計する、宿泊型Leadership Program</p>
         <div class="exp-body">
           <p>
-            経営層・管理職・次世代リーダー向けに、企業の目的と組織課題に応じたプログラムを設計します。
-            Strategy、Leadership Development、Team Building、Organization Development、Dialogue等を、
-            KIKYŪでの滞在体験と組み合わせます。
+            大手企業・グローバル企業の経営層、管理職、次世代リーダーを対象に、リーダーシップ開発や
+            組織変革を支援してきたパートナー企業とプログラムを設計。企業ごとの経営課題と人材課題を踏まえ、
+            対話、内省、チームビルディング、行動計画までを一貫して構成します。
+            KIKYŪ / FHMは、宿泊・食事・対話・リカバリーを一体化した滞在環境を提供します。
           </p>
         </div>
         <div class="exp-keys">
-          <span>Strategy</span><span>Leadership</span><span>Team Building</span>
-          <span>Organization</span><span>Dialogue</span>
+          <span>Executive Development</span><span>Next-Generation Leaders</span><span>Global Leadership</span>
+          <span>Organization Development</span><span>Team Effectiveness</span><span>Facilitated Dialogue</span>
         </div>
       </div>
     </div>
@@ -1185,15 +1213,30 @@ footer{ background:var(--dark); padding:72px 56px 40px; }
         <p class="exp-sub">専属栄養士が滞在中の食を設計</p>
       </div>
       <div>
+        <p class="exp-lead">専属栄養士が、栄養と美の両面からRetreat Cuisineを設計。</p>
         <div class="exp-body">
           <p>
-            研修スケジュールと目的に合わせ、朝食・昼食・夕食を通じたRetreat Cuisineを設計します。
-            Women's LeadershipやBeauty Retreatでは、Beauty NutritionやNutrition Sessionも個別に組み込めます。
+            専属栄養士が、Neige Corporationの美容・化粧品開発で培われた知見を取り入れ、
+            栄養と美の両面からRetreat Cuisineを設計。地元の新鮮な野菜や旬の食材をふんだんに取り入れ、
+            研修中の集中力とコンディションを支えながら、健やかな美しさにつながる食体験を追求します。
+          </p>
+          <p>
+            Retreat Cuisineは、単なる宿泊時の食事ではありません。専属栄養士が、研修の目的、
+            滞在スケジュール、参加者のコンディションを考慮しながら、朝食・昼食・夕食を設計します。
+            さらに、OEM、自社ブランド、外部パートナーとの共同商品開発を通じて美容領域の知見を
+            蓄積してきたNeige Corporationと連携。栄養バランス、食材の選定、食べ方までを
+            美容とウェルビーイングの視点から検討し、内側から健やかな美しさを支える食体験を追求します。
+          </p>
+          <p>
+            地元の野菜や旬の食材を積極的に取り入れ、研修へ集中するためのエネルギー、参加者同士の
+            対話を深める食卓、滞在後の日常へ持ち帰れる健康的な食習慣までを意識して構成します。
+            アレルギーや食事制限は事前相談に応じて個別に対応します。
           </p>
         </div>
         <div class="exp-keys">
-          <span>Breakfast</span><span>Lunch</span><span>Dinner</span>
-          <span>Retreat Cuisine</span><span>Beauty Nutrition</span><span>Nutrition Session</span>
+          <span>Dedicated Nutritionist</span><span>Nutrition × Beauty</span><span>Beauty Nutrition Design</span>
+          <span>Local &amp; Seasonal Ingredients</span><span>Program-based Design</span>
+          <span>Beauty Knowledge</span><span>Dietary Support</span>
         </div>
       </div>
     </div>
@@ -1209,14 +1252,16 @@ footer{ background:var(--dark); padding:72px 56px 40px; }
         <p class="exp-lead">AIを前提に、経営・業務変革を構想から導入・定着まで支援。</p>
         <div class="exp-body">
           <p>
-            YZ PARTNERSは、AIドリブンなコンサルティングを通じて、経営・業務変革の構想、導入、定着、
-            成果創出までを支援するProgram Partnerです。KIKYŪのAI RETREATでは、AI経営リテラシー、
-            自社業務への適用、AI Workflow・Agentの構想、実装ロードマップ等を、企業の課題に応じて設計します。
+            YZ PARTNERSには、Bain &amp; Companyやアクセンチュアをはじめとするトップクラスの
+            コンサルティングファーム出身者が在籍。経営とテクノロジーの両面に精通したコンサルタントが、
+            事前の課題整理から研修設計、当日のファシリテーション、AI活用テーマの選定、
+            デモ・プロトタイプの構築、実装ロードマップの策定までを一気通貫で支援します。
+            プログラムの内容に応じて、コンサルタントがリトリートに同行します。
           </p>
         </div>
         <div class="exp-keys">
-          <span>AIX Consulting</span><span>DX Consulting</span><span>AI SaaS</span>
-          <span>AI Native</span><span>AI Workflow</span><span>AI Agent</span><span>Implementation Support</span>
+          <span>Top-tier Consulting Experience</span><span>Executive Perspective</span><span>On-site Accompaniment</span>
+          <span>End-to-End Support</span><span>AI Workflow &amp; Agent</span><span>Implementation Roadmap</span>
         </div>
       </div>
       <div class="exp-side">
@@ -1437,7 +1482,7 @@ footer{ background:var(--dark); padding:72px 56px 40px; }
     <!-- ── PLAN 4: WOMEN'S LEADERSHIP ── -->
     <div class="tab-panel" id="tab-wl" role="tabpanel">
       <p class="plan-purpose">女性リーダーとしての成長、役割、キャリア、セルフマネジメントを一体で考える。</p>
-      <p class="plan-for">Recommended For:女性管理職 / 次世代女性リーダー / 女性リーダー候補 — Structure:外部の女性Leadership専門プログラム × Neige Corporation × 専属栄養士 × KIKYŪ(実施体制の確定後、目的に応じて設計)</p>
+      <p class="plan-for">Recommended For:女性管理職 / 次世代女性リーダー / 女性リーダー候補 — Structure:女性Leadership専門のパートナープログラム × Neige Corporation × 専属栄養士 × KIKYŪ(実施体制の確定後、目的に応じて設計)</p>
       <div class="plan-legend"><span><b>Core Program</b> = 本編</span><span class="lg-opt">Optional / Free Participation = 自由参加(本編外)</span></div>
       <div class="days">
         <div class="day fade">
@@ -1497,7 +1542,7 @@ footer{ background:var(--dark); padding:72px 56px 40px; }
       <p class="h-ja" style="margin-bottom:28px;">BEAUTY RETREATおよびWOMEN'S LEADERSHIPでは、目的と参加者に応じて、Esthetic、Massage、Sunset Yoga、Boxercise等のOptional Programを追加できます。すべて自由参加です。</p>
       <div class="custom-grid">
         <div class="custom-card"><span class="optchip" style="margin:0 0 10px;display:inline-block;">Optional</span><b>Esthetic</b><i>エステ</i>
-          <p>Beauty Partnerや外部専門スタッフによる美容施術を、希望者向けに個別手配。内容、時間、対応人数、料金は事前にご案内します。</p></div>
+          <p>Beauty Partnerや提携スタッフによる美容施術を、希望者向けに個別手配。内容、時間、対応人数、料金は事前にご案内します。</p></div>
         <div class="custom-card"><span class="optchip" style="margin:0 0 10px;display:inline-block;">Optional</span><b>Massage</b><i>マッサージ</i>
           <p>移動やProgram後のRecoveryを目的とした施術を個別手配。希望人数と施術体制に応じて調整します。</p></div>
         <div class="custom-card"><span class="optchip" style="margin:0 0 10px;display:inline-block;">Optional</span><b>Sunset Yoga</b><i>サンセットヨガ</i>
@@ -1542,7 +1587,7 @@ footer{ background:var(--dark); padding:72px 56px 40px; }
                src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?auto=format&fit=crop&w=800&q=70">
         </div>
         <b>Nutrition</b>
-        <p>専属栄養士 / Retreat Cuisine / Beauty Nutrition</p>
+        <p>専属栄養士 × Neige Corporationの美容知見。地元の野菜・旬の食材によるRetreat Cuisine / Beauty Nutrition</p>
       </div>
       <div class="wb-item fade">
         <div class="wb-media">
@@ -1585,7 +1630,7 @@ footer{ background:var(--dark); padding:72px 56px 40px; }
       <figure class="fade"><div class="prop-imgbox"><img src="images_corp/kikyu-living-3.jpg" alt="The KIKYŪ 4階リビングダイニング 吹き抜け" loading="lazy" width="1567" height="1045"></div><figcaption class="prop-cap">4F Living — 吹き抜け</figcaption></figure>
       <figure class="fade"><div class="prop-imgbox"><img src="images_corp/kikyu-hall-4f.jpg" alt="The KIKYŪ 4階廊下からの眺望" loading="lazy" width="1567" height="1045"></div><figcaption class="prop-cap">4F Hall</figcaption></figure>
       <figure class="fade"><div class="prop-imgbox"><img src="images_corp/kikyu-lounge-4f.jpg" alt="The KIKYŪ 4階ラウンジ" loading="lazy" width="1567" height="1045"></div><figcaption class="prop-cap">4F Lounge</figcaption></figure>
-      <figure class="fade"><div class="prop-imgbox"><img src="images_corp/kikyu-playroom.jpg" alt="The KIKYŪ プレイルーム" loading="lazy" width="1567" height="1045"></div><figcaption class="prop-cap">Play Room</figcaption></figure>
+      <figure class="fade"><div class="prop-imgbox"><img src="images_corp/kikyu-playroom.jpg" alt="The KIKYŪ プレイルーム — DAMカラオケ完備" loading="lazy" width="1567" height="1045"></div><figcaption class="prop-cap">Play Room<span class="prop-sub">DAM Karaoke / Private Entertainment Room</span><span class="prop-desc">DAMカラオケを完備。研修後の懇親会やチーム交流の場として、貸切空間のままお楽しみいただけます。</span></figcaption></figure>
       <figure class="fade"><div class="prop-imgbox"><img src="images_corp/kikyu-terrace-5f.jpg" alt="The KIKYŪ 5階テラス" loading="lazy" width="1567" height="1045"></div><figcaption class="prop-cap">5F Terrace</figcaption></figure>
       <figure class="fade"><div class="prop-imgbox"><img src="images_corp/kikyu-balcony-5f.jpg" alt="The KIKYŪ 5階バルコニー" loading="lazy" width="1567" height="1045"></div><figcaption class="prop-cap">5F Balcony</figcaption></figure>
       <figure class="fade"><div class="prop-imgbox"><img src="images_corp/kikyu-master-5f.jpg" alt="The KIKYŪ 5階マスターベッドルーム" loading="lazy" width="1567" height="1045"></div><figcaption class="prop-cap">5F Master Bedroom</figcaption></figure>
@@ -1596,7 +1641,20 @@ footer{ background:var(--dark); padding:72px 56px 40px; }
       <figure class="fade"><div class="prop-imgbox"><img src="images_corp/kikyu-hallway-3f.jpg" alt="The KIKYŪ 3階廊下" loading="lazy" width="1567" height="1045"></div><figcaption class="prop-cap">3F Hallway</figcaption></figure>
       <figure class="fade"><div class="prop-imgbox"><img src="images_corp/kikyu-bath-2.jpg" alt="The KIKYŪ 1階大浴場" loading="lazy" width="1567" height="1045"></div><figcaption class="prop-cap">1F 大浴場</figcaption></figure>
       <figure class="fade"><div class="prop-imgbox"><img src="images_corp/kikyu-bath-1.jpg" alt="The KIKYŪ 1階大浴場・洗面" loading="lazy" width="1567" height="1045"></div><figcaption class="prop-cap">1F 大浴場・洗面</figcaption></figure>
+      <figure class="fade"><div class="prop-imgbox"><img src="images_corp/kikyu-firepit-b1f.jpg" alt="The KIKYŪ B1F 焚き火台 — 夜の対話とリフレクションの場" loading="lazy" width="1536" height="1024"></div><figcaption class="prop-cap">B1F Fire Pit<span class="prop-sub">Reflection / Dialogue / Team Connection</span><span class="prop-desc">火を囲みながら、日常の会議室では生まれにくい対話と内省の時間を。1日の学びを振り返り、参加者同士で気づきを共有する場として活用できます。</span></figcaption></figure>
       <figure class="fade"><div class="prop-imgbox"><img src="images_corp/kikyu-pool.jpg" alt="The KIKYŪ 屋外プールと外観" loading="lazy" width="1086" height="1448" style="object-position:center 60%;"></div><figcaption class="prop-cap">Outdoor Pool</figcaption></figure>
+    </div>
+
+    <h3 class="h-en fade" style="font-size:20px;margin:64px 0 20px;">WELL-BEING FACILITIES</h3>
+    <div class="wb-fac fade">
+      <div>
+        <b>1F Esthetic Room</b><i>Optional Program Facility</i>
+        <p>館内でエステを受けられる専用ルームを完備。Beauty &amp; Well-being Retreatなどのオプショナルプログラムに対応します。</p>
+      </div>
+      <div>
+        <b>1F Massage Room</b><i>Optional Recovery Facility</i>
+        <p>心身のリカバリーを支えるマッサージ専用ルームを完備。研修の合間や自由時間に利用できるオプショナルサービスを設計できます。</p>
+      </div>
     </div>
 
     <h3 class="h-en fade" style="font-size:20px;margin:72px 0 24px;">CORPORATE USE AT A GLANCE</h3>
@@ -1604,11 +1662,11 @@ footer{ background:var(--dark); padding:72px 56px 40px; }
       <div class="glance-row"><b>所在地</b><span>静岡県熱海市(Atami, Shizuoka)</span></div>
       <div class="glance-row"><b>利用形態</b><span>一棟貸切(滞在中、他のゲストは滞在しません)</span></div>
       <div class="glance-row"><b>想定人数</b><span>最大25名想定</span></div>
-      <div class="glance-row"><b>間取り</b><span>9LDK / Multi-floor</span></div>
+      <div class="glance-row"><b>客室数</b><span>客室10室 / Multi-floor(10 Guest Rooms)</span></div>
       <div class="glance-row"><b>会議形式</b><span>全体Session / Breakout対応</span></div>
       <div class="glance-row"><b>通信</b><span>高速Wi-Fi</span></div>
       <div class="glance-row"><b>表示設備</b><span>大型TV / HDMI対応</span></div>
-      <div class="glance-row"><b>食事</b><span>専属栄養士による朝食・昼食・夕食対応(グループでの食事に対応)</span></div>
+      <div class="glance-row"><b>食事</b><span>専属栄養士による朝食・昼食・夕食対応。地元の野菜・旬の食材を使用(グループでの食事に対応)</span></div>
       <div class="glance-row"><b>アレルギー・食事制限</b><span>個別にご相談ください</span></div>
       <div class="glance-row"><b>Well-being</b><span>天然温泉 / Pool</span></div>
       <div class="glance-row"><b>駐車</b><span>5台</span></div>
