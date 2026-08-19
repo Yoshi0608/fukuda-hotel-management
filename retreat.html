@@ -207,16 +207,28 @@ img{ display:block; max-width:100%; }
   padding-bottom:5px; transition:all .3s;
 }
 .btn-line:hover{ color:var(--gold); border-color:var(--gold); }
-.hero-chips{ display:flex; gap:10px; margin-top:36px; flex-wrap:wrap; }
+.hero-chips{
+  display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:12px; margin-top:36px;
+  max-width:760px;
+}
 .hero-chips span{
-  font-size:11px; letter-spacing:0.08em; color:rgba(255,255,255,0.75);
-  border:1px solid rgba(255,255,255,0.28); padding:8px 16px;
+  display:flex; flex-direction:column; justify-content:center; gap:4px;
+  text-align:center; min-height:64px; box-sizing:border-box;
+  font-size:12px; letter-spacing:0.06em; line-height:1.5; color:rgba(255,255,255,0.85);
+  border:1px solid rgba(255,255,255,0.28); padding:12px 10px;
   background:rgba(19,16,9,0.25);
 }
-@media (max-width:560px){
-  .hero-chips{ display:grid; grid-template-columns:1fr 1fr; }
-  .hero-chips span{ text-align:center; }
+.hero-chips span i{
+  font-style:normal; display:block; font-size:8.5px; letter-spacing:0.18em;
+  text-transform:uppercase; color:var(--gold);
 }
+.hero-chips span small{
+  display:block; font-size:10px; letter-spacing:0.05em; color:rgba(255,255,255,0.65);
+}
+@media (max-width:900px){
+  .hero-chips{ grid-template-columns:repeat(2,minmax(0,1fr)); gap:10px; }
+}
+
 
 /* ── PROGRAMS ────────────────────────────────────────────── */
 .prog{ display:grid; grid-template-columns:1fr 1fr; gap:72px 60px; }
@@ -825,11 +837,12 @@ footer{ background:var(--dark); padding:72px 56px 40px; }
       <a href="#programs" class="btn-line">4つのプログラムを見る</a>
     </div>
     <div class="hero-chips">
-      <span>熱海・一棟貸切</span>
-      <span>最大25名想定</span>
-      <span>2泊3日を中心に設計</span>
-      <span>専属栄養士による食事</span>
-      <span>天然温泉・Pool</span>
+      <span><i>Private Venue</i>熱海・一棟貸切</span>
+      <span><i>Up to 25 Guests</i>最大25名宿泊</span>
+      <span><i>Dining &amp; Rooftop</i>最大30名対応<small>ダイニング&amp;ルーフトップ</small></span>
+      <span><i>Large Coach Access</i>大型観光バス対応<small>乗降・待機・駐車可</small></span>
+      <span><i>Garden &amp; Outdoor Space</i>約1000坪<small>庭・屋外空間</small></span>
+      <span><i>BBQ &amp; Fire Pit</i>BBQ・焚き火<small>対話とチーム交流</small></span>
     </div>
   </div>
 </header>
@@ -1688,14 +1701,14 @@ footer{ background:var(--dark); padding:72px 56px 40px; }
       <div class="prop-hero-box">
         <img src="images_corp/kikyu-living-2.jpg" alt="The KIKYŪ 4階リビングダイニング — 相模湾を望む大開口の空間" width="1567" height="1045">
       </div>
-      <figcaption class="prop-cap">4F Living &amp; Dining</figcaption>
+      <figcaption class="prop-cap">4F Living &amp; Dining<span class="prop-desc">最大30名規模で利用できるダイニング。全員での食事、対話、懇親の場として活用できます。</span></figcaption>
     </figure>
     <div class="prop-grid">
       <figure class="fade"><div class="prop-imgbox"><img src="images_corp/kikyu-living-3.jpg" alt="The KIKYŪ 4階リビングダイニング 吹き抜け" loading="lazy" width="1567" height="1045"></div><figcaption class="prop-cap">4F Living — 吹き抜け</figcaption></figure>
       <figure class="fade"><div class="prop-imgbox"><img src="images_corp/kikyu-hall-4f.jpg" alt="The KIKYŪ 4階廊下からの眺望" loading="lazy" width="1567" height="1045"></div><figcaption class="prop-cap">4F Hall</figcaption></figure>
       <figure class="fade"><div class="prop-imgbox"><img src="images_corp/kikyu-lounge-4f.jpg" alt="The KIKYŪ 4階ラウンジ" loading="lazy" width="1567" height="1045"></div><figcaption class="prop-cap">4F Lounge</figcaption></figure>
       <figure class="fade"><div class="prop-imgbox"><img src="images_corp/kikyu-playroom.jpg" alt="The KIKYŪ プレイルーム — DAMカラオケ完備" loading="lazy" width="1567" height="1045"></div><figcaption class="prop-cap">Play Room<span class="prop-sub">DAM Karaoke / Private Entertainment Room</span><span class="prop-desc">DAMカラオケを完備。研修後の懇親会やチーム交流の場として、貸切空間のままお楽しみいただけます。</span></figcaption></figure>
-      <figure class="fade"><div class="prop-imgbox"><img src="images_corp/kikyu-terrace-5f.jpg" alt="The KIKYŪ 5階テラス" loading="lazy" width="1567" height="1045"></div><figcaption class="prop-cap">5F Terrace</figcaption></figure>
+      <figure class="fade"><div class="prop-imgbox"><img src="images_corp/kikyu-terrace-5f.jpg" alt="The KIKYŪ 5階テラス" loading="lazy" width="1567" height="1045"></div><figcaption class="prop-cap">5F Terrace<span class="prop-sub">Rooftop / Up to 30 Guests</span><span class="prop-desc">最大30名規模で利用できるルーフトップ。屋外での対話、懇親、リフレッシュの場として活用できます。</span></figcaption></figure>
       <figure class="fade"><div class="prop-imgbox"><img src="images_corp/kikyu-balcony-5f.jpg" alt="The KIKYŪ 5階バルコニー" loading="lazy" width="1567" height="1045"></div><figcaption class="prop-cap">5F Balcony</figcaption></figure>
       <figure class="fade"><div class="prop-imgbox"><img src="images_corp/kikyu-master-5f.jpg" alt="The KIKYŪ 5階マスターベッドルーム" loading="lazy" width="1567" height="1045"></div><figcaption class="prop-cap">5F Master Bedroom</figcaption></figure>
       <figure class="fade"><div class="prop-imgbox"><img src="images_corp/kikyu-bedroom-5f.jpg" alt="The KIKYŪ 5階ベッドルーム" loading="lazy" width="1567" height="1045"></div><figcaption class="prop-cap">5F Bedroom</figcaption></figure>
@@ -1705,7 +1718,7 @@ footer{ background:var(--dark); padding:72px 56px 40px; }
       <figure class="fade"><div class="prop-imgbox"><img src="images_corp/kikyu-hallway-3f.jpg" alt="The KIKYŪ 3階廊下" loading="lazy" width="1567" height="1045"></div><figcaption class="prop-cap">3F Hallway</figcaption></figure>
       <figure class="fade"><div class="prop-imgbox"><img src="images_corp/kikyu-bath-2.jpg" alt="The KIKYŪ 1階大浴場" loading="lazy" width="1567" height="1045"></div><figcaption class="prop-cap">1F 大浴場</figcaption></figure>
       <figure class="fade"><div class="prop-imgbox"><img src="images_corp/kikyu-bath-1.jpg" alt="The KIKYŪ 1階大浴場・洗面" loading="lazy" width="1567" height="1045"></div><figcaption class="prop-cap">1F 大浴場・洗面</figcaption></figure>
-      <figure class="fade"><div class="prop-imgbox"><img src="images_corp/kikyu-firepit-b1f.jpg" alt="The KIKYŪ B1F 焚き火台 — 夜の対話とリフレクションの場" loading="lazy" width="1536" height="1024"></div><figcaption class="prop-cap">B1F Fire Pit<span class="prop-sub">Campfire / BBQ / Reflection / Dialogue</span><span class="prop-desc">火を囲みながら、日常の会議室では生まれにくい対話と内省の時間を。1日の学びを振り返り、参加者同士で気づきを共有する場として活用できます。キャンプファイヤーやBBQにも対応します。</span></figcaption></figure>
+      <figure class="fade"><div class="prop-imgbox"><img src="images_corp/kikyu-firepit-b1f.jpg" alt="The KIKYŪ B1F 焚き火台 — 夜の対話とリフレクションの場" loading="lazy" width="1536" height="1024"></div><figcaption class="prop-cap">B1F Fire Pit<span class="prop-sub">Campfire / BBQ / Reflection / Dialogue</span><span class="prop-desc">火を囲みながら、日常の会議室では生まれにくい対話と内省の時間を。1日の学びを振り返り、参加者同士で気づきを共有する場として活用できます。キャンプファイヤーやBBQにも対応します。<br><small style="color:var(--stone);">※BBQ・焚き火の利用は、事前相談および当日の天候・利用条件によります。</small></span></figcaption></figure>
       <figure class="fade"><div class="prop-imgbox"><img src="images_corp/kikyu-bbq-b1f.jpg" alt="The KIKYŪ B1F BBQエリア — 焚き火台テラスに隣接するダイニング" loading="lazy" width="1567" height="1045"></div><figcaption class="prop-cap">B1F BBQ Area<span class="prop-sub">BBQ / Team Dinner / Indoor &amp; Outdoor</span><span class="prop-desc">焚き火台テラスに隣接するBBQエリア。キッチンを備え、屋内外を行き来しながらチームでのBBQや懇親の食事を楽しめます。</span></figcaption></figure>
       <figure class="fade"><div class="prop-imgbox"><img src="images_corp/kikyu-pool.jpg" alt="The KIKYŪ 屋外プールと外観" loading="lazy" width="1086" height="1448" style="object-position:center 60%;"></div><figcaption class="prop-cap">Outdoor Pool</figcaption></figure>
     </div>
@@ -1757,7 +1770,11 @@ footer{ background:var(--dark); padding:72px 56px 40px; }
     <div class="glance fade">
       <div class="glance-row"><b>所在地</b><span>静岡県熱海市(Atami, Shizuoka)</span></div>
       <div class="glance-row"><b>利用形態</b><span>一棟貸切(滞在中、他のゲストは滞在しません)</span></div>
-      <div class="glance-row"><b>想定人数</b><span>最大25名想定</span></div>
+      <div class="glance-row"><b>宿泊人数</b><span>最大25名想定(宿泊)</span></div>
+      <div class="glance-row"><b>ダイニング</b><span>最大30名規模で利用可能(全員での食事・対話・懇親)</span></div>
+      <div class="glance-row"><b>ルーフトップ</b><span>最大30名規模で利用可能(屋外での対話・懇親・リフレッシュ)</span></div>
+      <div class="glance-row"><b>庭・屋外</b><span>約1000坪規模の庭と屋外空間(散策・対話・内省・チーム交流)</span></div>
+      <div class="glance-row"><b>BBQ・焚き火</b><span>B1Fの焚き火台・BBQエリアで対応 ※事前相談および当日の天候・利用条件によります</span></div>
       <div class="glance-row"><b>客室数</b><span>客室10室 / Multi-floor(10 Guest Rooms)</span></div>
       <div class="glance-row"><b>会議形式</b><span>全体Session / Breakout対応</span></div>
       <div class="glance-row"><b>通信</b><span>高速Wi-Fi</span></div>
@@ -1765,7 +1782,8 @@ footer{ background:var(--dark); padding:72px 56px 40px; }
       <div class="glance-row"><b>食事</b><span>専属栄養士による朝食・昼食・夕食対応。地元の野菜・旬の食材を使用(グループでの食事に対応)</span></div>
       <div class="glance-row"><b>アレルギー・食事制限</b><span>個別にご相談ください</span></div>
       <div class="glance-row"><b>Well-being</b><span>天然温泉 / Pool</span></div>
-      <div class="glance-row"><b>駐車</b><span>5台</span></div>
+      <div class="glance-row"><b>駐車(普通車)</b><span>普通車:5台</span></div>
+      <div class="glance-row"><b>大型バス</b><span>大型観光バスでの来館・乗降に対応。事前調整により、滞在中の待機・駐車も可能です。<br><small style="font-size:11px;color:var(--stone);">※大型観光バスの待機・駐車は、関係管理者への事前確認・許可が必要です。車両サイズ、台数、利用日時を事前にお知らせください。</small></span></div>
       <div class="glance-row"><b>Check-in / Check-out</b><span>お問い合わせください</span></div>
       <div class="glance-row"><b>料金の考え方</b><span>人数・泊数・プログラム構成に応じた個別見積り</span></div>
       <div class="glance-row"><b>お見積り</b><span>ご相談内容の確認後にご案内します</span></div>
