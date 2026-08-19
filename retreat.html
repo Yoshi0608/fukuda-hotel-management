@@ -539,6 +539,33 @@ body.pm-open{ overflow:hidden; }
 .wb-fac p{ font-size:12.5px; line-height:2; color:var(--mid); letter-spacing:0.04em; }
 @media (max-width:900px){ .wb-fac{ grid-template-columns:1fr; } }
 
+/* ── HOSPITALITY QUALITY ─────────────────────────────────── */
+.hq-block{
+  margin-top:72px; border:1px solid var(--line); background:var(--white);
+  padding:40px 40px 36px;
+}
+.hq-jp{ font-size:12px; letter-spacing:0.14em; color:var(--gold); margin:-16px 0 20px; }
+.hq-note{ font-size:12.5px; line-height:2.1; color:var(--mid); letter-spacing:0.04em; max-width:720px; }
+.hq-stats{
+  display:grid; grid-template-columns:repeat(4,1fr); gap:1px;
+  background:var(--line); border:1px solid var(--line); margin-top:28px;
+}
+.hq-stats > div{ background:var(--paper); padding:18px 12px; text-align:center; }
+.hq-stats b{
+  display:block; font-family:Georgia,serif; font-weight:400; font-size:17px;
+  letter-spacing:0.06em; color:var(--ink);
+}
+.hq-stats span{
+  display:block; margin-top:6px; font-size:8.5px; letter-spacing:0.16em;
+  text-transform:uppercase; color:var(--mid);
+}
+.hq-op{ margin-top:22px; font-size:10px; letter-spacing:0.18em; text-transform:uppercase; color:var(--ink); }
+.hq-op small{ display:block; margin-top:8px; font-size:11.5px; letter-spacing:0.04em; text-transform:none; color:var(--mid); line-height:1.9; }
+@media (max-width:760px){
+  .hq-block{ padding:28px 22px; }
+  .hq-stats{ grid-template-columns:repeat(2,1fr); }
+}
+
 /* ── FAQ ─────────────────────────────────────────────────── */
 .faq{ border-top:1px solid var(--line); }
 .faq details{ border-bottom:1px solid var(--line); }
@@ -1657,6 +1684,35 @@ footer{ background:var(--dark); padding:72px 56px 40px; }
         <p>心身のリカバリーを支えるマッサージ専用ルームを完備。研修の合間や自由時間に利用できるオプショナルサービスを設計できます。</p>
       </div>
     </div>
+
+    <div class="hq-block fade">
+      <h3 class="h-en" style="font-size:20px;margin:0 0 24px;">HOSPITALITY QUALITY</h3>
+      <p class="hq-jp">宿泊施設としての運営品質</p>
+      <p class="hq-note">
+        The KIKYŪは、一般宿泊においてAirbnb『<span data-hq="recognition"></span>』に選ばれ、評価<span data-hq="rating"></span>を獲得しています(<span data-hq="asOf"></span>時点)。
+        法人リトリートにおいても、宿泊施設として培った運営品質を基盤に、滞在全体をサポートします。
+      </p>
+      <div class="hq-stats" id="hqStats"></div>
+      <p class="hq-op">Operated by Fukuda Hotel Management LLC
+        <small>福田ホテルマネジメント合同会社が、The KIKYŪの施設・宿泊・食事・滞在運営を担っています。</small>
+      </p>
+    </div>
+    <script>
+      (function(){
+        var HQ = { platform:"Airbnb", recognition:"ゲストチョイス", recognitionEn:"Guest Favourite",
+                   rating:"5.0", reviewCount:10, asOf:"2026年8月", asOfEn:"As of August 2026" };
+        document.querySelectorAll('[data-hq]').forEach(function(el){ el.textContent = HQ[el.getAttribute('data-hq')]; });
+        var stats = [
+          [HQ.platform, HQ.recognition + " / " + HQ.recognitionEn],
+          [HQ.rating, "評価 / Rating"],
+          [HQ.reviewCount + "件", "レビュー / Reviews"],
+          [HQ.asOf, HQ.asOfEn]
+        ];
+        document.getElementById('hqStats').innerHTML = stats.map(function(x){
+          return '<div><b>'+x[0]+'</b><span>'+x[1]+'</span></div>';
+        }).join('');
+      })();
+    </script>
 
     <h3 class="h-en fade" style="font-size:20px;margin:72px 0 24px;">CORPORATE USE AT A GLANCE</h3>
     <div class="glance fade">
