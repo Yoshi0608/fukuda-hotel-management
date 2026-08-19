@@ -19,6 +19,7 @@
 html { scroll-behavior:smooth; font-size:16px; }
 
 :root{
+  --m-header-h:76px;
   --white:#FFFFFF;
   --ivory:#F6F4EF;
   --ivory-d:#EDEAE2;
@@ -529,6 +530,10 @@ body.pm-open{ overflow:hidden; }
   .prop-grid{ grid-template-columns:1fr; gap:24px; }
 }
 
+section[id], header[id], div[id="contact"]{
+  scroll-margin-top: calc(var(--m-header-h) + env(safe-area-inset-top, 0px) + 16px);
+}
+
 /* ── PROPERTY EXTRAS ─────────────────────────────────────── */
 .prop-sub{
   display:block; font-size:8.5px; letter-spacing:0.18em; text-transform:uppercase;
@@ -720,8 +725,14 @@ footer{ background:var(--dark); padding:72px 56px 40px; }
 @media (max-width:900px){
   .wrap{ padding:0 24px; }
   .sec{ padding:72px 0; }
-  .nav{ padding:16px 24px; }
-  .nav.scrolled{ padding:12px 24px; }
+  .nav{ padding:16px 24px; padding-top:calc(16px + env(safe-area-inset-top, 0px)); }
+  .nav.scrolled{ padding:12px 24px; padding-top:calc(12px + env(safe-area-inset-top, 0px)); }
+  .hero{
+    height:auto;
+    min-height:100vh;
+    min-height:100svh;
+    padding-top:calc(var(--m-header-h) + env(safe-area-inset-top, 0px) + 32px);
+  }
   .nav-links, .nav-right{ display:none; }
   .nav-toggle{ display:block; }
   .hero-body{ padding:0 24px 9vh; }
