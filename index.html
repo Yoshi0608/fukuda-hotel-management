@@ -109,7 +109,13 @@ body {
 .hero-slides { position: absolute; inset: 0; }
 .hs { position: absolute; inset: 0; opacity: 0; transition: opacity 1.2s ease; }
 .hs.is-active { opacity: 1; }
+.hs picture { display: block; width: 100%; height: 100%; }
 .hs img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.hs-1 img { object-position: center 55%; }
+.hs-2 img { object-position: center 40%; }
+.hs-3 img { object-position: center 50%; }
+.hs-4 img { object-position: 55% 50%; }
+.hs-5 img { object-position: center 45%; }
 .hs-bright::after {
   content: ''; position: absolute; inset: 0;
   background: linear-gradient(180deg, rgba(15,13,10,0.14) 0%, rgba(15,13,10,0.06) 45%, rgba(15,13,10,0.32) 100%);
@@ -665,8 +671,14 @@ footer {
   .hero-lead br { display: none; }
   .hero-ctas a { flex: 1 1 auto; min-width: 150px; }
   .hero-nav { right: 16px; bottom: 16px; }
+  .hs-1 img { object-position: center 50%; }
+  .hs-2 img { object-position: center 45%; }
+  .hs-3 img { object-position: center 50%; }
+  .hs-4 img { object-position: center 48%; }
+  .hs-5 img { object-position: center 50%; }
   .exp-card-sub br { display: none; }
   .phi { padding: 96px 24px; gap: 56px; }
+  .phi-img { aspect-ratio: auto; height: auto; }
   .phi-statement { padding-left: 20px; }
   .phi-h { font-size: clamp(21px, 6.4vw, 26px); line-height: 1.7; }
   .phi-h br { display: none; }
@@ -703,7 +715,7 @@ footer {
     <a href="#portfolio">Properties</a>
     <a href="#about">Company</a>
     <a href="#founder">Founder</a>
-    <a href="mailto:yfukuda@fukudahotel.com" class="nav-enquire">Enquire</a>
+    <a href="mailto:info@fukudahotel.com" class="nav-enquire">Enquire</a>
     <button class="lang-toggle" id="langToggle" aria-label="Switch language">
       <span class="t-ja">EN</span><span class="t-en">日本語</span>
     </button>
@@ -712,18 +724,19 @@ footer {
 
 <!-- HERO -->
 <section class="hero">
-  <!-- FV slideshow — slide order (fixed, per instruction):
-       1: images_corp/hero-slide-1.jpg  (添付「1枚目指定」= 4階_廊下_景色.jpg)
-       2: images_corp/hero.jpg          (既存FVの海の画像を再利用)
-       3: images_corp/hero-slide-3.jpg  (添付「3枚目指定」= グラス.jpg)
-       4: images_corp/hero-slide-4.jpg  (添付「4枚目指定」= 客間.png)
-       5: images_corp/hero-slide-5.jpg  (添付「5枚目指定」= 玄関.jpg) -->
+  <!-- FV slideshow — display order (fixed, per instruction 2026-08-19):
+       1st shown: images_corp/hero-slide-5.jpg (旧画像5 = 玄関.jpg)
+       2nd:       images_corp/hero-slide-4.jpg (旧画像4 = 客間.png)
+       3rd:       images_corp/hero-slide-3.jpg (旧画像3 = グラス.jpg)
+       4th:       images_corp/hero-slide-1.jpg (旧画像1 = 4階_廊下_景色.jpg)
+       5th:       images_corp/hero.jpg         (旧画像2 = 既存FVの海)
+       loop: 5 → 4 → 3 → 1 → 2 → 5 … (mobile: 各 *-m.jpg を同じ紐付けで使用) -->
   <div class="hero-slides" aria-hidden="true">
-    <div class="hs is-active hs-bright"><img src="images_corp/hero-slide-1.jpg" alt="" fetchpriority="high" decoding="async" style="object-position:center 55%"></div>
-    <div class="hs"><img src="images_corp/hero.jpg" alt="" loading="lazy" fetchpriority="low" decoding="async" style="object-position:center 40%"></div>
-    <div class="hs"><img src="images_corp/hero-slide-3.jpg" alt="" loading="lazy" fetchpriority="low" decoding="async" style="object-position:center 50%"></div>
-    <div class="hs hs-bright"><img src="images_corp/hero-slide-4.jpg" alt="" loading="lazy" fetchpriority="low" decoding="async" style="object-position:55% 50%"></div>
-    <div class="hs hs-bright"><img src="images_corp/hero-slide-5.jpg" alt="" loading="lazy" fetchpriority="low" decoding="async" style="object-position:center 45%"></div>
+    <div class="hs hs-5 is-active hs-bright"><picture><source media="(max-width: 768px)" srcset="images_corp/hero-slide-5-m.jpg"><img src="images_corp/hero-slide-5.jpg" alt="" fetchpriority="high" decoding="async"></picture></div>
+    <div class="hs hs-4 hs-bright"><picture><source media="(max-width: 768px)" srcset="images_corp/hero-slide-4-m.jpg"><img src="images_corp/hero-slide-4.jpg" alt="" loading="lazy" fetchpriority="low" decoding="async"></picture></div>
+    <div class="hs hs-3"><picture><source media="(max-width: 768px)" srcset="images_corp/hero-slide-3-m.jpg"><img src="images_corp/hero-slide-3.jpg" alt="" loading="lazy" fetchpriority="low" decoding="async"></picture></div>
+    <div class="hs hs-1 hs-bright"><picture><source media="(max-width: 768px)" srcset="images_corp/hero-slide-1-m.jpg"><img src="images_corp/hero-slide-1.jpg" alt="" loading="lazy" fetchpriority="low" decoding="async"></picture></div>
+    <div class="hs hs-2"><picture><source media="(max-width: 768px)" srcset="images_corp/hero-m.jpg"><img src="images_corp/hero.jpg" alt="" loading="lazy" fetchpriority="low" decoding="async"></picture></div>
   </div>
   <div class="hero-veil"></div>
   <div class="hero-body">
@@ -815,28 +828,21 @@ footer {
 <section class="phi" id="philosophy">
   <div class="phi-statement">
     <span class="phi-tag">Our Philosophy</span>
-    <h2 class="phi-h t-ja">私たちは施設を運営しているのではない。<br>場所に宿る、<br>静けさを守っている。</h2>
-    <h2 class="phi-h t-en">We do not manage facilities.<br>We protect the stillness<br>that lives within<br>each place.</h2>
+    <h2 class="phi-h t-ja">宿泊施設の価値を、<br>企画と運営の両面から高める。</h2>
+    <h2 class="phi-h t-en">Planning and operating<br>hospitality experiences<br>that create lasting value.</h2>
     <p class="phi-body t-ja">
-      Fukuda Hotel Management は、日本の海岸線に点在する稀有な場所を選び、そこにある静けさを損なうことなく、人を迎え入れる空間を作ります。施設とは背景であり、体験そのものではありません。その信念が、私たちの設計の根拠です。
+      Fukuda Hotel Managementは、ホテルや一棟貸し施設をはじめとする宿泊施設の企画・運営・管理に取り組む会社です。<br><br>
+      施設の立地や建物の特徴を生かしながら、宿泊者にとって快適な滞在体験と、事業として継続できる運営体制の両立を目指します。宿泊サービスだけでなく、法人リトリートや研修、食事、地域体験など、施設の特性に応じた利用方法も設計します。
     </p>
     <p class="phi-body t-en">
-      Fukuda Hotel Management selects rare places along Japan's coastline and creates spaces
-      that welcome guests without disturbing what quietly resides there.
-      A facility is the backdrop. Not the experience itself.
-      That belief is the foundation of everything we design.
+      Fukuda Hotel Management plans, operates and manages accommodation properties,
+      from hotels to whole-villa rentals. Drawing on each property's location and character,
+      we pursue both a comfortable guest experience and a sustainable operating structure —
+      designing stays that extend to corporate retreats, training programs, dining and local experiences.
     </p>
   </div>
   <div class="phi-quote-wrap">
     <img class="phi-img" src="images_corp/philosophy-v2.jpg" alt="The KIKYŪ 4階ホール — 開かれた扉の先に相模湾を望む" width="1567" height="1045" loading="lazy" decoding="async" style="object-position:center 55%">
-    <blockquote>
-      <p class="phi-q">
-        "There are places in Japan where time moves differently.<br>
-        We exist to make those places accessible,<br>
-        without compromise."
-      </p>
-      <cite class="phi-q-attr">— Yoshitaka Fukuda, Founder</cite>
-    </blockquote>
   </div>
 </section>
 
@@ -846,23 +852,28 @@ footer {
 <section class="about" id="about">
   <span class="about-label">Company</span>
   <div class="about-content">
-    <h2 class="about-h">Curating sanctuaries<br>along Japan's coast.</h2>
+    <h2 class="about-h">Hospitality planning,<br>management and operations.<br><span style="display:block;font-size:0.72em;color:var(--mid);margin-top:10px;">ホテル・宿泊施設の企画から運営まで。</span></h2>
     <p class="about-body t-ja">
-      Fukuda Hotel Management は、旅館業法に基づく一棟貸し専用施設の
-      企画・運営を手がける会社です。富裕層・法人向けに、
-      日本有数のロケーションで完全プライベートな滞在を提供します。
+      Fukuda Hotel Managementは、ホテルや一棟貸し施設など、宿泊施設の企画・運営・管理を行っています。
     </p>
     <p class="about-body t-en">
-      Fukuda Hotel Management plans and operates exclusively whole-building rental properties
-      under Japan's Hotel Business Act. We offer completely private stays at premier coastal
-      locations for high-net-worth individuals and corporate clients.
+      Fukuda Hotel Management plans, operates and manages accommodation properties,
+      from hotels to whole-villa rentals.
     </p>
     <p class="about-body t-ja">
-      私たちの施設は「宿」ではなく「場所」です。温泉、海、静寂。それらに包まれる時間が、唯一無二の体験を生み出します。
+      自社運営施設での宿泊サービスに加え、法人向けリトリート、経営合宿、研修プログラムなど、施設を活用した滞在サービスを設計します。今後は、宿泊施設やホテルの運営受託・運営支援も含め、施設ごとの立地、顧客、事業目的に応じたホテルマネジメントを展開します。
     </p>
     <p class="about-body t-en">
-      Our properties are not inns. They are places. Hot springs, ocean, silence.
-      time spent enveloped in these elements creates an experience that exists nowhere else.
+      Alongside stays at our own properties, we design corporate retreats, executive offsites
+      and training programs. Going forward, we will also provide contracted operation and
+      operational support for hotels and other accommodation properties.
+    </p>
+    <p class="about-body t-ja">
+      施設の魅力だけに依存せず、予約、接客、清掃、食事、滞在プログラム、販売、収益管理まで、運営全体の品質を整えることを重視しています。
+    </p>
+    <p class="about-body t-en">
+      Beyond each property's appeal, we focus on the quality of the entire operation —
+      reservations, service, housekeeping, dining, stay programs, sales and revenue management.
     </p>
     <dl class="about-detail">
       <dt>Company</dt>
@@ -880,7 +891,11 @@ footer {
       <dt>Founder</dt>
       <dd>福田 喜天（Yoshitaka Fukuda）</dd>
       <dt>Contact</dt>
-      <dd><a href="mailto:yfukuda@fukudahotel.com" style="color:var(--gold);text-decoration:none;font-size:13px">yfukuda@fukudahotel.com</a></dd>
+      <dd><a href="mailto:info@fukudahotel.com" style="color:var(--gold);text-decoration:none;font-size:13px">info@fukudahotel.com</a></dd>
+      <dt>Business</dt>
+      <dd>ホテル・宿泊施設の企画、運営、管理<br>一棟貸し宿泊施設の運営<br>個人向け宿泊サービス<br>法人リトリート・研修プログラムの企画運営<br>宿泊施設の運営受託・運営支援</dd>
+      <dt>License</dt>
+      <dd>The KIKYŪ(熱海)<br>旅館業許可番号：熱海衛保第381号の27</dd>
     </dl>
   </div>
 </section>
@@ -893,15 +908,15 @@ footer {
   <div class="founder-text">
     <span class="founder-eyebrow t-ja">代表について</span>
     <span class="founder-eyebrow t-en">About the Founder</span>
-    <p class="founder-quote t-ja">「場所は、人を変える。<br>そしてその変化は、<br>本物だ。」</p>
-    <p class="founder-quote t-en">"A place can change you.<br>And sometimes, it stays with you."</p>
+    <p class="founder-quote t-ja">経営と運営の視点から、<br>宿泊施設の価値をつくる。</p>
+    <p class="founder-quote t-en">Building the value of hospitality<br>through management and operations.</p>
     <div class="founder-name-line">
       <span class="founder-name">Yoshitaka Fukuda　福田 喜天</span>
-      <span class="founder-role t-ja">代表 · Founder &amp; CEO</span>
+      <span class="founder-role t-ja">代表社員 · Founder &amp; CEO</span>
       <span class="founder-role t-en">Founder &amp; CEO</span>
     </div>
-    <p class="founder-bio t-ja">カリフォルニア、スイス、香港。世界の一流に触れた経験が、「本物の場所」への確信を生んだ。日本の海岸線に宿る静けさを、最高の体験として届けるために、Fukuda Hotel Managementを設立。</p>
-    <p class="founder-bio t-en">From California to Switzerland to Hong Kong. A life shaped by places. Fukuda Hotel Management was born to bring that stillness to Japan.</p>
+    <p class="founder-bio t-ja">スイスの寄宿学校で高校課程を修了後、カリフォルニア大学バークレー校(UC Berkeley)で社会学を専攻し、卒業。新卒で外資系コンサルティングファームに入社し、企業の経営・事業課題に向き合う経験を積む。その後、経営と運営の視点を宿泊事業に生かすため、Fukuda Hotel Managementを創業。ホテルや一棟貸し施設の企画・運営を通じて、施設の魅力、宿泊者の体験、事業としての継続性を両立させるホテルマネジメントに取り組む。</p>
+    <p class="founder-bio t-en">After completing high school at a boarding school in Switzerland, he studied sociology at the University of California, Berkeley. He began his career at a global consulting firm before founding Fukuda Hotel Management to bring a management and operations perspective to hospitality.</p>
     <a href="founder-message.html" class="founder-cta t-ja">代表メッセージを読む →</a>
     <a href="founder-message.html" class="founder-cta t-en">Read the Founder's Message →</a>
   </div>
@@ -914,24 +929,24 @@ footer {
 <!-- CTA -->
 <section class="cta-section">
   <span class="cta-tag">
-    <span class="t-ja">Plan Your Stay</span>
-    <span class="t-en">Plan Your Stay</span>
+    <span class="t-ja">Contact</span>
+    <span class="t-en">Contact</span>
   </span>
-  <h2 class="cta-h">Find your retreat.<br>Find your stillness.</h2>
+  <h2 class="cta-h">宿泊・法人利用・<br>施設運営のご相談。</h2>
   <p class="cta-body t-ja">
-    各施設の詳細、ご予約、法人プランのご相談は各施設ページまたはメールにてお問い合わせください。
+    運営施設でのご宿泊、法人リトリートのご利用、ホテル・宿泊施設の企画運営や運営支援について、お問い合わせください。
   </p>
   <p class="cta-body t-en">
-    For reservations, property details, or corporate retreat inquiries,
-    please visit each property page or contact us directly by email.
+    For stays at our properties, corporate retreats, or hotel planning,
+    management and operational support, please contact us.
   </p>
   <div class="cta-buttons">
     <a href="#portfolio" class="btn-line">
-      <span class="t-ja">View All Properties</span>
-      <span class="t-en">View All Properties</span>
+      <span class="t-ja">運営施設を見る</span>
+      <span class="t-en">View Our Properties</span>
     </a>
-    <a href="mailto:yfukuda@fukudahotel.com" class="btn-link">
-      <span class="t-ja">Send an Enquiry</span>
+    <a href="mailto:info@fukudahotel.com" class="btn-link">
+      <span class="t-ja">お問い合わせ</span>
       <span class="t-en">Send an Enquiry</span>
     </a>
   </div>
@@ -944,10 +959,10 @@ footer {
       <span class="fb-main">Fukuda Hotel Management</span>
       <span class="fb-sub">合同会社フクダホテルマネジメント</span>
       <p class="t-ja">
-        旅館業法に基づく一棟貸し専用施設の<br>
-        企画・運営・管理を手がけます。<br><br>
+        ホテル・一棟貸し施設など、<br>
+        宿泊施設の企画・運営・管理を手がけています。<br><br>
         〒152-0035 東京都目黒区自由が丘1-24-22-1階<br>
-        旅館業法許可取得済
+        The KIKYŪ(熱海)<br>旅館業許可番号：熱海衛保第381号の27
       </p>
       <p class="t-en">
         Planning, management, and operations of<br>
