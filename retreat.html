@@ -189,6 +189,7 @@ img{ display:block; max-width:100%; }
   font-size:clamp(28px,4vw,50px); line-height:1.35; letter-spacing:0.02em; color:#fff;
   margin-bottom:22px;
 }
+.hero-h .hh-u{ display:inline-block; }
 .hero-ja{
   font-size:14px; line-height:2.1; letter-spacing:0.05em; color:rgba(255,255,255,0.8);
   max-width:640px;
@@ -725,14 +726,28 @@ footer{ background:var(--dark); padding:72px 56px 40px; }
 @media (max-width:900px){
   .wrap{ padding:0 24px; }
   .sec{ padding:72px 0; }
-  .nav{ padding:16px 24px; padding-top:calc(16px + env(safe-area-inset-top, 0px)); }
+  .nav{
+    padding:16px 24px; padding-top:calc(16px + env(safe-area-inset-top, 0px));
+    min-height:calc(var(--m-header-h) + env(safe-area-inset-top, 0px));
+    box-sizing:border-box; align-items:center;
+  }
   .nav.scrolled{ padding:12px 24px; padding-top:calc(12px + env(safe-area-inset-top, 0px)); }
   .hero{
+    display:block;              /* kill bottom-aligned flex on mobile: normal flow only */
     height:auto;
     min-height:100vh;
     min-height:100svh;
     padding-top:calc(var(--m-header-h) + env(safe-area-inset-top, 0px) + 32px);
   }
+  .hero-body{
+    position:relative; top:auto; transform:none; margin-top:0;
+  }
+  .hero-eyebrow{ font-size:9px; letter-spacing:0.26em; white-space:nowrap; margin-bottom:16px; }
+  .hero-h{ font-size:clamp(26px,7.6vw,32px); line-height:1.45; margin-bottom:30px; }
+  .hero-ja{ font-size:15px; line-height:1.95; }
+  .hero-ctas{ margin-top:32px; }
+  body{ padding-bottom:calc(52px + env(safe-area-inset-bottom, 0px)); }
+  .sticky-cta{ padding-bottom:calc(15px + env(safe-area-inset-bottom, 0px)); }
   .nav-links, .nav-right{ display:none; }
   .nav-toggle{ display:block; }
   .hero-body{ padding:0 24px 9vh; }
@@ -799,7 +814,7 @@ footer{ background:var(--dark); padding:72px 56px 40px; }
   <div class="hero-veil"></div>
   <div class="hero-body">
     <span class="hero-eyebrow">Corporate Retreats in Atami</span>
-    <h1 class="hero-h">経営・人材開発のための、<br>2泊3日の一棟貸切リトリート。</h1>
+    <h1 class="hero-h"><span class="hh-u">経営・人材開発のための、</span><br><span class="hh-u">2泊3日の一棟貸切</span><span class="hh-u">リトリート。</span></h1>
     <p class="hero-ja">
       熱海・相模湾を望むThe KIKYŪで、Leadership、Women's Leadership、AI、
       Beauty &amp; Well-beingのプログラムを目的に合わせて設計。
@@ -1976,13 +1991,18 @@ mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => 
   nav.classList.remove('menu-open');
 }));
 
-/* ── Hide sticky CTA while contact section is visible ── */
+/* ── Hide sticky CTA while hero or contact section is visible ── */
 const stickyCta = document.getElementById('stickyCta');
 const contactSec = document.getElementById('contact');
+const heroSec = document.querySelector('.hero');
 if ('IntersectionObserver' in window) {
-  new IntersectionObserver(es => {
-    es.forEach(e => stickyCta.classList.toggle('hidden', e.isIntersecting));
-  }, { threshold: 0.15 }).observe(contactSec);
+  const vis = { hero:true, contact:false };
+  const apply = () => stickyCta.classList.toggle('hidden', vis.hero || vis.contact);
+  new IntersectionObserver(es => { es.forEach(e => { vis.contact = e.isIntersecting; }); apply(); },
+    { threshold: 0.15 }).observe(contactSec);
+  new IntersectionObserver(es => { es.forEach(e => { vis.hero = e.isIntersecting; }); apply(); },
+    { threshold: 0.05 }).observe(heroSec);
+  apply();
 }
 
 /* ── Schedule tabs ── */
