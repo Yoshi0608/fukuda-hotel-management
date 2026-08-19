@@ -410,6 +410,29 @@ body.pm-open{ overflow:hidden; }
   max-width:680px;
 }
 
+/* ── MODEL PLAN (4 tabs) ─────────────────────────────────── */
+.plan-purpose{ font-size:14px; letter-spacing:0.05em; color:var(--ink); font-weight:600; margin-bottom:6px; line-height:1.9; }
+.plan-for{ font-size:12px; letter-spacing:0.06em; color:var(--warm); margin-bottom:8px; }
+.plan-legend{ display:flex; gap:18px; margin:18px 0 34px; flex-wrap:wrap; }
+.plan-legend span{ font-size:9.5px; letter-spacing:0.16em; text-transform:uppercase; color:var(--warm); }
+.plan-legend b{ font-weight:400; color:var(--gold); }
+.plan-legend .lg-opt{ border:1px solid var(--line); padding:2px 8px; background:var(--ivory); }
+.day dd.opt{ color:var(--stone); }
+.optchip{
+  display:inline-block; font-size:8.5px; letter-spacing:0.14em; text-transform:uppercase;
+  color:var(--warm); border:1px solid var(--line); background:var(--ivory);
+  padding:1px 7px; margin-left:8px; vertical-align:1px;
+}
+.day h5{
+  font-size:9px; letter-spacing:0.24em; text-transform:uppercase; color:var(--stone);
+  font-weight:400; margin-bottom:14px;
+}
+@media (max-width:900px){
+  .tabs{ display:grid; grid-template-columns:1fr 1fr; border-bottom:none; gap:8px; overflow:visible; }
+  .tab-btn{ border:1px solid var(--line); padding:13px 8px; text-align:center; margin:0; }
+  .tab-btn.active{ border-color:var(--gold); background:var(--ivory); }
+}
+
 /* ── WELL-BEING ──────────────────────────────────────────── */
 .wb-grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:30px; }
 .wb-item .wb-media{ aspect-ratio:3/4; overflow:hidden; background:var(--ivory-d); }
@@ -972,8 +995,16 @@ footer{ background:var(--dark); padding:72px 56px 40px; }
         </div>
       </div>
       <div class="exp-side">
-        <img class="partner-photo" src="https://konnyaku-shabon.com/cdn/shop/files/3-2.png?v=1684717548&width=800" alt="蒟蒻しゃぼん ブランドビジュアル">
-        <img class="partner-photo" src="https://konnyaku-shabon.com/cdn/shop/products/yokohama-blue2.png?v=1687995802&width=800" alt="蒟蒻しゃぼん 商品">
+        <!-- Main visual: 蒟蒻しゃぼん brand (official). Replace with
+             actual store photo asset when provided. -->
+        <figure style="margin:0;">
+          <img class="partner-photo" src="https://konnyaku-shabon.com/cdn/shop/files/3-2.png?v=1684717548&width=800" alt="Neige Corporationが展開する蒟蒻しゃぼんのブランドビジュアル" width="800" height="533">
+          <figcaption style="font-size:10px;letter-spacing:0.08em;color:var(--stone);margin-top:8px;">蒟蒻しゃぼん — Neige Corporationが展開するBeauty Brand</figcaption>
+        </figure>
+        <div class="logo-ph" style="flex-direction:column;gap:10px;padding:20px 16px;">
+          <img src="https://r-hayashi.ciao.jp/wp_fukuda/wp-content/uploads/2025/02/dd908dd4d2bc8037eb7c63c2c3f5a43c.png" alt="Neige Corporation 株式会社ネーゼコーポレーション ロゴ" style="max-width:200px;width:100%;height:auto;">
+          <span style="font-size:10px;letter-spacing:0.12em;color:var(--warm);text-align:center;line-height:1.8;">Neige Corporation<br>株式会社ネーゼコーポレーション<br><span style="color:var(--gold);letter-spacing:0.18em;text-transform:uppercase;font-size:9px;">Beauty Partner — The KIKYŪ</span></span>
+        </div>
       </div>
     </div>
 
@@ -1043,105 +1074,246 @@ footer{ background:var(--dark); padding:72px 56px 40px; }
   </div>
 </section>
 
-<!-- ══════════════ 05 — 2 NIGHTS / 3 DAYS ══════════════ -->
+<!-- ══════════════ 05 — 2 NIGHTS / 3 DAYS (4 MODEL PLANS) ══════════════ -->
 <section class="sec" id="schedule">
   <div class="wrap">
     <div class="sec-head fade">
       <span class="kicker">04 — Model Plan</span>
       <h2 class="h-en">A RETREAT AT KIKYŪ<br>2 NIGHTS / 3 DAYS</h2>
-      <p class="h-ja">法人利用のモデルスケジュール。目的に合わせて自由に組み替えられます。</p>
+      <p class="h-ja">目的の異なる4つのモデルプログラム。タブで切り替えられます。</p>
     </div>
 
-    <div class="tabs fade" role="tablist">
-      <button class="tab-btn active" data-tab="corp" role="tab" aria-selected="true">Corporate / Leadership</button>
-      <button class="tab-btn" data-tab="womens" role="tab" aria-selected="false">Women's / Beauty</button>
+    <div class="tabs fade" role="tablist" aria-label="モデルプラン">
+      <button class="tab-btn active" data-tab="lead" role="tab" aria-selected="true" aria-controls="tab-lead">Leadership Retreat</button>
+      <button class="tab-btn" data-tab="beauty" role="tab" aria-selected="false" aria-controls="tab-beauty">Beauty Retreat</button>
+      <button class="tab-btn" data-tab="ai" role="tab" aria-selected="false" aria-controls="tab-ai">AI Retreat</button>
+      <button class="tab-btn" data-tab="wl" role="tab" aria-selected="false" aria-controls="tab-wl">Women's Leadership</button>
     </div>
 
-    <div class="tab-panel active" id="tab-corp">
+    <!-- ── PLAN 1: LEADERSHIP ── -->
+    <div class="tab-panel active" id="tab-lead" role="tabpanel">
+      <p class="plan-purpose">日常業務から離れ、自身のLeadershipの軸と組織における役割を見つめ直し、次の行動へつなげる。</p>
+      <p class="plan-for">Recommended For:経営者 / 役員 / 管理職 / 次世代リーダー</p>
+      <div class="plan-legend"><span><b>Core Program</b> = 本編</span><span class="lg-opt">Optional / Free Participation = 自由参加(本編外)</span></div>
       <div class="days">
         <div class="day fade">
-          <h4>Day 1</h4>
+          <h4>Day 1</h4><h5>Leave the Everyday</h5>
           <dl>
             <dt>15:00</dt><dd>Arrival / Check-in</dd>
-            <dt>16:00</dt><dd>Kick-off / Strategy Session</dd>
+            <dt>15:30</dt><dd>Orientation<small>目的・守秘・対話ルールの共有</small></dd>
+            <dt>16:00</dt><dd>Leadership Context<small>現在の役割、環境変化、直面しているLeadership課題を整理</small></dd>
+            <dt>17:30</dt><dd>Individual Reflection<small>これまでの意思決定、転機、価値観を個人で振り返る</small></dd>
             <dt>18:30</dt><dd>Dinner</dd>
-            <dt>20:00</dt><dd>Dialogue / Natural Onsen<small>Free Time</small></dd>
+            <dt>20:00</dt><dd>Leadership Dialogue<small>役職を越え、互いの経験と問題意識を共有</small></dd>
+            <dt>21:30</dt><dd class="opt">Free Time / Natural Onsen<span class="optchip">Optional</span></dd>
           </dl>
         </div>
         <div class="day fade">
-          <h4>Day 2</h4>
-          <dl>
-            <dt>08:00</dt><dd>Morning Yoga<small>Optional</small></dd>
-            <dt>09:00</dt><dd>Breakfast</dd>
-            <dt>10:00</dt><dd>Training Session</dd>
-            <dt>12:30</dt><dd>Lunch</dd>
-            <dt>14:00</dt><dd>Workshop</dd>
-            <dt>16:00</dt><dd>Free Time<small>〜17:30(90分)</small></dd>
-            <dt>17:30</dt><dd>Sunset Yoga<small>Optional</small></dd>
-            <dt>19:00</dt><dd>Dinner</dd>
-            <dt>20:30</dt><dd>Dialogue / Onsen</dd>
-          </dl>
-        </div>
-        <div class="day fade">
-          <h4>Day 3</h4>
+          <h4>Day 2</h4><h5>Find Your Axis</h5>
           <dl>
             <dt>08:30</dt><dd>Breakfast</dd>
-            <dt>09:30</dt><dd>Reflection</dd>
-            <dt>10:30</dt><dd>Action Planning</dd>
+            <dt>09:30</dt><dd>Values &amp; Strengths Exploration<small>自分を動かしてきた価値観、原体験、強みを探求</small></dd>
+            <dt>11:00</dt><dd>Pair Dialogue<small>少人数の対話とフィードバック</small></dd>
+            <dt>12:30</dt><dd>Lunch</dd>
+            <dt>13:30</dt><dd>Leadership Challenge<small>現在の経営・組織課題と、自身のLeadershipの関係を整理</small></dd>
+            <dt>15:30</dt><dd>Break</dd>
+            <dt>16:00</dt><dd>From Self to Organization<small>個人の意思、組織の使命、担うべき役割をつなぐ</small></dd>
+            <dt>17:30</dt><dd>Individual Reflection / Free Time</dd>
+            <dt>19:00</dt><dd>Dinner</dd>
+            <dt>20:30</dt><dd>Executive Dialogue<small>Day 2で得た気づきと、まだ言語化できていない課題を共有</small></dd>
+            <dt>21:30</dt><dd class="opt">Free Time / Natural Onsen<span class="optchip">Optional</span></dd>
+          </dl>
+        </div>
+        <div class="day fade">
+          <h4>Day 3</h4><h5>Commit to Action</h5>
+          <dl>
+            <dt>08:30</dt><dd>Breakfast</dd>
+            <dt>09:30</dt><dd>Leadership Statement<small>自分が大切にする軸とLeadershipの意思を言語化</small></dd>
+            <dt>10:00</dt><dd>Action Planning<small>職場へ戻って実践する具体的な行動を設計</small></dd>
+            <dt>10:40</dt><dd>Commitment Sharing<small>参加者間で宣言・共有</small></dd>
             <dt>11:00</dt><dd>Check-out</dd>
           </dl>
         </div>
       </div>
       <div class="plan-outcome fade">
-        <b>想定成果物</b>
-        重点課題の整理、チームでの合意事項、90日アクションプラン
+        <b>Expected Outcomes</b>
+        自身の価値観・Leadershipの軸 / 現在の役割と課題の整理 / Leadership Statement / 具体的な行動計画 / 参加者間の相互理解
+      </div>
+      <div class="plan-outcome fade" style="border-left-color:var(--stone);">
+        <b>Optional Elements(自由参加・本編外)</b>
+        Morning Yoga / Meditation / Pool / Natural Onsen / Free Time
       </div>
     </div>
 
-    <div class="tab-panel" id="tab-womens">
+    <!-- ── PLAN 2: BEAUTY ── -->
+    <div class="tab-panel" id="tab-beauty" role="tabpanel">
+      <p class="plan-purpose">Beautyを学び、食べ、動き、休み、日常へ持ち帰れるセルフケアをつくる。<span style="color:var(--warm);font-weight:400;"> — 女性のためのおこもり美容合宿</span></p>
+      <p class="plan-for">Recommended For:福利厚生施策 / 女性向け社内施策 / Well-being施策 / Beauty関連企業 — Structure:Neige Corporation × 専属栄養士 × KIKYŪ</p>
+      <div class="plan-legend"><span><b>Core Program</b> = 本編</span><span class="lg-opt">Optional / Free Participation = 自由参加(本編外)</span></div>
       <div class="days">
         <div class="day fade">
-          <h4>Day 1</h4>
+          <h4>Day 1</h4><h5>Know Your Beauty</h5>
           <dl>
             <dt>15:00</dt><dd>Arrival / Check-in</dd>
-            <dt>16:00</dt><dd>Leadership Session</dd>
-            <dt>18:30</dt><dd>Beauty Nutrition Dinner</dd>
-            <dt>20:00</dt><dd>Natural Onsen<small>Free Time</small></dd>
+            <dt>15:30</dt><dd>Welcome &amp; Beauty Check-in<small>現在のBeauty・生活習慣・Well-being課題を整理</small></dd>
+            <dt>16:00</dt><dd>Beauty Learning by Neige Corporation<small>肌、化粧品、日常のSkincareに関する学び</small></dd>
+            <dt>17:30</dt><dd>Personal Skincare Reflection</dd>
+            <dt>18:30</dt><dd>Beauty Nutrition Dinner<small>専属栄養士による夕食とメニュー解説</small></dd>
+            <dt>20:00</dt><dd>Skincare Session</dd>
+            <dt>21:00</dt><dd class="opt">Natural Onsen / Free Time<span class="optchip">Optional</span></dd>
           </dl>
         </div>
         <div class="day fade">
-          <h4>Day 2</h4>
+          <h4>Day 2</h4><h5>Eat, Move &amp; Reset</h5>
           <dl>
-            <dt>08:00</dt><dd>Morning Yoga / Meditation<small>Optional</small></dd>
+            <dt>08:00</dt><dd class="opt">Morning Movement<small>Yogaまたは軽いMovement</small><span class="optchip">自由参加</span></dd>
             <dt>09:00</dt><dd>Breakfast</dd>
-            <dt>10:00</dt><dd>Leadership Session</dd>
-            <dt>12:30</dt><dd>Lunch</dd>
-            <dt>14:00</dt><dd>Beauty Session</dd>
-            <dt>15:30</dt><dd>Nutrition Session</dd>
-            <dt>16:30</dt><dd>Free Time<small>〜18:30(120分)</small></dd>
+            <dt>10:00</dt><dd>Beauty &amp; Cosmetics Workshop<small>化粧品の商品開発、自社ブランド、顧客視点等をBeauty Learningとして展開</small></dd>
+            <dt>11:30</dt><dd>Self-care Planning</dd>
+            <dt>12:30</dt><dd>Beauty Nutrition Lunch</dd>
+            <dt>14:00</dt><dd>Nutrition Session<small>Beautyと食、日常の食習慣を考える</small></dd>
+            <dt>15:00</dt><dd class="opt">Free Time / Pool / Optional Treatment<span class="optchip">Optional</span></dd>
+            <dt>17:00</dt><dd>Reflection</dd>
             <dt>19:00</dt><dd>Dinner</dd>
-            <dt>20:30</dt><dd>Onsen / Free Time</dd>
+            <dt>20:30</dt><dd>Beauty Dialogue / Skincare</dd>
+            <dt>21:30</dt><dd class="opt">Natural Onsen / Free Time<span class="optchip">Optional</span></dd>
           </dl>
         </div>
         <div class="day fade">
-          <h4>Day 3</h4>
+          <h4>Day 3</h4><h5>Bring It Home</h5>
           <dl>
             <dt>08:30</dt><dd>Breakfast</dd>
-            <dt>09:30</dt><dd>Reflection</dd>
-            <dt>10:30</dt><dd>Action Planning</dd>
+            <dt>09:30</dt><dd>Beauty &amp; Well-being Reflection</dd>
+            <dt>10:00</dt><dd>Personal Beauty Routine<small>日常へ持ち帰るSkincare、Nutrition、Recoveryを設計</small></dd>
+            <dt>10:40</dt><dd>Sharing</dd>
             <dt>11:00</dt><dd>Check-out</dd>
           </dl>
         </div>
       </div>
       <div class="plan-outcome fade">
-        <b>想定成果物</b>
-        リーダーシップ課題の整理、個人アクション、セルフマネジメントプラン
+        <b>Expected Outcomes</b>
+        Beauty・Skincareに関する学び / Beauty Nutritionへの理解 / 個人のセルフケアルーティン / 日常へ持ち帰るBeauty &amp; Well-being Action
+      </div>
+      <div class="plan-outcome fade" style="border-left-color:var(--stone);">
+        <b>Optional Elements(自由参加・本編外)</b>
+        Yoga / Meditation / Pool / Natural Onsen / Spa・Treatment
+      </div>
+    </div>
+
+    <!-- ── PLAN 3: AI ── -->
+    <div class="tab-panel" id="tab-ai" role="tabpanel">
+      <p class="plan-purpose">生成AIを学ぶだけで終わらせず、自社業務での優先ユースケースと次の実装アクションをつくる。<span style="color:var(--gold);font-weight:400;font-style:italic;"> with YZ PARTNERS</span></p>
+      <p class="plan-for">Recommended For:経営層 / 部門責任者 / AI推進チーム / DX推進チーム / 実務チーム — Structure:YZ PARTNERS × KIKYŪ</p>
+      <div class="plan-legend"><span><b>Core Program</b> = 本編</span><span class="lg-opt">Optional / Free Participation = 自由参加(本編外)</span></div>
+      <div class="days">
+        <div class="day fade">
+          <h4>Day 1</h4><h5>Align</h5>
+          <dl>
+            <dt>15:00</dt><dd>Arrival / Check-in</dd>
+            <dt>15:30</dt><dd>Orientation<small>目的、参加者の前提知識、守秘ルールを共有</small></dd>
+            <dt>16:00</dt><dd>AI Landscape &amp; Common Understanding<small>生成AI、Enterprise AI、AI Transformationの共通理解</small></dd>
+            <dt>17:30</dt><dd>Business Challenge Mapping<small>各部門の課題と期待を共有</small></dd>
+            <dt>18:30</dt><dd>Dinner</dd>
+            <dt>20:00</dt><dd>AI Dialogue<small>AI導入に対する期待、懸念、組織課題を対話</small></dd>
+            <dt>21:30</dt><dd class="opt">Free Time / Natural Onsen<span class="optchip">Optional</span></dd>
+          </dl>
+        </div>
+        <div class="day fade">
+          <h4>Day 2</h4><h5>Discover &amp; Design</h5>
+          <dl>
+            <dt>08:30</dt><dd>Breakfast</dd>
+            <dt>09:30</dt><dd>Use Case Discovery<small>業務プロセスからAI活用候補を発掘</small></dd>
+            <dt>11:00</dt><dd>Use Case Definition<small>利用者、課題、データ、期待成果を整理</small></dd>
+            <dt>12:30</dt><dd>Lunch</dd>
+            <dt>13:30</dt><dd>Prototype / Prompt Workshop<small>選定したテーマを使った実践Workshop</small></dd>
+            <dt>15:30</dt><dd>Break</dd>
+            <dt>16:00</dt><dd>Prioritization<small>事業価値、実現性、リスクから優先順位を決定</small></dd>
+            <dt>17:30</dt><dd>Free Time</dd>
+            <dt>19:00</dt><dd>Dinner</dd>
+            <dt>20:30</dt><dd>Implementation Dialogue<small>導入障壁、ガバナンス、推進体制を議論</small></dd>
+            <dt>21:30</dt><dd class="opt">Free Time / Natural Onsen<span class="optchip">Optional</span></dd>
+          </dl>
+        </div>
+        <div class="day fade">
+          <h4>Day 3</h4><h5>Move to Action</h5>
+          <dl>
+            <dt>08:30</dt><dd>Breakfast</dd>
+            <dt>09:30</dt><dd>Implementation Planning<small>検証方法、担当、期限、必要データを整理</small></dd>
+            <dt>10:15</dt><dd>Roadmap &amp; Commitment</dd>
+            <dt>10:40</dt><dd>Final Sharing</dd>
+            <dt>11:00</dt><dd>Check-out</dd>
+          </dl>
+        </div>
+      </div>
+      <div class="plan-outcome fade">
+        <b>Expected Outcomes</b>
+        AI活用候補一覧 / 優先ユースケース / ユースケース定義 / 検証計画 / 次の実装アクション / 導入ロードマップの素案
+      </div>
+      <div class="plan-outcome fade" style="border-left-color:var(--stone);">
+        <b>Optional Elements(自由参加・本編外)</b>
+        Natural Onsen / Pool / Free Time
+      </div>
+    </div>
+
+    <!-- ── PLAN 4: WOMEN'S LEADERSHIP ── -->
+    <div class="tab-panel" id="tab-wl" role="tabpanel">
+      <p class="plan-purpose">女性リーダーとしての成長、役割、キャリア、セルフマネジメントを一体で考える。</p>
+      <p class="plan-for">Recommended For:女性管理職 / 次世代女性リーダー / 女性リーダー候補 — Structure:外部の女性Leadership専門プログラム × Neige Corporation × 専属栄養士 × KIKYŪ(実施体制の確定後、目的に応じて設計)</p>
+      <div class="plan-legend"><span><b>Core Program</b> = 本編</span><span class="lg-opt">Optional / Free Participation = 自由参加(本編外)</span></div>
+      <div class="days">
+        <div class="day fade">
+          <h4>Day 1</h4><h5>Leadership &amp; Self</h5>
+          <dl>
+            <dt>15:00</dt><dd>Arrival / Check-in</dd>
+            <dt>15:30</dt><dd>Orientation<small>目的、対話ルール、参加者の期待を共有</small></dd>
+            <dt>16:00</dt><dd>Leadership Reflection<small>これまでのキャリア、役割、転機を振り返る</small></dd>
+            <dt>17:30</dt><dd>Leadership Dialogue<small>現在感じている課題や期待を参加者間で共有</small></dd>
+            <dt>18:30</dt><dd>Dinner</dd>
+            <dt>20:00</dt><dd>Career &amp; Leadership Dialogue</dd>
+            <dt>21:30</dt><dd class="opt">Natural Onsen / Free Time<span class="optchip">Optional</span></dd>
+          </dl>
+        </div>
+        <div class="day fade">
+          <h4>Day 2</h4><h5>Lead Sustainably</h5>
+          <dl>
+            <dt>08:00</dt><dd class="opt">Morning Movement<span class="optchip">自由参加</span></dd>
+            <dt>09:00</dt><dd>Breakfast</dd>
+            <dt>10:00</dt><dd>Women's Leadership Session<small>Leadershipスタイル、強み、役割、組織からの期待を整理</small></dd>
+            <dt>11:30</dt><dd>Peer Dialogue</dd>
+            <dt>12:30</dt><dd>Lunch</dd>
+            <dt>13:30</dt><dd>Leadership Challenge Workshop<small>実際の職場で直面するLeadership課題を扱う</small></dd>
+            <dt>15:00</dt><dd>Beauty &amp; Self-management Session<small>Neige CorporationによるBeauty Learningを、セルフマネジメントの一要素として実施</small></dd>
+            <dt>16:00</dt><dd>Free Time</dd>
+            <dt>17:00</dt><dd>Nutrition &amp; Performance Session<small>専属栄養士と、持続的なパフォーマンスを支える食を考える</small></dd>
+            <dt>19:00</dt><dd>Dinner</dd>
+            <dt>20:30</dt><dd>Leadership Dialogue</dd>
+            <dt>21:30</dt><dd class="opt">Natural Onsen / Free Time<span class="optchip">Optional</span></dd>
+          </dl>
+        </div>
+        <div class="day fade">
+          <h4>Day 3</h4><h5>Next Leadership Action</h5>
+          <dl>
+            <dt>08:30</dt><dd>Breakfast</dd>
+            <dt>09:30</dt><dd>Leadership Statement<small>自身のLeadershipと今後の役割を言語化</small></dd>
+            <dt>10:00</dt><dd>Action Planning<small>職場で実践する行動とセルフマネジメントを設計</small></dd>
+            <dt>10:40</dt><dd>Commitment Sharing</dd>
+            <dt>11:00</dt><dd>Check-out</dd>
+          </dl>
+        </div>
+      </div>
+      <div class="plan-outcome fade">
+        <b>Expected Outcomes</b>
+        Leadership課題の整理 / キャリアと役割に関する気づき / Leadership Statement / 個人アクションプラン / セルフマネジメントプラン / 参加者間のネットワーク
+      </div>
+      <div class="plan-outcome fade" style="border-left-color:var(--stone);">
+        <b>Optional Elements(自由参加・本編外)</b>
+        Yoga / Meditation / Pool / Natural Onsen / Free Time
       </div>
     </div>
 
     <p class="sched-note fade">
-      Yoga・Meditation・Spa等はOptional / Free Participationです。全プログラム強制参加ではなく、
-      参加者と目的に合わせて設計します。予定を詰め込みすぎず、Free Timeを確保します。
+      上記は2泊3日のモデル例です。実際の内容、時間、専門家、食事、Optional Programは、
+      企業の目的、参加者、実施体制に応じて個別に設計します。
     </p>
   </div>
 </section>
