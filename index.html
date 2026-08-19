@@ -156,6 +156,7 @@ body {
 }
 .hero-btn-line:hover { border-color: #fff; color: #fff; }
 .hero-h .hh-u { display: inline-block; }
+.hero-lead .hl-u { display: inline-block; }
 @media (prefers-reduced-motion: reduce) {
   .hs { transition: none; }
 }
@@ -693,12 +694,31 @@ footer {
   .nav { padding: 28px 32px; }
   .nav.scrolled { padding: 16px 32px; }
   .nav-links { display: none; }
-  .hero-body { padding: 0 32px 8vh; }
-  .hero-h { font-size: clamp(21px, 7vw, 34px); letter-spacing: 0; }
-  .hero { height: auto; min-height: 640px; min-height: 78svh; }
+  /* FV: stack top-down below the fixed header (no bottom-anchored flex on mobile) */
+  .hero {
+    height: auto;
+    min-height: 100vh;
+    min-height: 100svh;
+  }
+  .hero-body {
+    display: block; height: auto;
+    padding: calc(76px + env(safe-area-inset-top, 0px) + 28px) 24px 88px;
+    justify-content: flex-start;
+  }
+  .hero-loc { margin-bottom: 16px; white-space: nowrap; font-size: 8.5px; letter-spacing: 0.3em; }
+  .hero-h { font-size: clamp(23px, 6.6vw, 30px); letter-spacing: 0; line-height: 1.5; margin-bottom: 18px; }
+  .hero-lead {
+    font-size: 16px; line-height: 1.9; letter-spacing: 0.02em;
+    word-break: normal; overflow-wrap: normal; margin-bottom: 26px;
+  }
   .hero-lead br { display: none; }
-  .hero-ctas a { flex: 1 1 auto; min-width: 150px; }
-  .hero-nav { right: 16px; bottom: 16px; }
+  .hero-ctas { flex-direction: column; align-items: stretch; gap: 14px; }
+  .hero-ctas a {
+    flex: none; width: 100%; box-sizing: border-box;
+    height: 56px; padding: 0 20px;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .hero-nav { right: 16px; bottom: 18px; }
   .hs-1 img { object-position: center 50%; }
   .hs-2 img { object-position: center 45%; }
   .hs-3 img { object-position: center 50%; }
@@ -770,7 +790,7 @@ footer {
   <div class="hero-body">
     <p class="hero-loc">Private Stays &amp; Corporate Retreats</p>
     <h1 class="hero-h"><span class="hh-u">日本の美しい場所に、</span><br><span class="hh-u">滞在の目的地をつくる。</span></h1>
-    <p class="hero-lead">ホテル・一棟貸し宿泊施設の企画・運営から、<br>個人の滞在、法人リトリートの設計まで。</p>
+    <p class="hero-lead"><span class="hl-u">ホテル・一棟貸し宿泊施設の</span><span class="hl-u">企画・運営から、</span><br><span class="hl-u">個人の滞在、法人リトリートの</span><span class="hl-u">設計まで。</span></p>
     <div class="hero-ctas">
       <a href="#portfolio" class="hero-btn-solid">運営施設を見る</a>
       <a href="#about" class="hero-btn-line">私たちについて</a>
