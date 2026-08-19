@@ -433,6 +433,33 @@ body.pm-open{ overflow:hidden; }
   .tab-btn.active{ border-color:var(--gold); background:var(--ivory); }
 }
 
+/* ── OPTIONAL SLOTS / CUSTOMIZE ──────────────────────────── */
+.optslot{
+  background:var(--ivory); border:1px solid var(--line); padding:12px 14px; margin-top:2px;
+}
+.optslot .os-head{
+  display:flex; align-items:center; gap:8px; flex-wrap:wrap; margin-bottom:4px;
+}
+.optslot .os-name{ font-size:12px; letter-spacing:0.08em; color:var(--mid); }
+.optslot .os-sub{ display:block; font-size:10px; color:var(--stone); letter-spacing:0.1em; margin-bottom:9px; }
+.opt-tags{ display:flex; flex-wrap:wrap; gap:6px; }
+.opt-tags span{
+  font-size:10px; letter-spacing:0.06em; color:var(--mid);
+  border:1px solid var(--line); background:var(--white); padding:3px 10px;
+}
+.opt-tags small{ font-size:9px; color:var(--stone); letter-spacing:0.04em; width:100%; margin-top:4px; display:block; }
+.custom-grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:24px; margin-top:8px; }
+.custom-card{ border:1px solid var(--line); background:var(--white); padding:26px 24px; }
+.custom-card b{
+  font-family:Georgia,serif; font-weight:400; font-size:14px; letter-spacing:0.2em;
+  text-transform:uppercase; color:var(--ink); display:block;
+}
+.custom-card i{ font-style:normal; display:block; font-size:11px; color:var(--warm); letter-spacing:0.1em; margin:2px 0 12px; }
+.custom-card p{ font-size:12px; line-height:1.95; color:var(--mid); letter-spacing:0.04em; }
+.custom-note{ margin-top:22px; font-size:12px; line-height:2; color:var(--warm); letter-spacing:0.05em; }
+@media (max-width:1080px){ .custom-grid{ grid-template-columns:1fr 1fr; } }
+@media (max-width:560px){ .custom-grid{ grid-template-columns:1fr; } }
+
 /* ── WELL-BEING ──────────────────────────────────────────── */
 .wb-grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:30px; }
 .wb-item .wb-media{ aspect-ratio:3/4; overflow:hidden; background:var(--ivory-d); }
@@ -1118,7 +1145,7 @@ footer{ background:var(--dark); padding:72px 56px 40px; }
             <dt>13:30</dt><dd>Leadership Challenge<small>現在の経営・組織課題と、自身のLeadershipの関係を整理</small></dd>
             <dt>15:30</dt><dd>Break</dd>
             <dt>16:00</dt><dd>From Self to Organization<small>個人の意思、組織の使命、担うべき役割をつなぐ</small></dd>
-            <dt>17:30</dt><dd>Individual Reflection / Free Time</dd>
+            <dt>17:30</dt><dd class="opt"><div class="optslot"><span class="os-head"><span class="optchip">Optional</span><span class="os-name">Optional Recovery Time</span></span><span class="os-sub">リカバリータイム — 希望者が選択(自由参加)</span><div class="opt-tags"><span>Sunset Yoga(サンセットヨガ)</span><span>Boxercise(ボクササイズ)</span><span>Massage(マッサージ)</span><span>Natural Onsen</span><span>Pool</span><span>Free Time</span></div></div></dd>
             <dt>19:00</dt><dd>Dinner</dd>
             <dt>20:30</dt><dd>Executive Dialogue<small>Day 2で得た気づきと、まだ言語化できていない課題を共有</small></dd>
             <dt>21:30</dt><dd class="opt">Free Time / Natural Onsen<span class="optchip">Optional</span></dd>
@@ -1141,7 +1168,7 @@ footer{ background:var(--dark); padding:72px 56px 40px; }
       </div>
       <div class="plan-outcome fade" style="border-left-color:var(--stone);">
         <b>Optional Elements(自由参加・本編外)</b>
-        Morning Yoga / Meditation / Pool / Natural Onsen / Free Time
+        Morning Yoga / Sunset Yoga(サンセットヨガ) / Boxercise(ボクササイズ) / Massage(マッサージ) / Meditation / Pool / Natural Onsen / Free Time<br><small>※Esthetic(エステ)はご希望に応じて個別手配可能です。</small>
       </div>
     </div>
 
@@ -1160,7 +1187,7 @@ footer{ background:var(--dark); padding:72px 56px 40px; }
             <dt>17:30</dt><dd>Personal Skincare Reflection</dd>
             <dt>18:30</dt><dd>Beauty Nutrition Dinner<small>専属栄養士による夕食とメニュー解説</small></dd>
             <dt>20:00</dt><dd>Skincare Session</dd>
-            <dt>21:00</dt><dd class="opt">Natural Onsen / Free Time<span class="optchip">Optional</span></dd>
+            <dt>21:00</dt><dd class="opt"><div class="optslot"><span class="os-head"><span class="optchip">Optional</span><span class="os-name">Optional Recovery</span></span><span class="os-sub">リカバリー — 希望者が選択(自由参加)</span><div class="opt-tags"><span>Esthetic(エステ)</span><span>Massage(マッサージ)</span><span>Natural Onsen</span><span>Free Time</span><small>※Esthetic・Massageは施術時間・対応人数に応じた事前予約制です。</small></div></div></dd>
           </dl>
         </div>
         <div class="day fade">
@@ -1172,8 +1199,9 @@ footer{ background:var(--dark); padding:72px 56px 40px; }
             <dt>11:30</dt><dd>Self-care Planning</dd>
             <dt>12:30</dt><dd>Beauty Nutrition Lunch</dd>
             <dt>14:00</dt><dd>Nutrition Session<small>Beautyと食、日常の食習慣を考える</small></dd>
-            <dt>15:00</dt><dd class="opt">Free Time / Pool / Optional Treatment<span class="optchip">Optional</span></dd>
-            <dt>17:00</dt><dd>Reflection</dd>
+            <dt>15:00</dt><dd class="opt"><div class="optslot"><span class="os-head"><span class="optchip">Optional</span><span class="os-name">Optional Beauty &amp; Movement Time</span></span><span class="os-sub">ビューティー&amp;ムーブメントタイム — 希望者が選択(自由参加)</span><div class="opt-tags"><span>Esthetic(エステ)</span><span>Massage(マッサージ)</span><span>Pool</span><span>Free Time</span><small>※Esthetic・Massageは事前予約制。全員が同じ内容に参加する前提ではありません。</small></div></div></dd>
+            <dt>17:00</dt><dd class="opt"><div class="optslot"><span class="os-head"><span class="optchip">Optional</span><span class="os-name">Optional Movement</span></span><span class="os-sub">ムーブメント — 希望者が選択(自由参加)</span><div class="opt-tags"><span>Sunset Yoga(サンセットヨガ)</span><span>Boxercise(ボクササイズ)</span></div></div></dd>
+            <dt>18:00</dt><dd>Reflection</dd>
             <dt>19:00</dt><dd>Dinner</dd>
             <dt>20:30</dt><dd>Beauty Dialogue / Skincare</dd>
             <dt>21:30</dt><dd class="opt">Natural Onsen / Free Time<span class="optchip">Optional</span></dd>
@@ -1196,7 +1224,7 @@ footer{ background:var(--dark); padding:72px 56px 40px; }
       </div>
       <div class="plan-outcome fade" style="border-left-color:var(--stone);">
         <b>Optional Elements(自由参加・本編外)</b>
-        Yoga / Meditation / Pool / Natural Onsen / Spa・Treatment
+        Esthetic(エステ) / Massage(マッサージ) / Sunset Yoga(サンセットヨガ) / Boxercise(ボクササイズ) / Meditation / Pool / Natural Onsen / Free Time
       </div>
     </div>
 
@@ -1228,7 +1256,7 @@ footer{ background:var(--dark); padding:72px 56px 40px; }
             <dt>13:30</dt><dd>Prototype / Prompt Workshop<small>選定したテーマを使った実践Workshop</small></dd>
             <dt>15:30</dt><dd>Break</dd>
             <dt>16:00</dt><dd>Prioritization<small>事業価値、実現性、リスクから優先順位を決定</small></dd>
-            <dt>17:30</dt><dd>Free Time</dd>
+            <dt>17:30</dt><dd class="opt"><div class="optslot"><span class="os-head"><span class="optchip">Optional</span><span class="os-name">Optional Reset Time</span></span><span class="os-sub">リセットタイム — 希望者が選択(自由参加)</span><div class="opt-tags"><span>Sunset Yoga(サンセットヨガ)</span><span>Boxercise(ボクササイズ)</span><span>Massage(マッサージ)</span><span>Natural Onsen</span><span>Pool</span><span>Free Time</span></div></div></dd>
             <dt>19:00</dt><dd>Dinner</dd>
             <dt>20:30</dt><dd>Implementation Dialogue<small>導入障壁、ガバナンス、推進体制を議論</small></dd>
             <dt>21:30</dt><dd class="opt">Free Time / Natural Onsen<span class="optchip">Optional</span></dd>
@@ -1251,7 +1279,7 @@ footer{ background:var(--dark); padding:72px 56px 40px; }
       </div>
       <div class="plan-outcome fade" style="border-left-color:var(--stone);">
         <b>Optional Elements(自由参加・本編外)</b>
-        Natural Onsen / Pool / Free Time
+        Sunset Yoga(サンセットヨガ) / Boxercise(ボクササイズ) / Massage(マッサージ) / Natural Onsen / Pool / Free Time<br><small>※Esthetic(エステ)はご希望に応じて個別手配可能です。</small>
       </div>
     </div>
 
@@ -1283,8 +1311,9 @@ footer{ background:var(--dark); padding:72px 56px 40px; }
             <dt>12:30</dt><dd>Lunch</dd>
             <dt>13:30</dt><dd>Leadership Challenge Workshop<small>実際の職場で直面するLeadership課題を扱う</small></dd>
             <dt>15:00</dt><dd>Beauty &amp; Self-management Session<small>Neige CorporationによるBeauty Learningを、セルフマネジメントの一要素として実施</small></dd>
-            <dt>16:00</dt><dd>Free Time</dd>
-            <dt>17:00</dt><dd>Nutrition &amp; Performance Session<small>専属栄養士と、持続的なパフォーマンスを支える食を考える</small></dd>
+            <dt>16:00</dt><dd class="opt"><div class="optslot"><span class="os-head"><span class="optchip">Optional</span><span class="os-name">Optional Self-care Time</span></span><span class="os-sub">セルフケアタイム — 希望者が選択(自由参加)</span><div class="opt-tags"><span>Esthetic(エステ)</span><span>Massage(マッサージ)</span><span>Pool</span><span>Free Time</span><small>※Esthetic・Massageは事前予約制です。</small></div></div></dd>
+            <dt>17:00</dt><dd class="opt"><div class="optslot"><span class="os-head"><span class="optchip">Optional</span><span class="os-name">Optional Movement</span></span><span class="os-sub">ムーブメント — 希望者が選択(自由参加)</span><div class="opt-tags"><span>Sunset Yoga(サンセットヨガ)</span><span>Boxercise(ボクササイズ)</span></div></div></dd>
+            <dt>18:00</dt><dd>Nutrition &amp; Performance Session<small>専属栄養士と、持続的なパフォーマンスを支える食を考える</small></dd>
             <dt>19:00</dt><dd>Dinner</dd>
             <dt>20:30</dt><dd>Leadership Dialogue</dd>
             <dt>21:30</dt><dd class="opt">Natural Onsen / Free Time<span class="optchip">Optional</span></dd>
@@ -1307,13 +1336,34 @@ footer{ background:var(--dark); padding:72px 56px 40px; }
       </div>
       <div class="plan-outcome fade" style="border-left-color:var(--stone);">
         <b>Optional Elements(自由参加・本編外)</b>
-        Yoga / Meditation / Pool / Natural Onsen / Free Time
+        Esthetic(エステ) / Massage(マッサージ) / Sunset Yoga(サンセットヨガ) / Boxercise(ボクササイズ) / Meditation / Pool / Natural Onsen / Free Time
       </div>
     </div>
 
+    <div class="fade" style="margin-top:72px;">
+      <span class="kicker">Optional Programs</span>
+      <h3 class="h-en" style="font-size:clamp(20px,2.2vw,28px);margin:14px 0 6px;">CUSTOMIZE YOUR RETREAT</h3>
+      <p class="h-ja" style="margin-bottom:28px;">目的と参加者に合わせて、Optional Programを追加できます。すべて自由参加です。</p>
+      <div class="custom-grid">
+        <div class="custom-card"><span class="optchip" style="margin:0 0 10px;display:inline-block;">Optional</span><b>Esthetic</b><i>エステ</i>
+          <p>Beauty Partnerや外部専門スタッフによる美容施術を、希望者向けに個別手配。内容、時間、対応人数、料金は事前にご案内します。</p></div>
+        <div class="custom-card"><span class="optchip" style="margin:0 0 10px;display:inline-block;">Optional</span><b>Massage</b><i>マッサージ</i>
+          <p>移動やProgram後のRecoveryを目的とした施術を個別手配。希望人数と施術体制に応じて調整します。</p></div>
+        <div class="custom-card"><span class="optchip" style="margin:0 0 10px;display:inline-block;">Optional</span><b>Sunset Yoga</b><i>サンセットヨガ</i>
+          <p>相模湾を望む夕方の時間帯に行う自由参加のYoga Session。初心者も参加できます。天候、季節、日没時刻により内容と実施場所を調整します。</p></div>
+        <div class="custom-card"><span class="optchip" style="margin:0 0 10px;display:inline-block;">Optional</span><b>Boxercise</b><i>ボクササイズ</i>
+          <p>パンチ等のボクシング動作を取り入れた、初心者向け・非接触型のMovement Program。運動経験や体調に合わせて安全に実施します。</p></div>
+      </div>
+      <p class="custom-note">Natural Onsen / Pool / Meditation / Free Timeも、目的に応じて組み合わせられます。</p>
+    </div>
+
     <p class="sched-note fade">
-      上記は2泊3日のモデル例です。実際の内容、時間、専門家、食事、Optional Programは、
-      企業の目的、参加者、実施体制に応じて個別に設計します。
+      Esthetic、Massage、Sunset Yoga、Boxercise等はOptional / Free Participationです。
+      実施内容、時間、担当者、料金、対応人数は、参加者の希望と実施体制に応じて個別に設計・手配します。
+      すべてのOptional Programを同時に実施するものではありません。
+    </p>
+    <p class="sched-note fade" style="margin-top:12px;">
+      上記は2泊3日のモデル例です。実際の内容と時間は、企業の目的、参加者、Program構成に応じて調整します。
     </p>
   </div>
 </section>
