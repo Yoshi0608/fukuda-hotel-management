@@ -4,18 +4,14 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Retreat — The KIKYŪ Atami Ocean View Retreat</title>
-<meta name="description" content="熱海・相模湾を望む一棟貸しプライベートリトリート。Leadership、AI、Beauty & Well-beingまで、専門パートナーとともに法人向け滞在型プログラムを設計します。">
+<meta name="description" content="熱海・相模湾を望む一棟貸切の法人向けリトリート。最大25名想定、2泊3日を中心に、Leadership・Women's Leadership・AI・Beauty & Well-beingの滞在型プログラムを設計します。">
 
 <!-- ============================================================
      THE KIKYŪ — RETREAT (Corporate Credentials LP)
      Static single-file page. No new services / no CMS / no DB.
-     ------------------------------------------------------------
-     REPLACEABLE ASSETS:
-       * Free stock images (Unsplash) are marked with
-         class="stock-img" + data-asset="...". Swap src only.
-       * Property photos are placeholders: <div class="ph"> with
-         data-photo label. Replace the div with <img> later.
-       * Partner logos are placeholders: .logo-ph blocks.
+     Conceptual stock images: class="stock-img" (swap src only).
+     Property photo slots are intentionally not rendered until
+     verified KIKYŪ photography is available.
      ============================================================ -->
 
 <style>
@@ -32,7 +28,6 @@ html { scroll-behavior:smooth; font-size:16px; }
   --mid:#5E564C;
   --charcoal:#2B2723;
   --ink:#1A1714;
-  --black:#131009;
   --dark:#14110E;
   --gold:#A98D5F;
 }
@@ -48,7 +43,7 @@ body{
 
 img{ display:block; max-width:100%; }
 
-/* ── TYPE SYSTEM ─────────────────────────────────────────── */
+/* ── TYPE ────────────────────────────────────────────────── */
 .kicker{
   font-size:10px; letter-spacing:0.34em; text-transform:uppercase;
   color:var(--gold); display:block;
@@ -58,18 +53,13 @@ img{ display:block; max-width:100%; }
   font-weight:400; letter-spacing:0.02em; line-height:1.25;
   color:var(--ink);
 }
-.h-ja{
-  font-size:14px; letter-spacing:0.10em; color:var(--warm);
-}
-.lead-ja{
-  font-size:15px; line-height:2.1; letter-spacing:0.04em; color:var(--mid);
-}
+.h-ja{ font-size:14px; letter-spacing:0.10em; color:var(--warm); }
 
 /* ── NAV ─────────────────────────────────────────────────── */
 .nav{
   position:fixed; top:0; left:0; right:0; z-index:300;
-  display:flex; align-items:center; justify-content:space-between;
-  padding:22px 56px;
+  display:flex; align-items:center; justify-content:space-between; gap:20px;
+  padding:20px 56px;
   transition:background .4s, box-shadow .4s, padding .4s;
   background:transparent;
 }
@@ -77,7 +67,7 @@ img{ display:block; max-width:100%; }
   background:rgba(246,244,239,0.97);
   backdrop-filter:blur(16px);
   box-shadow:0 1px 0 rgba(0,0,0,0.06);
-  padding:16px 56px;
+  padding:14px 56px;
 }
 .nav-brand{ text-decoration:none; display:flex; flex-direction:column; gap:2px; }
 .nav-brand .nb-main{
@@ -90,7 +80,7 @@ img{ display:block; max-width:100%; }
 }
 .nav.scrolled .nb-main{ color:var(--ink); }
 .nav.scrolled .nb-sub{ color:var(--warm); }
-.nav-links{ display:flex; align-items:center; gap:36px; }
+.nav-links{ display:flex; align-items:center; gap:32px; }
 .nav-links a{
   font-size:10px; letter-spacing:0.22em; text-transform:uppercase;
   text-decoration:none; color:rgba(255,255,255,0.75); transition:color .3s;
@@ -98,18 +88,24 @@ img{ display:block; max-width:100%; }
 }
 .nav.scrolled .nav-links a{ color:var(--mid); }
 .nav-links a:hover{ color:var(--gold); }
-.nav-links a.current{
-  color:#fff; border-bottom-color:var(--gold);
-}
+.nav-links a.current{ color:#fff; border-bottom-color:var(--gold); }
 .nav.scrolled .nav-links a.current{ color:var(--ink); }
-.nav-book{
-  font-size:9px; letter-spacing:0.24em; text-transform:uppercase;
-  text-decoration:none; color:rgba(255,255,255,0.6);
-  border:1px solid rgba(255,255,255,0.35); padding:10px 20px;
-  transition:all .3s;
+.nav-right{ display:flex; align-items:center; gap:22px; }
+.nav-stay{
+  font-size:9px; letter-spacing:0.20em; text-transform:uppercase;
+  text-decoration:none; color:rgba(255,255,255,0.55); transition:color .3s;
 }
-.nav.scrolled .nav-book{ color:var(--mid); border-color:var(--line); }
-.nav-book:hover{ color:var(--gold); border-color:var(--gold); }
+.nav.scrolled .nav-stay{ color:var(--warm); }
+.nav-stay:hover{ color:var(--gold); }
+.nav-cta{
+  font-size:10px; letter-spacing:0.14em;
+  text-decoration:none; color:#fff; background:rgba(169,141,95,0.92);
+  border:1px solid rgba(169,141,95,0.92);
+  padding:11px 22px; transition:all .3s; white-space:nowrap;
+}
+.nav-cta:hover{ background:var(--ink); border-color:var(--ink); }
+.nav.scrolled .nav-cta{ background:var(--gold); border-color:var(--gold); }
+.nav.scrolled .nav-cta:hover{ background:var(--ink); border-color:var(--ink); }
 
 /* hamburger */
 .nav-toggle{ display:none; background:none; border:none; cursor:pointer; padding:8px; z-index:320; }
@@ -123,324 +119,324 @@ img{ display:block; max-width:100%; }
 
 .mobile-menu{
   position:fixed; inset:0; z-index:290; background:var(--ivory);
-  display:flex; flex-direction:column; justify-content:center; align-items:center; gap:34px;
+  display:flex; flex-direction:column; justify-content:center; align-items:center; gap:30px;
   opacity:0; pointer-events:none; transition:opacity .35s;
 }
 .mobile-menu.open{ opacity:1; pointer-events:auto; }
 .mobile-menu a{
-  font-family:Georgia,serif; font-size:20px; letter-spacing:0.28em; text-transform:uppercase;
+  font-family:Georgia,serif; font-size:19px; letter-spacing:0.26em; text-transform:uppercase;
   color:var(--ink); text-decoration:none;
 }
 .mobile-menu a.current{ color:var(--gold); }
-.mobile-menu .mm-book{
-  font-family:-apple-system,'Helvetica Neue',sans-serif;
-  font-size:10px; letter-spacing:0.24em; border:1px solid var(--stone); padding:12px 28px;
+.mobile-menu .mm-cta{
+  font-family:-apple-system,'Helvetica Neue','Hiragino Sans',sans-serif;
+  font-size:12px; letter-spacing:0.12em; text-transform:none;
+  background:var(--gold); color:#fff; padding:14px 32px;
+}
+.mobile-menu .mm-stay{
+  font-family:-apple-system,'Helvetica Neue','Hiragino Sans',sans-serif;
+  font-size:11px; letter-spacing:0.14em; color:var(--warm); text-transform:none;
 }
 
-/* ── SECTION SHELL ───────────────────────────────────────── */
+/* mobile sticky CTA */
+.sticky-cta{
+  display:none;
+  position:fixed; left:0; right:0; bottom:0; z-index:280;
+  background:var(--gold); color:#fff; text-align:center; text-decoration:none;
+  font-size:13px; letter-spacing:0.12em; padding:15px 16px;
+}
+.sticky-cta.hidden{ display:none !important; }
+@media (max-width:900px){ .sticky-cta{ display:block; } body{ padding-bottom:52px; } }
+
+/* ── SHELL ───────────────────────────────────────────────── */
 .wrap{ max-width:1200px; margin:0 auto; padding:0 56px; }
-.sec{ padding:110px 0; }
-.sec-head{ margin-bottom:64px; }
-.sec-head .h-en{ font-size:clamp(28px,3.2vw,44px); margin:18px 0 10px; }
+.sec{ padding:100px 0; }
+.sec-head{ margin-bottom:56px; }
+.sec-head .h-en{ font-size:clamp(26px,3vw,40px); margin:18px 0 10px; }
 .sec-head .sub-en{
   font-family:Georgia,serif; font-style:italic; font-size:15px; color:var(--warm);
   letter-spacing:0.03em;
 }
-.rule{ border:none; border-top:1px solid var(--line); }
-
-/* fade-in */
 .fade{ opacity:0; transform:translateY(24px); transition:opacity .9s ease, transform .9s ease; }
 .fade.vis{ opacity:1; transform:none; }
-
-/* ── PLACEHOLDER (property photos) ───────────────────────── */
-.ph{
-  position:relative; width:100%; background:var(--ivory-d);
-  border:1px solid var(--line);
-  display:flex; flex-direction:column; align-items:center; justify-content:center; gap:10px;
-}
-.ph::before{
-  content:'PHOTO'; font-size:9px; letter-spacing:0.4em; color:var(--stone);
-}
-.ph .ph-label{
-  font-size:12px; letter-spacing:0.14em; color:var(--warm); text-align:center; padding:0 20px;
-}
-.ph--dark{ background:#221E19; border-color:#332E27; }
-.ph--dark::before{ color:#6B6357; }
-.ph--dark .ph-label{ color:#8A8177; }
-
-/* stock image note */
-.img-note{
-  font-size:9px; letter-spacing:0.18em; text-transform:uppercase; color:var(--stone);
-  margin-top:10px;
+@media (prefers-reduced-motion: reduce){
+  html{ scroll-behavior:auto; }
+  .fade{ opacity:1; transform:none; transition:none; }
+  *{ transition-duration:0.01ms !important; animation:none !important; }
 }
 
 /* ── HERO ────────────────────────────────────────────────── */
 .hero{
-  position:relative; height:100vh; min-height:640px;
+  position:relative; height:100vh; min-height:660px;
   background:linear-gradient(165deg,#1C1813 0%, #2B2620 38%, #3A342B 62%, #232019 100%);
   display:flex; align-items:flex-end;
 }
-.hero-ph{
-  position:absolute; inset:0; display:flex; align-items:center; justify-content:center;
-  flex-direction:column; gap:12px;
-}
-.hero-ph::before{
-  content:'PHOTO PLACEHOLDER'; font-size:9px; letter-spacing:0.42em; color:rgba(255,255,255,0.28);
-}
-.hero-ph .ph-label{ font-size:13px; letter-spacing:0.16em; color:rgba(255,255,255,0.4); text-align:center; padding:0 24px;}
 .hero-veil{
   position:absolute; inset:0;
-  background:linear-gradient(180deg, rgba(19,16,9,0.35) 0%, rgba(19,16,9,0.15) 45%, rgba(19,16,9,0.78) 100%);
+  background:linear-gradient(180deg, rgba(19,16,9,0.42) 0%, rgba(19,16,9,0.22) 45%, rgba(19,16,9,0.82) 100%);
 }
 .hero-body{
   position:relative; z-index:2; width:100%;
-  max-width:1200px; margin:0 auto; padding:0 56px 9vh;
+  max-width:1200px; margin:0 auto; padding:0 56px 7vh;
 }
-.hero-tags{ display:flex; gap:22px; margin-bottom:26px; flex-wrap:wrap; }
-.hero-tags span{
-  font-size:9px; letter-spacing:0.30em; text-transform:uppercase; color:rgba(255,255,255,0.55);
-  border:1px solid rgba(255,255,255,0.22); padding:7px 16px;
+.hero-eyebrow{
+  font-size:10px; letter-spacing:0.36em; text-transform:uppercase;
+  color:var(--gold); display:block; margin-bottom:22px;
 }
 .hero-h{
-  font-family:Georgia,serif; font-weight:400;
-  font-size:clamp(34px,5vw,64px); line-height:1.12; letter-spacing:0.01em; color:#fff;
-  margin-bottom:18px;
-}
-.hero-sub-en{
-  font-family:Georgia,serif; font-style:italic;
-  font-size:clamp(16px,1.8vw,22px); color:rgba(255,255,255,0.85); margin-bottom:26px;
+  font-family:Georgia,'Hiragino Mincho ProN','Yu Mincho',serif; font-weight:400;
+  font-size:clamp(28px,4vw,50px); line-height:1.35; letter-spacing:0.02em; color:#fff;
+  margin-bottom:22px;
 }
 .hero-ja{
-  font-size:14px; line-height:2.15; letter-spacing:0.05em; color:rgba(255,255,255,0.75);
-  max-width:560px;
+  font-size:14px; line-height:2.1; letter-spacing:0.05em; color:rgba(255,255,255,0.8);
+  max-width:640px;
 }
-.hero-cta{
-  display:inline-flex; align-items:center; gap:14px; margin-top:38px;
-  font-size:10px; letter-spacing:0.28em; text-transform:uppercase;
-  color:#fff; text-decoration:none; border-bottom:1px solid rgba(255,255,255,0.4);
-  padding-bottom:6px; transition:all .3s;
+.hero-ctas{ display:flex; align-items:center; gap:28px; margin-top:34px; flex-wrap:wrap; }
+.btn-solid{
+  font-size:12px; letter-spacing:0.12em; text-decoration:none;
+  color:#fff; background:var(--gold); border:1px solid var(--gold);
+  padding:16px 38px; transition:all .3s;
 }
-.hero-cta:hover{ color:var(--gold); border-color:var(--gold); }
-.hero-cta .dash{ width:32px; height:1px; background:currentColor; position:relative; }
-.hero-cta .dash::after{
-  content:''; position:absolute; right:0; top:-3px; width:7px; height:7px;
-  border-right:1px solid currentColor; border-top:1px solid currentColor; transform:rotate(45deg);
+.btn-solid:hover{ background:#fff; color:var(--ink); border-color:#fff; }
+.btn-line{
+  font-size:11px; letter-spacing:0.14em; text-decoration:none;
+  color:rgba(255,255,255,0.85); border-bottom:1px solid rgba(255,255,255,0.4);
+  padding-bottom:5px; transition:all .3s;
+}
+.btn-line:hover{ color:var(--gold); border-color:var(--gold); }
+.hero-chips{ display:flex; gap:10px; margin-top:36px; flex-wrap:wrap; }
+.hero-chips span{
+  font-size:11px; letter-spacing:0.08em; color:rgba(255,255,255,0.75);
+  border:1px solid rgba(255,255,255,0.28); padding:8px 16px;
+  background:rgba(19,16,9,0.25);
+}
+@media (max-width:560px){
+  .hero-chips{ display:grid; grid-template-columns:1fr 1fr; }
+  .hero-chips span{ text-align:center; }
 }
 
-/* ── 02 PROGRAMS ─────────────────────────────────────────── */
-.prog{ display:grid; grid-template-columns:1fr 1fr; gap:80px 64px; }
+/* ── PROGRAMS ────────────────────────────────────────────── */
+.prog{ display:grid; grid-template-columns:1fr 1fr; gap:72px 60px; }
 .prog-item{ display:flex; flex-direction:column; }
-.prog-media{ position:relative; aspect-ratio:4/3; overflow:hidden; background:var(--ivory-d); }
+.prog-media{ aspect-ratio:4/3; overflow:hidden; background:var(--ivory-d); }
 .prog-media img{ width:100%; height:100%; object-fit:cover; transition:transform 1.4s ease; }
 .prog-item:hover .prog-media img{ transform:scale(1.035); }
-.prog-num{
-  font-size:10px; letter-spacing:0.3em; color:var(--gold); margin:26px 0 8px;
-}
+.prog-num{ font-size:10px; letter-spacing:0.3em; color:var(--gold); margin:24px 0 8px; }
 .prog-title{
-  font-family:Georgia,serif; font-size:24px; letter-spacing:0.04em; line-height:1.3;
+  font-family:Georgia,serif; font-weight:400; font-size:23px; letter-spacing:0.04em; line-height:1.3;
   margin-bottom:4px;
 }
 .prog-with{
-  font-family:Georgia,serif; font-style:italic; font-size:14px; color:var(--gold); margin-bottom:14px;
+  font-family:Georgia,serif; font-style:italic; font-size:14px; color:var(--gold); margin-bottom:12px;
 }
-.prog-sub-ja{
-  font-size:12px; letter-spacing:0.16em; color:var(--warm); margin-bottom:14px;
+.prog-sub-ja{ font-size:12px; letter-spacing:0.14em; color:var(--warm); margin-bottom:12px; }
+.prog-body{ font-size:14px; line-height:2.0; letter-spacing:0.03em; color:var(--mid); margin-bottom:18px; }
+.prog-rows{ border-top:1px solid var(--line); }
+.prog-rows > div{
+  display:grid; grid-template-columns:96px 1fr; gap:14px;
+  padding:11px 0; border-bottom:1px solid var(--ivory-d);
 }
-.prog-body{ font-size:14px; line-height:2.05; letter-spacing:0.03em; color:var(--mid); margin-bottom:18px; }
-.prog-for{
-  font-size:11px; line-height:1.9; letter-spacing:0.05em; color:var(--warm);
-  border-top:1px solid var(--line); padding-top:14px;
+.prog-rows b{
+  font-size:10px; letter-spacing:0.18em; text-transform:uppercase; color:var(--gold);
+  font-weight:400; padding-top:3px;
 }
-.prog-for b{ font-weight:600; color:var(--mid); font-size:10px; letter-spacing:0.22em; text-transform:uppercase; display:block; margin-bottom:4px;}
-.prog-formula{
-  margin-top:14px; font-size:10px; letter-spacing:0.14em; color:var(--gold);
-  text-transform:uppercase;
-}
+.prog-rows span{ font-size:12.5px; letter-spacing:0.04em; color:var(--mid); line-height:1.85; }
+.prog-rows small{ font-size:11px; color:var(--stone); }
 
-/* ── 03 EXPERTISE ────────────────────────────────────────── */
+/* ── EXPERTISE ───────────────────────────────────────────── */
 .sec--ivory{ background:var(--ivory); }
 .exp-item{
-  display:grid; grid-template-columns:220px 1fr 300px; gap:48px;
-  padding:52px 0; border-top:1px solid var(--line); align-items:start;
+  display:grid; grid-template-columns:230px 1fr 280px; gap:44px;
+  padding:46px 0; border-top:1px solid var(--line); align-items:start;
 }
 .exp-item:last-child{ border-bottom:1px solid var(--line); }
+.exp-item--nologo{ grid-template-columns:230px 1fr; }
 .exp-num{ font-size:10px; letter-spacing:0.3em; color:var(--gold); margin-bottom:12px; display:block; }
-.exp-title{ font-family:Georgia,serif; font-size:20px; line-height:1.35; letter-spacing:0.03em; }
+.exp-title{ font-family:Georgia,serif; font-weight:400; font-size:19px; line-height:1.35; letter-spacing:0.03em; }
 .exp-sub{ font-family:Georgia,serif; font-style:italic; font-size:13px; color:var(--warm); margin-top:6px; }
-.exp-body{ font-size:14px; line-height:2.05; color:var(--mid); letter-spacing:0.03em; }
-.exp-body p + p{ margin-top:1.1em; }
-.exp-keys{
-  margin-top:16px; display:flex; flex-wrap:wrap; gap:8px;
-}
+.exp-lead{ font-size:14.5px; letter-spacing:0.05em; color:var(--ink); margin-bottom:10px; font-weight:600; }
+.exp-body{ font-size:13.5px; line-height:2.0; color:var(--mid); letter-spacing:0.03em; }
+.exp-body p + p{ margin-top:1em; }
+.exp-keys{ margin-top:14px; display:flex; flex-wrap:wrap; gap:8px; }
 .exp-keys span{
-  font-size:9px; letter-spacing:0.18em; text-transform:uppercase; color:var(--warm);
+  font-size:9px; letter-spacing:0.16em; text-transform:uppercase; color:var(--warm);
   border:1px solid var(--line); padding:5px 12px; background:var(--white);
 }
 .exp-side{ display:flex; flex-direction:column; gap:14px; }
 .logo-ph{
-  height:88px; background:var(--white); border:1px solid var(--line);
+  min-height:84px; background:var(--white); border:1px solid var(--line);
   display:flex; align-items:center; justify-content:center;
-  font-size:11px; letter-spacing:0.2em; color:var(--stone);
+  font-size:11px; letter-spacing:0.2em; color:var(--stone); padding:16px;
 }
-.exp-side .ph{ aspect-ratio:3/2; }
-.exp-side img{ width:100%; aspect-ratio:3/2; object-fit:cover; }
-
-/* Neige facts */
+.exp-side img.partner-photo{ width:100%; aspect-ratio:3/2; object-fit:cover; border:1px solid var(--line); background:#fff; }
 .neige-facts{
   display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--line);
-  border:1px solid var(--line); margin-top:20px;
+  border:1px solid var(--line); margin-top:18px;
 }
-.nf{ background:var(--white); padding:18px 16px; }
-.nf b{ display:block; font-size:9px; letter-spacing:0.24em; text-transform:uppercase; color:var(--gold); margin-bottom:6px; font-weight:400;}
-.nf span{ font-size:12px; letter-spacing:0.06em; color:var(--mid); line-height:1.7; }
+.nf{ background:var(--white); padding:16px 14px; }
+.nf b{ display:block; font-size:9px; letter-spacing:0.22em; text-transform:uppercase; color:var(--gold); margin-bottom:5px; font-weight:400;}
+.nf span{ font-size:12px; letter-spacing:0.05em; color:var(--mid); line-height:1.7; }
 
-/* ── 04 WHY ──────────────────────────────────────────────── */
+/* ── WHY ─────────────────────────────────────────────────── */
 .sec--dark{ background:var(--dark); }
 .sec--dark .h-en{ color:#fff; }
-.sec--dark .h-ja{ color:rgba(255,255,255,0.45); }
+.sec--dark .h-ja{ color:rgba(255,255,255,0.5); }
+.why-head-ja{
+  font-family:Georgia,'Hiragino Mincho ProN','Yu Mincho',serif;
+  font-size:clamp(22px,2.6vw,32px); line-height:1.6; color:#fff; margin:18px 0 10px;
+}
 .why-grid{
   display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:rgba(255,255,255,0.08);
-  border:1px solid rgba(255,255,255,0.08);
+  border:1px solid rgba(255,255,255,0.08); margin-top:48px;
 }
-.why-cell{ background:var(--dark); padding:38px 32px; }
+.why-cell{ background:var(--dark); padding:34px 30px; }
 .why-cell b{
-  font-family:Georgia,serif; font-weight:400; font-size:15px; letter-spacing:0.24em;
-  text-transform:uppercase; color:var(--gold); display:block; margin-bottom:12px;
+  font-family:Georgia,serif; font-weight:400; font-size:14px; letter-spacing:0.24em;
+  text-transform:uppercase; color:var(--gold); display:block; margin-bottom:10px;
 }
-.why-cell p{ font-size:13px; line-height:2; color:rgba(255,255,255,0.55); letter-spacing:0.04em; }
-.why-catch{
-  margin-top:64px; text-align:center;
-}
-.why-catch .en{
-  font-family:Georgia,serif; font-style:italic; font-size:clamp(20px,2.6vw,30px); color:#fff;
-}
-.why-catch .ja{ font-size:13px; letter-spacing:0.2em; color:rgba(255,255,255,0.45); margin-top:14px; }
+.why-cell p{ font-size:13px; line-height:2; color:rgba(255,255,255,0.6); letter-spacing:0.04em; }
 
-/* ── 05 SCHEDULE ─────────────────────────────────────────── */
-.tabs{ display:flex; gap:0; border-bottom:1px solid var(--line); margin-bottom:56px; }
+/* ── SCHEDULE ────────────────────────────────────────────── */
+.tabs{ display:flex; border-bottom:1px solid var(--line); margin-bottom:48px; }
 .tab-btn{
   background:none; border:none; cursor:pointer;
-  font-size:11px; letter-spacing:0.24em; text-transform:uppercase; color:var(--stone);
-  padding:16px 34px; border-bottom:1px solid transparent; margin-bottom:-1px;
+  font-size:11px; letter-spacing:0.22em; text-transform:uppercase; color:var(--stone);
+  padding:15px 30px; border-bottom:1px solid transparent; margin-bottom:-1px;
   transition:color .3s, border-color .3s;
   font-family:-apple-system,'Helvetica Neue','Hiragino Sans',sans-serif;
 }
 .tab-btn.active{ color:var(--ink); border-bottom-color:var(--gold); }
 .tab-panel{ display:none; }
-.tab-panel.active{ display:grid; grid-template-columns:repeat(3,1fr); gap:56px; }
+.tab-panel.active{ display:block; }
+.days{ display:grid; grid-template-columns:repeat(3,1fr); gap:52px; }
 .day h4{
   font-family:Georgia,serif; font-weight:400; font-size:13px; letter-spacing:0.3em;
-  text-transform:uppercase; color:var(--gold); margin-bottom:22px;
+  text-transform:uppercase; color:var(--gold); margin-bottom:20px;
   padding-bottom:12px; border-bottom:1px solid var(--line);
 }
-.day dl{ display:grid; grid-template-columns:52px 1fr; row-gap:13px; column-gap:16px; }
+.day dl{ display:grid; grid-template-columns:52px 1fr; row-gap:12px; column-gap:16px; }
 .day dt{ font-size:11px; letter-spacing:0.06em; color:var(--stone); padding-top:2px; }
 .day dd{ font-size:13px; letter-spacing:0.04em; color:var(--mid); line-height:1.7; }
 .day dd small{ display:block; font-size:10px; letter-spacing:0.14em; color:var(--stone); text-transform:uppercase; }
+.plan-outcome{
+  margin-top:44px; padding:20px 24px; background:var(--ivory); border-left:2px solid var(--gold);
+  font-size:13px; letter-spacing:0.05em; color:var(--mid); line-height:1.9;
+}
+.plan-outcome b{ font-size:10px; letter-spacing:0.2em; text-transform:uppercase; color:var(--gold); font-weight:400; display:block; margin-bottom:4px; }
 .sched-note{
-  margin-top:48px; font-size:12px; line-height:2; color:var(--warm); letter-spacing:0.05em;
-  border-left:2px solid var(--gold); padding-left:20px; max-width:640px;
+  margin-top:28px; font-size:12px; line-height:2; color:var(--warm); letter-spacing:0.05em;
+  max-width:680px;
 }
 
-/* ── 06 WELL-BEING ───────────────────────────────────────── */
-.wb-grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:32px; }
+/* ── WELL-BEING ──────────────────────────────────────────── */
+.wb-grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:30px; }
 .wb-item .wb-media{ aspect-ratio:3/4; overflow:hidden; background:var(--ivory-d); }
 .wb-item .wb-media img{ width:100%; height:100%; object-fit:cover; transition:transform 1.4s; }
 .wb-item:hover .wb-media img{ transform:scale(1.04); }
-.wb-item .wb-media .ph{ height:100%; }
 .wb-item b{
-  font-family:Georgia,serif; font-weight:400; font-size:15px; letter-spacing:0.22em;
-  text-transform:uppercase; display:block; margin:20px 0 8px; color:var(--ink);
+  font-family:Georgia,serif; font-weight:400; font-size:15px; letter-spacing:0.2em;
+  text-transform:uppercase; display:block; margin:18px 0 8px; color:var(--ink);
 }
 .wb-item p{ font-size:12px; line-height:1.95; color:var(--warm); letter-spacing:0.04em; }
-.wb-words{
-  margin-top:70px; text-align:center; font-family:Georgia,serif; font-style:italic;
-  font-size:clamp(17px,2vw,22px); color:var(--warm); letter-spacing:0.06em;
-}
 
-/* ── 07 PROPERTY ─────────────────────────────────────────── */
-.prop-hero .ph{ aspect-ratio:21/9; }
-.prop-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:28px; margin-top:28px; }
-.prop-grid .ph{ aspect-ratio:4/3; }
-.prop-wide{ margin-top:28px; }
-.prop-wide .ph{ aspect-ratio:21/8; }
-.specs{
-  margin-top:80px;
-  display:grid; grid-template-columns:repeat(4,1fr); gap:1px;
-  background:var(--line); border:1px solid var(--line);
+/* ── PROPERTY / GLANCE ───────────────────────────────────── */
+.glance{ border:1px solid var(--line); }
+.glance-row{
+  display:grid; grid-template-columns:280px 1fr; border-bottom:1px solid var(--line);
 }
-.spec{ background:var(--white); padding:26px 22px; }
-.spec b{
-  display:block; font-size:9px; letter-spacing:0.26em; text-transform:uppercase;
-  color:var(--gold); margin-bottom:8px; font-weight:400;
+.glance-row:last-child{ border-bottom:none; }
+.glance-row b{
+  font-size:10px; letter-spacing:0.2em; text-transform:uppercase; color:var(--gold);
+  font-weight:400; padding:16px 22px; background:var(--ivory);
+  display:flex; align-items:center;
 }
-.spec span{ font-size:13px; letter-spacing:0.05em; color:var(--mid); line-height:1.7; }
+.glance-row span{ font-size:13.5px; letter-spacing:0.05em; color:var(--mid); padding:16px 22px; line-height:1.8; }
 
-/* ── 08 CASE STUDIES ─────────────────────────────────────── */
-.cases-box{
-  border:1px solid var(--line); padding:72px 40px; text-align:center; background:var(--ivory);
+/* ── FAQ ─────────────────────────────────────────────────── */
+.faq{ border-top:1px solid var(--line); }
+.faq details{ border-bottom:1px solid var(--line); }
+.faq summary{
+  cursor:pointer; list-style:none; display:flex; justify-content:space-between; align-items:center;
+  padding:22px 8px; font-size:14.5px; letter-spacing:0.05em; color:var(--ink);
 }
-.cases-box .en{
-  font-family:Georgia,serif; font-style:italic; font-size:20px; color:var(--warm);
-}
-.cases-box .ja{ font-size:12px; letter-spacing:0.12em; color:var(--stone); margin-top:14px; line-height:2; }
+.faq summary::-webkit-details-marker{ display:none; }
+.faq summary::after{ content:'+'; font-family:Georgia,serif; font-size:20px; color:var(--gold); margin-left:16px; flex-shrink:0; }
+.faq details[open] summary::after{ content:'—'; font-size:15px; }
+.faq .faq-a{ padding:0 8px 24px; font-size:13.5px; line-height:2; color:var(--mid); letter-spacing:0.04em; max-width:760px; }
 
-/* ── 09 FOR ──────────────────────────────────────────────── */
+/* ── FOR ─────────────────────────────────────────────────── */
 .for-grid{ display:grid; grid-template-columns:1fr 1fr; gap:1px; background:var(--line); border:1px solid var(--line); }
-.for-col{ background:var(--white); padding:56px 48px; }
+.for-col{ background:var(--white); padding:52px 44px; }
 .for-col .kicker{ margin-bottom:16px; }
 .for-col h3{
-  font-family:Georgia,serif; font-weight:400; font-size:22px; letter-spacing:0.03em; margin-bottom:8px;
+  font-family:Georgia,serif; font-weight:400; font-size:21px; letter-spacing:0.03em; margin-bottom:16px;
 }
-.for-col .sub{ font-family:Georgia,serif; font-style:italic; font-size:14px; color:var(--gold); margin-bottom:20px; }
-.for-col p{ font-size:13.5px; line-height:2.05; color:var(--mid); letter-spacing:0.03em; margin-bottom:20px; }
-.for-col ul{ list-style:none; }
-.for-col li{
-  font-size:11px; letter-spacing:0.14em; text-transform:uppercase; color:var(--warm);
-  padding:9px 0; border-bottom:1px solid var(--ivory-d);
+.for-col p{ font-size:13.5px; line-height:2.0; color:var(--mid); letter-spacing:0.03em; margin-bottom:20px; }
+.flow{ counter-reset:step; list-style:none; }
+.flow li{
+  counter-increment:step;
+  display:flex; align-items:baseline; gap:14px;
+  padding:10px 0; border-bottom:1px solid var(--ivory-d);
+  font-size:12.5px; letter-spacing:0.06em; color:var(--mid);
 }
-.for-col li::before{ content:'—'; color:var(--gold); margin-right:10px; }
+.flow li::before{
+  content:counter(step,decimal-leading-zero);
+  font-family:Georgia,serif; font-size:12px; color:var(--gold); flex-shrink:0;
+}
+.flow li em{ font-style:normal; color:var(--stone); font-size:11px; margin-left:6px; }
+.role-split{ border:1px solid var(--ivory-d); }
+.role-split > div{
+  display:grid; grid-template-columns:150px 1fr; border-bottom:1px solid var(--ivory-d);
+}
+.role-split > div:last-child{ border-bottom:none; }
+.role-split b{
+  font-size:10px; letter-spacing:0.16em; text-transform:uppercase; color:var(--gold); font-weight:400;
+  padding:14px 16px; background:var(--ivory); display:flex; align-items:center;
+}
+.role-split span{ font-size:12.5px; color:var(--mid); padding:14px 16px; line-height:1.9; letter-spacing:0.04em; }
 
-/* ── 10 CONTACT ──────────────────────────────────────────── */
-.contact-grid{ display:grid; grid-template-columns:1fr 1.2fr; gap:80px; align-items:start; }
+/* ── CONTACT ─────────────────────────────────────────────── */
+.contact-grid{ display:grid; grid-template-columns:1fr 1.2fr; gap:72px; align-items:start; }
 .contact-info p{ font-size:14px; line-height:2.1; color:var(--mid); letter-spacing:0.04em; margin-top:20px; }
-.contact-info .items{ margin-top:28px; }
+.contact-info .items{ margin-top:26px; }
 .contact-info .items span{
-  display:block; font-size:11px; letter-spacing:0.18em; text-transform:uppercase;
+  display:block; font-size:11px; letter-spacing:0.16em; text-transform:uppercase;
   color:var(--warm); padding:10px 0; border-bottom:1px solid var(--ivory-d);
 }
 .contact-info .items span::before{ content:'—'; color:var(--gold); margin-right:10px; }
-.form{ display:grid; grid-template-columns:1fr 1fr; gap:22px; }
+.form{ display:grid; grid-template-columns:1fr 1fr; gap:20px; }
 .form .full{ grid-column:1 / -1; }
 .f-group{ display:flex; flex-direction:column; gap:7px; }
-.f-group label{
-  font-size:9px; letter-spacing:0.24em; text-transform:uppercase; color:var(--warm);
-}
+.f-group label{ font-size:9px; letter-spacing:0.22em; text-transform:uppercase; color:var(--warm); }
 .f-group input, .f-group select, .f-group textarea{
   border:1px solid var(--line); background:var(--white); padding:13px 14px;
   font-size:13px; letter-spacing:0.04em; color:var(--ink);
   font-family:inherit; border-radius:0; -webkit-appearance:none; appearance:none;
 }
-.f-group textarea{ min-height:120px; resize:vertical; }
-.f-group input:focus, .f-group select:focus, .f-group textarea:focus{
-  outline:none; border-color:var(--gold);
-}
+.f-group textarea{ min-height:110px; resize:vertical; }
+.f-group input:focus, .f-group select:focus, .f-group textarea:focus{ outline:none; border-color:var(--gold); }
+.f-group input.err, .f-group textarea.err{ border-color:#B0563E; }
+.consent{ display:flex; align-items:flex-start; gap:10px; font-size:12px; color:var(--mid); line-height:1.8; }
+.consent input{ margin-top:5px; }
 .form-cta{
   grid-column:1 / -1; justify-self:start;
-  font-size:10px; letter-spacing:0.28em; text-transform:uppercase;
+  font-size:12px; letter-spacing:0.14em;
   background:var(--ink); color:#fff; border:1px solid var(--ink);
-  padding:17px 44px; cursor:pointer; transition:all .3s;
+  padding:16px 40px; cursor:pointer; transition:all .3s;
   font-family:inherit;
 }
 .form-cta:hover{ background:var(--gold); border-color:var(--gold); }
-.form-note{ grid-column:1/-1; font-size:11px; color:var(--stone); letter-spacing:0.05em; line-height:1.9; }
+.form-note{ grid-column:1/-1; font-size:11.5px; color:var(--warm); letter-spacing:0.04em; line-height:1.9; }
+.form-error{ grid-column:1/-1; font-size:12px; color:#B0563E; letter-spacing:0.04em; display:none; }
+.form-error.show{ display:block; }
 
 /* ── FOOTER ──────────────────────────────────────────────── */
-footer{ background:var(--dark); padding:76px 56px 40px; }
+footer{ background:var(--dark); padding:72px 56px 40px; }
 .foot-inner{
   max-width:1200px; margin:0 auto;
-  display:grid; grid-template-columns:2fr 1fr 1fr; gap:56px;
-  padding-bottom:52px; border-bottom:1px solid rgba(255,255,255,0.07);
+  display:grid; grid-template-columns:2fr 1fr 1fr; gap:52px;
+  padding-bottom:48px; border-bottom:1px solid rgba(255,255,255,0.07);
 }
 .fb-main{
   font-family:Georgia,serif; font-size:15px; letter-spacing:0.26em; text-transform:uppercase;
@@ -465,42 +461,43 @@ footer{ background:var(--dark); padding:76px 56px 40px; }
 .foot-col a:hover{ color:rgba(255,255,255,0.7); }
 .foot-col .foot-col-item{ cursor:default; }
 .foot-bottom{
-  max-width:1200px; margin:34px auto 0;
+  max-width:1200px; margin:32px auto 0;
   display:flex; justify-content:space-between; align-items:center; gap:12px;
 }
 .foot-bottom p{ font-size:9px; letter-spacing:0.14em; color:rgba(255,255,255,0.22); }
 
 /* ── RESPONSIVE ──────────────────────────────────────────── */
 @media (max-width:1080px){
-  .exp-item{ grid-template-columns:1fr; gap:24px; }
+  .exp-item{ grid-template-columns:1fr; gap:22px; }
   .exp-side{ flex-direction:row; }
   .exp-side > *{ flex:1; }
   .wb-grid{ grid-template-columns:1fr 1fr; }
-  .specs{ grid-template-columns:1fr 1fr; }
 }
 @media (max-width:900px){
-  .wrap{ padding:0 28px; }
-  .sec{ padding:80px 0; }
-  .nav{ padding:18px 28px; }
-  .nav.scrolled{ padding:14px 28px; }
-  .nav-links, .nav-book{ display:none; }
+  .wrap{ padding:0 24px; }
+  .sec{ padding:72px 0; }
+  .nav{ padding:16px 24px; }
+  .nav.scrolled{ padding:12px 24px; }
+  .nav-links, .nav-right{ display:none; }
   .nav-toggle{ display:block; }
-  .hero-body{ padding:0 28px 10vh; }
-  .prog{ grid-template-columns:1fr; gap:64px; }
+  .hero-body{ padding:0 24px 9vh; }
+  .prog{ grid-template-columns:1fr; gap:56px; }
   .why-grid{ grid-template-columns:1fr; }
-  .tab-panel.active{ grid-template-columns:1fr; gap:44px; }
-  .prop-grid{ grid-template-columns:1fr; }
+  .days{ grid-template-columns:1fr; gap:40px; }
   .for-grid{ grid-template-columns:1fr; }
-  .contact-grid{ grid-template-columns:1fr; gap:48px; }
+  .contact-grid{ grid-template-columns:1fr; gap:44px; }
   .form{ grid-template-columns:1fr; }
-  .foot-inner{ grid-template-columns:1fr; gap:36px; }
+  .foot-inner{ grid-template-columns:1fr; gap:34px; }
   .foot-bottom{ flex-direction:column; }
   .neige-facts{ grid-template-columns:1fr; }
   .exp-side{ flex-direction:column; }
+  .glance-row{ grid-template-columns:1fr; }
+  .glance-row b{ padding:12px 18px 4px; background:none; }
+  .glance-row span{ padding:0 18px 14px; }
+  .role-split > div{ grid-template-columns:1fr; }
 }
 @media (max-width:560px){
   .wb-grid{ grid-template-columns:1fr; }
-  .specs{ grid-template-columns:1fr; }
   .tabs{ overflow-x:auto; }
 }
 </style>
@@ -519,8 +516,11 @@ footer{ background:var(--dark); padding:76px 56px 40px; }
     <a href="journal/">Journal</a>
     <a href="#contact">Contact</a>
   </div>
-  <a href="stay.html" class="nav-book">Book Your Stay</a>
-  <button class="nav-toggle" id="navToggle" aria-label="Menu">
+  <div class="nav-right">
+    <a href="stay.html" class="nav-stay">宿泊予約</a>
+    <a href="#contact" class="nav-cta">法人利用を相談する</a>
+  </div>
+  <button class="nav-toggle" id="navToggle" aria-label="メニューを開く">
     <span></span><span></span><span></span>
   </button>
 </nav>
@@ -528,33 +528,39 @@ footer{ background:var(--dark); padding:76px 56px 40px; }
   <a href="stay.html">Stay</a>
   <a href="retreat.html" class="current">Retreat</a>
   <a href="journal/">Journal</a>
-  <a href="#contact" data-close>Contact</a>
-  <a href="stay.html" class="mm-book">Book Your Stay</a>
+  <a href="#contact">Contact</a>
+  <a href="#contact" class="mm-cta">法人利用を相談する</a>
+  <a href="stay.html" class="mm-stay">宿泊予約はこちら</a>
 </div>
+<a href="#contact" class="sticky-cta" id="stickyCta">法人利用を相談する</a>
 
 <!-- ══════════════ 01 HERO ══════════════ -->
 <header class="hero">
-  <!-- FV: free stock image (Unsplash). Replace with actual
-       「4階 リビング・吹き抜け＋相模湾オーシャンビュー写真」 when ready -->
-  <img class="stock-img" data-asset="hero-ocean" alt="Ocean view"
+  <!-- Conceptual coastal visual (stock). Swap src to verified
+       KIKYŪ ocean-view photography when available. -->
+  <img class="stock-img" alt="" aria-hidden="true"
        style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;"
-       src="https://images.unsplash.com/photo-1505118380757-91f5f5632de0?auto=format&fit=crop&w=2000&q=75">
+       src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=2000&q=75">
   <div class="hero-veil"></div>
-  <span style="position:absolute;right:18px;bottom:14px;z-index:3;font-size:8px;letter-spacing:0.18em;text-transform:uppercase;color:rgba(255,255,255,0.35);">Image for illustration</span>
   <div class="hero-body">
-    <div class="hero-tags">
-      <span>Atami</span>
-      <span>Private Retreat</span>
-      <span>Corporate Programs</span>
-    </div>
-    <h1 class="hero-h">KIKYŪ RETREATS</h1>
-    <p class="hero-sub-en">A Private Retreat for Leadership, AI, Beauty &amp; Well-being.</p>
+    <span class="hero-eyebrow">Corporate Retreats in Atami</span>
+    <h1 class="hero-h">経営・人材開発のための、<br>2泊3日の一棟貸切リトリート。</h1>
     <p class="hero-ja">
-      熱海・相模湾を望む一棟貸しリトリート。<br>
-      企業研修、Leadership、AI、Beauty &amp; Well-beingまで、<br>
-      専門パートナーとともに滞在型プログラムを設計します。
+      熱海・相模湾を望むThe KIKYŪで、Leadership、Women's Leadership、AI、
+      Beauty &amp; Well-beingのプログラムを目的に合わせて設計。
+      最大25名を想定し、宿泊・研修・食事・天然温泉・プールまで一棟で完結します。
     </p>
-    <a href="#programs" class="hero-cta">Explore Programs <span class="dash"></span></a>
+    <div class="hero-ctas">
+      <a href="#contact" class="btn-solid">法人利用を相談する</a>
+      <a href="#programs" class="btn-line">4つのプログラムを見る</a>
+    </div>
+    <div class="hero-chips">
+      <span>熱海・一棟貸切</span>
+      <span>最大25名想定</span>
+      <span>2泊3日を中心に設計</span>
+      <span>専属栄養士による食事</span>
+      <span>天然温泉・Pool</span>
+    </div>
   </div>
 </header>
 
@@ -564,7 +570,7 @@ footer{ background:var(--dark); padding:76px 56px 40px; }
     <div class="sec-head fade">
       <span class="kicker">01 — Programs</span>
       <h2 class="h-en">RETREAT PROGRAMS</h2>
-      <p class="sub-en">Purpose-built retreats for leadership, learning and well-being.</p>
+      <p class="h-ja">4つのプログラムを、目的・対象・体制・成果物で比較できます。</p>
     </div>
 
     <div class="prog">
@@ -572,89 +578,84 @@ footer{ background:var(--dark); padding:76px 56px 40px; }
       <!-- PROGRAM 01 -->
       <article class="prog-item fade">
         <div class="prog-media">
-          <img class="stock-img" data-asset="program-leadership" alt="Leadership workshop"
-               src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1200&q=70">
+          <img class="stock-img" alt="リーダーシップセッションのイメージ"
+               src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1200&q=70">
         </div>
-        <p class="img-note">Image for illustration</p>
         <span class="prog-num">Program 01</span>
         <h3 class="prog-title">LEADERSHIP RETREAT</h3>
         <p class="prog-body">
-          日常の会議室を離れ、経営・組織・Leadershipに集中するための宿泊型リトリート。
-          企業向けLeadership Developmentに知見を持つ外部専門家・研修会社との連携による
-          プログラム設計にも対応します。Strategy Session、Team Building、
-          Organization Development、Management Retreatまで、目的に合わせて構成します。
+          経営課題や組織テーマに集中し、合意形成と次の行動まで進める宿泊型プログラム。
+          外部の専門研修会社と連携し、目的に応じて設計します。
         </p>
-        <div class="prog-for">
-          <b>For</b>
-          経営者 / 役員 / 管理職 / 次世代リーダー / プロジェクトチーム
+        <div class="prog-rows">
+          <div><b>対象</b><span>経営者・役員・管理職・次世代リーダー・プロジェクトチーム</span></div>
+          <div><b>セッション例</b><span>Strategy / Leadership Development / Team Building / Organization Development</span></div>
+          <div><b>連携体制</b><span>外部の専門研修会社 × KIKYŪ</span></div>
+          <div><b>成果物例</b><span>重点課題、合意事項、90日アクションプラン</span></div>
         </div>
       </article>
 
       <!-- PROGRAM 02 -->
       <article class="prog-item fade">
         <div class="prog-media">
-          <img class="stock-img" data-asset="program-womens" alt="Women's leadership"
-               src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=1200&q=70">
+          <img class="stock-img" alt="ウェルビーイングセッションのイメージ"
+               src="https://images.unsplash.com/photo-1545205597-3d9d02c29597?auto=format&fit=crop&w=1200&q=70">
         </div>
-        <p class="img-note">Image for illustration</p>
         <span class="prog-num">Program 02</span>
         <h3 class="prog-title">WOMEN'S LEADERSHIP &amp; WELL-BEING</h3>
         <p class="prog-sub-ja">Leadership × Beauty × Nutrition × Well-being</p>
         <p class="prog-body">
-          女性リーダー育成に専門性を持つ研修プログラムと、Beauty・Nutrition・Well-beingを
-          組み合わせた宿泊型Retreat。Leadershipだけでなく、美容・食・運動・休息までを
-          2泊3日の体験として一体化します。「会社から参加させられる研修」ではなく、
-          参加者自身が参加したいと感じられるLeadership Experienceを目指します。
+          女性リーダーの成長と、持続的に力を発揮するためのWell-beingを一体で扱う2泊3日。
+          Leadershipを軸に、Beauty、Nutrition、Movement、Recoveryを組み合わせます。
         </p>
-        <div class="prog-for">
-          <b>For</b>
-          女性管理職 / 次世代女性リーダー / 女性リーダー候補
+        <div class="prog-rows">
+          <div><b>対象</b><span>女性管理職・次世代女性リーダー・女性リーダー候補</span></div>
+          <div><b>構成</b><span>外部の女性Leadership専門プログラム × Neige Corporation × 専属栄養士 × KIKYŪ<br><small>※実施体制の確定後、目的に応じて外部専門会社と設計します。</small></span></div>
+          <div><b>成果物例</b><span>リーダーシップ課題、個人アクション、セルフマネジメントプラン</span></div>
         </div>
-        <p class="prog-formula">Women's Leadership Program × Neige Corporation × Dedicated Nutritionist × KIKYŪ</p>
       </article>
 
       <!-- PROGRAM 03 -->
       <article class="prog-item fade">
         <div class="prog-media">
-          <img class="stock-img" data-asset="program-ai" alt="AI workshop"
+          <img class="stock-img" alt="AIワークショップのイメージ"
                src="https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=1200&q=70">
         </div>
-        <p class="img-note">Image for illustration</p>
         <span class="prog-num">Program 03</span>
         <h3 class="prog-title">AI RETREAT</h3>
         <p class="prog-with">with YZ PARTNERS</p>
         <p class="prog-body">
-          YZ PARTNERSとの連携による、生成AI・AI活用・AI Transformation等をテーマとした
-          宿泊型企業研修。単発の座学ではなく、学習・実践・チームでの対話を
-          2泊3日の滞在として設計できます。Enterprise AIの導入検討から
-          実務でのAI Utilizationまで、テーマに応じたWorkshopに対応します。
+          生成AIを学ぶだけで終わらせず、自社業務での活用テーマと
+          次の実装アクションまで設計する宿泊型研修。
         </p>
-        <div class="prog-for">
-          <b>Themes</b>
-          Generative AI / AI Utilization / AI Transformation / Enterprise AI / AI Workshop
+        <div class="prog-rows">
+          <div><b>対象</b><span>経営層・部門責任者・AI推進チーム・実務チーム</span></div>
+          <div><b>セッション例</b><span>AI基礎 / ユースケース発掘 / 業務適用ワークショップ / 導入ロードマップ</span></div>
+          <div><b>連携体制</b><span>YZ PARTNERS × KIKYŪ</span></div>
+          <div><b>成果物例</b><span>活用テーマ、優先ユースケース、実装アクション</span></div>
         </div>
       </article>
 
       <!-- PROGRAM 04 -->
       <article class="prog-item fade">
         <div class="prog-media">
-          <img class="stock-img" data-asset="program-beauty" alt="Beauty and skincare"
+          <img class="stock-img" alt="ビューティーとウェルビーイングのイメージ"
                src="https://images.unsplash.com/photo-1556228720-195a672e8a03?auto=format&fit=crop&w=1200&q=70">
         </div>
-        <p class="img-note">Image for illustration</p>
         <span class="prog-num">Program 04</span>
         <h3 class="prog-title">BEAUTY &amp; WELL-BEING RETREAT</h3>
         <p class="prog-with">with Neige Corporation</p>
         <p class="prog-sub-ja">おこもり美容合宿 — Beauty × Nutrition × Movement × Recovery</p>
         <p class="prog-body">
-          美容のプロからBeautyについて学び、専属栄養士による食事とNutritionを取り入れ、
-          運動・休息・天然温泉までを一体化する2泊3日のRetreat。
-          美容施術を受けるだけの旅行ではなく、「美容について学び、食べ、整える」
-          滞在型Beauty Experienceとして設計します。SpaやTreatmentはOptionalとして組み込めます。
+          約30年にわたり美容・化粧品領域で事業を展開するNeige Corporationと、
+          専属栄養士が設計に参画。Beauty Learning、Nutrition、Movement、Recoveryを
+          一つの滞在に統合します。
         </p>
-        <div class="prog-for">
-          <b>Elements</b>
-          Beauty Learning / Skincare / Beauty Nutrition / Yoga / Meditation / Natural Onsen / Pool
+        <div class="prog-rows">
+          <div><b>対象</b><span>福利厚生・ウェルビーイング施策・女性向け施策・チームリトリート</span></div>
+          <div><b>内容例</b><span>Beauty Learning / Skincare / Retreat Cuisine / Yoga / Meditation / Natural Onsen / Pool<br><small>※Spa・TreatmentはOptionalとして個別に手配・ご相談。</small></span></div>
+          <div><b>連携体制</b><span>Neige Corporation × 専属栄養士 × KIKYŪ</span></div>
+          <div><b>成果物例</b><span>目的に応じて設計します</span></div>
         </div>
       </article>
 
@@ -668,62 +669,49 @@ footer{ background:var(--dark); padding:76px 56px 40px; }
     <div class="sec-head fade">
       <span class="kicker">02 — Expertise</span>
       <h2 class="h-en">EXPERTISE &amp; PROGRAM PARTNERS</h2>
-      <p class="sub-en">Specialists behind every retreat.</p>
+      <p class="h-ja">プログラムの専門性と品質を、誰が担うのか。</p>
     </div>
 
     <!-- 01 LEADERSHIP DEVELOPMENT -->
-    <div class="exp-item fade">
+    <div class="exp-item exp-item--nologo fade">
       <div>
         <span class="exp-num">01</span>
         <h3 class="exp-title">LEADERSHIP<br>DEVELOPMENT</h3>
-        <p class="exp-sub">Professional Leadership Programs</p>
       </div>
-      <div class="exp-body">
-        <p>
-          経営層・管理職・次世代リーダー向けのLeadership Developmentについて、
-          企業向け人材育成・組織開発に知見を持つ専門研修会社とのプログラム設計を想定しています。
-        </p>
-        <p>
-          Leadership Development、Team Building、Strategy、Organization Development、
-          Dialogueなどを、KIKYŪでの2泊3日の宿泊型プログラムへ展開できます。
-        </p>
+      <div>
+        <p class="exp-lead">外部専門会社と設計する、宿泊型Leadership Program</p>
+        <div class="exp-body">
+          <p>
+            経営層・管理職・次世代リーダー向けに、企業の目的と組織課題に応じたプログラムを設計します。
+            Strategy、Leadership Development、Team Building、Organization Development、Dialogue等を、
+            KIKYŪでの滞在体験と組み合わせます。
+          </p>
+        </div>
         <div class="exp-keys">
-          <span>Leadership</span><span>Team Building</span><span>Strategy</span>
+          <span>Strategy</span><span>Leadership</span><span>Team Building</span>
           <span>Organization</span><span>Dialogue</span>
         </div>
-      </div>
-      <div class="exp-side">
-        <img class="stock-img" data-asset="expertise-leadership" alt="Leadership session"
-             src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=70">
-        <p class="img-note">Image for illustration</p>
       </div>
     </div>
 
     <!-- 02 WOMEN'S LEADERSHIP -->
-    <div class="exp-item fade">
+    <div class="exp-item exp-item--nologo fade">
       <div>
         <span class="exp-num">02</span>
         <h3 class="exp-title">WOMEN'S<br>LEADERSHIP</h3>
-        <p class="exp-sub">Leadership × Well-being × Beauty</p>
+        <p class="exp-sub">Leadership × Beauty × Nutrition × Well-being</p>
       </div>
-      <div class="exp-body">
-        <p>
-          女性管理職・次世代女性リーダー育成に専門性を持つ研修プログラムと、
-          Beauty・Nutrition・Movement・Mindfulness・Recoveryを組み合わせ、
-          KIKYŪならではのWomen's Leadership &amp; Well-being Retreatとして設計します。
-        </p>
-        <p style="font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:var(--gold);">
-          Women's Leadership Program × Neige Corporation × Dedicated Nutritionist × KIKYŪ
-        </p>
+      <div>
+        <div class="exp-body">
+          <p>
+            女性リーダーとしての成長と、持続的に力を発揮するためのセルフマネジメントを一体で扱います。
+            Leadershipを軸に、Beauty、Nutrition、Movement、Recoveryを目的に応じて組み合わせます。
+          </p>
+        </div>
         <div class="exp-keys">
           <span>Leadership</span><span>Beauty</span><span>Nutrition</span>
-          <span>Mindfulness</span><span>Recovery</span>
+          <span>Movement</span><span>Recovery</span>
         </div>
-      </div>
-      <div class="exp-side">
-        <img class="stock-img" data-asset="expertise-womens" alt="Wellness session"
-             src="https://images.unsplash.com/photo-1545205597-3d9d02c29597?auto=format&fit=crop&w=800&q=70">
-        <p class="img-note">Image for illustration</p>
       </div>
     </div>
 
@@ -734,82 +722,68 @@ footer{ background:var(--dark); padding:76px 56px 40px; }
         <h3 class="exp-title">BEAUTY PARTNER</h3>
         <p class="exp-sub">Neige Corporation<br>株式会社ネーゼコーポレーション</p>
       </div>
-      <div class="exp-body">
-        <p>
-          KIKYŪのBeauty Partnerは、1998年設立のNeige Corporation（株式会社ネーゼコーポレーション）。
-          約30年にわたりBeauty / Cosmetics領域で事業を展開し、化粧品の企画・開発・製造・販売等の
-          美容領域における知見を持ちます。代表的ブランドとして「蒟蒻しゃぼん」を展開。
-          著名人との商品共同開発実績もあります。
-        </p>
-        <p>
-          KIKYŪでは、Beauty Learning、Beauty Session、Skincare、Beauty Retreat、
-          Beauty × Nutritionの設計をBeauty Partnerとして担います。
-          エステがある施設ではなく、「約30年の美容事業実績を持つ企業が関わるRetreat」です。
-        </p>
+      <div>
+        <div class="exp-body">
+          <p>
+            美容設備の有無ではなく、1998年設立のBeauty Companyが、
+            Beauty Learning、Skincare、Beauty Retreatの設計に参画することがKIKYŪの特徴です。
+          </p>
+        </div>
         <div class="neige-facts">
           <div class="nf"><b>Established</b><span>1998</span></div>
-          <div class="nf"><b>Expertise</b><span>Nearly three decades of beauty &amp; cosmetics</span></div>
+          <div class="nf"><b>Expertise</b><span>Beauty / Cosmetics</span></div>
           <div class="nf"><b>Brand</b><span>蒟蒻しゃぼん</span></div>
           <div class="nf"><b>Fields</b><span>Cosmetics / Product Development</span></div>
-          <div class="nf"><b>Collaboration</b><span>著名人との商品共同開発実績</span></div>
           <div class="nf"><b>Role</b><span>Beauty Partner — The KIKYŪ</span></div>
         </div>
       </div>
       <div class="exp-side">
-        <div class="logo-ph">Neige Corporation ロゴ</div>
-        <img src="https://konnyaku-shabon.com/cdn/shop/files/3-2.png?v=1684717548&width=800" alt="蒟蒻しゃぼん ブランド" style="width:100%;aspect-ratio:3/2;object-fit:cover;border:1px solid var(--line);">
-        <img src="https://konnyaku-shabon.com/cdn/shop/products/yokohama-blue2.png?v=1687995802&width=800" alt="蒟蒻しゃぼん 商品" style="width:100%;aspect-ratio:3/2;object-fit:cover;background:#fff;border:1px solid var(--line);">
+        <img class="partner-photo" src="https://konnyaku-shabon.com/cdn/shop/files/3-2.png?v=1684717548&width=800" alt="蒟蒻しゃぼん ブランドビジュアル">
+        <img class="partner-photo" src="https://konnyaku-shabon.com/cdn/shop/products/yokohama-blue2.png?v=1687995802&width=800" alt="蒟蒻しゃぼん 商品">
       </div>
     </div>
 
-    <!-- 04 FOOD & NUTRITION -->
-    <div class="exp-item fade">
+    <!-- 04 RETREAT CUISINE -->
+    <div class="exp-item exp-item--nologo fade">
       <div>
         <span class="exp-num">04</span>
-        <h3 class="exp-title">FOOD &amp;<br>NUTRITION</h3>
-        <p class="exp-sub">Dedicated Nutritionist — 専属栄養士</p>
+        <h3 class="exp-title">RETREAT CUISINE</h3>
+        <p class="exp-sub">専属栄養士が滞在中の食を設計</p>
       </div>
-      <div class="exp-body">
-        <p>
-          KIKYŪにはRetreatの食事を担当する専属栄養士がいます。
-          朝食・昼食・夕食まで、滞在中の食事提供に対応します。
-        </p>
-        <p>
-          Corporate Retreatでは研修スケジュールに合わせた食事を、
-          Women's / Beauty RetreatではBeauty × Nutritionをテーマとした食事や
-          Nutrition Sessionを提供。将来的にはNeige Corporationによる美容領域の知見と組み合わせ、
-          Beauty Nutritionという独自性をさらに強化していきます。
-        </p>
+      <div>
+        <div class="exp-body">
+          <p>
+            研修スケジュールと目的に合わせ、朝食・昼食・夕食を通じたRetreat Cuisineを設計します。
+            Women's LeadershipやBeauty Retreatでは、Beauty NutritionやNutrition Sessionも個別に組み込めます。
+          </p>
+        </div>
         <div class="exp-keys">
           <span>Breakfast</span><span>Lunch</span><span>Dinner</span>
-          <span>Beauty Nutrition</span><span>Nutrition Session</span>
+          <span>Retreat Cuisine</span><span>Beauty Nutrition</span><span>Nutrition Session</span>
         </div>
-      </div>
-      <div class="exp-side">
-        <img class="stock-img" data-asset="expertise-nutrition" alt="Healthy cuisine"
-             src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=800&q=70">
-        <p class="img-note">Image for illustration — 後日「専属栄養士 写真」「実際のKIKYŪ料理写真」へ差し替え</p>
       </div>
     </div>
 
-    <!-- 05 AI PROGRAM PARTNER — YZ PARTNERS -->
+    <!-- 05 AI PROGRAM PARTNER -->
     <div class="exp-item fade">
       <div>
         <span class="exp-num">05</span>
         <h3 class="exp-title">AI PROGRAM<br>PARTNER</h3>
         <p class="exp-sub">YZ PARTNERS</p>
       </div>
-      <div class="exp-body">
-        <p>
-          企業向けAI領域のProgram Partner。生成AI、AI活用、AI Transformation等をテーマとした
-          宿泊型企業研修に対応します。
-        </p>
+      <div>
+        <div class="exp-body">
+          <p>
+            企業向けAI領域のProgram Partner。生成AI、AI活用、AI Transformation等をテーマとした
+            宿泊型企業研修に対応します。
+          </p>
+        </div>
         <div class="exp-keys">
           <span>Generative AI</span><span>AI Utilization</span><span>AI Transformation</span>
         </div>
       </div>
       <div class="exp-side">
-        <div class="logo-ph" style="padding:18px;"><img src="https://yz-partners.co.jp/image/logo_2619300_print.png" alt="YZ PARTNERS" style="max-height:52px;width:auto;"></div>
+        <div class="logo-ph"><img src="https://yz-partners.co.jp/image/logo_2619300_print.png" alt="YZ PARTNERS ロゴ" style="max-height:52px;width:auto;"></div>
       </div>
     </div>
 
@@ -819,22 +793,18 @@ footer{ background:var(--dark); padding:76px 56px 40px; }
 <!-- ══════════════ 04 WHY KIKYŪ ══════════════ -->
 <section class="sec sec--dark" id="why">
   <div class="wrap">
-    <div class="sec-head fade">
+    <div class="sec-head fade" style="margin-bottom:0;">
       <span class="kicker">03 — Why KIKYŪ</span>
-      <h2 class="h-en">BEYOND THE MEETING ROOM</h2>
-      <p class="h-ja">普通の研修会場との違いは、会議時間の外にあります。</p>
+      <p class="why-head-ja">議論、食事、回復、対話が途切れない。</p>
+      <p class="h-ja">会議室の外まで含めて、チームの時間を設計します。</p>
     </div>
     <div class="why-grid fade">
-      <div class="why-cell"><b>Meet</b><p>海を望む空間で集中する。</p></div>
-      <div class="why-cell"><b>Learn</b><p>専門的なProgramに向き合う。</p></div>
-      <div class="why-cell"><b>Dine</b><p>同じテーブルを囲み、食事を共にする。</p></div>
-      <div class="why-cell"><b>Reset</b><p>天然温泉、Yoga、Pool等でリセットする。</p></div>
-      <div class="why-cell"><b>Connect</b><p>夜まで同じ場所で過ごし、普段できない対話をする。</p></div>
-      <div class="why-cell"><b>Return</b><p>翌朝、再びチームとして議論する。</p></div>
-    </div>
-    <div class="why-catch fade">
-      <p class="en">The retreat continues after the session ends.</p>
-      <p class="ja">研修が終わっても、リトリートは終わらない。</p>
+      <div class="why-cell"><b>Meet</b><p>海を望む一棟貸切空間で、日常業務から距離を置く。</p></div>
+      <div class="why-cell"><b>Learn</b><p>目的に応じた専門Programに集中する。</p></div>
+      <div class="why-cell"><b>Dine</b><p>同じテーブルを囲み、役職を越えた対話を生む。</p></div>
+      <div class="why-cell"><b>Reset</b><p>温泉・Pool・Movementで思考を切り替える。</p></div>
+      <div class="why-cell"><b>Connect</b><p>会議終了後も、同じ場所で対話を続ける。</p></div>
+      <div class="why-cell"><b>Return</b><p>翌朝、整理された視点で議論と行動設計に戻る。</p></div>
     </div>
   </div>
 </section>
@@ -848,83 +818,96 @@ footer{ background:var(--dark); padding:76px 56px 40px; }
       <p class="h-ja">法人利用のモデルスケジュール。目的に合わせて自由に組み替えられます。</p>
     </div>
 
-    <div class="tabs fade">
-      <button class="tab-btn active" data-tab="corp">Corporate / Leadership</button>
-      <button class="tab-btn" data-tab="womens">Women's / Beauty</button>
+    <div class="tabs fade" role="tablist">
+      <button class="tab-btn active" data-tab="corp" role="tab" aria-selected="true">Corporate / Leadership</button>
+      <button class="tab-btn" data-tab="womens" role="tab" aria-selected="false">Women's / Beauty</button>
     </div>
 
     <div class="tab-panel active" id="tab-corp">
-      <div class="day fade">
-        <h4>Day 1</h4>
-        <dl>
-          <dt>15:00</dt><dd>Arrival / Check-in</dd>
-          <dt>16:00</dt><dd>Kick-off</dd>
-          <dt>18:30</dt><dd>Dinner</dd>
-          <dt>20:00</dt><dd>Dialogue / Natural Onsen<small>Free Time</small></dd>
-        </dl>
+      <div class="days">
+        <div class="day fade">
+          <h4>Day 1</h4>
+          <dl>
+            <dt>15:00</dt><dd>Arrival / Check-in</dd>
+            <dt>16:00</dt><dd>Kick-off / Strategy Session</dd>
+            <dt>18:30</dt><dd>Dinner</dd>
+            <dt>20:00</dt><dd>Dialogue / Natural Onsen<small>Free Time</small></dd>
+          </dl>
+        </div>
+        <div class="day fade">
+          <h4>Day 2</h4>
+          <dl>
+            <dt>08:00</dt><dd>Morning Yoga<small>Optional</small></dd>
+            <dt>09:00</dt><dd>Breakfast</dd>
+            <dt>10:00</dt><dd>Training Session</dd>
+            <dt>12:30</dt><dd>Lunch</dd>
+            <dt>14:00</dt><dd>Workshop</dd>
+            <dt>16:00</dt><dd>Free Time<small>〜17:30(90分)</small></dd>
+            <dt>17:30</dt><dd>Sunset Yoga<small>Optional</small></dd>
+            <dt>19:00</dt><dd>Dinner</dd>
+            <dt>20:30</dt><dd>Dialogue / Onsen</dd>
+          </dl>
+        </div>
+        <div class="day fade">
+          <h4>Day 3</h4>
+          <dl>
+            <dt>08:30</dt><dd>Breakfast</dd>
+            <dt>09:30</dt><dd>Reflection</dd>
+            <dt>10:30</dt><dd>Action Planning</dd>
+            <dt>11:00</dt><dd>Check-out</dd>
+          </dl>
+        </div>
       </div>
-      <div class="day fade">
-        <h4>Day 2</h4>
-        <dl>
-          <dt>08:00</dt><dd>Morning Yoga<small>Optional</small></dd>
-          <dt>09:00</dt><dd>Breakfast</dd>
-          <dt>10:00</dt><dd>Training Session</dd>
-          <dt>12:30</dt><dd>Lunch</dd>
-          <dt>14:00</dt><dd>Workshop</dd>
-          <dt>17:30</dt><dd>Sunset Yoga<small>Optional</small></dd>
-          <dt>19:00</dt><dd>Dinner</dd>
-          <dt>20:30</dt><dd>Dialogue / Onsen</dd>
-        </dl>
-      </div>
-      <div class="day fade">
-        <h4>Day 3</h4>
-        <dl>
-          <dt>08:30</dt><dd>Breakfast</dd>
-          <dt>09:30</dt><dd>Reflection</dd>
-          <dt>10:30</dt><dd>Action Planning</dd>
-          <dt>11:00</dt><dd>Check-out</dd>
-        </dl>
+      <div class="plan-outcome fade">
+        <b>想定成果物</b>
+        重点課題の整理、チームでの合意事項、90日アクションプラン
       </div>
     </div>
 
     <div class="tab-panel" id="tab-womens">
-      <div class="day fade">
-        <h4>Day 1</h4>
-        <dl>
-          <dt>15:00</dt><dd>Arrival / Check-in</dd>
-          <dt>16:00</dt><dd>Leadership Session</dd>
-          <dt>18:30</dt><dd>Beauty Nutrition Dinner</dd>
-          <dt>20:00</dt><dd>Natural Onsen<small>Free Time</small></dd>
-        </dl>
+      <div class="days">
+        <div class="day fade">
+          <h4>Day 1</h4>
+          <dl>
+            <dt>15:00</dt><dd>Arrival / Check-in</dd>
+            <dt>16:00</dt><dd>Leadership Session</dd>
+            <dt>18:30</dt><dd>Beauty Nutrition Dinner</dd>
+            <dt>20:00</dt><dd>Natural Onsen<small>Free Time</small></dd>
+          </dl>
+        </div>
+        <div class="day fade">
+          <h4>Day 2</h4>
+          <dl>
+            <dt>08:00</dt><dd>Morning Yoga / Meditation<small>Optional</small></dd>
+            <dt>09:00</dt><dd>Breakfast</dd>
+            <dt>10:00</dt><dd>Leadership Session</dd>
+            <dt>12:30</dt><dd>Lunch</dd>
+            <dt>14:00</dt><dd>Beauty Session</dd>
+            <dt>15:30</dt><dd>Nutrition Session</dd>
+            <dt>16:30</dt><dd>Free Time<small>〜18:30(120分)</small></dd>
+            <dt>19:00</dt><dd>Dinner</dd>
+            <dt>20:30</dt><dd>Onsen / Free Time</dd>
+          </dl>
+        </div>
+        <div class="day fade">
+          <h4>Day 3</h4>
+          <dl>
+            <dt>08:30</dt><dd>Breakfast</dd>
+            <dt>09:30</dt><dd>Reflection</dd>
+            <dt>10:30</dt><dd>Action Planning</dd>
+            <dt>11:00</dt><dd>Check-out</dd>
+          </dl>
+        </div>
       </div>
-      <div class="day fade">
-        <h4>Day 2</h4>
-        <dl>
-          <dt>08:00</dt><dd>Morning Yoga / Meditation<small>Optional</small></dd>
-          <dt>09:00</dt><dd>Breakfast</dd>
-          <dt>10:00</dt><dd>Leadership Session</dd>
-          <dt>12:30</dt><dd>Lunch</dd>
-          <dt>14:00</dt><dd>Beauty Session</dd>
-          <dt>16:00</dt><dd>Nutrition Session</dd>
-          <dt>17:30</dt><dd>Sunset Yoga<small>Optional</small></dd>
-          <dt>19:00</dt><dd>Dinner</dd>
-          <dt>20:30</dt><dd>Onsen / Free Time</dd>
-        </dl>
-      </div>
-      <div class="day fade">
-        <h4>Day 3</h4>
-        <dl>
-          <dt>08:30</dt><dd>Breakfast</dd>
-          <dt>09:30</dt><dd>Reflection</dd>
-          <dt>10:30</dt><dd>Action Planning</dd>
-          <dt>11:00</dt><dd>Check-out</dd>
-        </dl>
+      <div class="plan-outcome fade">
+        <b>想定成果物</b>
+        リーダーシップ課題の整理、個人アクション、セルフマネジメントプラン
       </div>
     </div>
 
     <p class="sched-note fade">
-      Yoga・Meditation・Spa等はOptional / Free Participationです。
-      全プログラム強制参加ではなく、参加者と目的に合わせて自由に設計します。
+      Yoga・Meditation・Spa等はOptional / Free Participationです。全プログラム強制参加ではなく、
+      参加者と目的に合わせて設計します。予定を詰め込みすぎず、Free Timeを確保します。
     </p>
   </div>
 </section>
@@ -935,52 +918,40 @@ footer{ background:var(--dark); padding:76px 56px 40px; }
     <div class="sec-head fade">
       <span class="kicker">05 — Well-being</span>
       <h2 class="h-en">BEAUTY, NUTRITION &amp; WELL-BEING</h2>
-      <p class="sub-en">Learn. Eat well. Move. Reset.</p>
+      <p class="h-ja">学ぶ、食べる、動く、休む。滞在の中で切り替えられます。</p>
     </div>
     <div class="wb-grid">
       <div class="wb-item fade">
         <div class="wb-media">
-          <img class="stock-img" data-asset="wb-beauty" alt="Beauty"
+          <img class="stock-img" alt="スキンケアのイメージ"
                src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=800&q=70">
         </div>
         <b>Beauty</b>
-        <p>
-          Neige Corporationとの連携による、Beauty Learning、Skincare、
-          Beauty Session、Beauty Retreat。
-        </p>
-        <p class="img-note">Image for illustration</p>
+        <p>Neige Corporation / Beauty Learning / Skincare</p>
       </div>
       <div class="wb-item fade">
         <div class="wb-media">
-          <img class="stock-img" data-asset="wb-nutrition" alt="Nutrition"
+          <img class="stock-img" alt="食事のイメージ"
                src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?auto=format&fit=crop&w=800&q=70">
         </div>
         <b>Nutrition</b>
-        <p>
-          専属栄養士による朝食・昼食・夕食。Beauty NutritionやNutrition Sessionにも対応。
-        </p>
-        <p class="img-note">Image for illustration</p>
+        <p>専属栄養士 / Retreat Cuisine / Beauty Nutrition</p>
       </div>
       <div class="wb-item fade">
         <div class="wb-media">
-          <img class="stock-img" data-asset="wb-movement" alt="Yoga"
+          <img class="stock-img" alt="ヨガのイメージ"
                src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&w=800&q=70">
         </div>
         <b>Movement &amp; Mind</b>
-        <p>
-          Sunset Yoga、Poolside Yoga、Boxercise、Meditation。
-        </p>
-        <p class="img-note">Image for illustration</p>
+        <p>Yoga / Boxercise / Meditation</p>
       </div>
       <div class="wb-item fade">
         <div class="wb-media">
-          <!-- PROPERTY PHOTO: replace with actual onsen / pool photo -->
-          <div class="ph"><span class="ph-label">1階 天然温泉 大浴場写真<br>／ B1階 プール写真</span></div>
+          <img class="stock-img" alt="リカバリーのイメージ"
+               src="https://images.unsplash.com/photo-1515377905703-c4788e51af15?auto=format&fit=crop&w=800&q=70">
         </div>
         <b>Recovery</b>
-        <p>
-          Natural Onsen、Pool、Free Time。Optional Spaにも対応。
-        </p>
+        <p>Natural Onsen / Pool / Free Time / Optional Spa</p>
       </div>
     </div>
   </div>
@@ -992,60 +963,91 @@ footer{ background:var(--dark); padding:76px 56px 40px; }
     <div class="sec-head fade">
       <span class="kicker">06 — The Property</span>
       <h2 class="h-en">THE PROPERTY</h2>
-      <p class="h-ja">相模湾を望む一棟貸し。宿泊・研修・食事・Well-beingを一棟で完結します。</p>
+      <p class="h-ja">
+        相模湾を望む一棟貸切。宿泊・研修・食事・Well-beingを一棟で完結します。<br>
+        施設写真は現在準備中です。ご検討時には下見(Site Inspection)にてご確認いただけます。
+      </p>
     </div>
 
-    <div class="prop-hero fade">
-      <div class="ph"><span class="ph-label">4階 リビングからの相模湾オーシャンビュー写真</span></div>
-    </div>
-    <div class="prop-grid">
-      <div class="ph fade"><span class="ph-label">4階 リビング・吹き抜け写真</span></div>
-      <div class="ph fade"><span class="ph-label">4階 ダイニング写真</span></div>
-      <div class="ph fade"><span class="ph-label">2階 法人ラウンジ・ミーティングスペース写真</span></div>
-      <div class="ph fade"><span class="ph-label">1階 天然温泉 大浴場写真</span></div>
-      <div class="ph fade"><span class="ph-label">B1階 プール写真</span></div>
-      <div class="ph fade"><span class="ph-label">客室写真</span></div>
-      <div class="ph fade"><span class="ph-label">外観写真</span></div>
-      <div class="ph fade"><span class="ph-label">相模湾・花火写真</span></div>
-      <div class="ph fade"><span class="ph-label">法人利用フロアマップ</span></div>
-    </div>
-
-    <div class="specs fade">
-      <div class="spec"><b>Private Use</b><span>一棟貸切</span></div>
-      <div class="spec"><b>Capacity</b><span>最大25名想定</span></div>
-      <div class="spec"><b>Layout</b><span>9LDK / Multi-floor</span></div>
-      <div class="spec"><b>Meeting</b><span>全体Session / Breakout対応</span></div>
-      <div class="spec"><b>Connectivity</b><span>Business-grade High-speed Wi-Fi</span></div>
-      <div class="spec"><b>Display</b><span>大型TV / HDMI対応</span></div>
-      <div class="spec"><b>Dining</b><span>グループでの食事対応</span></div>
-      <div class="spec"><b>Food</b><span>専属栄養士による食事対応</span></div>
-      <div class="spec"><b>Well-being</b><span>Natural Onsen / Pool</span></div>
-      <div class="spec"><b>Parking</b><span>5台</span></div>
-      <div class="spec"><b>Location</b><span>Atami, Shizuoka</span></div>
+    <h3 class="h-en fade" style="font-size:20px;margin-bottom:24px;">CORPORATE USE AT A GLANCE</h3>
+    <div class="glance fade">
+      <div class="glance-row"><b>所在地</b><span>静岡県熱海市(Atami, Shizuoka)</span></div>
+      <div class="glance-row"><b>利用形態</b><span>一棟貸切(滞在中、他のゲストは滞在しません)</span></div>
+      <div class="glance-row"><b>想定人数</b><span>最大25名想定</span></div>
+      <div class="glance-row"><b>間取り</b><span>9LDK / Multi-floor</span></div>
+      <div class="glance-row"><b>会議形式</b><span>全体Session / Breakout対応</span></div>
+      <div class="glance-row"><b>通信</b><span>高速Wi-Fi</span></div>
+      <div class="glance-row"><b>表示設備</b><span>大型TV / HDMI対応</span></div>
+      <div class="glance-row"><b>食事</b><span>専属栄養士による朝食・昼食・夕食対応(グループでの食事に対応)</span></div>
+      <div class="glance-row"><b>アレルギー・食事制限</b><span>個別にご相談ください</span></div>
+      <div class="glance-row"><b>Well-being</b><span>天然温泉 / Pool</span></div>
+      <div class="glance-row"><b>駐車</b><span>5台</span></div>
+      <div class="glance-row"><b>Check-in / Check-out</b><span>お問い合わせください</span></div>
+      <div class="glance-row"><b>料金の考え方</b><span>人数・泊数・プログラム構成に応じた個別見積り</span></div>
+      <div class="glance-row"><b>お見積り</b><span>ご相談内容の確認後にご案内します</span></div>
+      <div class="glance-row"><b>Site Inspection</b><span>ご相談のうえ日程を調整します</span></div>
     </div>
   </div>
 </section>
 
-<!-- ══════════════ 08 CASE STUDIES ══════════════ -->
-<section class="sec sec--ivory" id="cases">
+<!-- ══════════════ 08 CORPORATE FAQ ══════════════ -->
+<section class="sec sec--ivory" id="faq">
   <div class="wrap">
     <div class="sec-head fade">
-      <span class="kicker">07 — Case Studies</span>
-      <h2 class="h-en">CASE STUDIES</h2>
-      <p class="sub-en">Selected Retreats</p>
+      <span class="kicker">07 — FAQ</span>
+      <h2 class="h-en">CORPORATE FAQ</h2>
+      <p class="h-ja">法人利用にあたって、よくいただくご質問。</p>
     </div>
-    <div class="cases-box fade">
-      <p class="en">Coming Soon</p>
-      <p class="ja">
-        Leadership Retreat / AI Retreat with YZ PARTNERS /<br>
-        Women's Leadership Retreat / Beauty Retreat with Neige Corporation<br>
-        実施実績は順次掲載予定です。
-      </p>
+    <div class="faq fade">
+      <details>
+        <summary>何名から利用できますか</summary>
+        <p class="faq-a">人数・目的に応じて個別にご相談ください。一棟貸切のため、少人数の経営合宿から最大25名想定のチーム利用まで幅広く設計できます。</p>
+      </details>
+      <details>
+        <summary>最大何名まで宿泊できますか</summary>
+        <p class="faq-a">最大25名を想定しています。寝具・客室構成の詳細はお問い合わせください。</p>
+      </details>
+      <details>
+        <summary>料金には何が含まれますか</summary>
+        <p class="faq-a">人数・泊数・食事・プログラム構成により異なるため、個別見積りにてご案内します。ご相談内容の確認後、含まれる内容を明記してご提示します。</p>
+      </details>
+      <details>
+        <summary>施設のみの利用(プログラムなし)はできますか</summary>
+        <p class="faq-a">経営合宿やオフサイトミーティング等、施設と食事のみの利用もご相談いただけます。</p>
+      </details>
+      <details>
+        <summary>既存の研修プログラムの持ち込みはできますか</summary>
+        <p class="faq-a">対応します。研修会社・専門会社の既存プログラムを、宿泊・食事・Well-being環境と組み合わせた滞在型へ拡張するご相談が可能です。</p>
+      </details>
+      <details>
+        <summary>食物アレルギーや食事制限に対応できますか</summary>
+        <p class="faq-a">個別にご相談ください。参加者の情報をお伺いしたうえで、対応可否を含めてご案内します。</p>
+      </details>
+      <details>
+        <summary>プログラム内容はカスタマイズできますか</summary>
+        <p class="faq-a">目的・参加者・期間に応じて設計します。モデルプランはあくまで一例です。</p>
+      </details>
+      <details>
+        <summary>請求書払いに対応していますか</summary>
+        <p class="faq-a">お支払い方法についてはお問い合わせください。</p>
+      </details>
+      <details>
+        <summary>事前のSite Inspection(下見)はできますか</summary>
+        <p class="faq-a">ご相談のうえ日程を調整します。お問い合わせ時に「Site Inspection希望」とお知らせください。</p>
+      </details>
+      <details>
+        <summary>キャンセル条件はどうなりますか</summary>
+        <p class="faq-a">お見積り時にご案内します。詳細はお問い合わせください。</p>
+      </details>
+      <details>
+        <summary>参加者情報や会議内容の守秘性は保たれますか</summary>
+        <p class="faq-a">一棟貸切のため、滞在中に他のゲストが立ち入ることはありません。守秘に関する個別のお約束についてはご相談ください。</p>
+      </details>
+      <details>
+        <summary>英語でのプログラムに対応できますか</summary>
+        <p class="faq-a">プログラム・体制により異なるため、お問い合わせください。</p>
+      </details>
     </div>
-    <!-- CASE STUDY TEMPLATE (hidden until real cases exist):
-         Fields: Title / Partner / Participants / Duration / Purpose / Program / Gallery / Client Comment
-         Add real entries to the CASE_STUDIES array in the script below.
-         When 3+ cases exist, this section can be moved above PROGRAMS. -->
   </div>
 </section>
 
@@ -1062,34 +1064,34 @@ footer{ background:var(--dark); padding:76px 56px 40px; }
         <h3>Design Your Retreat</h3>
         <p>
           企業の目的に合わせて、宿泊・食事・専門Program・Well-beingを組み合わせた
-          Retreatを設計します。
+          Retreatを設計します。ご利用の流れは以下のとおりです。
         </p>
-        <ul>
-          <li>Executive Retreat</li>
-          <li>Leadership Development</li>
-          <li>AI Training</li>
-          <li>Women's Leadership</li>
-          <li>Beauty &amp; Well-being</li>
-          <li>Team Building</li>
-          <li>Strategy Session</li>
-        </ul>
+        <ol class="flow">
+          <li>Inquiry<em>お問い合わせ</em></li>
+          <li>Hearing<em>目的・人数・時期の確認</em></li>
+          <li>Program &amp; Stay Design<em>滞在とプログラムの設計</em></li>
+          <li>Proposal / Estimate<em>ご提案・お見積り</em></li>
+          <li>Site Inspection<em>下見(ご希望に応じて)</em></li>
+          <li>Final Planning<em>最終調整</em></li>
+          <li>Retreat Operation<em>当日運営</em></li>
+        </ol>
       </div>
       <div class="for-col">
         <span class="kicker">For Program Partners</span>
         <h3>Bring Your Program to KIKYŪ.</h3>
         <p>
-          既存の研修・教育・美容・Well-being Programを、KIKYŪで宿泊型Retreatへ拡張する
-          共同商品開発にも対応します。FHMはStay・Food・Operation・Natural Onsen・Pool・
-          Well-beingを組み合わせます。「場所を貸すだけ」ではなく、
-          専門会社と共同でRetreat Productを作れる施設です。
+          研修・教育・美容・Well-beingの既存Programを、KIKYŪで宿泊型Retreatへ拡張する
+          共同商品開発に対応します。「場所貸し」ではなく、役割を分担して
+          一つのRetreat Productを設計します。
         </p>
-        <ul>
-          <li>Training Companies</li>
-          <li>Consulting Firms</li>
-          <li>Beauty Companies</li>
-          <li>Well-being Providers</li>
-          <li>Educational Program Providers</li>
-        </ul>
+        <div class="role-split">
+          <div><b>KIKYŪ / FHM</b><span>Stay / Food / Operation / Natural Onsen / Pool / Well-being environment</span></div>
+          <div><b>Program Partner</b><span>Expertise / Curriculum / Facilitation / Specialist sessions</span></div>
+        </div>
+        <p style="margin-top:20px; margin-bottom:0;">
+          対象:Training Companies / Consulting Firms / Beauty Companies /
+          Well-being Providers / Educational Program Providers
+        </p>
       </div>
     </div>
   </div>
@@ -1101,7 +1103,7 @@ footer{ background:var(--dark); padding:76px 56px 40px; }
     <div class="contact-grid">
       <div class="contact-info fade">
         <span class="kicker">09 — Contact</span>
-        <h2 class="h-en" style="font-size:clamp(26px,3vw,40px); margin:18px 0 0;">PLAN YOUR<br>RETREAT</h2>
+        <h2 class="h-en" style="font-size:clamp(24px,2.6vw,34px); margin:18px 0 0; line-height:1.5;">法人利用・下見・<br>共同プログラムについて<br>相談する</h2>
         <p>
           Corporate Retreat、Program Partnership、Site Inspectionについて
           ご相談ください。内容を確認のうえ、担当者よりご連絡します。
@@ -1112,10 +1114,10 @@ footer{ background:var(--dark); padding:76px 56px 40px; }
           <span>Site Inspection</span>
         </div>
       </div>
-      <form class="form fade" id="contactForm">
-        <div class="f-group"><label for="f-company">会社名</label><input id="f-company" name="company" required></div>
-        <div class="f-group"><label for="f-name">担当者名</label><input id="f-name" name="name" required></div>
-        <div class="f-group"><label for="f-email">Email</label><input id="f-email" name="email" type="email" required></div>
+      <form class="form fade" id="contactForm" novalidate>
+        <div class="f-group"><label for="f-company">会社名 *</label><input id="f-company" name="company" required></div>
+        <div class="f-group"><label for="f-name">担当者名 *</label><input id="f-name" name="name" required></div>
+        <div class="f-group"><label for="f-email">Email *</label><input id="f-email" name="email" type="email" required></div>
         <div class="f-group"><label for="f-tel">電話番号(任意)</label><input id="f-tel" name="tel" type="tel"></div>
         <div class="f-group"><label for="f-size">想定人数</label>
           <select id="f-size" name="size">
@@ -1136,8 +1138,16 @@ footer{ background:var(--dark); padding:76px 56px 40px; }
           </select>
         </div>
         <div class="f-group full"><label for="f-msg">問い合わせ内容</label><textarea id="f-msg" name="msg"></textarea></div>
-        <button type="submit" class="form-cta">Discuss Your Retreat</button>
-        <p class="form-note">送信ボタンを押すと、入力内容を記載したメールが作成されます。</p>
+        <label class="consent full">
+          <input type="checkbox" id="f-consent" required>
+          <span>ご入力いただいた内容を、お問い合わせへの対応の目的にのみ利用することに同意します。</span>
+        </label>
+        <p class="form-error" id="formError">未入力の必須項目(*)があるか、同意にチェックが入っていません。ご確認ください。</p>
+        <button type="submit" class="form-cta">お問い合わせメールを作成する</button>
+        <p class="form-note">
+          このフォームは直接送信されません。ボタンを押すと、入力内容を記載したメールが
+          お使いのメールアプリで作成されますので、内容をご確認のうえ送信してください。
+        </p>
       </form>
     </div>
   </div>
@@ -1150,8 +1160,9 @@ footer{ background:var(--dark); padding:76px 56px 40px; }
       <span class="fb-main">The KIKYŪ</span>
       <span class="fb-sub">Atami Ocean View Retreat</span>
       <p>
-        熱海・相模湾を望む一棟貸しプライベートリトリート。<br>
-        宿泊・研修・食事・Well-beingを一棟の中で一体化します。
+        熱海・相模湾を望む一棟貸切プライベートリトリート。<br>
+        宿泊・研修・食事・Well-beingを一棟の中で一体化します。<br><br>
+        Operated by Fukuda Hotel Management LLC
       </p>
     </div>
     <div class="foot-col">
@@ -1159,7 +1170,7 @@ footer{ background:var(--dark); padding:76px 56px 40px; }
       <a href="stay.html">Stay</a>
       <a href="retreat.html">Retreat</a>
       <span class="foot-col-item">Journal</span>
-      <a href="#contact">Contact</a>
+      <a href="#contact">法人問い合わせ</a>
     </div>
     <div class="foot-col">
       <h4>Retreat</h4>
@@ -1194,26 +1205,53 @@ mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => 
   nav.classList.remove('menu-open');
 }));
 
+/* ── Hide sticky CTA while contact section is visible ── */
+const stickyCta = document.getElementById('stickyCta');
+const contactSec = document.getElementById('contact');
+if ('IntersectionObserver' in window) {
+  new IntersectionObserver(es => {
+    es.forEach(e => stickyCta.classList.toggle('hidden', e.isIntersecting));
+  }, { threshold: 0.15 }).observe(contactSec);
+}
+
 /* ── Schedule tabs ── */
 document.querySelectorAll('.tab-btn').forEach(btn => {
   btn.addEventListener('click', () => {
-    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('.tab-btn').forEach(b => { b.classList.remove('active'); b.setAttribute('aria-selected','false'); });
     document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
     btn.classList.add('active');
+    btn.setAttribute('aria-selected','true');
     document.getElementById('tab-' + btn.dataset.tab).classList.add('active');
     document.querySelectorAll('.tab-panel.active .fade').forEach(el => el.classList.add('vis'));
   });
 });
 
 /* ── Fade-in on scroll ── */
-const io = new IntersectionObserver(entries => {
-  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('vis'); io.unobserve(e.target); } });
-}, { threshold: 0.12 });
-document.querySelectorAll('.fade').forEach(el => io.observe(el));
+const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+if (reduceMotion) {
+  document.querySelectorAll('.fade').forEach(el => el.classList.add('vis'));
+} else {
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('vis'); io.unobserve(e.target); } });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.fade').forEach(el => io.observe(el));
+}
 
-/* ── Contact form → mailto ── */
+/* ── Contact form: validate → compose email (mailto) ── */
 document.getElementById('contactForm').addEventListener('submit', e => {
   e.preventDefault();
+  const err = document.getElementById('formError');
+  const required = ['f-company','f-name','f-email'];
+  let ok = true;
+  required.forEach(id => {
+    const el = document.getElementById(id);
+    const empty = !el.value.trim();
+    el.classList.toggle('err', empty);
+    if (empty) ok = false;
+  });
+  if (!document.getElementById('f-consent').checked) ok = false;
+  err.classList.toggle('show', !ok);
+  if (!ok) return;
   const v = id => document.getElementById(id).value;
   const body = [
     '【KIKYŪ RETREAT お問い合わせ】', '',
@@ -1230,13 +1268,6 @@ document.getElementById('contactForm').addEventListener('submit', e => {
     + '?subject=' + encodeURIComponent('KIKYŪ RETREAT お問い合わせ — ' + v('f-company'))
     + '&body=' + encodeURIComponent(body);
 });
-
-/* ── CASE STUDIES data (empty until real cases exist) ──
-   Format:
-   { title:'', partner:'', participants:'', duration:'',
-     purpose:'', program:'', gallery:[], clientComment:'' }
-   Real entries will replace the Coming Soon box. */
-const CASE_STUDIES = [];
 </script>
 </body>
 </html>
