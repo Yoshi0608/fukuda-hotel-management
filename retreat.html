@@ -347,7 +347,18 @@ body.pm-open{ overflow:hidden; }
   border:1px solid var(--line); padding:5px 12px; background:var(--white);
 }
 .exp-side{ display:flex; flex-direction:column; gap:14px; }
-.exp-side img.partner-photo{ width:100%; aspect-ratio:3/2; object-fit:cover; border:1px solid var(--line); background:#fff; }
+.brand-mini{ margin:0; text-align:center; }
+.brand-mini .brand-mini-frame{
+  height:150px; max-width:200px; margin:0 auto; background:var(--white);
+  border:1px solid var(--line); padding:18px; display:flex; align-items:center; justify-content:center;
+}
+.brand-mini img{ max-width:100%; max-height:100%; width:auto; height:auto; object-fit:contain; }
+.brand-mini figcaption{
+  font-size:9.5px; letter-spacing:0.08em; color:var(--stone); margin-top:8px; line-height:1.7;
+}
+@media (max-width:900px){
+  .brand-mini .brand-mini-frame{ max-width:180px; width:55%; min-width:150px; }
+}
 .logo-ph{
   min-height:84px; background:var(--white); border:1px solid var(--line);
   display:flex; align-items:center; justify-content:center;
@@ -1216,16 +1227,18 @@ footer{ background:var(--dark); padding:72px 56px 40px; }
         </div>
       </div>
       <div class="exp-side">
-        <!-- Main visual: 蒟蒻しゃぼん brand (official). Replace with
-             actual store photo asset when provided. -->
-        <figure style="margin:0;">
-          <img class="partner-photo" src="https://konnyaku-shabon.com/cdn/shop/files/3-2.png?v=1684717548&width=800" alt="Neige Corporationが展開する蒟蒻しゃぼんのブランドビジュアル" width="800" height="533">
-          <figcaption style="font-size:10px;letter-spacing:0.08em;color:var(--stone);margin-top:8px;">蒟蒻しゃぼん — Neige Corporationが展開するBeauty Brand</figcaption>
-        </figure>
-        <div class="logo-ph" style="flex-direction:column;gap:10px;padding:20px 16px;">
-          <img src="https://r-hayashi.ciao.jp/wp_fukuda/wp-content/uploads/2025/02/dd908dd4d2bc8037eb7c63c2c3f5a43c.png" alt="Neige Corporation 株式会社ネーゼコーポレーション ロゴ" style="max-width:200px;width:100%;height:auto;">
+        <!-- Primary: Neige Corporation official logo -->
+        <div class="logo-ph" style="flex-direction:column;gap:10px;padding:24px 16px;">
+          <img src="https://r-hayashi.ciao.jp/wp_fukuda/wp-content/uploads/2025/02/dd908dd4d2bc8037eb7c63c2c3f5a43c.png" alt="Neige Corporation 株式会社ネーゼコーポレーション ロゴ" style="max-width:240px;width:100%;height:auto;object-fit:contain;">
           <span style="font-size:10px;letter-spacing:0.12em;color:var(--warm);text-align:center;line-height:1.8;">Neige Corporation<br>株式会社ネーゼコーポレーション<br><span style="color:var(--gold);letter-spacing:0.18em;text-transform:uppercase;font-size:9px;">Beauty Partner — The KIKYŪ</span></span>
         </div>
+        <!-- Secondary: own-brand example (small) -->
+        <figure class="brand-mini">
+          <div class="brand-mini-frame">
+            <img src="https://konnyaku-shabon.com/cdn/shop/files/3-2.png?v=1684717548&width=400" alt="蒟蒻しゃぼん — Neige Corporationが展開する自社ブランドの一例" loading="lazy">
+          </div>
+          <figcaption>蒟蒻しゃぼん — Neige Corporationが展開する自社ブランドの一例</figcaption>
+        </figure>
       </div>
     </div>
 
