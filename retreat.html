@@ -89,6 +89,17 @@ img{ display:block; max-width:100%; }
 }
 .nav.scrolled .nav-links a{ color:var(--mid); }
 .nav-links a:hover{ color:var(--gold); }
+/* Temporarily disabled nav item (e.g. Journal). Restore by turning the <span> back into <a href="journal/"> */
+.nav-links .nav-disabled{
+  font-size:10px; letter-spacing:0.22em; text-transform:uppercase;
+  color:rgba(255,255,255,0.75); padding-bottom:3px; border-bottom:1px solid transparent;
+  cursor:default;
+}
+.nav.scrolled .nav-links .nav-disabled{ color:var(--mid); }
+.mobile-menu .nav-disabled{
+  font-family:Georgia,serif; font-size:19px; letter-spacing:0.26em; text-transform:uppercase;
+  color:var(--ink); cursor:default;
+}
 .nav-links a.current{ color:#fff; border-bottom-color:var(--gold); }
 .nav.scrolled .nav-links a.current{ color:var(--ink); }
 .nav-right{ display:flex; align-items:center; gap:22px; }
@@ -795,7 +806,8 @@ footer{ background:var(--dark); padding:72px 56px 40px; }
   <div class="nav-links">
     <a href="stay.html">Stay</a>
     <a href="retreat.html" class="current">Retreat</a>
-    <a href="journal/">Journal</a>
+    <!-- Journal: temporarily disabled ({label:"JOURNAL", href:"journal/", disabled:true}) — restore as <a href="journal/">Journal</a> -->
+    <span class="nav-disabled" aria-disabled="true">Journal</span>
     <a href="#contact">Contact</a>
   </div>
   <div class="nav-right">
@@ -809,7 +821,8 @@ footer{ background:var(--dark); padding:72px 56px 40px; }
 <div class="mobile-menu" id="mobileMenu">
   <a href="stay.html">Stay</a>
   <a href="retreat.html" class="current">Retreat</a>
-  <a href="journal/">Journal</a>
+  <!-- Journal: temporarily disabled ({label:"JOURNAL", href:"journal/", disabled:true}) — restore as <a href="journal/">Journal</a> -->
+  <span class="nav-disabled" aria-disabled="true">Journal</span>
   <a href="#contact">Contact</a>
   <a href="#contact" class="mm-cta">法人利用を相談する</a>
   <a href="stay.html" class="mm-stay">宿泊予約はこちら</a>
