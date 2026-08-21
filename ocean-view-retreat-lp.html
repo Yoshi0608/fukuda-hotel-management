@@ -749,14 +749,18 @@ document.querySelectorAll('[data-line-lp]').forEach(function(a){
   });
 });
 
-/* Floating LINE CTA: reveal after the hero, never over the hero CTAs */
+/* Floating LINE CTA: reveal once the hero has mostly scrolled past (IntersectionObserver + scroll fallback) */
 (function(){
   var el=document.getElementById('lineFloat');
   var hero=document.querySelector('.hero');
   if(!el||!hero) return;
   function update(){
-    var past = (hero.getBoundingClientRect().bottom < window.innerHeight * 0.4);
-    el.classList.toggle('is-shown', past);
+    el.classList.toggle('is-shown', hero.getBoundingClientRect().bottom < window.innerHeight * 0.4);
+  }
+  if ('IntersectionObserver' in window) {
+    new IntersectionObserver(function(entries){
+      entries.forEach(function(e){ el.classList.toggle('is-shown', !e.isIntersecting); });
+    }, { rootMargin: '-40% 0px 0px 0px', threshold: 0 }).observe(hero);
   }
   addEventListener('scroll', update, {passive:true});
   addEventListener('resize', update);
