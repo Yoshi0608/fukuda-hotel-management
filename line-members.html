@@ -279,6 +279,8 @@ footer { background: var(--dark); border-top: 1px solid rgba(255,255,255,0.08); 
 
 /* ── RESPONSIVE ── */
 @media (max-width: 1024px) {
+  .steps2 { grid-template-columns: 1fr; gap: 16px; }
+  .step-card { padding: 24px 22px 26px; }
   .exp-grid, .house-grid { grid-template-columns: repeat(2, 1fr); }
   .voice-block { grid-template-columns: 1fr; }
 }
@@ -359,6 +361,21 @@ html[data-offer="preparing"] .offer-status {
 .big-num small { font-size: 0.34em; letter-spacing: 0.16em; margin-left: 10px; color: var(--gold); }
 .lm-split { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center; }
 .lm-split img { width: 100%; aspect-ratio: 4/3; object-fit: cover; display: block; }
+.steps2 { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 40px; }
+.step-card { background: var(--white); border: 1px solid var(--sand); padding: 30px 30px 32px; }
+.step-no { display: block; font-family: Georgia, serif; font-size: 12px; letter-spacing: 0.28em; color: var(--gold); margin-bottom: 14px; }
+.step-card h3 { font-size: 19px; font-weight: 400; line-height: 1.5; letter-spacing: 0.02em; margin-bottom: 12px; }
+.step-card p { font-size: 13.5px; line-height: 1.95; color: var(--mid); }
+.step-card .sc-note { display: block; margin-top: 10px; font-family: -apple-system,'Helvetica Neue',sans-serif; font-size: 11.5px; line-height: 1.8; color: var(--warm); }
+.step-card .sc-qr { margin-top: 18px; display: none; }
+.step-card .sc-qr img { width: 120px; height: 120px; background: #fff; padding: 8px; border: 1px solid var(--sand); display: block; }
+.step-card .sc-qr span { display: block; margin-top: 8px; font-family: -apple-system,'Helvetica Neue',sans-serif; font-size: 10.5px; letter-spacing: 0.1em; color: var(--warm); }
+@media (min-width: 1024px) { .step-card .sc-qr { display: block; } }
+.step-card .kw { display: inline-block; margin-top: 6px; font-family: -apple-system,'Helvetica Neue',sans-serif; font-size: 13px; letter-spacing: 0.08em; color: var(--charcoal); background: var(--cream-d); border: 1px solid var(--sand); padding: 7px 14px; }
+.cta-block { margin-top: 30px; }
+.terms-list { margin-top: 26px; border-top: 1px solid var(--sand); }
+.terms-list li { list-style: none; font-size: 13px; line-height: 1.9; color: var(--mid); padding: 11px 0 11px 18px; border-bottom: 1px solid var(--sand); position: relative; }
+.terms-list li::before { content: ''; position: absolute; left: 0; top: 20px; width: 6px; height: 1px; background: var(--gold); }
 .step-list { counter-reset: s; margin-top: 24px; }
 .step-list li { list-style: none; display: flex; gap: 16px; padding: 13px 0; border-bottom: 1px solid var(--sand); font-size: 13.5px; line-height: 1.9; color: var(--mid); }
 .step-list li::before { counter-increment: s; content: counter(s,decimal-leading-zero); font-family: Georgia, serif; color: var(--gold); flex: none; }
@@ -397,7 +414,8 @@ html[data-offer="preparing"] .offer-status {
   .lm-hero-copy { padding: 24px 24px 44px; }
   .lm-eyebrow { margin-bottom: 12px; }
   .lm-h1 { font-size: clamp(21px, 5.9vw, 26px); line-height: 1.5; margin-bottom: 10px; }
-  .lm-sub { font-size: 13.5px; margin-bottom: 14px; }
+  .lm-sub { font-size: 13.5px; margin-bottom: 16px; color: var(--charcoal); }
+  .lm-h1 b { font-size: 1.42em; }
   .lm-body { font-size: 13px; line-height: 1.95; margin-bottom: 20px; }
   .btn-line { min-height: 56px; font-size: 14px; }
   .lm-fine { margin-top: 12px; }
@@ -416,7 +434,7 @@ html[data-offer="preparing"] .offer-status {
   </a>
   <div class="nav-links">
     <a href="ocean-view-retreat-lp.html">施設を見る</a>
-    <a href="https://www.airbnb.jp/rooms/1702553688163230888" target="_blank" rel="noopener noreferrer" class="nav-book">空室・料金を確認</a>
+    <a href="https://www.airbnb.jp/rooms/1702553688163230888" target="_blank" rel="noopener noreferrer" class="nav-book" data-booking="nav">空室・料金を確認</a>
   </div>
 </nav>
 
@@ -426,20 +444,52 @@ html[data-offer="preparing"] .offer-status {
     <span class="lm-eyebrow">KIKYŪ Private Members</span>
     <h1 class="lm-h1">LINEの友だち追加後に予約すると、<br>初回<b>20,000円</b>OFF。</h1>
     <p class="lm-sub">対象日限定のLINE会員プランは、最大50%OFF。</p>
-    <p class="lm-body">
+    <div><a class="btn-line" href="https://line.me/R/ti/p/@184zzkon" target="_blank" rel="noopener noreferrer" data-line-add="hero" data-offer-type="welcome_20000"><span class="li" aria-hidden="true"></span>20,000円OFF特典を受け取る</a></div>
+    <span class="lm-assure">友だち追加無料・約30秒</span>
+    <span class="lm-assure" style="margin-top:6px;">友だち追加後、トーク画面で「初回特典」と送信してください。</span>
+    <p class="lm-body" style="margin-top:22px;">
       The KIKYŪ AtamiのLINE公式アカウントを友だち追加した方へ、公式予約サイトからの初回予約に利用できる
       20,000円OFF特典をご案内します。さらに、直前の空室やキャンセル発生日などを対象に、
       最大50%OFFの会員限定プランをお届けします。
     </p>
-    <div><a class="btn-line" href="https://line.me/R/ti/p/@184zzkon" target="_blank" rel="noopener noreferrer" data-line-add="line_hero" data-offer-type="welcome_20000"><span class="li" aria-hidden="true"></span>無料で友だち追加する</a></div>
-    <span class="lm-assure">友だち追加無料・約30秒・配信は不定期</span>
     <p class="lm-fine">※友だち追加だけでは予約は確定せず、料金も発生しません。特典には対象日・対象プラン・利用条件があります。</p>
     <p class="offer-status">現在、初回20,000円OFFは公式予約サイトでの適用準備中です。開始時期と利用方法は、友だち追加後にLINE公式アカウントでご案内します。</p>
   </div>
   <div class="lm-hero-photo"><img src="images_corp/kikyu-rooftop-fireworks.jpg" alt="The KIKYŪ Atamiの屋上から望む熱海の夜景と花火" fetchpriority="high" decoding="async"></div>
 </header>
 
-<!-- 02 WELCOME BENEFIT -->
+<!-- 02 TWO STEPS -->
+<section class="sec" id="steps">
+  <span class="sec-label fade">Two Steps</span>
+  <h2 class="sec-h fade">特典の受け取りは、2ステップ。</h2>
+  <div class="steps2">
+    <div class="step-card fade">
+      <span class="step-no">STEP 01</span>
+      <h3>LINE公式アカウントを友だち追加</h3>
+      <p>The KIKYŪ AtamiのLINE公式アカウントを友だち追加してください。</p>
+      <span class="sc-note">友だち追加無料・約30秒</span>
+      <div class="sc-qr">
+        <a href="https://line.me/R/ti/p/@184zzkon" target="_blank" rel="noopener noreferrer" data-line-add="qr" data-offer-type="welcome_20000">
+          <img src="https://qr-official.line.me/gs/M_184zzkon_GW.png" alt="The KIKYU Atami LINE公式アカウントの友だち追加QRコード" loading="lazy">
+        </a>
+        <span>PCの方はQRコードを読み取ってください</span>
+      </div>
+    </div>
+    <div class="step-card fade">
+      <span class="step-no">STEP 02</span>
+      <h3>「初回特典」と送信</h3>
+      <p>友だち追加後、トーク画面で「初回特典」と送信してください。初回の公式サイト予約で利用できる、個別の20,000円OFFコードをご案内します。</p>
+      <span class="kw">初回特典</span>
+      <span class="sc-note">個別コードは1組につき1回のみ利用できます。</span>
+    </div>
+  </div>
+  <div class="cta-block fade">
+    <a class="btn-line" href="https://line.me/R/ti/p/@184zzkon" target="_blank" rel="noopener noreferrer" data-line-add="step" data-offer-type="welcome_20000"><span class="li" aria-hidden="true"></span>LINEで「初回特典」を受け取る</a>
+    <span class="lm-assure">友だち追加無料・約30秒</span>
+  </div>
+</section>
+
+<!-- 03 WELCOME BENEFIT -->
 <section class="sec" id="welcome">
   <div class="lm-split">
     <div>
@@ -449,26 +499,28 @@ html[data-offer="preparing"] .offer-status {
       <p class="sec-lead fade">LINE公式アカウントを友だち追加後、対象となる初回の公式サイト予約で利用できます。</p>
       <ol class="step-list fade">
         <li>LINE公式アカウントを友だち追加</li>
-        <li>あいさつメッセージで特典を確認</li>
-        <li>公式予約サイトで対象日を選択</li>
-        <li>指定された方法で20,000円OFFを適用</li>
+        <li>トーク画面で「初回特典」と送信</li>
+        <li>お一人ずつに発行する特典コードを受け取る</li>
+        <li>LINEでご案内する公式予約ページから予約し、特典コードを入力</li>
       </ol>
-      <div class="fade" style="margin-top:26px;"><a class="btn-line" href="https://line.me/R/ti/p/@184zzkon" target="_blank" rel="noopener noreferrer" data-line-add="welcome_20000" data-offer-type="welcome_20000"><span class="li" aria-hidden="true"></span>20,000円OFF特典を受け取る</a></div>
+      <div class="fade" style="margin-top:26px;"><a class="btn-line" href="https://line.me/R/ti/p/@184zzkon" target="_blank" rel="noopener noreferrer" data-line-add="step" data-offer-type="welcome_20000"><span class="li" aria-hidden="true"></span>20,000円OFF特典を受け取る</a></div>
       <span class="lm-assure">友だち追加無料・約30秒</span>
-      <p class="offer-status">適用方法(特典コード等)は準備が整い次第、LINE公式アカウントのあいさつメッセージでご案内します。</p>
+      <p class="offer-status">特典コードの発行と公式予約ページは準備中です。開始時期は、友だち追加後にLINE公式アカウントでご案内します。</p>
       <p class="lm-fine">
         ※LINE公式アカウントを友だち追加した方が対象/公式サイトからの直接予約限定/1組・1代表者につき初回予約1回のみ/
         宿泊料金総額から20,000円OFF/既存予約への後付け・第三者への譲渡・転売は不可/
         ほかのクーポン・キャンペーン・連泊割引との併用不可(複数適用可能な場合は割引額が最も大きいもの一つのみ適用)/
         花火開催日、年末年始、繁忙日など対象外日があります(対象外日は予約画面または特典案内で明示)/
-        特典内容は予告のうえ変更・終了する場合があります。
+        特典内容は予告のうえ変更・終了する場合があります。<br>
+        ※特典コードはお一人ずつに発行し、1回のみ有効です。ご予約時の情報とLINEでのお申し出内容を確認させていただく場合があります。
+        不正な利用が確認された場合、割引を無効とすることがあります。
       </p>
     </div>
     <div class="fade"><img src="images_corp/kikyu-living-2.jpg" alt="相模湾を望むThe KIKYŪ Atamiのリビングダイニング" loading="lazy"></div>
   </div>
 </section>
 
-<!-- 03 SECRET OFFERS -->
+<!-- 04 SECRET OFFERS -->
 <section class="sec" id="secret" style="padding-top:0;">
   <div class="lm-split">
     <div class="fade"><img src="images_corp/kikyu-onsen-day.jpg" alt="湯を張ったThe KIKYŪ Atamiの天然温泉大浴場" loading="lazy"></div>
@@ -486,7 +538,7 @@ html[data-offer="preparing"] .offer-status {
   </div>
 </section>
 
-<!-- 04 OTHER BENEFITS -->
+<!-- 05 OTHER BENEFITS -->
 <section class="sec" id="benefits" style="padding-top:0;">
   <span class="sec-label fade">Other Benefits</span>
   <h2 class="sec-h fade">LINEでお届けするご案内。</h2>
@@ -497,7 +549,7 @@ html[data-offer="preparing"] .offer-status {
   </div>
 </section>
 
-<!-- 05 THE KIKYU -->
+<!-- 06 THE KIKYU -->
 <section class="sec" id="property" style="padding-top:0;">
   <div class="lm-split">
     <div>
@@ -513,14 +565,14 @@ html[data-offer="preparing"] .offer-status {
         <span>DAMカラオケ・ビリヤード</span>
         <span>専属栄養士の食事(事前相談制)</span>
       </div>
-      <div class="fade" style="margin-top:26px;"><a class="btn-line" href="https://line.me/R/ti/p/@184zzkon" target="_blank" rel="noopener noreferrer" data-line-add="after_property" data-offer-type="welcome_20000"><span class="li" aria-hidden="true"></span>無料で友だち追加する</a></div>
+      <div class="fade" style="margin-top:26px;"><a class="btn-line" href="https://line.me/R/ti/p/@184zzkon" target="_blank" rel="noopener noreferrer" data-line-add="final" data-offer-type="welcome_20000"><span class="li" aria-hidden="true"></span>無料で友だち追加する</a></div>
       <p class="lm-fine"><a href="ocean-view-retreat-lp.html" style="color:var(--gold);text-decoration:none;">The KIKYŪ Atamiの詳細を見る →</a></p>
     </div>
     <div class="fade"><img src="images_corp/kikyu-pool-2.jpg" alt="緑に囲まれたThe KIKYŪ Atamiの屋外プライベートプール" loading="lazy" style="object-position:center 65%;"></div>
   </div>
 </section>
 
-<!-- 06 SOCIAL PROOF -->
+<!-- 07 SOCIAL PROOF -->
 <section class="sec" id="voices" style="padding-top:0;">
   <span class="sec-label fade">Guest Voices</span>
   <h2 class="sec-h fade">実際のゲストから選ばれている滞在先。</h2>
@@ -534,7 +586,7 @@ html[data-offer="preparing"] .offer-status {
   <p class="lm-fine">The KIKYŪ(熱海) 旅館業許可番号:熱海衛保第381号の27 ／ 運営:Fukuda Hotel Management LLC(合同会社フクダホテルマネジメント)</p>
 </section>
 
-<!-- 07 HOW IT WORKS -->
+<!-- 07b HOW IT WORKS -->
 <section class="sec" id="how" style="padding-top:0;">
   <span class="sec-label fade">How it works</span>
   <h2 class="sec-h fade">友だち追加は約30秒。</h2>
@@ -547,25 +599,45 @@ html[data-offer="preparing"] .offer-status {
   <p class="lm-fine">LINE公式アカウント:The KIKYU Atami(@184zzkon)</p>
 </section>
 
-<!-- 08 FAQ -->
+<!-- 08 TERMS -->
+<section class="sec" id="terms" style="padding-top:0;">
+  <span class="sec-label fade">Terms</span>
+  <h2 class="sec-h fade">特典のご利用条件</h2>
+  <ul class="terms-list fade">
+    <li>The KIKYŪ AtamiのLINE公式アカウントを友だち追加した方が対象です。</li>
+    <li>公式予約サイトからの初回のご予約に限ります(他予約サイト経由は対象外)。</li>
+    <li>1組・1代表者につき1回のみ。お一人ずつに発行する個別の特典コードが必要です。</li>
+    <li>有効期限:発行時にコードごとの期限をご案内します(期限を過ぎたコードは無効)。</li>
+    <li>対象外日:花火大会開催日、年末年始、繁忙日などは対象外となる場合があります。対象外日は予約画面または特典案内で明示します。</li>
+    <li>ほかのクーポン、キャンペーン、連泊割引との併用はできません(複数適用可能な場合は、割引額が最も大きいものを一つだけ適用)。</li>
+    <li>既存のご予約への後付け適用はできません。</li>
+    <li>コードの譲渡・転売、現金・他特典への交換はできません。</li>
+    <li>キャンセル時の再発行:ご予約をキャンセルされた場合のコード再発行可否は、キャンセル時期と状況に応じて個別に判断します。</li>
+    <li>ご予約者情報とLINEでのお申し出内容を確認させていただく場合があります。不正な利用が確認された場合は割引を無効とすることがあります。</li>
+    <li>特典内容は予告のうえ変更・終了する場合があります。</li>
+  </ul>
+  <p class="lm-fine">※最大50%OFFは、同一日・同一施設・同一人数・同一宿泊条件における公式サイト通常料金との比較です。対象日・対象プラン限定です。</p>
+</section>
+
+<!-- 09 FAQ -->
 <section class="sec" id="faq" style="padding-top:0;">
   <span class="sec-label fade">FAQ</span>
   <h2 class="sec-h fade">よくあるご質問</h2>
   <div class="faq fade">
     <details><summary>友だち追加は無料ですか?</summary><p class="a">はい、無料です。友だち追加だけで料金は発生せず、予約も確定しません。いつでもブロック・解除いただけます。</p></details>
-    <details><summary>20,000円OFFはいつ利用できますか?</summary><p class="a">LINE公式アカウントを友だち追加後、対象となる初回の公式サイト予約でご利用いただけます。利用方法と有効期限は、友だち追加後のあいさつメッセージでご案内します(現在準備中です)。</p></details>
+    <details><summary>20,000円OFFはいつ利用できますか?</summary><p class="a">LINE公式アカウントを友だち追加後、トーク画面で「初回特典」とお送りいただくと、お一人ずつに特典コードを発行します。LINEでご案内する公式予約ページからご予約の際にコードを入力いただくと、対象となる初回予約に適用されます(現在準備中です。開始時期はLINEでご案内します)。</p></details>
     <details><summary>誰でも20,000円OFFになりますか?</summary><p class="a">LINE公式アカウントを友だち追加した方の、公式サイトからの初回予約が対象です。1組・1代表者につき1回のみで、既存予約への後付けや第三者への譲渡・転売はできません。対象外日がある場合は予約画面または特典案内で明示します。</p></details>
     <details><summary>最大50%OFFは全日程に適用されますか?</summary><p class="a">いいえ。最大50%OFFは常設の割引ではなく、直前の空室、キャンセル発生日、平日・期間限定日程などを対象としたLINE会員限定プランです。割引率・対象日・販売期間は各案内をご確認ください。</p></details>
     <details><summary>連泊割引と併用できますか?</summary><p class="a">併用はできません。複数の割引が適用可能な場合は、最も割引額が大きいものを一つだけ適用します。</p></details>
     <details><summary>花火開催日は対象ですか?</summary><p class="a">熱海海上花火大会の開催日、年末年始、繁忙日などは対象外となる場合があります。対象外日は予約画面または特典案内で明示します。</p></details>
     <details><summary>既存の予約へ後付けできますか?</summary><p class="a">できません。特典は、対象条件を満たす新規のご予約に限りご利用いただけます。</p></details>
-    <details><summary>特典コードを譲渡できますか?</summary><p class="a">第三者への譲渡・転売はできません。ご本人(予約代表者)のご予約に限ります。</p></details>
+    <details><summary>特典コードを譲渡できますか?</summary><p class="a">第三者への譲渡・転売はできません。特典コードはお一人ずつに発行し、1回のみ有効です。ご本人(予約代表者)のご予約に限ります。</p></details>
     <details><summary>配信頻度はどのくらいですか?</summary><p class="a">不定期です。空室・キャンセル情報や花火開催日のご案内など、お知らせがある際にお届けします。</p></details>
     <details><summary>LINEをブロックした場合はどうなりますか?</summary><p class="a">配信は停止され、LINE会員限定のご案内は届かなくなります。特典のご利用にも影響する場合があります。再度友だち追加いただくことも可能です。</p></details>
   </div>
 </section>
 
-<!-- 09 FINAL CTA -->
+<!-- 10 FINAL CTA -->
 <section class="lm-final" id="join">
   <div class="inner">
     <span class="sec-label fade" style="color:var(--gold);">Join</span>
@@ -595,7 +667,7 @@ html[data-offer="preparing"] .offer-status {
     <div>
       <h4>Navigate</h4>
       <a href="ocean-view-retreat-lp.html">The KIKYŪ Atami</a>
-      <a href="https://www.airbnb.jp/rooms/1702553688163230888" target="_blank" rel="noopener noreferrer">空室・料金を確認する</a>
+      <a href="https://www.airbnb.jp/rooms/1702553688163230888" target="_blank" rel="noopener noreferrer" data-booking="footer">空室・料金を確認する</a>
       <a href="https://line.me/R/ti/p/@184zzkon" target="_blank" rel="noopener noreferrer" data-line-add="footer" data-offer-type="welcome_20000">LINE公式アカウント</a>
     </div>
     <div>
@@ -621,6 +693,17 @@ function kikyuTrack(name, params){
 }
 function deviceType(){ return innerWidth < 768 ? 'mobile' : (innerWidth < 1024 ? 'tablet' : 'desktop'); }
 kikyuTrack('line_landing_view', { page_path: location.pathname, device_type: deviceType(), offer_type: 'welcome_20000' });
+document.querySelectorAll('[data-booking]').forEach(function(a){
+  a.addEventListener('click', function(){
+    kikyuTrack('line_booking_click', {
+      cta_id: a.getAttribute('data-booking'),
+      page_path: location.pathname,
+      link_url: a.href,
+      offer_type: 'welcome_20000',
+      device_type: deviceType()
+    });
+  });
+});
 document.querySelectorAll('[data-line-add]').forEach(function(a){
   a.addEventListener('click', function(){
     kikyuTrack('line_add_click', {
@@ -630,6 +713,15 @@ document.querySelectorAll('[data-line-add]').forEach(function(a){
       offer_type: a.getAttribute('data-offer-type') || 'welcome_20000',
       device_type: deviceType()
     });
+    if (a.getAttribute('data-line-add') === 'step' || a.getAttribute('data-line-add') === 'hero') {
+      kikyuTrack('line_benefit_request', {
+        cta_id: a.getAttribute('data-line-add'),
+        page_path: location.pathname,
+        link_url: a.href,
+        offer_type: 'welcome_20000',
+        device_type: deviceType()
+      });
+    }
   });
 });
 </script>

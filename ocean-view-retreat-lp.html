@@ -303,9 +303,10 @@ footer { background: var(--dark); border-top: 1px solid rgba(255,255,255,0.08); 
   .nav.scrolled { padding: 12px 24px; }
   .nav-links a:not(.nav-book) { display: none; }
   .hero { height: auto; min-height: 100vh; min-height: 100svh; }
-  .hero-body { display: block; height: auto; padding: calc(72px + env(safe-area-inset-top, 0px) + 44px) 24px 96px; }
+  .hero-body { display: block; height: auto; padding: calc(72px + env(safe-area-inset-top, 0px) + 34px) 22px 84px; }
   .hero-loc { white-space: nowrap; font-size: 8.5px; letter-spacing: 0.3em; margin-bottom: 16px; }
-  .hero-h { font-size: clamp(30px, 9vw, 40px); }
+  .hero-h { font-size: clamp(28px, 8.4vw, 38px); margin-bottom: 14px; }
+  .hero-loc { margin-bottom: 14px; }
   .hero-lead { font-size: 16px; line-height: 1.95; }
   .hero-lead br { display: none; }
   .hero-ctas { flex-direction: column; align-items: stretch; gap: 14px; }
@@ -317,9 +318,9 @@ footer { background: var(--dark); border-top: 1px solid rgba(255,255,255,0.08); 
   .sticky-book { display: block; }
   body { padding-bottom: calc(50px + env(safe-area-inset-bottom, 0px)); }
   .line-float {
-    right: 12px; left: auto; width: 240px; min-height: 62px;
-    bottom: calc(50px + env(safe-area-inset-bottom, 0px) + 16px);
-    padding: 9px 12px; gap: 9px; border-radius: 10px;
+    right: 12px; left: auto; width: 226px; min-height: 60px;
+    bottom: calc(50px + env(safe-area-inset-bottom, 0px) + 10px);
+    padding: 8px 12px; gap: 9px; border-radius: 10px;
     box-shadow: 0 4px 14px rgba(15,13,10,0.14);
     max-width: calc(100vw - 24px);
   }
@@ -393,7 +394,7 @@ footer { background: var(--dark); border-top: 1px solid rgba(255,255,255,0.08); 
       <span class="oc-k">LINE公式アカウント限定</span>
       <span class="oc-main">友だち追加後の初回予約 <b>¥20,000</b> OFF</span>
       <span class="oc-sub">対象日限定プラン 最大50%OFF</span>
-      <span class="oc-row"><span class="oc-cta">LINE限定特典を見る</span><span class="oc-arrow" aria-hidden="true">→</span></span>
+      <span class="oc-row"><span class="oc-cta">特典を見る</span><span class="oc-arrow" aria-hidden="true">→</span></span>
       <span class="oc-free">友だち追加無料・約30秒</span>
       <span class="oc-status">※特典は準備中です。開始時期はLINE公式アカウントでご案内します。</span>
     </a>
@@ -815,7 +816,7 @@ document.querySelectorAll('[data-line-lp]').forEach(function(a){
     return near(members) || near(foot);
   }
   function update(){
-    var pastHero = hero.getBoundingClientRect().bottom < window.innerHeight * 0.25;
+    var pastHero = hero.getBoundingClientRect().bottom < window.innerHeight * 0.7;
     el.classList.toggle('is-shown', pastHero && !suppressed());
   }
   if ('IntersectionObserver' in window) {
