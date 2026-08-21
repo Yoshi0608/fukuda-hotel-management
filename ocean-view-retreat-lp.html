@@ -838,7 +838,7 @@ document.querySelectorAll('[data-line-lp]').forEach(function(a){
   if(!el) return;
   var KEY='kikyu_line_pop_closed';
   var closed = false;
-  try { closed = sessionStorage.getItem(KEY) === '1'; } catch(e) {}
+  try { closed = (function(v){ return !!v && (Date.now() - (parseInt(v,10)||0)) < 21600000; })(sessionStorage.getItem(KEY)); } catch(e) {}
   if (closed) { el.classList.add('is-closed'); return; }
 
   var members=document.getElementById('members');
@@ -873,7 +873,7 @@ document.querySelectorAll('[data-line-lp]').forEach(function(a){
 
   document.getElementById('linePopClose').addEventListener('click', function(){
     el.classList.remove('is-shown'); el.classList.add('is-closed');
-    try { sessionStorage.setItem(KEY, '1'); } catch(e) {}
+    try { sessionStorage.setItem(KEY, String(Date.now())); } catch(e) {}
     kikyuTrack('line_popup_close', {
       page_path: location.pathname, device_type: deviceType(),
       cta_id: 'stay_line_popup', offer_type: 'welcome_20000_and_up_to_50'
