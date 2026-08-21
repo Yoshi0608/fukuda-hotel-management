@@ -350,18 +350,20 @@ footer { background: var(--dark); border-top: 1px solid rgba(255,255,255,0.08); 
   .sticky-book { display: block; }
   body { padding-bottom: calc(50px + env(safe-area-inset-bottom, 0px)); }
   .line-pop {
-    left: 16px; right: 16px; width: auto; max-width: 320px; margin-left: auto;
-    bottom: calc(50px + env(safe-area-inset-bottom, 0px) + 12px);
-    border-radius: 10px;
+    left: 14px; right: 14px; width: auto; max-width: 232px; margin-left: auto;
+    bottom: calc(50px + env(safe-area-inset-bottom, 0px) + 10px);
+    border-radius: 8px;
   }
-  .lp-body { padding: 13px 15px 14px; }
-  .lp-k { margin-bottom: 8px; }
-  .lp-row .v { font-size: 22px; }
-  .lp-row.sub { margin-top: 3px; }
-  .lp-row.sub .v { font-size: 15px; }
-  .lp-note { font-size: 10.5px; }
-  .lp-cta { min-height: 44px; margin-top: 10px; font-size: 12.5px; }
-  .lp-fine { margin-top: 5px; }
+  .lp-close { width: 30px; height: 30px; font-size: 15px; top: 3px; right: 3px; }
+  .lp-body { padding: 10px 11px 11px; }
+  .lp-k { font-size: 7.5px; letter-spacing: 0.16em; margin-bottom: 6px; padding-right: 26px; }
+  .lp-row { gap: 6px; }
+  .lp-row .l { font-size: 9.5px; }
+  .lp-row .v { font-size: 16px; }
+  .lp-row.sub { margin-top: 2px; }
+  .lp-row.sub .v { font-size: 12px; }
+  .lp-cta { min-height: 44px; margin-top: 8px; padding: 0 10px; font-size: 11.5px; letter-spacing: 0.03em; }
+  .lp-note { margin-top: 7px; font-size: 9.5px; line-height: 1.6; }
   .offer-card { max-width: none; }
   .sec { padding: 72px 24px; }
   .values, .split, .exp-grid, .house-grid, .gal { grid-template-columns: 1fr; }
@@ -402,7 +404,6 @@ footer { background: var(--dark); border-top: 1px solid rgba(255,255,255,0.08); 
     <span class="lp-row sub"><span class="l">対象日限定</span><span class="v">最大50% OFF</span></span>
     <span class="lp-cta"><span>今すぐ友だち追加する</span><span class="arw" aria-hidden="true">→</span></span>
     <span class="lp-note">LINEの友だち限定<br>限定クーポン・直前割引・連泊割引・食事オプションなどをご用意</span>
-    <span class="lp-fine">※食事オプションは有料・事前相談制です。</span>
   </a>
 </aside>
 
