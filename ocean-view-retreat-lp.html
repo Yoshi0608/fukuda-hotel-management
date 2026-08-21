@@ -211,9 +211,13 @@ html[data-offer="preparing"] .oc-status {
 .lp-cta .arw { color: var(--gold); }
 .line-pop:hover .lp-cta { background: var(--cream); }
 .line-pop a.lp-body:focus-visible { outline: 2px solid var(--gold); outline-offset: -2px; }
-.lp-free {
-  display: block; margin-top: 8px; font-family: -apple-system,'Helvetica Neue',sans-serif;
-  font-size: 10.5px; letter-spacing: 0.04em; color: var(--warm);
+.lp-note {
+  display: block; margin-top: 10px; font-family: -apple-system,'Helvetica Neue',sans-serif;
+  font-size: 11px; line-height: 1.7; letter-spacing: 0.03em; color: var(--mid);
+}
+.lp-fine {
+  display: block; margin-top: 6px; font-family: -apple-system,'Helvetica Neue',sans-serif;
+  font-size: 10px; line-height: 1.6; letter-spacing: 0.02em; color: var(--warm);
 }
 html[data-offer="preparing"] .lp-status {
   display: block; margin-top: 6px; font-family: -apple-system,'Helvetica Neue',sans-serif;
@@ -355,9 +359,9 @@ footer { background: var(--dark); border-top: 1px solid rgba(255,255,255,0.08); 
   .lp-row .v { font-size: 22px; }
   .lp-row.sub { margin-top: 3px; }
   .lp-row.sub .v { font-size: 15px; }
-  .lp-more { display: none; }
+  .lp-note { font-size: 10.5px; }
   .lp-cta { min-height: 44px; margin-top: 10px; font-size: 12.5px; }
-  .lp-free { margin-top: 6px; }
+  .lp-fine { margin-top: 5px; }
   .offer-card { max-width: none; }
   .sec { padding: 72px 24px; }
   .values, .split, .exp-grid, .house-grid, .gal { grid-template-columns: 1fr; }
@@ -396,10 +400,9 @@ footer { background: var(--dark); border-top: 1px solid rgba(255,255,255,0.08); 
     <span class="lp-k">LINE公式アカウント限定</span>
     <span class="lp-row"><span class="l">初回予約</span><span class="v">¥20,000 OFF</span></span>
     <span class="lp-row sub"><span class="l">対象日限定</span><span class="v">最大50% OFF</span></span>
-    <span class="lp-more">限定クーポン・直前割引・<br>花火開催日の優先案内も。</span>
-    <span class="lp-cta"><span>LINEの特典を見る</span><span class="arw" aria-hidden="true">→</span></span>
-    <span class="lp-free">友だち追加無料・約30秒</span>
-    <span class="lp-status">※特典は準備中です。開始時期はLINEでご案内します。</span>
+    <span class="lp-cta"><span>今すぐ友だち追加する</span><span class="arw" aria-hidden="true">→</span></span>
+    <span class="lp-note">LINEの友だち限定<br>限定クーポン・直前割引・連泊割引・食事オプションなどをご用意</span>
+    <span class="lp-fine">※食事オプションは有料・事前相談制です。</span>
   </a>
 </aside>
 
@@ -421,14 +424,6 @@ footer { background: var(--dark); border-top: 1px solid rgba(255,255,255,0.08); 
     <div class="hero-ctas">
       <a href="https://www.airbnb.jp/rooms/1702553688163230888" target="_blank" rel="noopener noreferrer" class="hero-btn-solid">空室・料金を確認する</a>
     </div>
-    <a href="line-members.html" class="offer-card" data-line-lp="hero" data-offer-type="welcome_20000">
-      <span class="oc-k">LINE公式アカウント限定</span>
-      <span class="oc-main">友だち追加後の初回予約 <b>¥20,000</b> OFF</span>
-      <span class="oc-sub">対象日限定プラン 最大50%OFF</span>
-      <span class="oc-row"><span class="oc-cta">特典を見る</span><span class="oc-arrow" aria-hidden="true">→</span></span>
-      <span class="oc-free">友だち追加無料・約30秒</span>
-      <span class="oc-status">※特典は準備中です。開始時期はLINE公式アカウントでご案内します。</span>
-    </a>
   </div>
   <div class="hero-nav" role="group" aria-label="スライドショー操作">
     <button class="hn-arrow" id="hsPrev" aria-label="前のスライドを表示">‹</button>
@@ -840,10 +835,10 @@ document.querySelectorAll('[data-line-lp]').forEach(function(a){
 (function(){
   var el=document.getElementById('linePop');
   if(!el) return;
-  var KEY='kikyu_line_pop_closed_until';
-  var closedUntil = 0;
-  try { closedUntil = parseInt(localStorage.getItem(KEY) || '0', 10); } catch(e) {}
-  if (Date.now() < closedUntil) { el.classList.add('is-closed'); return; }
+  var KEY='kikyu_line_pop_closed';
+  var closed = false;
+  try { closed = sessionStorage.getItem(KEY) === '1'; } catch(e) {}
+  if (closed) { el.classList.add('is-closed'); return; }
 
   var members=document.getElementById('members');
   var foot=document.querySelector('footer');
@@ -877,7 +872,7 @@ document.querySelectorAll('[data-line-lp]').forEach(function(a){
 
   document.getElementById('linePopClose').addEventListener('click', function(){
     el.classList.remove('is-shown'); el.classList.add('is-closed');
-    try { localStorage.setItem(KEY, String(Date.now() + 7*24*60*60*1000)); } catch(e) {}
+    try { sessionStorage.setItem(KEY, '1'); } catch(e) {}
     kikyuTrack('line_popup_close', {
       page_path: location.pathname, device_type: deviceType(),
       cta_id: 'stay_line_popup', offer_type: 'welcome_20000_and_up_to_50'
