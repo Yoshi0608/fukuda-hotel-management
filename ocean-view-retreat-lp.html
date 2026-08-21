@@ -346,13 +346,18 @@ footer { background: var(--dark); border-top: 1px solid rgba(255,255,255,0.08); 
   .sticky-book { display: block; }
   body { padding-bottom: calc(50px + env(safe-area-inset-bottom, 0px)); }
   .line-pop {
-    right: 16px; left: auto; width: calc(100vw - 32px); max-width: 340px;
+    left: 16px; right: 16px; width: auto; max-width: 320px; margin-left: auto;
     bottom: calc(50px + env(safe-area-inset-bottom, 0px) + 12px);
     border-radius: 10px;
   }
-  .lp-body { padding: 14px 16px; }
-  .lp-row .v { font-size: 23px; }
+  .lp-body { padding: 13px 15px 14px; }
+  .lp-k { margin-bottom: 8px; }
+  .lp-row .v { font-size: 22px; }
+  .lp-row.sub { margin-top: 3px; }
   .lp-row.sub .v { font-size: 15px; }
+  .lp-more { display: none; }
+  .lp-cta { min-height: 44px; margin-top: 10px; font-size: 12.5px; }
+  .lp-free { margin-top: 6px; }
   .offer-card { max-width: none; }
   .sec { padding: 72px 24px; }
   .values, .split, .exp-grid, .house-grid, .gal { grid-template-columns: 1fr; }
