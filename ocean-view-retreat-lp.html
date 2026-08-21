@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="ja" data-offer="preparing">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -139,26 +139,56 @@ section[id] { scroll-margin-top: 84px; }
 }
 .sticky-book.hidden { display: none !important; }
 
-/* FLOATING LINE CTA (secondary; must never outweigh the booking CTA) */
+/* HERO OFFER CARD (secondary to the booking CTA) */
+.offer-card {
+  display: block; text-decoration: none; margin-top: 20px; max-width: 400px;
+  background: rgba(245,242,236,0.96); border: 1px solid rgba(255,255,255,0.5);
+  border-left: 3px solid #06C755; padding: 16px 20px 17px;
+  transition: border-color .3s, transform .3s;
+}
+.offer-card:hover { border-left-color: #06C755; border-color: var(--gold); }
+.offer-card:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
+.oc-k {
+  display: block; font-family: -apple-system,'Helvetica Neue',sans-serif;
+  font-size: 9px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--warm); margin-bottom: 9px;
+}
+.oc-main { display: block; font-size: 13px; letter-spacing: 0.04em; color: var(--charcoal); line-height: 1.6; }
+.oc-main b { font-family: Georgia, serif; font-weight: 400; font-size: 27px; letter-spacing: 0.01em; color: var(--ink); }
+.oc-sub { display: block; margin-top: 7px; font-size: 12px; letter-spacing: 0.03em; color: var(--mid); }
+.oc-row { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-top: 13px; padding-top: 12px; border-top: 1px solid var(--sand); }
+.oc-cta { font-family: -apple-system,'Helvetica Neue',sans-serif; font-size: 11px; letter-spacing: 0.14em; color: var(--charcoal); }
+.oc-arrow { font-size: 14px; color: var(--gold); transition: transform .3s; }
+.offer-card:hover .oc-arrow { transform: translateX(4px); }
+.oc-free { display: block; margin-top: 9px; font-family: -apple-system,'Helvetica Neue',sans-serif; font-size: 10.5px; letter-spacing: 0.06em; color: var(--warm); }
+.oc-status { display: none; }
+html[data-offer="preparing"] .oc-status {
+  display: block; margin-top: 8px; font-family: -apple-system,'Helvetica Neue',sans-serif;
+  font-size: 10px; line-height: 1.7; letter-spacing: 0.04em; color: var(--warm);
+}
+
+/* FLOATING LINE OFFER CARD (secondary; must never outweigh the booking CTA) */
 .line-float {
-  position: fixed; right: 26px; bottom: 26px; z-index: 270;
-  display: inline-flex; align-items: center; gap: 12px;
-  text-decoration: none; background: var(--white);
-  border: 1px solid var(--sand); border-left: 3px solid #06C755;
-  padding: 12px 20px; box-shadow: 0 6px 22px rgba(15,13,10,0.10);
-  opacity: 0; visibility: hidden; transform: translateY(8px);
-  transition: opacity .5s ease, transform .5s ease, visibility .5s;
+  position: fixed; right: 24px; bottom: 24px; z-index: 270;
+  display: flex; align-items: center; gap: 12px; width: 276px; min-height: 78px;
+  box-sizing: border-box; text-decoration: none; background: var(--white);
+  border: 1px solid var(--sand); border-radius: 10px; padding: 12px 16px;
+  box-shadow: 0 6px 20px rgba(15,13,10,0.10);
+  opacity: 0; visibility: hidden; transform: translateY(6px);
+  transition: opacity .45s ease, transform .45s ease, visibility .45s;
 }
 .line-float.is-shown { opacity: 1; visibility: visible; transform: none; }
-.line-float .lf-dot { width: 9px; height: 9px; border-radius: 50%; background: #06C755; flex: none; }
-.line-float .lf-tx { display: block; }
-.line-float .lf-k {
-  display: block; font-family: -apple-system,'Helvetica Neue',sans-serif;
-  font-size: 8.5px; letter-spacing: 0.24em; text-transform: uppercase; color: var(--warm); margin-bottom: 3px;
-}
-.line-float .lf-m { display: block; font-size: 12.5px; letter-spacing: 0.06em; color: var(--charcoal); }
-.line-float:hover { border-color: #06C755; }
-@media (prefers-reduced-motion: reduce) { .line-float { transition: none; } }
+.line-float:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
+.line-float:hover { border-color: var(--gold); }
+.lf-badge { width: 34px; height: 34px; border-radius: 8px; background: #06C755; flex: none; position: relative; }
+.lf-badge::after { content: ''; position: absolute; inset: 8px; background: #fff;
+  -webkit-mask: radial-gradient(circle at 50% 44%, #000 44%, transparent 45%); mask: radial-gradient(circle at 50% 44%, #000 44%, transparent 45%); }
+.lf-tx { flex: 1 1 auto; min-width: 0; }
+.lf-k { display: block; font-family: -apple-system,'Helvetica Neue',sans-serif; font-size: 8.5px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--warm); margin-bottom: 3px; }
+.lf-m { display: block; font-size: 13.5px; letter-spacing: 0.03em; color: var(--ink); white-space: nowrap; }
+.lf-m b { font-family: Georgia, serif; font-weight: 400; font-size: 17px; }
+.lf-s { display: block; margin-top: 2px; font-size: 10.5px; letter-spacing: 0.02em; color: var(--mid); white-space: nowrap; }
+.lf-arrow { flex: none; font-size: 14px; color: var(--gold); }
+@media (prefers-reduced-motion: reduce) { .line-float { transition: none; } .offer-card { transition: none; } }
 
 /* SHARED */
 .sec { padding: 96px 40px; max-width: 1200px; margin: 0 auto; }
@@ -283,15 +313,18 @@ footer { background: var(--dark); border-top: 1px solid rgba(255,255,255,0.08); 
   .sticky-book { display: block; }
   body { padding-bottom: calc(50px + env(safe-area-inset-bottom, 0px)); }
   .line-float {
-    right: 12px; left: auto;
-    bottom: calc(50px + env(safe-area-inset-bottom, 0px) + 20px);
-    padding: 0 16px; min-height: 44px; gap: 9px; border-radius: 999px;
-    border-left-width: 1px; border-color: #06C755;
+    right: 12px; left: auto; width: 240px; min-height: 62px;
+    bottom: calc(50px + env(safe-area-inset-bottom, 0px) + 16px);
+    padding: 9px 12px; gap: 9px; border-radius: 10px;
     box-shadow: 0 4px 14px rgba(15,13,10,0.14);
     max-width: calc(100vw - 24px);
   }
-  .line-float .lf-k { display: none; }
-  .line-float .lf-m { font-size: 12px; letter-spacing: 0.04em; white-space: nowrap; }
+  .lf-badge { width: 28px; height: 28px; }
+  .lf-k { font-size: 8px; letter-spacing: 0.18em; margin-bottom: 2px; }
+  .lf-m { font-size: 12.5px; }
+  .lf-m b { font-size: 15px; }
+  .lf-s { font-size: 9.5px; }
+  .offer-card { max-width: none; }
   .sec { padding: 72px 24px; }
   .values, .split, .exp-grid, .house-grid, .gal { grid-template-columns: 1fr; }
   .gal .wide img { aspect-ratio: 3/2; }
@@ -322,13 +355,16 @@ footer { background: var(--dark); border-top: 1px solid rgba(255,255,255,0.08); 
 <!-- Mobile sticky booking CTA (confirmed contact route: email) -->
 <a href="https://www.airbnb.jp/rooms/1702553688163230888" target="_blank" rel="noopener noreferrer" class="sticky-book" id="stickyBook">空室・料金を見る</a>
 
-<!-- Floating LINE CTA (secondary) — goes to the members explainer page, not directly to LINE -->
-<a href="line-members.html" class="line-float" id="lineFloat" data-line-lp="floating" aria-label="LINE限定のご案内 友だち登録はこちら">
-  <span class="lf-dot" aria-hidden="true"></span>
+<!-- Floating LINE offer card (secondary) — always routes to the members page, never straight to LINE -->
+<a href="line-members.html" class="line-float" id="lineFloat" data-line-lp="floating" data-offer-type="welcome_20000"
+   aria-label="LINE公式アカウント限定 初回2万円オフの特典を見る">
+  <span class="lf-badge" aria-hidden="true"></span>
   <span class="lf-tx">
-    <span class="lf-k">LINE限定のご案内</span>
-    <span class="lf-m"><span class="lf-pc">友だち登録はこちら</span></span>
+    <span class="lf-k">LINE限定</span>
+    <span class="lf-m">初回 <b>¥20,000</b> OFF</span>
+    <span class="lf-s">対象日 最大50%OFF</span>
   </span>
+  <span class="lf-arrow" aria-hidden="true">→</span>
 </a>
 
 <!-- ══ 01 HERO ══ -->
@@ -348,8 +384,15 @@ footer { background: var(--dark); border-top: 1px solid rgba(255,255,255,0.08); 
     <p class="hero-lead"><span class="hl-u">相模湾を望む、</span><br><span class="hl-u">熱海の一棟貸し</span><span class="hl-u">プライベートヴィラ。</span></p>
     <div class="hero-ctas">
       <a href="https://www.airbnb.jp/rooms/1702553688163230888" target="_blank" rel="noopener noreferrer" class="hero-btn-solid">空室・料金を確認する</a>
-      <a href="line-members.html" class="hero-btn-line" data-line-lp="hero">LINEで最新情報を受け取る</a>
     </div>
+    <a href="line-members.html" class="offer-card" data-line-lp="hero" data-offer-type="welcome_20000">
+      <span class="oc-k">LINE公式アカウント限定</span>
+      <span class="oc-main">友だち追加後の初回予約<br><b>¥20,000</b> OFF</span>
+      <span class="oc-sub">対象日限定プラン 最大50%OFF</span>
+      <span class="oc-row"><span class="oc-cta">LINE限定特典を見る</span><span class="oc-arrow" aria-hidden="true">→</span></span>
+      <span class="oc-free">友だち追加無料・約30秒</span>
+      <span class="oc-status">※特典は準備中です。開始時期はLINE公式アカウントでご案内します。</span>
+    </a>
   </div>
   <div class="hero-nav" role="group" aria-label="スライドショー操作">
     <button class="hn-arrow" id="hsPrev" aria-label="前のスライドを表示">‹</button>
@@ -553,14 +596,15 @@ footer { background: var(--dark); border-top: 1px solid rgba(255,255,255,0.08); 
 <section class="sec" id="members" style="padding-top:0;">
   <span class="sec-label fade">KIKYŪ Private Members</span>
   <h2 class="sec-h fade">LINEで、一般公開前のご案内を。</h2>
-  <p class="sec-lead fade">The KIKYŪ Atami公式LINEでは、LINE会員限定の宿泊プランや特典、空室・キャンセル発生時のご案内、熱海海上花火大会開催日の先行案内などをお届けします。</p>
+  <p class="sec-lead fade">The KIKYŪ AtamiのLINE公式アカウントを友だち追加した方へ、公式予約サイトからの初回予約に利用できる20,000円OFF特典をご案内します。さらに、直前の空室やキャンセル発生日などを対象に、最大50%OFFの会員限定プランをお届けします。</p>
+  <p class="note fade" style="margin-top:10px;">※最大50%OFFは、同一日・同一施設・同一人数・同一宿泊条件における公式サイト通常料金との比較です。対象日・対象プラン限定。割引率、販売期間、利用条件は各案内をご確認ください。</p>
   <div class="values">
-    <div class="value-card fade"><b>Members-only Offers</b><p>LINE会員限定の宿泊プラン・優待</p></div>
-    <div class="value-card fade"><b>Priority Availability</b><p>空室・キャンセル発生時の優先案内</p></div>
+    <div class="value-card fade"><b>Welcome Offer</b><p>友だち追加後の初回予約が¥20,000 OFF(公式予約サイト限定)</p></div>
+    <div class="value-card fade"><b>Secret Offers</b><p>対象日限定のLINE会員プランが最大50%OFF</p></div>
     <div class="value-card fade"><b>Fireworks Priority</b><p>花火開催日の先行案内</p></div>
     <div class="value-card fade"><b>Private Experiences</b><p>会員向けの滞在特典</p></div>
   </div>
-  <a class="btn-line-dark fade" href="line-members.html" data-line-lp="members">LINE限定のご案内を見る</a>
+  <a class="btn-line-dark fade" href="line-members.html" data-line-lp="members" data-offer-type="welcome_20000">初回¥20,000 OFFの詳細を見る</a>
 </section>
 
 <!-- ══ 09 LOCATION ══ -->
@@ -648,8 +692,8 @@ footer { background: var(--dark); border-top: 1px solid rgba(255,255,255,0.08); 
       <p style="margin-top:26px;margin-bottom:12px;">日程のご相談・特別なご要望は、メールでも承ります。</p>
       <a class="btn-line-dark" style="border-color:rgba(255,255,255,0.4);color:rgba(255,255,255,0.85);" href="mailto:info@fukudahotel.com?subject=The KIKYŪ Atami 空室・料金の確認&body=ご希望日程:%0D%0Aご人数:%0D%0Aご要望(食事・エステ等):">メールで相談する</a>
     </div>
-    <p style="margin-top:44px;margin-bottom:12px;">まだ日程がお決まりでない方へ<br>花火大会開催日や空室情報を、公式LINEでご案内します。</p>
-    <a class="btn-line-dark" style="border-color:rgba(255,255,255,0.4);color:rgba(255,255,255,0.85);" href="line-members.html" data-line-lp="book">LINE限定のご案内を見る</a>
+    <p style="margin-top:44px;margin-bottom:12px;">まだ日程がお決まりでない方へ<br>花火大会開催日や空室情報を、LINE公式アカウントでご案内します。</p>
+    <a class="btn-line-dark" style="border-color:rgba(255,255,255,0.4);color:rgba(255,255,255,0.85);" href="line-members.html" data-line-lp="book" data-offer-type="welcome_20000">初回¥20,000 OFFの詳細を見る</a>
   </div>
 </section>
 
@@ -744,7 +788,9 @@ document.querySelectorAll('[data-line-lp]').forEach(function(a){
     kikyuTrack('line_lp_click', {
       cta_id: a.getAttribute('data-line-lp'),
       page_path: location.pathname,
-      link_url: a.href
+      link_url: a.href,
+      offer_type: a.getAttribute('data-offer-type') || 'welcome_20000',
+      device_type: (innerWidth < 768 ? 'mobile' : (innerWidth < 1024 ? 'tablet' : 'desktop'))
     });
   });
 });
@@ -757,10 +803,20 @@ document.querySelectorAll('[data-line-lp]').forEach(function(a){
   function update(){
     el.classList.toggle('is-shown', hero.getBoundingClientRect().bottom < window.innerHeight * 0.4);
   }
+  var members=document.getElementById('members');
+  var foot=document.querySelector('footer');
+  function suppressed(){
+    var vh=window.innerHeight;
+    function near(el){ if(!el) return false; var r=el.getBoundingClientRect(); return r.top < vh*0.85 && r.bottom > vh*0.15; }
+    return near(members) || near(foot);
+  }
+  function update(){
+    var pastHero = hero.getBoundingClientRect().bottom < window.innerHeight * 0.25;
+    el.classList.toggle('is-shown', pastHero && !suppressed());
+  }
   if ('IntersectionObserver' in window) {
-    new IntersectionObserver(function(entries){
-      entries.forEach(function(e){ el.classList.toggle('is-shown', !e.isIntersecting); });
-    }, { rootMargin: '-40% 0px 0px 0px', threshold: 0 }).observe(hero);
+    var io2=new IntersectionObserver(function(){ update(); }, { threshold: [0, 0.1, 0.5] });
+    io2.observe(hero); if(members) io2.observe(members); if(foot) io2.observe(foot);
   }
   addEventListener('scroll', update, {passive:true});
   addEventListener('resize', update);
