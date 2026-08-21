@@ -170,29 +170,57 @@ html[data-offer="preparing"] .oc-status {
   font-size: 10px; line-height: 1.7; letter-spacing: 0.04em; color: var(--warm);
 }
 
-/* FLOATING LINE OFFER CARD (secondary; must never outweigh the booking CTA) */
-.line-float {
+/* LINE MEMBER INVITATION POPUP (secondary to booking; routes to /line-members) */
+.line-pop {
   position: fixed; right: 24px; bottom: 24px; z-index: 270;
-  display: flex; align-items: center; gap: 12px; width: 276px; min-height: 78px;
-  box-sizing: border-box; text-decoration: none; background: var(--white);
-  border: 1px solid var(--sand); border-radius: 10px; padding: 12px 16px;
-  box-shadow: 0 6px 20px rgba(15,13,10,0.10);
-  opacity: 0; visibility: hidden; transform: translateY(6px);
+  width: 340px; max-width: calc(100vw - 32px); box-sizing: border-box;
+  background: var(--white); border: 1px solid var(--sand); border-radius: 10px;
+  box-shadow: 0 8px 26px rgba(15,13,10,0.12);
+  opacity: 0; visibility: hidden; transform: translateY(8px);
   transition: opacity .45s ease, transform .45s ease, visibility .45s;
 }
-.line-float.is-shown { opacity: 1; visibility: visible; transform: none; }
-.line-float:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
-.line-float:hover { border-color: var(--gold); }
-.lf-badge { width: 34px; height: 34px; border-radius: 8px; background: #06C755; flex: none; position: relative; }
-.lf-badge::after { content: ''; position: absolute; inset: 8px; background: #fff;
-  -webkit-mask: radial-gradient(circle at 50% 44%, #000 44%, transparent 45%); mask: radial-gradient(circle at 50% 44%, #000 44%, transparent 45%); }
-.lf-tx { flex: 1 1 auto; min-width: 0; }
-.lf-k { display: block; font-family: -apple-system,'Helvetica Neue',sans-serif; font-size: 8.5px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--warm); margin-bottom: 3px; }
-.lf-m { display: block; font-size: 13.5px; letter-spacing: 0.03em; color: var(--ink); white-space: nowrap; }
-.lf-m b { font-family: Georgia, serif; font-weight: 400; font-size: 17px; }
-.lf-s { display: block; margin-top: 2px; font-size: 10.5px; letter-spacing: 0.02em; color: var(--mid); white-space: nowrap; }
-.lf-arrow { flex: none; font-size: 14px; color: var(--gold); }
-@media (prefers-reduced-motion: reduce) { .line-float { transition: none; } .offer-card { transition: none; } }
+.line-pop.is-shown { opacity: 1; visibility: visible; transform: none; }
+.line-pop.is-closed { display: none !important; }
+.lp-close {
+  position: absolute; top: 6px; right: 6px; width: 34px; height: 34px;
+  background: none; border: none; cursor: pointer; color: var(--warm);
+  font-size: 17px; line-height: 1; border-radius: 6px;
+}
+.lp-close:hover { color: var(--ink); }
+.lp-close:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
+.lp-body { display: block; text-decoration: none; padding: 16px 18px 16px; }
+.lp-k {
+  display: block; font-family: -apple-system,'Helvetica Neue',sans-serif;
+  font-size: 8.5px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--warm);
+  padding-right: 30px; margin-bottom: 10px;
+}
+.lp-row { display: flex; align-items: baseline; gap: 8px; }
+.lp-row .l { font-size: 11.5px; letter-spacing: 0.04em; color: var(--mid); flex: none; }
+.lp-row .v { font-family: Georgia, serif; font-weight: 400; font-size: 25px; letter-spacing: 0.01em; color: var(--ink); }
+.lp-row.sub { margin-top: 5px; }
+.lp-row.sub .v { font-size: 16px; color: var(--charcoal); }
+.lp-more {
+  display: block; margin-top: 10px; font-size: 11.5px; line-height: 1.75; color: var(--mid);
+}
+.lp-cta {
+  display: flex; align-items: center; justify-content: space-between; gap: 12px;
+  min-height: 46px; margin-top: 12px; padding: 0 14px;
+  background: var(--cream-d); border-left: 3px solid #06C755;
+  font-size: 13px; letter-spacing: 0.05em; color: var(--charcoal);
+}
+.lp-cta .arw { color: var(--gold); }
+.line-pop:hover .lp-cta { background: var(--cream); }
+.line-pop a.lp-body:focus-visible { outline: 2px solid var(--gold); outline-offset: -2px; }
+.lp-free {
+  display: block; margin-top: 8px; font-family: -apple-system,'Helvetica Neue',sans-serif;
+  font-size: 10.5px; letter-spacing: 0.04em; color: var(--warm);
+}
+html[data-offer="preparing"] .lp-status {
+  display: block; margin-top: 6px; font-family: -apple-system,'Helvetica Neue',sans-serif;
+  font-size: 10px; line-height: 1.6; color: var(--warm);
+}
+.lp-status { display: none; }
+@media (prefers-reduced-motion: reduce) { .line-pop { transition: none; } .offer-card { transition: none; } }
 
 /* SHARED */
 .sec { padding: 96px 40px; max-width: 1200px; margin: 0 auto; }
@@ -317,18 +345,14 @@ footer { background: var(--dark); border-top: 1px solid rgba(255,255,255,0.08); 
   .hs-4 img { object-position: center 48%; }
   .sticky-book { display: block; }
   body { padding-bottom: calc(50px + env(safe-area-inset-bottom, 0px)); }
-  .line-float {
-    right: 12px; left: auto; width: 226px; min-height: 60px;
-    bottom: calc(50px + env(safe-area-inset-bottom, 0px) + 10px);
-    padding: 8px 12px; gap: 9px; border-radius: 10px;
-    box-shadow: 0 4px 14px rgba(15,13,10,0.14);
-    max-width: calc(100vw - 24px);
+  .line-pop {
+    right: 16px; left: auto; width: calc(100vw - 32px); max-width: 340px;
+    bottom: calc(50px + env(safe-area-inset-bottom, 0px) + 12px);
+    border-radius: 10px;
   }
-  .lf-badge { width: 28px; height: 28px; }
-  .lf-k { font-size: 8px; letter-spacing: 0.18em; margin-bottom: 2px; }
-  .lf-m { font-size: 12.5px; }
-  .lf-m b { font-size: 15px; }
-  .lf-s { font-size: 9.5px; }
+  .lp-body { padding: 14px 16px; }
+  .lp-row .v { font-size: 23px; }
+  .lp-row.sub .v { font-size: 15px; }
   .offer-card { max-width: none; }
   .sec { padding: 72px 24px; }
   .values, .split, .exp-grid, .house-grid, .gal { grid-template-columns: 1fr; }
@@ -360,17 +384,19 @@ footer { background: var(--dark); border-top: 1px solid rgba(255,255,255,0.08); 
 <!-- Mobile sticky booking CTA (confirmed contact route: email) -->
 <a href="https://www.airbnb.jp/rooms/1702553688163230888" target="_blank" rel="noopener noreferrer" class="sticky-book" id="stickyBook">空室・料金を見る</a>
 
-<!-- Floating LINE offer card (secondary) — always routes to the members page, never straight to LINE -->
-<a href="line-members.html" class="line-float" id="lineFloat" data-line-lp="floating" data-offer-type="welcome_20000"
-   aria-label="LINE公式アカウント限定 初回2万円オフの特典を見る">
-  <span class="lf-badge" aria-hidden="true"></span>
-  <span class="lf-tx">
-    <span class="lf-k">LINE限定</span>
-    <span class="lf-m">初回 <b>¥20,000</b> OFF</span>
-    <span class="lf-s">対象日 最大50%OFF</span>
-  </span>
-  <span class="lf-arrow" aria-hidden="true">→</span>
-</a>
+<!-- LINE member invitation popup (secondary) — routes to /line-members, never straight to LINE -->
+<aside class="line-pop" id="linePop" role="complementary" aria-label="LINE公式アカウント限定の特典案内">
+  <button class="lp-close" id="linePopClose" type="button" aria-label="特典案内を閉じる">×</button>
+  <a class="lp-body" href="line-members.html" data-line-lp="floating" data-offer-type="welcome_20000" id="linePopCta">
+    <span class="lp-k">LINE公式アカウント限定</span>
+    <span class="lp-row"><span class="l">初回予約</span><span class="v">¥20,000 OFF</span></span>
+    <span class="lp-row sub"><span class="l">対象日限定</span><span class="v">最大50% OFF</span></span>
+    <span class="lp-more">限定クーポン・直前割引・<br>花火開催日の優先案内も。</span>
+    <span class="lp-cta"><span>LINEの特典を見る</span><span class="arw" aria-hidden="true">→</span></span>
+    <span class="lp-free">友だち追加無料・約30秒</span>
+    <span class="lp-status">※特典は準備中です。開始時期はLINEでご案内します。</span>
+  </a>
+</aside>
 
 <!-- ══ 01 HERO ══ -->
 <header class="hero">
@@ -792,6 +818,7 @@ function kikyuTrack(name, params){
     else { window.dataLayer.push(Object.assign({event: name}, params)); }
   } catch (e) {}
 }
+function deviceType(){ return innerWidth < 768 ? 'mobile' : (innerWidth < 1024 ? 'tablet' : 'desktop'); }
 document.querySelectorAll('[data-line-lp]').forEach(function(a){
   a.addEventListener('click', function(){
     kikyuTrack('line_lp_click', {
@@ -804,32 +831,60 @@ document.querySelectorAll('[data-line-lp]').forEach(function(a){
   });
 });
 
-/* Floating LINE CTA: reveal once the hero has mostly scrolled past (IntersectionObserver + scroll fallback) */
+/* LINE invitation popup: show after 2.5s or 20% scroll; dismissible; session-capped */
 (function(){
-  var el=document.getElementById('lineFloat');
-  var hero=document.querySelector('.hero');
-  if(!el||!hero) return;
-  function update(){
-    el.classList.toggle('is-shown', hero.getBoundingClientRect().bottom < window.innerHeight * 0.4);
-  }
+  var el=document.getElementById('linePop');
+  if(!el) return;
+  var KEY='kikyu_line_pop_closed_until';
+  var closedUntil = 0;
+  try { closedUntil = parseInt(localStorage.getItem(KEY) || '0', 10); } catch(e) {}
+  if (Date.now() < closedUntil) { el.classList.add('is-closed'); return; }
+
   var members=document.getElementById('members');
   var foot=document.querySelector('footer');
+  var shown=false, viewed=false;
   function suppressed(){
     var vh=window.innerHeight;
-    function near(el){ if(!el) return false; var r=el.getBoundingClientRect(); return r.top < vh*0.85 && r.bottom > vh*0.15; }
+    function near(x){ if(!x) return false; var r=x.getBoundingClientRect(); return r.top < vh*0.85 && r.bottom > vh*0.15; }
     return near(members) || near(foot);
   }
+  function show(){
+    if (el.classList.contains('is-closed') || suppressed()) return;
+    el.classList.add('is-shown');
+    if(!viewed){
+      viewed=true;
+      kikyuTrack('line_popup_view', {
+        page_path: location.pathname, device_type: deviceType(),
+        cta_id: 'stay_line_popup', offer_type: 'welcome_20000_and_up_to_50'
+      });
+    }
+  }
   function update(){
-    var pastHero = hero.getBoundingClientRect().bottom < window.innerHeight * 0.7;
-    el.classList.toggle('is-shown', pastHero && !suppressed());
+    if (el.classList.contains('is-closed')) return;
+    var scrolled = (scrollY + innerHeight) / document.documentElement.scrollHeight;
+    var pastHero = scrollY > innerHeight * 0.2;
+    if ((shown || pastHero) && !suppressed()) { shown=true; show(); }
+    else { el.classList.remove('is-shown'); }
   }
-  if ('IntersectionObserver' in window) {
-    var io2=new IntersectionObserver(function(){ update(); }, { threshold: [0, 0.1, 0.5] });
-    io2.observe(hero); if(members) io2.observe(members); if(foot) io2.observe(foot);
-  }
+  setTimeout(function(){ shown=true; update(); }, 2500);
   addEventListener('scroll', update, {passive:true});
   addEventListener('resize', update);
-  update();
+
+  document.getElementById('linePopClose').addEventListener('click', function(){
+    el.classList.remove('is-shown'); el.classList.add('is-closed');
+    try { localStorage.setItem(KEY, String(Date.now() + 7*24*60*60*1000)); } catch(e) {}
+    kikyuTrack('line_popup_close', {
+      page_path: location.pathname, device_type: deviceType(),
+      cta_id: 'stay_line_popup', offer_type: 'welcome_20000_and_up_to_50'
+    });
+  });
+  document.getElementById('linePopCta').addEventListener('click', function(){
+    kikyuTrack('line_popup_click', {
+      page_path: location.pathname, device_type: deviceType(),
+      cta_id: 'stay_line_popup', offer_type: 'welcome_20000_and_up_to_50',
+      link_url: this.href
+    });
+  });
 })();
 
 /* sticky book CTA: hide while booking section on screen */
