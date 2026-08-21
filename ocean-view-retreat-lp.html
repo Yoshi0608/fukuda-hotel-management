@@ -36,26 +36,6 @@
   ]
 }
 </script>
-
-<!-- ══ Analytics ══
-     GA4: 下の GA_ID に測定ID(G-XXXXXXXXXX)を入れると計測開始。空なら一切読み込まない。
-     Vercel Web Analytics: Vercelダッシュボードで Analytics を有効にすると計測開始(Cookie不使用)。
-     ══ -->
-<script>
-  window.GA_ID = 'G-N715PQ6NM8'; /* GA4 測定ID (fukudahotel.com ストリーム 15473921535) */
-  if (window.GA_ID) {
-    window.dataLayer = window.dataLayer || [];
-    window.gtag = function () { dataLayer.push(arguments); };
-    gtag('js', new Date());
-    gtag('config', window.GA_ID);
-    var g = document.createElement('script');
-    g.async = true;
-    g.src = 'https://www.googletagmanager.com/gtag/js?id=' + window.GA_ID;
-    document.head.appendChild(g);
-  }
-</script>
-<script defer src="/_vercel/insights/script.js"></script>
-
 <style>
 :root {
   --cream:   #F5F2EC;
@@ -138,20 +118,10 @@ section[id] { scroll-margin-top: 84px; }
 .hero-btn-solid:hover { background: #fff; color: var(--ink); border-color: #fff; }
 .hero-btn-line {
   display: inline-block; text-decoration: none; text-align: center;
-  font-family: -apple-system,'Helvetica Neue',sans-serif;
-  font-size: 11px; letter-spacing: 0.16em; color: rgba(255,255,255,0.88);
-  background: transparent; border: 1px solid rgba(255,255,255,0.5);
-  padding: 13px 28px; transition: all .3s;
+  font-size: 13px; letter-spacing: 0.12em; color: rgba(255,255,255,0.92);
+  border: 1px solid rgba(255,255,255,0.5); padding: 14px 32px; transition: all .3s;
 }
 .hero-btn-line:hover { border-color: #fff; color: #fff; }
-.btn-line-members {
-  display: inline-block; text-decoration: none; margin-top: 40px;
-  font-family: -apple-system,'Helvetica Neue',sans-serif;
-  font-size: 12px; letter-spacing: 0.16em; color: var(--charcoal);
-  background: transparent; border: 1px solid var(--gold);
-  padding: 15px 36px; transition: all .3s;
-}
-.btn-line-members:hover { background: var(--gold); color: #fff; }
 .hero-nav { position: absolute; right: 40px; bottom: 34px; z-index: 3; display: flex; align-items: center; gap: 10px; }
 .hn-arrow { background: none; border: none; cursor: pointer; color: rgba(255,255,255,0.55); font-size: 24px; line-height: 1; padding: 10px 12px; transition: color .3s; }
 .hn-arrow:hover, .hn-arrow:focus-visible { color: #fff; }
@@ -168,6 +138,27 @@ section[id] { scroll-margin-top: 84px; }
   padding: 14px 16px calc(14px + env(safe-area-inset-bottom, 0px));
 }
 .sticky-book.hidden { display: none !important; }
+
+/* FLOATING LINE CTA (secondary; must never outweigh the booking CTA) */
+.line-float {
+  position: fixed; right: 26px; bottom: 26px; z-index: 270;
+  display: inline-flex; align-items: center; gap: 12px;
+  text-decoration: none; background: var(--white);
+  border: 1px solid var(--sand); border-left: 3px solid #06C755;
+  padding: 12px 20px; box-shadow: 0 6px 22px rgba(15,13,10,0.10);
+  opacity: 0; visibility: hidden; transform: translateY(8px);
+  transition: opacity .5s ease, transform .5s ease, visibility .5s;
+}
+.line-float.is-shown { opacity: 1; visibility: visible; transform: none; }
+.line-float .lf-dot { width: 9px; height: 9px; border-radius: 50%; background: #06C755; flex: none; }
+.line-float .lf-tx { display: block; }
+.line-float .lf-k {
+  display: block; font-family: -apple-system,'Helvetica Neue',sans-serif;
+  font-size: 8.5px; letter-spacing: 0.24em; text-transform: uppercase; color: var(--warm); margin-bottom: 3px;
+}
+.line-float .lf-m { display: block; font-size: 12.5px; letter-spacing: 0.06em; color: var(--charcoal); }
+.line-float:hover { border-color: #06C755; }
+@media (prefers-reduced-motion: reduce) { .line-float { transition: none; } }
 
 /* SHARED */
 .sec { padding: 96px 40px; max-width: 1200px; margin: 0 auto; }
@@ -291,6 +282,16 @@ footer { background: var(--dark); border-top: 1px solid rgba(255,255,255,0.08); 
   .hs-4 img { object-position: center 48%; }
   .sticky-book { display: block; }
   body { padding-bottom: calc(50px + env(safe-area-inset-bottom, 0px)); }
+  .line-float {
+    right: 12px; left: auto;
+    bottom: calc(50px + env(safe-area-inset-bottom, 0px) + 12px);
+    padding: 0 16px; min-height: 44px; gap: 9px; border-radius: 999px;
+    border-left-width: 1px; border-color: #06C755;
+    box-shadow: 0 4px 14px rgba(15,13,10,0.14);
+    max-width: calc(100vw - 24px);
+  }
+  .line-float .lf-k { display: none; }
+  .line-float .lf-m { font-size: 12px; letter-spacing: 0.04em; white-space: nowrap; }
   .sec { padding: 72px 24px; }
   .values, .split, .exp-grid, .house-grid, .gal { grid-template-columns: 1fr; }
   .gal .wide img { aspect-ratio: 3/2; }
@@ -300,27 +301,6 @@ footer { background: var(--dark); border-top: 1px solid rgba(255,255,255,0.08); 
   .voice-stats { grid-template-columns: repeat(3, 1fr); }
   .book-sec .inner { padding: 88px 24px; }
   .foot { grid-template-columns: 1fr; gap: 34px; }
-}
-
-/* ══ Atami Fireworks Schedule ══ */
-.fw-sched{max-width:760px;margin:72px auto 0;padding:44px 40px;background:var(--white);border:1px solid var(--sand);}
-.fw-kicker{display:block;font-family:-apple-system,'Helvetica Neue',sans-serif;font-size:10px;letter-spacing:0.3em;text-transform:uppercase;color:var(--gold);margin-bottom:14px;}
-.fw-h{font-size:24px;font-weight:400;letter-spacing:0.04em;color:var(--charcoal);margin:0 0 18px;line-height:1.7;}
-.fw-lead{font-size:14.5px;line-height:2.1;color:var(--mid);margin:0 0 30px;}
-.fw-list{list-style:none;margin:0;padding:0;border-top:1px solid var(--sand);}
-.fw-list li{display:flex;align-items:baseline;gap:16px;padding:15px 2px;border-bottom:1px solid var(--sand);}
-.fw-date{font-family:-apple-system,'Helvetica Neue',sans-serif;font-size:15px;letter-spacing:0.06em;color:var(--ink);font-variant-numeric:tabular-nums;white-space:nowrap;}
-.fw-date i{font-style:normal;color:var(--sand);margin:0 2px;}
-.fw-dow{font-size:12px;color:var(--warm);min-width:44px;letter-spacing:0.08em;}
-.fw-time{margin-left:auto;font-family:-apple-system,'Helvetica Neue',sans-serif;font-size:11.5px;letter-spacing:0.1em;color:var(--warm);font-variant-numeric:tabular-nums;white-space:nowrap;}
-.fw-note{margin-top:22px;}
-@media(max-width:768px){
-  .fw-sched{margin-top:48px;padding:32px 22px;}
-  .fw-h{font-size:20px;}
-  .fw-list li{gap:12px;padding:13px 0;}
-  .fw-date{font-size:14px;}
-  .fw-dow{min-width:38px;font-size:11px;}
-  .fw-time{font-size:10.5px;letter-spacing:0.06em;}
 }
 </style>
 </head>
@@ -335,12 +315,21 @@ footer { background: var(--dark); border-top: 1px solid rgba(255,255,255,0.08); 
   <div class="nav-links">
     <a href="stay.html">Stay</a>
     <a href="retreat.html">法人の方へ</a>
-    <a href="https://www.airbnb.jp/rooms/1702553688163230888" target="_blank" rel="noopener noreferrer" class="nav-book" data-cta="nav">空室・料金を確認</a>
+    <a href="https://www.airbnb.jp/rooms/1702553688163230888" target="_blank" rel="noopener noreferrer" class="nav-book">空室・料金を確認</a>
   </div>
 </nav>
 
 <!-- Mobile sticky booking CTA (confirmed contact route: email) -->
-<a href="https://www.airbnb.jp/rooms/1702553688163230888" target="_blank" rel="noopener noreferrer" class="sticky-book" id="stickyBook" data-cta="sticky">空室・料金を見る</a>
+<a href="https://www.airbnb.jp/rooms/1702553688163230888" target="_blank" rel="noopener noreferrer" class="sticky-book" id="stickyBook">空室・料金を見る</a>
+
+<!-- Floating LINE CTA (secondary) — goes to the members explainer page, not directly to LINE -->
+<a href="line-members.html" class="line-float" id="lineFloat" data-line-lp="floating" aria-label="LINE限定のご案内 友だち登録はこちら">
+  <span class="lf-dot" aria-hidden="true"></span>
+  <span class="lf-tx">
+    <span class="lf-k">LINE限定のご案内</span>
+    <span class="lf-m"><span class="lf-pc">友だち登録はこちら</span></span>
+  </span>
+</a>
 
 <!-- ══ 01 HERO ══ -->
 <header class="hero">
@@ -358,8 +347,8 @@ footer { background: var(--dark); border-top: 1px solid rgba(255,255,255,0.08); 
     <h1 class="hero-h">The KIKYŪ Atami</h1>
     <p class="hero-lead"><span class="hl-u">相模湾を望む、</span><br><span class="hl-u">熱海の一棟貸し</span><span class="hl-u">プライベートヴィラ。</span></p>
     <div class="hero-ctas">
-      <a href="https://www.airbnb.jp/rooms/1702553688163230888" target="_blank" rel="noopener noreferrer" class="hero-btn-solid" data-cta="hero">空室・料金を確認する</a>
-      <a href="https://line.me/R/ti/p/@184zzkon" target="_blank" rel="noopener noreferrer" class="hero-btn-line" data-cta="line" data-line-id="hero">LINEで最新情報を受け取る</a>
+      <a href="https://www.airbnb.jp/rooms/1702553688163230888" target="_blank" rel="noopener noreferrer" class="hero-btn-solid">空室・料金を確認する</a>
+      <a href="line-members.html" class="hero-btn-line" data-line-lp="hero">LINEで最新情報を受け取る</a>
     </div>
   </div>
   <div class="hero-nav" role="group" aria-label="スライドショー操作">
@@ -425,28 +414,9 @@ footer { background: var(--dark); border-top: 1px solid rgba(255,255,255,0.08); 
     <div class="cap">
       <b style="display:block;font-family:-apple-system,'Helvetica Neue',sans-serif;font-size:10px;letter-spacing:0.3em;text-transform:uppercase;color:var(--gold);margin-bottom:8px;">Fireworks from KIKYŪ</b>
       <p style="font-size:14.5px;line-height:2;color:var(--mid);">熱海海上花火大会を、邸宅から。</p>
-      <p class="note" style="margin-top:8px;">※天候、開催状況、館内の位置などにより見え方は異なります。</p>
+      <p class="note" style="margin-top:8px;">※花火大会の開催日程は主催者発表をご確認ください。天候、開催状況、館内の位置などにより見え方は異なります。</p>
     </div>
   </figure>
-
-  <!-- ══ 花火大会 開催日程（熱海市発表・2026年6月3日更新） ══ -->
-  <div class="fw-sched fade">
-    <b class="fw-kicker">Atami Fireworks — Schedule</b>
-    <h3 class="fw-h">熱海海上花火大会の開催日。</h3>
-    <p class="fw-lead">熱海の花火は、夏だけのものではありません。春・夏・秋・冬、年間を通じて開催されます。打ち上げは20分間。終わったあとに帰る必要のない滞在を。</p>
-    <ul class="fw-list">
-      <li><span class="fw-date">2026<i>.</i>08<i>.</i>24</span><span class="fw-dow">月</span><span class="fw-time">20:15 — 20:40</span></li>
-      <li><span class="fw-date">2026<i>.</i>09<i>.</i>13</span><span class="fw-dow">日</span><span class="fw-time">20:20 — 20:40</span></li>
-      <li><span class="fw-date">2026<i>.</i>10<i>.</i>12</span><span class="fw-dow">月・祝</span><span class="fw-time">20:20 — 20:40</span></li>
-      <li><span class="fw-date">2026<i>.</i>10<i>.</i>25</span><span class="fw-dow">日</span><span class="fw-time">20:20 — 20:40</span></li>
-      <li><span class="fw-date">2026<i>.</i>11<i>.</i>08</span><span class="fw-dow">日</span><span class="fw-time">20:20 — 20:40</span></li>
-      <li><span class="fw-date">2026<i>.</i>11<i>.</i>23</span><span class="fw-dow">月・祝</span><span class="fw-time">20:20 — 20:40</span></li>
-      <li><span class="fw-date">2026<i>.</i>12<i>.</i>06</span><span class="fw-dow">日</span><span class="fw-time">20:20 — 20:40</span></li>
-      <li><span class="fw-date">2026<i>.</i>12<i>.</i>25</span><span class="fw-dow">金</span><span class="fw-time">20:20 — 20:40</span></li>
-      <li><span class="fw-date">2027<i>.</i>02<i>.</i>21</span><span class="fw-dow">日</span><span class="fw-time">20:20 — 20:40</span></li>
-    </ul>
-    <p class="note fw-note">出典:熱海市発表(2026年6月3日更新)。2027年3月以降の日程は未発表です。日程は主催者の都合により変更される場合があります。ご予定の際は熱海市および熱海市観光協会の発表をご確認ください。</p>
-  </div>
 
   <div class="exp-grid">
     <figure class="exp-cell fade"><img src="images_corp/kikyu-pool.jpg" alt="屋外プライベートプール" loading="lazy"><b>Private Pool</b><p>貸切で使える屋外プール。</p></figure>
@@ -481,7 +451,7 @@ footer { background: var(--dark); border-top: 1px solid rgba(255,255,255,0.08); 
     </figure>
   </div>
   <p class="note fade" style="margin-top:24px;">※内容、日程、人数、アレルギー、食事制限、シェフやスタッフの手配状況により、対応可否と料金が異なります。事前予約・個別見積りです。</p>
-  <a class="btn-line-dark fade" href="mailto:info@fukudahotel.com?subject=The KIKYŪ Atami 食事・特別なご要望の相談" data-cta="dining">食事について相談する</a>
+  <a class="btn-line-dark fade" href="mailto:info@fukudahotel.com?subject=The KIKYŪ Atami 食事・特別なご要望の相談">食事について相談する</a>
 </section>
 
 <!-- ══ 05 WELLNESS ══ -->
@@ -575,22 +545,22 @@ footer { background: var(--dark); border-top: 1px solid rgba(255,255,255,0.08); 
     
   </div>
   <div class="fade" style="text-align:center;margin-top:44px;">
-    <a href="https://www.airbnb.jp/rooms/1702553688163230888" target="_blank" rel="noopener noreferrer" class="btn-gold" data-cta="gallery">空室・料金を確認する</a>
+    <a href="https://www.airbnb.jp/rooms/1702553688163230888" target="_blank" rel="noopener noreferrer" class="btn-gold">空室・料金を確認する</a>
   </div>
 </section>
 
 <!-- ══ 08 KIKYU PRIVATE MEMBERS / LINE ══ -->
-<section class="sec" id="members">
+<section class="sec" id="members" style="padding-top:0;">
   <span class="sec-label fade">KIKYŪ Private Members</span>
   <h2 class="sec-h fade">LINEで、一般公開前のご案内を。</h2>
-  <p class="sec-lead fade">KIKYŪ公式LINEでは、空室・キャンセル発生時のご案内、熱海海上花火大会開催日の先行案内、LINE限定の特典や滞在サービスなどをお届けします。</p>
-  <div class="values fade">
-    <div class="value-card"><b>Priority Availability</b><p>空室・キャンセル発生時のご案内</p></div>
-    <div class="value-card"><b>Fireworks Priority</b><p>花火開催日の先行案内</p></div>
-    <div class="value-card"><b>Private Offers</b><p>LINE限定の特典・プレゼント</p></div>
-    <div class="value-card"><b>Members-only Experiences</b><p>一般予約サイトではご案内していない滞在サービス</p></div>
+  <p class="sec-lead fade">The KIKYŪ Atami公式LINEでは、LINE会員限定の宿泊プランや特典、空室・キャンセル発生時のご案内、熱海海上花火大会開催日の先行案内などをお届けします。</p>
+  <div class="values">
+    <div class="value-card fade"><b>Members-only Offers</b><p>LINE会員限定の宿泊プラン・優待</p></div>
+    <div class="value-card fade"><b>Priority Availability</b><p>空室・キャンセル発生時の優先案内</p></div>
+    <div class="value-card fade"><b>Fireworks Priority</b><p>花火開催日の先行案内</p></div>
+    <div class="value-card fade"><b>Private Experiences</b><p>会員向けの滞在特典</p></div>
   </div>
-  <a class="btn-line-members fade" href="https://line.me/R/ti/p/@184zzkon" target="_blank" rel="noopener noreferrer" data-cta="line" data-line-id="members">LINEでKIKYŪを追加する</a>
+  <a class="btn-line-dark fade" href="line-members.html" data-line-lp="members">LINE限定のご案内を見る</a>
 </section>
 
 <!-- ══ 09 LOCATION ══ -->
@@ -631,7 +601,7 @@ footer { background: var(--dark); border-top: 1px solid rgba(255,255,255,0.08); 
   <span class="sec-label fade">Stay Information</span>
   <h2 class="sec-h fade">ご予約の前に。</h2>
   <dl class="info-grid fade">
-    <dt>最大宿泊人数</dt><dd>最大14名(一般宿泊)<br><span class="note" style="display:block;margin-top:6px;">15名以上でのご利用は、お布団のご用意など個別の対応が必要となるため、事前にご相談ください。</span></dd>
+    <dt>最大宿泊人数</dt><dd>最大14名(一般宿泊)</dd>
     <dt>寝室・ベッド</dt><dd>寝室5・ベッド13(和室の布団を含む構成はお問い合わせください)</dd>
     <dt>バスルーム</dt><dd>バスルーム2・トイレ2</dd>
     <dt>建物</dt><dd>一棟貸切(滞在中、他のゲストは滞在しません)/延床約1,065㎡</dd>
@@ -652,15 +622,14 @@ footer { background: var(--dark); border-top: 1px solid rgba(255,255,255,0.08); 
 
   <div class="faq fade">
     <details><summary>何名まで宿泊できますか?</summary><p class="a">一般宿泊では最大14名までご宿泊いただけます(寝室5・ベッド13)。人数構成に応じたご案内はお問い合わせください。</p></details>
-    <details><summary>15名以上で利用したいのですが</summary><p class="a">15名以上でのご利用は、お布団のご用意など個別の対応が必要となるため、オンラインでのご予約は承っておりません。ご人数と日程をお知らせいただければ、対応可否を個別にご案内します。まずはご相談ください。</p></details>
     <details><summary>子どもも宿泊できますか?</summary><p class="a">はい、お子様のご宿泊は大歓迎です。人数・年齢に応じたご案内はお気軽にお問い合わせください。</p></details>
     <details><summary>食事を依頼できますか?</summary><p class="a">事前のご相談により、専属栄養士によるお食事の設計や、出張シェフによるPrivate Diningをご案内できます。内容・人数・日程により対応可否と料金が異なります。</p></details>
     <details><summary>アレルギーへ対応できますか?</summary><p class="a">事前相談に応じて個別に対応します。ご予約時にお知らせください。</p></details>
     <details><summary>温泉とプールは利用できますか?</summary><p class="a">館内の大浴場で天然温泉をご利用いただけます。屋外プールの利用条件はお問い合わせください。</p></details>
     <details><summary>駐車場はありますか?</summary><p class="a">普通車5台分の駐車スペースがあります。</p></details>
     <details><summary>BBQや焚き火はできますか?</summary><p class="a">申し訳ございません。自治体の定めにより火気を使用できないため、BBQ・焚き火は原則禁止としています。B1Fのダイニング&キッチンや屋外テラスは、お食事や懇親の場としてご利用いただけます。</p></details>
-    <details><summary>花火大会は施設から見えますか?</summary><p class="a">熱海海上花火大会の開催日には、邸宅から花火をお楽しみいただけます。天候、開催状況、館内の位置などにより見え方は異なります。次回以降の開催日は 2026年8月24日(月)・9月13日(日)・10月12日(月・祝)・10月25日(日)・11月8日(日)・11月23日(月・祝)・12月6日(日)・12月25日(金)、2027年2月21日(日) です(熱海市発表・2026年6月3日更新)。2027年3月以降は未発表です。</p></details>
-    <details><summary>キャンセル条件を確認したい</summary><p class="a">キャンセル料は、キャンセルのご連絡を当方が受け付けた日時(日本時間)を基準に判定します。チェックイン日の7日前まで(当日を含む)は宿泊料金の100%を、6日前から4日前まで(両日を含む)は50%をご返金します。3日前からチェックイン当日まで、およびご連絡のないご不泊は、ご返金はいたしかねます。<br>例:チェックインが9月10日の場合 / 9月3日23:59まで…100%返金 / 9月4日00:00〜9月6日23:59…50%返金 / 9月7日00:00以降…返金なし。<br>ご返金は、ご決済いただいたクレジットカードへの返金処理により行います。</p></details>
+    <details><summary>花火大会は施設から見えますか?</summary><p class="a">熱海海上花火大会の開催日には、邸宅から花火をお楽しみいただけます。開催日程は主催者発表をご確認ください。天候、開催状況、館内の位置などにより見え方は異なります。</p></details>
+    <details><summary>キャンセル条件を確認したい</summary><p class="a">キャンセル条件はご予約時にご案内します。お気軽にお問い合わせください。</p></details>
     <details><summary>特別なリクエストを相談できますか?</summary><p class="a">記念日のご準備、食事、エステ・マッサージ、Yogaなど、可能な範囲でご要望に合わせてご案内します。まずはご相談ください。</p></details>
   </div>
 </section>
@@ -675,17 +644,12 @@ footer { background: var(--dark); border-top: 1px solid rgba(255,255,255,0.08); 
       お食事やエステ・マッサージなど、特別なご要望もあわせてご相談いただけます。
     </p>
     <div class="fade">
-      <a class="btn-gold" href="https://www.airbnb.jp/rooms/1702553688163230888" target="_blank" rel="noopener noreferrer" data-cta="book">空室・料金を確認する</a>
+      <a class="btn-gold" href="https://www.airbnb.jp/rooms/1702553688163230888" target="_blank" rel="noopener noreferrer">空室・料金を確認する</a>
       <p style="margin-top:26px;margin-bottom:12px;">日程のご相談・特別なご要望は、メールでも承ります。</p>
-      <a class="btn-line-dark" style="border-color:rgba(255,255,255,0.4);color:rgba(255,255,255,0.85);" href="mailto:info@fukudahotel.com?subject=The KIKYŪ Atami 空室・料金の確認&body=ご希望日程:%0D%0Aご人数:%0D%0Aご要望(食事・エステ等):" data-cta="book-mail">メールで相談する</a>
-      <p style="margin-top:34px;font-size:13px;line-height:2;opacity:0.72;">
-        15名以上でのご利用をご検討の方へ<br>
-        お布団のご用意など個別の対応が必要となるため、オンラインではお受けしておりません。
-      </p>
-      <a class="btn-line-dark" style="border-color:rgba(255,255,255,0.28);color:rgba(255,255,255,0.7);font-size:12px;" href="mailto:info@fukudahotel.com?subject=The KIKYŪ Atami 15名以上のご相談&body=ご希望日程:%0D%0Aご人数:%0D%0A内訳(大人・お子様):%0D%0Aご要望:" data-cta="large-group">15名以上のご相談</a>
+      <a class="btn-line-dark" style="border-color:rgba(255,255,255,0.4);color:rgba(255,255,255,0.85);" href="mailto:info@fukudahotel.com?subject=The KIKYŪ Atami 空室・料金の確認&body=ご希望日程:%0D%0Aご人数:%0D%0Aご要望(食事・エステ等):">メールで相談する</a>
     </div>
-    <p style="margin-top:40px;font-size:13px;line-height:2;opacity:0.72;">まだ日程がお決まりでない方へ<br>花火大会開催日や空室情報を、公式LINEでご案内します。</p>
-    <a class="btn-line-dark" style="border-color:rgba(255,255,255,0.28);color:rgba(255,255,255,0.7);font-size:12px;" href="https://line.me/R/ti/p/@184zzkon" target="_blank" rel="noopener noreferrer" data-cta="line" data-line-id="book">LINEで最新情報を受け取る</a>
+    <p style="margin-top:44px;margin-bottom:12px;">まだ日程がお決まりでない方へ<br>花火大会開催日や空室情報を、公式LINEでご案内します。</p>
+    <a class="btn-line-dark" style="border-color:rgba(255,255,255,0.4);color:rgba(255,255,255,0.85);" href="line-members.html" data-line-lp="book">LINE限定のご案内を見る</a>
   </div>
 </section>
 
@@ -709,11 +673,6 @@ footer { background: var(--dark); border-top: 1px solid rgba(255,255,255,0.08); 
     <div>
       <h4>Contact</h4>
       <a href="mailto:info@fukudahotel.com">info@fukudahotel.com</a>
-    </div>
-    <div>
-      <h4>Legal</h4>
-      <a href="tokushoho.html">特定商取引法に基づく表記</a>
-      <a href="privacy.html">プライバシーポリシー</a>
     </div>
   </div>
 </footer>
@@ -772,40 +731,44 @@ document.querySelectorAll('.fade').forEach(el=>io.observe(el));
   start();
 })();
 
+/* GA4: line_lp_click (queued to dataLayer until the GA4 tag is installed) */
+window.dataLayer = window.dataLayer || [];
+function kikyuTrack(name, params){
+  try {
+    if (typeof window.gtag === 'function') { window.gtag('event', name, params); }
+    else { window.dataLayer.push(Object.assign({event: name}, params)); }
+  } catch (e) {}
+}
+document.querySelectorAll('[data-line-lp]').forEach(function(a){
+  a.addEventListener('click', function(){
+    kikyuTrack('line_lp_click', {
+      cta_id: a.getAttribute('data-line-lp'),
+      page_path: location.pathname,
+      link_url: a.href
+    });
+  });
+});
+
+/* Floating LINE CTA: reveal after the hero, never over the hero CTAs */
+(function(){
+  var el=document.getElementById('lineFloat');
+  var hero=document.querySelector('.hero');
+  if(!el||!hero) return;
+  function update(){
+    var past = (hero.getBoundingClientRect().bottom < window.innerHeight * 0.4);
+    el.classList.toggle('is-shown', past);
+  }
+  addEventListener('scroll', update, {passive:true});
+  addEventListener('resize', update);
+  update();
+})();
+
 /* sticky book CTA: hide while booking section on screen */
 const stickyBook=document.getElementById('stickyBook');
 const bookSec=document.getElementById('book');
 if('IntersectionObserver' in window){
   new IntersectionObserver(es=>{es.forEach(e=>stickyBook.classList.toggle('hidden', e.isIntersecting));},{threshold:0.1}).observe(bookSec);
 }
-</script>
-
-<script>
-/* CTAクリックを GA4 / Vercel へ送る（どちらも未設定なら何もしない） */
-document.addEventListener('click', function (e) {
-  var a = e.target.closest && e.target.closest('[data-cta]');
-  if (!a) return;
-  var cta = a.getAttribute('data-cta');
-  var name, params;
-  if (cta === 'line') {
-    name = 'line_click';
-    params = {
-      cta_id: a.getAttribute('data-line-id') || 'unknown',
-      page_path: location.pathname,
-      link_url: a.getAttribute('href') || ''
-    };
-  } else {
-    var booking = ['nav', 'sticky', 'hero', 'gallery', 'book'].indexOf(cta) !== -1;
-    name = booking ? 'booking_click' : 'cta_click';
-    params = {
-      cta_id: cta,
-      page_path: location.pathname,
-      link_url: a.getAttribute('href') || ''
-    };
-  }
-  if (window.GA_ID && window.gtag) { gtag('event', name, params); }
-  if (window.va) { va('event', { name: name, data: params }); }
-}, true);
 </script>
 </body>
 </html>
