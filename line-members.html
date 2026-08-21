@@ -345,11 +345,17 @@ body { background: var(--cream); padding-bottom: 0; }
 .fv-lead { display: block; font-size: 15px; letter-spacing: 0.06em; color: rgba(255,255,255,0.9); margin-bottom: 6px; }
 .fv-num { display: block; font-family: Georgia, serif; font-weight: 400; color: #fff; line-height: 1; letter-spacing: 0.01em; font-size: clamp(52px, 13vw, 92px); margin-bottom: 6px; }
 .fv-num small { font-size: 0.33em; letter-spacing: 0.16em; margin-left: 8px; }
-.fv-second {
-  display: inline-block; margin-top: 12px; padding: 9px 16px;
-  border: 1px solid rgba(255,255,255,0.4); font-size: 13px; letter-spacing: 0.04em; color: #fff;
+.fv-card {
+  display: inline-block; margin: 0 auto; padding: 26px 30px 24px;
+  background: rgba(12,10,7,0.42); border: 1px solid rgba(255,255,255,0.28);
+  backdrop-filter: blur(2px);
 }
-.fv-note { display: block; margin-top: 14px; font-family: -apple-system,'Helvetica Neue',sans-serif; font-size: 11px; line-height: 1.85; color: rgba(255,255,255,0.68); }
+.fv-second { display: block; margin-top: 18px; padding-top: 16px; border-top: 1px solid rgba(255,255,255,0.22); }
+.fv-second .s-k { display: block; font-size: 12.5px; letter-spacing: 0.1em; color: rgba(255,255,255,0.8); margin-bottom: 4px; }
+.fv-second .s-n { display: block; font-family: Georgia, serif; font-size: clamp(30px, 8vw, 46px); line-height: 1; color: #fff; }
+.fv-second .s-n small { font-size: 0.4em; letter-spacing: 0.14em; margin-left: 6px; }
+.fv-more { display: block; margin-top: 16px; font-size: 12.5px; line-height: 1.9; letter-spacing: 0.03em; color: rgba(255,255,255,0.82); }
+.fv-note { display: block; margin-top: 16px; max-width: 460px; margin-left: auto; margin-right: auto; font-family: -apple-system,'Helvetica Neue',sans-serif; font-size: 11px; line-height: 1.85; color: rgba(255,255,255,0.68); }
 .fv-trust { display: block; margin-top: 22px; font-size: 12.5px; letter-spacing: 0.04em; color: rgba(255,255,255,0.72); }
 .btn-line {
   display: inline-flex; align-items: center; justify-content: center; gap: 12px;
@@ -438,12 +444,18 @@ body { background: var(--cream); padding-bottom: 0; }
   <div class="fv-veil"></div>
   <div class="fv-in">
     <span class="fv-k">LINE公式アカウント限定</span>
-    <span class="fv-lead">友だち追加後の初回予約</span>
-    <h1 class="fv-num">¥20,000<small>OFF</small></h1>
-    <span class="fv-second">対象日限定プランは 最大50%OFF</span>
-    <span class="fv-note">※最大50%OFFは対象日・対象プラン限定です。同一日・同一施設・同一人数・同一宿泊条件における公式サイト通常料金との比較です。</span>
+    <div class="fv-card">
+      <span class="fv-lead">友だち追加後の初回予約</span>
+      <h1 class="fv-num">¥20,000<small>OFF</small></h1>
+      <span class="fv-second">
+        <span class="s-k">さらに、対象日限定</span>
+        <span class="s-n">最大50%<small>OFF</small></span>
+      </span>
+      <span class="fv-more">LINE限定クーポンや直前割引、<br>花火開催日の優先案内も。</span>
+    </div>
     <div class="cta-wrap"><a class="btn-line" href="https://line.me/R/ti/p/@184zzkon" target="_blank" rel="noopener noreferrer" data-line-add="hero" data-offer-type="welcome_20000"><span class="li" aria-hidden="true"></span>LINEで友だち追加して特典を受け取る</a></div>
-    <span class="assure">友だち追加無料・約30秒 ／ 追加後にトークで「初回特典」と送信</span>
+    <span class="assure">友だち追加無料・約30秒<br>追加後、トークで「初回特典」と送信</span>
+    <span class="fv-note">※最大50%OFFは、対象日の公式サイト通常料金からの割引です。対象日・プラン・利用条件はLINEでご案内します。</span>
     <span class="fv-trust">相模湾を望む、熱海の一棟貸切ヴィラ「The KIKYŪ Atami」の会員特典です。</span>
   </div>
 </header>
@@ -498,6 +510,7 @@ body { background: var(--cream); padding-bottom: 0; }
   <ul class="terms">
     <li>LINE公式アカウントの友だち、かつ公式サイトからの初回予約が対象(1組・1代表者につき1回、個別コードが必要)。</li>
     <li>有効期限はコードごとに発行時にご案内します。花火大会開催日・年末年始・繁忙日などは対象外となる場合があります。</li>
+    <li>最大50%OFFは、同一日・同一施設・同一人数・同一宿泊条件における公式サイト通常料金との比較です。対象日・対象プラン限定です。</li>
     <li>他クーポン・キャンペーン・連泊割引との併用不可(複数適用可能な場合は割引額が最も大きいもの一つのみ)。</li>
     <li>既存予約への後付け、コードの譲渡・転売、現金や他特典への交換はできません。</li>
     <li>キャンセル時のコード再発行可否は状況に応じて個別に判断します。不正利用時は割引を無効とする場合があります。</li>
