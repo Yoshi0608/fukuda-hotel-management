@@ -375,6 +375,18 @@ footer { background: var(--dark); border-top: 1px solid rgba(255,255,255,0.08); 
   .book-sec .inner { padding: 88px 24px; }
   .foot { grid-template-columns: 1fr; gap: 34px; }
 }
+
+/* ── LINE image CTA (floating) ── */
+.line-pop { background: transparent; border: none; box-shadow: none; padding: 0; width: 340px; max-width: calc(100vw - 32px); }
+.lp-card { display: block; width: 100%; border-radius: 12px; overflow: hidden; box-shadow: 0 12px 32px rgba(15,13,10,0.24); text-decoration: none; padding: 0; }
+.lp-card picture { display: block; }
+.lp-card img { display: block; width: 100%; height: auto; aspect-ratio: 3 / 2; }
+.line-pop .lp-close { position: absolute; top: -11px; right: -11px; width: 30px; height: 30px; padding: 0; border-radius: 50%; background: #fff; border: 1px solid var(--sand); color: var(--charcoal); font-size: 15px; line-height: 1; cursor: pointer; z-index: 2; box-shadow: 0 2px 8px rgba(0,0,0,0.18); }
+.line-pop:hover .lp-cta { background: none; }
+@media (max-width: 768px) {
+  .line-pop { left: auto; right: 12px; margin-left: 0; width: 76vw; max-width: 280px; min-width: 232px; bottom: calc(50px + env(safe-area-inset-bottom, 0px) + 12px); border-radius: 12px; }
+  .line-pop .lp-close { top: -9px; right: -9px; width: 28px; height: 28px; font-size: 14px; }
+}
 </style>
 </head>
 <body>
@@ -398,12 +410,11 @@ footer { background: var(--dark); border-top: 1px solid rgba(255,255,255,0.08); 
 <!-- LINE member invitation popup (secondary) — routes to /line-members, never straight to LINE -->
 <aside class="line-pop" id="linePop" role="complementary" aria-label="LINE公式アカウント限定の特典案内">
   <button class="lp-close" id="linePopClose" type="button" aria-label="特典案内を閉じる">×</button>
-  <a class="lp-body" href="line-members.html" data-line-lp="floating" data-offer-type="welcome_20000" id="linePopCta">
-    <span class="lp-k">LINE公式アカウント限定</span>
-    <span class="lp-row"><span class="l">初回予約</span><span class="v">¥20,000 OFF</span></span>
-    <span class="lp-row sub"><span class="l">対象日限定</span><span class="v">最大50% OFF</span></span>
-    <span class="lp-cta"><span>今すぐ友だち追加する</span><span class="arw" aria-hidden="true">→</span></span>
-    <span class="lp-note">LINEの友だち限定<br>限定クーポン・直前割引・連泊割引・食事オプションなどをご用意</span>
+  <a class="lp-body lp-card" href="line-members.html" data-line-lp="floating" data-offer-type="welcome_20000_and_up_to_50" id="linePopCta" aria-label="The KIKYŪ AtamiのLINE限定特典を見る。初回予約20,000円OFF、対象日限定プラン最大50%OFF、花火開催日の優先案内。">
+    <picture>
+      <source type="image/webp" srcset="images_corp/line-cta-card.webp">
+      <img src="images_corp/line-cta-card.jpg" width="1020" height="680" alt="LINE公式アカウント限定。初回予約20,000円OFF、対象日限定 最大50%OFF、花火開催日の優先案内も。LINE限定特典を見る。友だち追加無料・約30秒。" loading="lazy" decoding="async">
+    </picture>
   </a>
 </aside>
 
@@ -858,7 +869,7 @@ document.querySelectorAll('[data-line-lp]').forEach(function(a){
       viewed=true;
       kikyuTrack('line_popup_view', {
         page_path: location.pathname, device_type: deviceType(),
-        cta_id: 'stay_line_popup', offer_type: 'welcome_20000_and_up_to_50'
+        cta_id: 'stay_line_image_popup', offer_type: 'welcome_20000_and_up_to_50'
       });
     }
   }
@@ -878,13 +889,13 @@ document.querySelectorAll('[data-line-lp]').forEach(function(a){
     try { sessionStorage.setItem(KEY, String(Date.now())); } catch(e) {}
     kikyuTrack('line_popup_close', {
       page_path: location.pathname, device_type: deviceType(),
-      cta_id: 'stay_line_popup', offer_type: 'welcome_20000_and_up_to_50'
+      cta_id: 'stay_line_image_popup', offer_type: 'welcome_20000_and_up_to_50'
     });
   });
   document.getElementById('linePopCta').addEventListener('click', function(){
     kikyuTrack('line_popup_click', {
       page_path: location.pathname, device_type: deviceType(),
-      cta_id: 'stay_line_popup', offer_type: 'welcome_20000_and_up_to_50',
+      cta_id: 'stay_line_image_popup', offer_type: 'welcome_20000_and_up_to_50',
       link_url: this.href
     });
   });
