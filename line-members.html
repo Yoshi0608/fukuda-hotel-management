@@ -323,10 +323,7 @@ footer { background: var(--dark); border-top: 1px solid rgba(255,255,255,0.08); 
   .foot { grid-template-columns: 1fr; gap: 34px; }
 }
 
-/* official LINE icon in CTAs */
-.btn-line, .sticky-line { display: flex; align-items: center; justify-content: center; gap: 12px; }
-.btn-line .li, .sticky-line .li { width: 24px; height: 24px; flex: none; display: block; object-fit: contain; }
-@media (max-width: 768px) { .btn-line .li, .sticky-line .li { width: 40px; height: 40px; } }
+
 </style><style>
 /* ── KIKYU PRIVATE MEMBERS — acquisition LP (short, CTA-led) ── */
 :root { --lineg: #06C755; }
@@ -369,8 +366,7 @@ body { background: var(--cream); padding-bottom: 0; }
   background: var(--lineg); border: 1px solid var(--lineg); transition: filter .25s;
 }
 .btn-line .li { width: 24px; height: 24px; flex: none; display: block; object-fit: contain; }
-.btn-line .li::after { content: ''; position: absolute; inset: 5px; background: var(--lineg);
-  -webkit-mask: radial-gradient(circle at 50% 44%, #000 46%, transparent 47%); mask: radial-gradient(circle at 50% 44%, #000 46%, transparent 47%); }
+
 .btn-line:hover { filter: brightness(1.06); }
 .btn-line:active { filter: brightness(0.94); }
 .btn-line:focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; }
@@ -433,6 +429,11 @@ body { background: var(--cream); padding-bottom: 0; }
   .how li::before { width: auto; }
 }
 @media (prefers-reduced-motion: reduce) { .fade { opacity: 1; transform: none; transition: none; } }
+
+/* official LINE icon in CTAs (final) */
+a.btn-line, a.sticky-line { display: flex; align-items: center; justify-content: center; gap: 12px; }
+a.btn-line img.li, a.sticky-line img.li { width: 24px; height: 24px; flex: none; display: block; object-fit: contain; border-radius: 0; background: none; }
+@media (max-width: 768px) { a.btn-line img.li, a.sticky-line img.li { width: 40px; height: 40px; } }
 </style>
 </head>
 <body>
