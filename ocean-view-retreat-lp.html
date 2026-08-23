@@ -173,7 +173,7 @@ html[data-offer="preparing"] .oc-status {
 /* LINE MEMBER INVITATION POPUP (secondary to booking; routes to /line-members) */
 .line-pop {
   position: fixed; right: 24px; bottom: 24px; z-index: 270;
-  width: 340px; max-width: calc(100vw - 32px); box-sizing: border-box;
+  width: 283px; max-width: calc(100vw - 32px); box-sizing: border-box;
   background: var(--white); border: 1px solid var(--sand); border-radius: 10px;
   box-shadow: 0 8px 26px rgba(15,13,10,0.12);
   opacity: 0; visibility: hidden; transform: translateY(8px);
@@ -377,14 +377,14 @@ footer { background: var(--dark); border-top: 1px solid rgba(255,255,255,0.08); 
 }
 
 /* ── LINE image CTA (floating) ── */
-.line-pop { background: transparent; border: none; box-shadow: none; padding: 0; width: 340px; max-width: calc(100vw - 32px); }
+.line-pop { background: transparent; border: none; box-shadow: none; padding: 0; width: 283px; max-width: calc(100vw - 32px); }
 .lp-card { display: block; width: 100%; border-radius: 12px; overflow: hidden; box-shadow: 0 12px 32px rgba(15,13,10,0.24); text-decoration: none; padding: 0; }
 .lp-card picture { display: block; }
 .lp-card img { display: block; width: 100%; height: auto; aspect-ratio: 3 / 2; }
 .line-pop .lp-close { position: absolute; top: -11px; right: -11px; width: 30px; height: 30px; padding: 0; border-radius: 50%; background: #fff; border: 1px solid var(--sand); color: var(--charcoal); font-size: 15px; line-height: 1; cursor: pointer; z-index: 2; box-shadow: 0 2px 8px rgba(0,0,0,0.18); }
 .line-pop:hover .lp-cta { background: none; }
 @media (max-width: 768px) {
-  .line-pop { left: auto; right: 12px; margin-left: 0; width: 76vw; max-width: 280px; min-width: 232px; bottom: calc(50px + env(safe-area-inset-bottom, 0px) + 12px); border-radius: 12px; }
+  .line-pop { left: auto; right: 12px; margin-left: 0; width: 76vw; max-width: 223px; min-width: 175px; bottom: calc(50px + env(safe-area-inset-bottom, 0px) + 12px); border-radius: 12px; }
   .line-pop .lp-close { top: -9px; right: -9px; width: 28px; height: 28px; font-size: 14px; }
 }
 
@@ -415,6 +415,16 @@ footer { background: var(--dark); border-top: 1px solid rgba(255,255,255,0.08); 
   .lineband{padding:56px 24px;}
   .promo .btn-gold,.midcta .btn-gold{display:block;width:100%;box-sizing:border-box;text-align:center;min-height:52px;padding:16px 20px;}
 }
+
+.line-pop .lp-close::before{content:"";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:44px;height:44px;border-radius:50%;}
+
+/* ── inline LINE CTA (between sections) ── */
+.line-cta{max-width:1200px;margin:0 auto;padding:0 40px 72px;}
+.line-cta.tight{padding-bottom:0;}
+.line-cta a{display:block;max-width:520px;margin:0 auto;text-decoration:none;border-radius:12px;overflow:hidden;box-shadow:0 12px 32px rgba(15,13,10,0.18);}
+.line-cta picture{display:block;}
+.line-cta img{display:block;width:100%;height:auto;aspect-ratio:3/2;}
+@media (max-width:768px){.line-cta{padding:0 24px 56px;}.line-cta.tight{padding-bottom:0;}.line-cta a{max-width:none;}}
 </style>
 </head>
 <body>
@@ -534,6 +544,16 @@ footer { background: var(--dark); border-top: 1px solid rgba(255,255,255,0.08); 
   </div>
 </section>
 
+<!-- ══ inline LINE CTA ══ -->
+<div class="line-cta">
+  <a class="fade" href="line-members.html" data-promo-cta="line" data-cta-id="line_cta_between_kikyu_experience" data-offer-type="welcome_20000_and_up_to_50" aria-label="The KIKYŪ AtamiのLINE会員限定特典を見る">
+    <picture>
+      <source type="image/webp" srcset="images_corp/line-cta-card.webp">
+      <img src="images_corp/line-cta-card.jpg" width="1020" height="680" alt="LINE公式アカウント限定。初回予約20,000円OFF、対象日限定プラン最大50%OFF、花火開催日の優先案内。" loading="lazy" decoding="async">
+    </picture>
+  </a>
+</div>
+
 <!-- ══ 03 EXPERIENCE ══ -->
 <section class="sec" id="experience" style="padding-top:0;">
   <span class="sec-label fade">Experience</span>
@@ -564,6 +584,16 @@ footer { background: var(--dark); border-top: 1px solid rgba(255,255,255,0.08); 
     <figure class="exp-cell fade"><img src="images_ovr/entrance.jpg" alt="夜の玄関アプローチ" loading="lazy"><b>Private Time</b><p>誰にも気兼ねのない、貸切の時間。</p></figure>
   </div>
 </section>
+
+<!-- ══ inline LINE CTA ══ -->
+<div class="line-cta tight">
+  <a class="fade" href="line-members.html" data-promo-cta="line" data-cta-id="line_cta_between_experience_dining" data-offer-type="welcome_20000_and_up_to_50" aria-label="The KIKYŪ AtamiのLINE会員限定特典を見る">
+    <picture>
+      <source type="image/webp" srcset="images_corp/line-cta-card.webp">
+      <img src="images_corp/line-cta-card.jpg" width="1020" height="680" alt="LINE公式アカウント限定。初回予約20,000円OFF、対象日限定プラン最大50%OFF、花火開催日の優先案内。" loading="lazy" decoding="async">
+    </picture>
+  </a>
+</div>
 
 <!-- ══ 04 DINING ══ -->
 <section class="sec" id="dining">
@@ -671,6 +701,16 @@ footer { background: var(--dark); border-top: 1px solid rgba(255,255,255,0.08); 
   </div>
   <p class="house-note fade">図書室は会議室・ワークスペースとしても利用でき、窓を開けると鳥のさえずりを聞きながら過ごせます。屋上からは海を一望でき、テーブルを囲んでの食事も楽しめます。このほか、1F Esthetic Room(エステ専用ルーム)・1F Massage Room(マッサージ専用ルーム)を備えています(いずれも事前相談制のオプショナルサービス)。</p>
 </section>
+
+<!-- ══ inline LINE CTA ══ -->
+<div class="line-cta">
+  <a class="fade" href="line-members.html" data-promo-cta="line" data-cta-id="line_cta_between_house_gallery" data-offer-type="welcome_20000_and_up_to_50" aria-label="The KIKYŪ AtamiのLINE会員限定特典を見る">
+    <picture>
+      <source type="image/webp" srcset="images_corp/line-cta-card.webp">
+      <img src="images_corp/line-cta-card.jpg" width="1020" height="680" alt="LINE公式アカウント限定。初回予約20,000円OFF、対象日限定プラン最大50%OFF、花火開催日の優先案内。" loading="lazy" decoding="async">
+    </picture>
+  </a>
+</div>
 
 <!-- ══ 07 GALLERY ══ -->
 <section class="sec" id="gallery" style="padding-top:0;">
