@@ -393,6 +393,7 @@ footer { background: var(--dark); border-top: 1px solid rgba(255,255,255,0.08); 
 .promo{max-width:1200px;margin:0 auto;padding:76px 40px 0;text-align:center;}
 .los-banner{margin:0;}
 .los-banner img{display:block;width:100%;height:auto;aspect-ratio:3/1;}
+@media (max-width:768px){.los-banner img{aspect-ratio:4/3;}}
 .promo-cta{margin-top:32px;}
 .promo-note{margin-top:16px;font-family:-apple-system,'Helvetica Neue',sans-serif;font-size:11.5px;line-height:1.9;letter-spacing:.04em;color:var(--warm);}
 .promo-rule{max-width:1200px;margin:76px auto 0;border-bottom:1px solid var(--sand);}
@@ -475,6 +476,8 @@ footer { background: var(--dark); border-top: 1px solid rgba(255,255,255,0.08); 
   <h2 id="losHead" class="vh">連泊割引</h2>
   <figure class="los-banner fade">
     <picture>
+      <source media="(max-width: 768px)" type="image/webp" srcset="assets/images/stay/length-of-stay-discount-30-m.webp">
+      <source media="(max-width: 768px)" srcset="assets/images/stay/length-of-stay-discount-30-m.png">
       <source type="image/webp" srcset="assets/images/stay/length-of-stay-discount-30.webp">
       <img src="assets/images/stay/length-of-stay-discount-30.png" width="1800" height="600" alt="連泊するほど、お得に。2泊20%OFF、3〜6泊25%OFF、7泊以上30%OFF。泊数に応じて自動適用されます。" loading="lazy" decoding="async">
     </picture>
