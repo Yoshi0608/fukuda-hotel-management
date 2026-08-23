@@ -322,6 +322,11 @@ footer { background: var(--dark); border-top: 1px solid rgba(255,255,255,0.08); 
   .book-sec .inner { padding: 88px 24px; }
   .foot { grid-template-columns: 1fr; gap: 34px; }
 }
+
+/* official LINE icon in CTAs */
+.btn-line, .sticky-line { display: flex; align-items: center; justify-content: center; gap: 12px; }
+.btn-line .li, .sticky-line .li { width: 24px; height: 24px; flex: none; display: block; object-fit: contain; }
+@media (max-width: 768px) { .btn-line .li, .sticky-line .li { width: 40px; height: 40px; } }
 </style><style>
 /* ── KIKYU PRIVATE MEMBERS — acquisition LP (short, CTA-led) ── */
 :root { --lineg: #06C755; }
@@ -363,7 +368,7 @@ body { background: var(--cream); padding-bottom: 0; }
   text-decoration: none; font-size: 15.5px; letter-spacing: 0.06em; color: #fff;
   background: var(--lineg); border: 1px solid var(--lineg); transition: filter .25s;
 }
-.btn-line .li { width: 22px; height: 22px; border-radius: 6px; background: #fff; flex: none; position: relative; }
+.btn-line .li { width: 24px; height: 24px; flex: none; display: block; object-fit: contain; }
 .btn-line .li::after { content: ''; position: absolute; inset: 5px; background: var(--lineg);
   -webkit-mask: radial-gradient(circle at 50% 44%, #000 46%, transparent 47%); mask: radial-gradient(circle at 50% 44%, #000 46%, transparent 47%); }
 .btn-line:hover { filter: brightness(1.06); }
@@ -432,7 +437,7 @@ body { background: var(--cream); padding-bottom: 0; }
 </head>
 <body>
 
-<a href="https://line.me/R/ti/p/@184zzkon" target="_blank" rel="noopener noreferrer" class="sticky-line" id="stickyLine" data-line-add="sticky" data-offer-type="welcome_20000">LINEで友だち追加して特典を受け取る</a>
+<a href="https://line.me/R/ti/p/@184zzkon" target="_blank" rel="noopener noreferrer" class="sticky-line" id="stickyLine" data-line-add="sticky" data-offer-type="welcome_20000"><img class="li" src="assets/images/line/line-icon-white.png" width="132" height="132" alt="" aria-hidden="true" decoding="async">LINEで友だち追加して特典を受け取る</a>
 
 <!-- 01 FV -->
 <header class="fv">
@@ -453,7 +458,7 @@ body { background: var(--cream); padding-bottom: 0; }
       </span>
       <span class="fv-more">LINE限定クーポンや直前割引、<br>花火開催日の優先案内も。</span>
     </div>
-    <div class="cta-wrap"><a class="btn-line" href="https://line.me/R/ti/p/@184zzkon" target="_blank" rel="noopener noreferrer" data-line-add="hero" data-offer-type="welcome_20000"><span class="li" aria-hidden="true"></span>LINEで友だち追加して特典を受け取る</a></div>
+    <div class="cta-wrap"><a class="btn-line" href="https://line.me/R/ti/p/@184zzkon" target="_blank" rel="noopener noreferrer" data-line-add="hero" data-offer-type="welcome_20000"><img class="li" src="assets/images/line/line-icon-white.png" width="132" height="132" alt="" aria-hidden="true" decoding="async">LINEで友だち追加して特典を受け取る</a></div>
     <span class="assure">友だち追加無料・約30秒<br>友だち追加後に届くクーポンコードで予約</span>
     <span class="fv-note">※最大50%OFFは、対象日の公式サイト通常料金からの割引です。対象日・プラン・利用条件はLINEでご案内します。</span>
     <span class="fv-trust">相模湾を望む、熱海の一棟貸切ヴィラ「The KIKYŪ Atami」の会員特典です。</span>
@@ -476,7 +481,7 @@ body { background: var(--cream); padding-bottom: 0; }
 </section>
 
 <div class="mid-cta"><div class="in">
-  <a class="btn-line" href="https://line.me/R/ti/p/@184zzkon" target="_blank" rel="noopener noreferrer" data-line-add="benefits" data-offer-type="welcome_20000"><span class="li" aria-hidden="true"></span>LINEで友だち追加して特典を受け取る</a>
+  <a class="btn-line" href="https://line.me/R/ti/p/@184zzkon" target="_blank" rel="noopener noreferrer" data-line-add="benefits" data-offer-type="welcome_20000"><img class="li" src="assets/images/line/line-icon-white.png" width="132" height="132" alt="" aria-hidden="true" decoding="async">LINEで友だち追加して特典を受け取る</a>
   <span class="assure assure-d">友だち追加無料・約30秒</span>
 </div></div>
 
@@ -499,7 +504,7 @@ body { background: var(--cream); padding-bottom: 0; }
 </section>
 
 <div class="mid-cta"><div class="in">
-  <a class="btn-line" href="https://line.me/R/ti/p/@184zzkon" target="_blank" rel="noopener noreferrer" data-line-add="how" data-offer-type="welcome_20000"><span class="li" aria-hidden="true"></span>LINEで友だち追加して特典を受け取る</a>
+  <a class="btn-line" href="https://line.me/R/ti/p/@184zzkon" target="_blank" rel="noopener noreferrer" data-line-add="how" data-offer-type="welcome_20000"><img class="li" src="assets/images/line/line-icon-white.png" width="132" height="132" alt="" aria-hidden="true" decoding="async">LINEで友だち追加して特典を受け取る</a>
   <span class="assure assure-d">友だち追加無料・約30秒</span>
 </div></div>
 
@@ -531,7 +536,7 @@ body { background: var(--cream); padding-bottom: 0; }
     <span class="f-num">初回予約 ¥20,000 OFF</span>
     <span class="f-sub">対象日限定プランは 最大50%OFF</span>
     <h2>LINEで友だち追加して、<br>特典を受け取る。</h2>
-    <div class="cta-wrap" style="display:flex;justify-content:center;"><a class="btn-line" href="https://line.me/R/ti/p/@184zzkon" target="_blank" rel="noopener noreferrer" data-line-add="final" data-offer-type="welcome_20000"><span class="li" aria-hidden="true"></span>LINEで友だち追加して特典を受け取る</a></div>
+    <div class="cta-wrap" style="display:flex;justify-content:center;"><a class="btn-line" href="https://line.me/R/ti/p/@184zzkon" target="_blank" rel="noopener noreferrer" data-line-add="final" data-offer-type="welcome_20000"><img class="li" src="assets/images/line/line-icon-white.png" width="132" height="132" alt="" aria-hidden="true" decoding="async">LINEで友だち追加して特典を受け取る</a></div>
     <span class="assure">友だち追加無料・約30秒 ／ 追加後に届くコードで公式予約</span>
   </div>
 </section>
