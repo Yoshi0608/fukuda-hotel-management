@@ -387,6 +387,32 @@ footer { background: var(--dark); border-top: 1px solid rgba(255,255,255,0.08); 
   .line-pop { left: auto; right: 12px; margin-left: 0; width: 76vw; max-width: 280px; min-width: 232px; bottom: calc(50px + env(safe-area-inset-bottom, 0px) + 12px); border-radius: 12px; }
   .line-pop .lp-close { top: -9px; right: -9px; width: 28px; height: 28px; font-size: 14px; }
 }
+
+/* ── PROMO / INLINE BANNER SECTIONS ── */
+.vh{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0;}
+.promo{max-width:1200px;margin:0 auto;padding:76px 40px 0;text-align:center;}
+.los-banner{margin:0;}
+.los-banner img{display:block;width:100%;height:auto;aspect-ratio:3/1;}
+.promo-cta{margin-top:32px;}
+.promo-note{margin-top:16px;font-family:-apple-system,'Helvetica Neue',sans-serif;font-size:11.5px;line-height:1.9;letter-spacing:.04em;color:var(--warm);}
+.promo-rule{max-width:1200px;margin:76px auto 0;border-bottom:1px solid var(--sand);}
+.midcta{max-width:1200px;margin:0 auto;padding:0 40px 76px;}
+.midcta-in{border-top:1px solid var(--sand);border-bottom:1px solid var(--sand);padding:44px 0;display:flex;align-items:center;justify-content:space-between;gap:28px;flex-wrap:wrap;}
+.midcta-t{font-size:clamp(19px,2.2vw,26px);font-weight:400;line-height:1.6;letter-spacing:.02em;}
+.midcta-n{margin-top:10px;font-family:-apple-system,'Helvetica Neue',sans-serif;font-size:11px;line-height:1.9;letter-spacing:.06em;color:var(--warm);}
+.lineband{max-width:1200px;margin:0 auto;padding:76px 40px;}
+.lineband a{display:block;text-decoration:none;}
+.lineband img{display:block;width:100%;height:auto;aspect-ratio:3/2;}
+.lineband .lb-note{margin-top:16px;font-family:-apple-system,'Helvetica Neue',sans-serif;font-size:11px;line-height:1.9;letter-spacing:.04em;color:var(--warm);}
+@media (max-width:768px){
+  .promo{padding:56px 24px 0;}
+  .promo-rule{margin-top:56px;}
+  .midcta{padding:0 24px 56px;}
+  .midcta-in{display:block;padding:32px 0;}
+  .midcta .btn-gold{margin-top:22px;}
+  .lineband{padding:56px 24px;}
+  .promo .btn-gold,.midcta .btn-gold{display:block;width:100%;box-sizing:border-box;text-align:center;min-height:52px;padding:16px 20px;}
+}
 </style>
 </head>
 <body>
@@ -443,6 +469,22 @@ footer { background: var(--dark); border-top: 1px solid rgba(255,255,255,0.08); 
     <button class="hn-arrow" id="hsNext" aria-label="次のスライドを表示">›</button>
   </div>
 </header>
+
+<!-- ══ 01b LENGTH OF STAY DISCOUNT ══ -->
+<section class="promo" id="los-offer" aria-labelledby="losHead">
+  <h2 id="losHead" class="vh">連泊割引</h2>
+  <figure class="los-banner fade">
+    <picture>
+      <source type="image/webp" srcset="assets/images/stay/length-of-stay-discount-30.webp">
+      <img src="assets/images/stay/length-of-stay-discount-30.png" width="1800" height="600" alt="連泊するほど、お得に。2泊20%OFF、3〜6泊25%OFF、7泊以上30%OFF。泊数に応じて自動適用されます。" loading="lazy" decoding="async">
+    </picture>
+  </figure>
+  <div class="promo-cta fade">
+    <a class="btn-gold" href="https://beds24.com/booking2.php?propid=348740&amp;referer=STAY_LP_LOS_BANNER" target="_blank" rel="noopener noreferrer" data-promo-cta="booking" data-cta-id="stay_los_banner" data-referer="STAY_LP_LOS_BANNER">空室・料金を確認する</a>
+    <p class="promo-note">ご希望の日程と人数を選ぶだけで、割引適用後の総額をご確認いただけます。</p>
+  </div>
+  <div class="promo-rule"></div>
+</section>
 
 <!-- ══ 02 THE KIKYU ══ -->
 <section class="sec" id="kikyu">
@@ -583,6 +625,17 @@ footer { background: var(--dark); border-top: 1px solid rgba(255,255,255,0.08); 
   <p class="note fade" style="margin-top:24px;">※Sunset Yoga、エステ、マッサージは標準の宿泊プランには含まれません。事前相談制で、対応人数・手配状況により追加料金にてご案内します。美容・健康に関する効果を保証するものではありません。</p>
 </section>
 
+<!-- ══ 05b MID BOOKING CTA ══ -->
+<div class="midcta" id="mid-cta">
+  <div class="midcta-in fade">
+    <div>
+      <p class="midcta-t">日程が決まったら、空室と料金を確認。</p>
+      <p class="midcta-n">2泊20%OFF・3〜6泊25%OFF・7泊以上30%OFFは自動適用</p>
+    </div>
+    <a class="btn-gold" href="https://beds24.com/booking2.php?propid=348740&amp;referer=STAY_LP_MID_CTA" target="_blank" rel="noopener noreferrer" data-promo-cta="booking" data-cta-id="stay_mid_cta" data-referer="STAY_LP_MID_CTA">空室・料金を確認する</a>
+  </div>
+</div>
+
 <!-- ══ 06 THE HOUSE ══ -->
 <section class="sec" id="house">
   <span class="sec-label fade">The House</span>
@@ -639,19 +692,16 @@ footer { background: var(--dark); border-top: 1px solid rgba(255,255,255,0.08); 
   </div>
 </section>
 
-<!-- ══ 08 KIKYU PRIVATE MEMBERS / LINE ══ -->
-<section class="sec" id="members" style="padding-top:0;">
-  <span class="sec-label fade">KIKYŪ Private Members</span>
-  <h2 class="sec-h fade">LINEで、一般公開前のご案内を。</h2>
-  <p class="sec-lead fade">The KIKYŪ AtamiのLINE公式アカウントを友だち追加した方へ、公式予約サイトからの初回予約に利用できる20,000円OFF特典をご案内します。さらに、対象日限定の特別割引クーポン、直前プラン、花火開催日の優先案内、連泊プランなどをお届けします。</p>
-  <p class="note fade" style="margin-top:10px;">※最大50%OFFは、同一日・同一施設・同一人数・同一宿泊条件における公式サイト通常料金との比較です。対象日・対象プラン限定。割引率、販売期間、利用条件は各案内をご確認ください。</p>
-  <div class="values">
-    <div class="value-card fade"><b>Welcome Offer</b><p>友だち追加後の初回予約が¥20,000 OFF(公式予約サイト限定)</p></div>
-    <div class="value-card fade"><b>Up to 50% Off</b><p>対象日限定のLINE会員プランが最大50%OFF</p></div>
-    <div class="value-card fade"><b>Fireworks Priority</b><p>花火開催日の優先案内</p></div>
-    <div class="value-card fade"><b>More</b><p>限定クーポン・直前プラン・連泊プラン・Private Diningなどの滞在オプション</p></div>
-  </div>
-  <a class="btn-line-dark fade" href="line-members.html" data-line-lp="members" data-offer-type="welcome_20000">初回¥20,000 OFFの詳細を見る</a>
+<!-- ══ 08 KIKYU PRIVATE MEMBERS / LINE (inline banner) ══ -->
+<section class="lineband" id="members" aria-labelledby="lineBandHead">
+  <h2 id="lineBandHead" class="vh">LINE会員特典</h2>
+  <a class="fade" href="line-members.html" id="lineBandCta" data-promo-cta="line" data-cta-id="stay_inline_line_banner" data-offer-type="welcome_20000_and_up_to_50" aria-label="The KIKYŪ AtamiのLINE限定特典を見る。初回予約20,000円OFF、対象日限定プラン最大50%OFF、花火開催日の優先案内。">
+    <picture>
+      <source type="image/webp" srcset="assets/images/stay/line-member-benefits-banner.webp">
+      <img src="assets/images/stay/line-member-benefits-banner.jpg" width="1500" height="1000" alt="LINE公式アカウント限定。今すぐ予約しなくても、お得な日をLINEで受け取れます。初回予約20,000円OFF、対象日限定最大50%OFF、花火開催日の優先案内。友だち追加無料・約30秒。" loading="lazy" decoding="async">
+    </picture>
+  </a>
+  <p class="lb-note fade">※最大50%OFFは、同一日・同一施設・同一人数・同一宿泊条件における公式サイト通常料金との比較です。対象日・対象プラン限定。割引率、販売期間、利用条件は<a href="line-members.html" style="color:var(--gold);text-decoration:underline;">LINE登録ページ</a>でご確認ください。</p>
 </section>
 
 <!-- ══ 09 LOCATION ══ -->
@@ -907,6 +957,22 @@ const bookSec=document.getElementById('book');
 if('IntersectionObserver' in window){
   new IntersectionObserver(es=>{es.forEach(e=>stickyBook.classList.toggle('hidden', e.isIntersecting));},{threshold:0.1}).observe(bookSec);
 }
+</script>
+<script>
+/* promo CTA tracking (booking + inline LINE banner) */
+(function(){
+  function push(o){ try{ window.dataLayer=window.dataLayer||[]; window.dataLayer.push(o); }catch(e){} }
+  document.addEventListener("click", function(e){
+    var el=e.target; if(!el||!el.closest) return;
+    var a=el.closest("[data-promo-cta]"); if(!a) return;
+    var kind=a.getAttribute("data-promo-cta");
+    if(kind==="booking"){
+      push({event:"booking_cta_click", cta_id:a.getAttribute("data-cta-id")||"", destination:"beds24", referer:a.getAttribute("data-referer")||""});
+    }else if(kind==="line"){
+      push({event:"line_lp_click", cta_id:a.getAttribute("data-cta-id")||"", destination:"/line-members", offer_type:a.getAttribute("data-offer-type")||""});
+    }
+  }, true);
+})();
 </script>
 </body>
 </html>
