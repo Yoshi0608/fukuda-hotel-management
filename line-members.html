@@ -431,8 +431,11 @@ body { background: var(--cream); padding-bottom: 0; }
 @media (prefers-reduced-motion: reduce) { .fade { opacity: 1; transform: none; transition: none; } }
 
 /* official LINE icon in CTAs (final) */
-a.btn-line, a.sticky-line { display: flex; align-items: center; justify-content: center; gap: 12px; }
-a.btn-line img.li, a.sticky-line img.li { width: 24px; height: 24px; flex: none; display: block; object-fit: contain; border-radius: 0; background: none; }
+a.btn-line { display: inline-flex; align-items: center; justify-content: center; gap: 12px; text-align: center; margin-left: auto; margin-right: auto; }
+a.sticky-line { text-align: center; }
+a.sticky-line img.li { display: inline-block; vertical-align: middle; margin-right: 12px; }
+a.btn-line img.li, a.sticky-line img.li { width: 24px; height: 24px; flex: none; object-fit: contain; border-radius: 0; background: none; }
+a.btn-line img.li { display: block; }
 @media (max-width: 768px) { a.btn-line img.li, a.sticky-line img.li { width: 40px; height: 40px; } }
 </style>
 </head>
