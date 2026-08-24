@@ -10,20 +10,37 @@
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://www.fukudahotel.com/ocean-view-retreat-lp">
 <meta property="og:image" content="https://www.fukudahotel.com/images_corp/hero-slide-1.jpg">
-<script type="application/ld+json">
-{
+<script type="application/ld+json">{
   "@context": "https://schema.org",
   "@type": "LodgingBusiness",
   "name": "The KIKYŪ Atami",
   "alternateName": "The KIKYŪ",
   "url": "https://www.fukudahotel.com/ocean-view-retreat-lp",
   "image": "https://www.fukudahotel.com/images_corp/hero-slide-1.jpg",
-  "address": {"@type": "PostalAddress", "addressLocality": "熱海市", "addressRegion": "静岡県", "addressCountry": "JP"},
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "熱海市",
+    "addressRegion": "静岡県",
+    "addressCountry": "JP",
+    "postalCode": "413-0033",
+    "streetAddress": "熱海1947-10 自然郷熱海台7次6"
+  },
   "email": "info@fukudahotel.com",
-  "sameAs": ["https://www.airbnb.jp/rooms/1702553688163230888"],
-  "parentOrganization": {"@type": "Organization", "name": "Fukuda Hotel Management LLC"}
-}
-</script>
+  "sameAs": [
+    "https://www.airbnb.jp/rooms/1702553688163230888"
+  ],
+  "parentOrganization": {
+    "@type": "Organization",
+    "name": "Fukuda Hotel Management LLC"
+  },
+  "telephone": "+81-557-29-6075",
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 35.080762,
+    "longitude": 139.0605223
+  },
+  "maximumAttendeeCapacity": 14
+}</script>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -455,6 +472,17 @@ footer { background: var(--dark); border-top: 1px solid rgba(255,255,255,0.08); 
 @media (max-width:900px){.los-card{padding:38px 24px 32px;}}
 @media (max-width:768px){.promo .los-btn{max-width:none;}}
 @media (max-width:560px){.los-br{display:inline;}.los-card{padding:28px 14px 24px;}.los-limited{padding:4px 12px;font-size:10px;}.los-eyebrow{margin-top:14px;font-size:11.5px;letter-spacing:.28em;}.los-orn{width:96px;margin-top:12px;}.los-title{margin-top:14px;font-size:21px;line-height:1.4;}.los-lead{margin-top:11px;font-size:12px;line-height:1.85;}.los-lead em{font-size:13.5px;}.los-tiers{margin-top:20px;}.los-tier{padding:14px 3px 12px;}.los-nights{font-size:12.5px;letter-spacing:.04em;}.los-nights::after{width:30px;margin-top:6px;}.los-rate{margin-top:8px;}.los-rate .n{font-size:30px;}.los-rate .p{font-size:16px;}.los-rate .o{width:100%;margin-left:0;margin-top:3px;font-size:9.5px;}.los-ic{display:none;}.los-auto{padding:10px 8px 12px;font-size:10.5px;letter-spacing:.02em;}.los-auto svg{width:14px;height:14px;}.los-fine{margin-top:13px;font-size:10.5px;}.los-card .promo-cta{margin-top:16px;}.promo .los-btn{min-height:54px;font-size:13.5px;}}
+
+/* LOCATION: address + map */
+.loc-place{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);gap:36px;align-items:start;margin-top:48px;}
+.loc-place .lp-ttl{font-family:-apple-system,Helvetica Neue,sans-serif;font-size:11px;letter-spacing:.2em;color:var(--warm);}
+.loc-place .lp-name{margin-top:12px;font-size:18px;letter-spacing:.08em;color:var(--ink);}
+.loc-place address{display:block;margin-top:10px;font-style:normal;font-family:-apple-system,Helvetica Neue,sans-serif;font-size:14px;line-height:2;letter-spacing:.04em;color:var(--mid);}
+.loc-link{display:inline-flex;align-items:center;gap:7px;margin-top:18px;font-family:-apple-system,Helvetica Neue,sans-serif;font-size:13px;letter-spacing:.06em;color:var(--gold);text-decoration:none;border-bottom:1px solid var(--sand);padding-bottom:4px;transition:color .3s,border-color .3s;}
+.loc-link:hover{color:var(--ink);border-color:var(--ink);}
+.loc-map{width:100%;height:300px;border:1px solid var(--sand);overflow:hidden;background:var(--cream-d);}
+.loc-map iframe{display:block;width:100%;height:100%;border:0;}
+@media (max-width:768px){.loc-place{grid-template-columns:1fr;gap:22px;margin-top:34px;}.loc-map{height:240px;}.loc-place address{font-size:13.5px;}}
 </style>
 </head>
 <body>
@@ -734,11 +762,21 @@ footer { background: var(--dark); border-top: 1px solid rgba(255,255,255,0.08); 
 <section class="sec" id="location">
   <span class="sec-label fade">Location</span>
   <h2 class="sec-h fade">ATAMI, JUST BEYOND TOKYO.</h2>
-  <p class="sec-lead fade">東京からアクセスできる、熱海の滞在先。</p>
+  <p class="sec-lead fade">東京からアクセスできる、熱海の滞在先。</p><div class="loc-place fade">
+    <div class="loc-addr">
+      <p class="lp-ttl">ADDRESS</p>
+      <p class="lp-name">The KIKYŪ Atami</p>
+      <address>〒413-0033<br>静岡県熱海市熱海1947-10<br>自然郷熱海台7次6</address>
+      <a class="loc-link" href="https://www.google.com/maps/search/?api=1&amp;query=35.0807620,139.0605223" target="_blank" rel="noopener noreferrer">Googleマップで場所を見る ↗</a>
+    </div>
+    <div class="loc-map">
+      <iframe src="https://maps.google.com/maps?q=35.0807620,139.0605223&amp;hl=ja&amp;z=16&amp;output=embed" title="The KIKYŪ Atamiの所在地" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen=""></iframe>
+    </div>
+  </div>
   <dl class="info-grid fade">
-    <dt>所在地</dt><dd>静岡県熱海市(詳細な住所・道順は、ご予約確定後にご案内します)</dd>
-    <dt>電車でのアクセス</dt><dd>東京駅から熱海駅まで、新幹線で約40〜50分。熱海駅からのアクセスはご予約確定後にご案内します。</dd>
-    <dt>車でのアクセス</dt><dd>道順はご予約確定後にご案内します。</dd>
+    
+    <dt>電車でのアクセス</dt><dd>東京駅から熱海駅まで、新幹線で約40〜50分。熱海駅から施設までの詳しいアクセスは、ご予約確定後にご案内します。</dd>
+    <dt>車でのアクセス</dt><dd>お車でお越しの際は、Googleマップで所在地をご確認ください。自然郷内の詳しい進入経路やチェックイン方法は、ご予約確定後にご案内します。</dd>
     <dt>駐車場</dt><dd>普通車:5台</dd>
     <dt>相模湾</dt><dd>邸内の各所から相模湾を望みます。</dd>
     <dt>熱海海上花火大会</dt><dd>開催日は主催者の発表をご確認ください。天候・開催状況等により見え方は異なります。</dd>
