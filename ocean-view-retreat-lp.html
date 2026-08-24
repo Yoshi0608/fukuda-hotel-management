@@ -432,13 +432,6 @@ footer { background: var(--dark); border-top: 1px solid rgba(255,255,255,0.08); 
 
 .line-pop .lp-close::before{content:"";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:44px;height:44px;border-radius:50%;}
 
-/* ── inline LINE CTA (between sections) ── */
-.line-cta{max-width:1200px;margin:0 auto;padding:0 40px 72px;}
-.line-cta.tight{padding-bottom:0;}
-.line-cta a{display:block;max-width:640px;margin:0 auto;text-decoration:none;border-radius:12px;overflow:hidden;box-shadow:0 12px 32px rgba(15,13,10,0.18);}
-.line-cta picture{display:block;}
-.line-cta img{display:block;width:100%;height:auto;aspect-ratio:3/2;}
-@media (max-width:768px){.line-cta{padding:0 24px 56px;}.line-cta.tight{padding-bottom:0;}.line-cta a{max-width:none;}}
 
 /* LONG STAY BENEFIT (renewed) */
 .los-card{max-width:960px;margin:0 auto;background:linear-gradient(180deg,#FFFFFF 0%,#FDFBF7 100%);border:1px solid var(--sand);box-shadow:0 1px 3px rgba(26,23,20,.035);padding:46px 48px 40px;text-align:center;}
@@ -576,6 +569,17 @@ footer { background: var(--dark); border-top: 1px solid rgba(255,255,255,0.08); 
 </section>
 
 <!-- ══ 02 THE KIKYU ══ -->
+<section class="lineband" id="line-band-Top" aria-labelledby="lineBandHeadTop">
+  <h2 id="lineBandHeadTop" class="vh">LINE会員特典</h2>
+  <a class="fade" href="line-members.html" id="lineBandCtaTop" data-promo-cta="line" data-cta-id="line_cta_los_kikyu" data-offer-type="welcome_20000_and_up_to_50" aria-label="The KIKYŪ AtamiのLINE会員限定特典を見る">
+    <picture>
+      <source type="image/webp" srcset="assets/images/line/line-members-inline-banner.webp">
+      <img src="assets/images/line/line-members-inline-banner.jpg" width="1500" height="1000" alt="LINE公式アカウント限定。初回予約20,000円OFF、対象日限定最大50%OFF、花火開催日の優先案内などの特典を見る" loading="lazy" decoding="async">
+    </picture>
+  </a>
+  <p class="lb-note fade">※最大50%OFFは、同一日・同一施設・同一人数・同一宿泊条件における公式サイト通常料金との比較です。対象日・対象プラン限定。割引率、販売期間、利用条件は<a href="line-members.html" style="color:var(--gold);text-decoration:underline;">LINE登録ページ</a>でご確認ください。</p>
+</section>
+
 <section class="sec" id="kikyu">
   <span class="sec-label fade">The KIKYŪ</span>
   <h2 class="sec-h fade">海と過ごす、<br>一棟貸切の滞在。</h2>
@@ -618,14 +622,16 @@ footer { background: var(--dark); border-top: 1px solid rgba(255,255,255,0.08); 
 </section>
 
 <!-- ══ inline LINE CTA ══ -->
-<div class="line-cta">
-  <a class="fade" href="line-members.html" data-promo-cta="line" data-cta-id="line_cta_between_kikyu_experience" data-offer-type="welcome_20000_and_up_to_50" aria-label="The KIKYŪ AtamiのLINE会員限定特典を見る">
+<section class="lineband" id="line-band-Mid" aria-labelledby="lineBandHeadMid">
+  <h2 id="lineBandHeadMid" class="vh">LINE会員特典</h2>
+  <a class="fade" href="line-members.html" id="lineBandCtaMid" data-promo-cta="line" data-cta-id="line_cta_between_kikyu_experience" data-offer-type="welcome_20000_and_up_to_50" aria-label="The KIKYŪ AtamiのLINE会員限定特典を見る">
     <picture>
       <source type="image/webp" srcset="assets/images/line/line-members-inline-banner.webp">
       <img src="assets/images/line/line-members-inline-banner.jpg" width="1500" height="1000" alt="LINE公式アカウント限定。初回予約20,000円OFF、対象日限定最大50%OFF、花火開催日の優先案内などの特典を見る" loading="lazy" decoding="async">
     </picture>
   </a>
-</div>
+  <p class="lb-note fade">※最大50%OFFは、同一日・同一施設・同一人数・同一宿泊条件における公式サイト通常料金との比較です。対象日・対象プラン限定。割引率、販売期間、利用条件は<a href="line-members.html" style="color:var(--gold);text-decoration:underline;">LINE登録ページ</a>でご確認ください。</p>
+</section>
 
 <!-- ══ 03 EXPERIENCE ══ -->
 
