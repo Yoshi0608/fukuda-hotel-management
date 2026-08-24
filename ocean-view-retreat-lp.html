@@ -476,6 +476,19 @@ footer { background: var(--dark); border-top: 1px solid rgba(255,255,255,0.08); 
 .loc-map{width:100%;height:300px;border:1px solid var(--sand);overflow:hidden;background:var(--cream-d);}
 .loc-map iframe{display:block;width:100%;height:100%;border:0;}
 @media (max-width:768px){.loc-place{grid-template-columns:1fr;gap:22px;margin-top:34px;}.loc-map{height:240px;}.loc-place address{font-size:13.5px;}}
+
+/* BEDROOMS */
+#bedrooms .bed-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:34px 24px;margin-top:48px;padding:0;list-style:none;}
+#bedrooms .bed-card{display:flex;flex-direction:column;margin:0;}
+#bedrooms .bed-card img{display:block;width:100%;height:auto;aspect-ratio:3/2;object-fit:cover;object-position:center;}
+#bedrooms .bed-body{padding:18px 0 0;}
+#bedrooms .bed-body b{display:block;font-family:Georgia,serif;font-weight:400;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);}
+#bedrooms .bed-ja{display:block;margin-top:9px;font-size:16px;letter-spacing:.06em;color:var(--ink);}
+#bedrooms .bed-spec{display:block;margin-top:9px;font-family:-apple-system,'Helvetica Neue',sans-serif;font-size:13px;line-height:1.9;letter-spacing:.03em;color:var(--mid);}
+#bedrooms .bed-cap{display:inline-block;margin-top:11px;padding:3px 13px;border:1px solid var(--sand);font-family:-apple-system,'Helvetica Neue',sans-serif;font-size:11.5px;letter-spacing:.1em;color:var(--charcoal);}
+#bedrooms .bed-sum{margin-top:44px;font-family:-apple-system,'Helvetica Neue',sans-serif;font-size:12px;line-height:2;letter-spacing:.04em;color:var(--warm);}
+@media (max-width:900px){#bedrooms .bed-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:30px 20px;margin-top:36px;}#bedrooms .bed-sum{margin-top:34px;}}
+@media (max-width:640px){#bedrooms .bed-grid{grid-template-columns:1fr;gap:34px;}#bedrooms .bed-ja{font-size:17px;}}
 </style>
 </head>
 <body>
@@ -622,6 +635,61 @@ footer { background: var(--dark); border-top: 1px solid rgba(255,255,255,0.08); 
 </section>
 
 <!-- ══ inline LINE CTA ══ -->
+<!-- ══ BEDROOMS ══ -->
+<section class="sec" id="bedrooms" aria-labelledby="bedHead">
+  <span class="sec-label fade">Bedrooms</span>
+  <h2 id="bedHead" class="sec-h fade">客室</h2>
+  <p class="sec-lead fade">5つの客室に、ベッド・布団を合わせて最大16名分の寝具をご用意しています。快適にお過ごしいただくため、通常のご予約は最大14名で承ります。15名以上でのご宿泊をご希望の場合は、事前にご相談ください。</p>
+  <ul class="bed-grid">
+      <li class="bed-card fade">
+        <img src="images_corp/kikyu-master-5f.jpg" alt="5階マスターベッドルーム" loading="lazy" decoding="async">
+        <div class="bed-body">
+          <b>5F MASTER BEDROOM</b>
+          <span class="bed-ja">5F マスターベッドルーム</span>
+          <span class="bed-spec">キングサイズベッド × 1</span>
+          <span class="bed-cap">2名</span>
+        </div>
+      </li>
+      <li class="bed-card fade">
+        <img src="images_corp/kikyu-bedroom-5f.jpg" alt="5階ベッドルーム" loading="lazy" decoding="async">
+        <div class="bed-body">
+          <b>5F BEDROOM</b>
+          <span class="bed-ja">5F ベッドルーム</span>
+          <span class="bed-spec">クイーンサイズベッド × 1</span>
+          <span class="bed-cap">2名</span>
+        </div>
+      </li>
+      <li class="bed-card fade">
+        <img src="images_corp/kikyu-bedroom-4f.jpg" alt="4階ベッドルーム" loading="lazy" decoding="async">
+        <div class="bed-body">
+          <b>4F BEDROOM</b>
+          <span class="bed-ja">4F ベッドルーム</span>
+          <span class="bed-spec">キングサイズベッド × 1、ダブルベッド × 2</span>
+          <span class="bed-cap">4名</span>
+        </div>
+      </li>
+      <li class="bed-card fade">
+        <img src="images_corp/kikyu-washitsu-large.jpg" alt="3階の和室(大)" loading="lazy" decoding="async">
+        <div class="bed-body">
+          <b>3F JAPANESE ROOM — LARGE</b>
+          <span class="bed-ja">3F 和室(大)</span>
+          <span class="bed-spec">布団 × 6セット</span>
+          <span class="bed-cap">6名</span>
+        </div>
+      </li>
+      <li class="bed-card fade">
+        <img src="images_corp/kikyu-washitsu-small-2.jpg" alt="3階の和室(小)" loading="lazy" decoding="async">
+        <div class="bed-body">
+          <b>3F JAPANESE ROOM — SMALL</b>
+          <span class="bed-ja">3F 和室(小)</span>
+          <span class="bed-spec">シングルベッド × 2</span>
+          <span class="bed-cap">2名</span>
+        </div>
+      </li>
+  </ul>
+  <p class="bed-sum fade">客室5室／ベッド7台・布団6セット(寝具合計13台・セット)。寝具上の最大受入人数は16名です。<br>通常のご予約は最大14名、15〜16名でのご宿泊は事前相談制となります。</p>
+</section>
+
 <section class="lineband" id="line-band-Mid" aria-labelledby="lineBandHeadMid">
   <h2 id="lineBandHeadMid" class="vh">LINE会員特典</h2>
   <a class="fade" href="line-members.html" id="lineBandCtaMid" data-promo-cta="line" data-cta-id="line_cta_between_kikyu_experience" data-offer-type="welcome_20000_and_up_to_50" aria-label="The KIKYŪ AtamiのLINE会員限定特典を見る">
@@ -812,8 +880,8 @@ footer { background: var(--dark); border-top: 1px solid rgba(255,255,255,0.08); 
   <span class="sec-label fade">Stay Information</span>
   <h2 class="sec-h fade">ご予約の前に。</h2>
   <dl class="info-grid fade">
-    <dt>最大宿泊人数</dt><dd>最大14名(一般宿泊)</dd>
-    <dt>寝室・ベッド</dt><dd>寝室5・ベッド13(和室の布団を含む構成はお問い合わせください)</dd>
+    <dt>最大宿泊人数</dt><dd>通常のご予約は最大14名(15〜16名は事前相談制)</dd>
+    <dt>寝室・ベッド</dt><dd>客室5室・寝具13台／セット(ベッド7台・布団6セット)</dd>
     <dt>入浴設備・トイレ</dt><dd>入浴設備3か所・独立トイレ6か所(入浴設備は1F大浴場、3F檜風呂、5F洋風シャワールームの3か所です)</dd>
     <dt>建物</dt><dd>一棟貸切(滞在中、他のゲストは滞在しません)/延床約1,065㎡</dd>
     <dt>Check-in / Check-out</dt><dd>チェックイン 15:00 / チェックアウト 11:00</dd>
@@ -832,7 +900,7 @@ footer { background: var(--dark); border-top: 1px solid rgba(255,255,255,0.08); 
   </dl>
 
   <div class="faq fade">
-    <details><summary>何名まで宿泊できますか?</summary><p class="a">一般宿泊では最大14名までご宿泊いただけます(寝室5・ベッド13)。人数構成に応じたご案内はお問い合わせください。</p></details>
+    <details><summary>何名まで宿泊できますか?</summary><p class="a">通常のご予約は最大14名で承ります。寝具は最大16名分までご用意できますので、15〜16名でのご宿泊は事前にご相談ください。</p></details>
     <details><summary>子どもも宿泊できますか?</summary><p class="a">はい、お子様のご宿泊は大歓迎です。人数・年齢に応じたご案内はお気軽にお問い合わせください。</p></details>
     <details><summary>食事を依頼できますか?</summary><p class="a">事前のご相談により、専属栄養士によるお食事の設計や、出張シェフによるPrivate Diningをご案内できます。内容・人数・日程により対応可否と料金が異なります。</p></details>
     <details><summary>アレルギーへ対応できますか?</summary><p class="a">事前相談に応じて個別に対応します。ご予約時にお知らせください。</p></details>
