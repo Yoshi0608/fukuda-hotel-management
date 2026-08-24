@@ -498,7 +498,7 @@ footer { background: var(--dark); border-top: 1px solid rgba(255,255,255,0.08); 
 #stories .gs-sep{width:1px;height:14px;background:var(--sand);}
 #stories .gs-meta{font-size:12px;letter-spacing:.06em;color:var(--mid);}
 #stories .gs-badge{padding:3px 12px;border:1px solid var(--gold);border-radius:999px;font-size:10.5px;letter-spacing:.1em;color:var(--gold);}
-#stories .gs-rail{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(0,340px);gap:16px;margin-top:34px;padding:2px 0 10px;overflow-x:auto;overscroll-behavior-x:contain;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:thin;}
+#stories .gs-rail{display:grid;grid-auto-flow:column;grid-auto-columns:340px;gap:16px;margin-top:34px;padding:2px 0 10px;overflow-x:auto;overscroll-behavior-x:contain;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:thin;}
 #stories .gs-rail::-webkit-scrollbar{height:5px;}
 #stories .gs-rail::-webkit-scrollbar-thumb{background:var(--sand);border-radius:99px;}
 #stories .gs-card{scroll-snap-align:start;display:flex;flex-direction:column;box-sizing:border-box;background:var(--white);border:1px solid var(--cream-d);border-radius:6px;padding:22px 20px 20px;box-shadow:0 1px 2px rgba(26,23,20,.035);font-family:-apple-system,'Helvetica Neue','Hiragino Kaku Gothic ProN','Noto Sans JP',sans-serif;}
@@ -513,8 +513,8 @@ footer { background: var(--dark); border-top: 1px solid rgba(255,255,255,0.08); 
 #stories .gs-dots i{width:5px;height:5px;border-radius:50%;background:var(--sand);transition:background .3s ease;}
 #stories .gs-dots i.on{background:var(--gold);}
 #stories .gs-disc{margin-top:24px;text-align:center;font-family:-apple-system,'Helvetica Neue','Hiragino Kaku Gothic ProN','Noto Sans JP',sans-serif;font-size:10.5px;line-height:1.85;letter-spacing:.03em;color:var(--warm);}
-@media (max-width:768px){#stories{padding-bottom:44px;}#stories .gs-rail{grid-auto-columns:minmax(0,76vw);gap:12px;margin-top:28px;}#stories .gs-card{padding:20px 18px 18px;}#stories .gs-body{font-size:13.5px;line-height:2;}#stories .gs-ttl{font-size:15px;}}
-@media (max-width:400px){#stories .gs-rail{grid-auto-columns:minmax(0,80vw);}}
+@media (max-width:768px){#stories{padding-bottom:44px;}#stories .gs-rail{grid-auto-columns:84%;gap:12px;margin-top:28px;}#stories .gs-card{padding:20px 18px 18px;}#stories .gs-body{font-size:13.5px;line-height:2;}#stories .gs-ttl{font-size:15px;}}
+@media (max-width:400px){#stories .gs-rail{grid-auto-columns:86%;}}
 @media (prefers-reduced-motion:reduce){#stories .gs-rail{scroll-behavior:auto;}}
 </style>
 </head>
