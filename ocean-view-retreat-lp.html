@@ -526,6 +526,13 @@ footer { background: var(--dark); border-top: 1px solid rgba(255,255,255,0.08); 
 
 .hs-6 img{object-position:center 52%;}
 @media (max-width:768px){.hs-6 img{object-position:center 50%;}}
+
+/* fix: prevent page-level horizontal overflow (visually-hidden text in the UGC rail) */
+#stories .gs-card{position:relative;}
+#stories .gs-rate{position:relative;}
+#stories .gs-rail{max-width:100%;overflow-x:auto;overflow-y:hidden;}
+html,body{width:100%;max-width:100%;overflow-x:hidden;}
+@supports (overflow-x:clip){html,body{overflow-x:clip;}}
 </style>
 </head>
 <body>
