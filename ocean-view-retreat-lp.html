@@ -425,6 +425,39 @@ footer { background: var(--dark); border-top: 1px solid rgba(255,255,255,0.08); 
 .line-cta picture{display:block;}
 .line-cta img{display:block;width:100%;height:auto;aspect-ratio:3/2;}
 @media (max-width:768px){.line-cta{padding:0 24px 56px;}.line-cta.tight{padding-bottom:0;}.line-cta a{max-width:none;}}
+
+/* LONG STAY BENEFIT (renewed) */
+.los-card{max-width:960px;margin:0 auto;background:linear-gradient(180deg,#FFFFFF 0%,#FDFBF7 100%);border:1px solid var(--sand);box-shadow:0 1px 3px rgba(26,23,20,.035);padding:46px 48px 40px;text-align:center;}
+.los-limited{display:inline-block;padding:5px 15px;border:1px solid var(--gold);color:var(--gold);font-family:-apple-system,Helvetica Neue,sans-serif;font-size:10.5px;letter-spacing:.22em;line-height:1.5;}
+.los-eyebrow{margin-top:18px;font-family:Georgia,serif;font-size:13px;letter-spacing:.34em;color:var(--gold);}
+.los-orn{display:block;position:relative;width:120px;height:1px;margin:15px auto 0;background:var(--sand);}
+.los-orn::after{content:"";position:absolute;left:50%;top:50%;transform:translate(-50%,-50%) rotate(45deg);width:5px;height:5px;background:var(--gold);}
+.los-title{margin-top:18px;font-family:Georgia,"Hiragino Mincho ProN","Yu Mincho",serif;font-weight:400;font-size:clamp(23px,3.5vw,38px);line-height:1.45;letter-spacing:.05em;color:var(--ink);}
+.los-br{display:none;}
+.los-lead{margin-top:14px;font-family:-apple-system,Helvetica Neue,sans-serif;font-size:13.5px;line-height:1.95;letter-spacing:.04em;color:var(--mid);}
+.los-lead em{font-style:normal;font-family:Georgia,serif;font-size:15.5px;letter-spacing:.06em;color:var(--gold);}
+.los-tiers{display:grid;grid-template-columns:repeat(3,1fr);margin-top:28px;border:1px solid var(--cream-d);background:#FCFAF6;}
+.los-tier{position:relative;padding:22px 8px 18px;}
+.los-tier + .los-tier::before{content:"";position:absolute;left:0;top:14%;bottom:14%;width:1px;background:var(--sand);opacity:.65;}
+.los-nights{font-family:Georgia,"Hiragino Mincho ProN","Yu Mincho",serif;font-size:15px;letter-spacing:.1em;color:var(--charcoal);}
+.los-nights::after{content:"";display:block;width:42px;height:1px;margin:8px auto 0;background:var(--gold);opacity:.5;}
+.los-rate{display:flex;align-items:baseline;justify-content:center;flex-wrap:wrap;margin-top:12px;color:var(--ink);}
+.los-rate .n{font-family:Georgia,serif;font-size:clamp(32px,5vw,58px);line-height:1;letter-spacing:.01em;}
+.los-rate .p{font-family:Georgia,serif;font-size:clamp(17px,2.6vw,29px);line-height:1;margin-left:1px;}
+.los-rate .o{font-family:-apple-system,Helvetica Neue,sans-serif;font-size:11px;letter-spacing:.12em;margin-left:6px;color:var(--mid);}
+.los-tier.is-max .los-rate .n,.los-tier.is-max .los-rate .p{color:var(--gold);}
+.los-ic{display:block;width:30px;height:30px;margin:14px auto 0;color:var(--gold);}
+.los-ic svg{display:block;width:100%;height:100%;}
+.los-auto{grid-column:1 / -1;display:flex;align-items:center;justify-content:center;gap:8px;padding:13px 12px 15px;border-top:1px solid var(--cream-d);font-family:-apple-system,Helvetica Neue,sans-serif;font-size:12px;letter-spacing:.08em;color:var(--charcoal);}
+.los-auto svg{flex:none;width:16px;height:16px;color:var(--gold);}
+.los-fine{margin-top:16px;font-family:-apple-system,Helvetica Neue,sans-serif;font-size:11px;line-height:1.8;letter-spacing:.04em;color:var(--warm);}
+.los-card .promo-cta{margin-top:20px;}
+.promo .los-btn{display:inline-flex;align-items:center;justify-content:center;gap:16px;width:100%;max-width:400px;min-height:56px;margin:0 auto;border-radius:2px;background:linear-gradient(180deg,#C6A465 0%,#AD8A4B 100%);border:1px solid #A8853F;font-size:14px;letter-spacing:.14em;}
+.promo .los-btn:hover{background:var(--ink);border-color:var(--ink);}
+.los-arw{font-family:Georgia,serif;font-size:16px;line-height:1;}
+@media (max-width:900px){.los-card{padding:38px 24px 32px;}}
+@media (max-width:768px){.promo .los-btn{max-width:none;}}
+@media (max-width:560px){.los-br{display:inline;}.los-card{padding:32px 16px 28px;}.los-tier{padding:18px 4px 14px;}.los-rate .o{width:100%;margin-left:0;margin-top:4px;font-size:10px;}.los-nights{font-size:13px;letter-spacing:.06em;}.los-nights::after{width:34px;}.los-ic{width:24px;height:24px;margin-top:10px;}.los-auto{font-size:11px;letter-spacing:.04em;}.los-lead{font-size:12.5px;}.los-lead em{font-size:14px;}}
 </style>
 </head>
 <body>
@@ -484,20 +517,35 @@ footer { background: var(--dark); border-top: 1px solid rgba(255,255,255,0.08); 
 
 <!-- ══ 01b LENGTH OF STAY DISCOUNT ══ -->
 <section class="promo" id="los-offer" aria-labelledby="losHead">
-  <h2 id="losHead" class="vh">連泊割引</h2>
-  <figure class="los-banner fade">
-    <picture class="los-d">
-      <source type="image/webp" srcset="assets/images/stay/length-of-stay-discount-30.webp">
-      <img src="assets/images/stay/length-of-stay-discount-30.png" width="1800" height="600" alt="連泊するほど、お得に。2泊20%OFF、3〜6泊25%OFF、7泊以上30%OFF。泊数に応じて自動適用されます。" loading="lazy" decoding="async">
-    </picture>
-    <picture class="los-m">
-      <source type="image/webp" srcset="assets/images/stay/length-of-stay-discount-30-m.webp">
-      <img src="assets/images/stay/length-of-stay-discount-30-m.png" width="1200" height="900" alt="" aria-hidden="true" loading="lazy" decoding="async">
-    </picture>
-  </figure>
-  <div class="promo-cta fade">
-    <a class="btn-gold" href="https://beds24.com/booking2.php?propid=348740&amp;referer=STAY_LP_LOS_BANNER" target="_blank" rel="noopener noreferrer" data-promo-cta="booking" data-cta-id="stay_los_banner" data-referer="STAY_LP_LOS_BANNER">空室・料金を確認する</a>
-    <p class="promo-note">ご希望の日程と人数を選ぶだけで、割引適用後の総額をご確認いただけます。</p>
+  <div class="los-card fade">
+    <p class="los-limited"><span>期間限定</span></p>
+    <p class="los-eyebrow">LONG STAY BENEFIT</p>
+    <span class="los-orn" aria-hidden="true"></span>
+    <h2 id="losHead" class="los-title">連泊するほど、<br class="los-br">特別な滞在を。</h2>
+    <p class="los-lead">期間限定で、滞在日数に応じて<em>最大30%OFF</em>の連泊特典を自動適用。</p>
+    <div class="los-tiers">
+      <div class="los-tier">
+        <p class="los-nights">2泊</p>
+        <p class="los-rate"><span class="n">20</span><span class="p">%</span><span class="o">OFF</span></p>
+        <span class="los-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round"><path d="M2.6 18.4v-9.6M2.6 13.6h18.8M21.4 18.4v-4.8M6.2 13.6v-3.2h4.8v3.2M13 13.6v-3.2h4.8v3.2M4.4 18.4v1.6M19.6 18.4v1.6"/></svg></span>
+      </div>
+      <div class="los-tier">
+        <p class="los-nights">3〜6泊</p>
+        <p class="los-rate"><span class="n">25</span><span class="p">%</span><span class="o">OFF</span></p>
+        <span class="los-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round"><rect x="5.2" y="7.6" width="13.6" height="12" rx="1.6"/><path d="M9.6 7.6V5.4a1 1 0 0 1 1-1h2.8a1 1 0 0 1 1 1v2.2M9.9 11v5M14.1 11v5"/></svg></span>
+      </div>
+      <div class="los-tier is-max">
+        <p class="los-nights">7泊以上</p>
+        <p class="los-rate"><span class="n">30</span><span class="p">%</span><span class="o">OFF</span></p>
+        <span class="los-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.1" stroke-linecap="round"><path d="M12 4.6v2.6M6.6 7l1.8 1.8M17.4 7l-1.8 1.8M4.4 13.6h1.9M17.7 13.6h1.9"/><path d="M8 13.6a4 4 0 0 1 8 0"/><path d="M3.4 17.2h5.2M11.2 17.2h4.2M18 17.2h2.6M4.8 20h5.4M13 20h6.2"/></svg></span>
+      </div>
+      <p class="los-auto"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.6"/><path d="m8.4 12.3 2.5 2.5 4.7-5.1"/></svg><span>泊数に応じて自動適用</span></p>
+    </div>
+    <p class="los-fine">※対象日・プランにより適用条件が異なる場合があります。</p>
+    <div class="promo-cta">
+      <a class="btn-gold los-btn" href="https://beds24.com/booking2.php?propid=348740&amp;referer=STAY_LP_LOS_BANNER" target="_blank" rel="noopener noreferrer" data-promo-cta="booking" data-cta-id="stay_los_banner" data-referer="STAY_LP_LOS_BANNER">連泊で予約する<span class="los-arw" aria-hidden="true">→</span></a>
+      <p class="promo-note">日程と人数を選択して、連泊料金をご確認いただけます。</p>
+    </div>
   </div>
   <div class="promo-rule"></div>
 </section>
