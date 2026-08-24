@@ -489,6 +489,33 @@ footer { background: var(--dark); border-top: 1px solid rgba(255,255,255,0.08); 
 #bedrooms .bed-sum{margin-top:44px;font-family:-apple-system,'Helvetica Neue',sans-serif;font-size:12px;line-height:2;letter-spacing:.04em;color:var(--warm);}
 @media (max-width:900px){#bedrooms .bed-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:30px 20px;margin-top:36px;}#bedrooms .bed-sum{margin-top:34px;}}
 @media (max-width:640px){#bedrooms .bed-grid{grid-template-columns:1fr;gap:34px;}#bedrooms .bed-ja{font-size:17px;}}
+
+/* GUEST STORIES */
+#stories{padding-bottom:64px;}
+#stories .gs-proof{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:8px 14px;margin-top:24px;font-family:-apple-system,'Helvetica Neue','Hiragino Kaku Gothic ProN','Noto Sans JP',sans-serif;}
+#stories .gs-proof .gs-stars{font-size:14px;}
+#stories .gs-score{font-family:Georgia,serif;font-size:18px;letter-spacing:.04em;color:var(--ink);}
+#stories .gs-sep{width:1px;height:14px;background:var(--sand);}
+#stories .gs-meta{font-size:12px;letter-spacing:.06em;color:var(--mid);}
+#stories .gs-badge{padding:3px 12px;border:1px solid var(--gold);border-radius:999px;font-size:10.5px;letter-spacing:.1em;color:var(--gold);}
+#stories .gs-rail{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(0,340px);gap:16px;margin-top:34px;padding:2px 0 10px;overflow-x:auto;overscroll-behavior-x:contain;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:thin;}
+#stories .gs-rail::-webkit-scrollbar{height:5px;}
+#stories .gs-rail::-webkit-scrollbar-thumb{background:var(--sand);border-radius:99px;}
+#stories .gs-card{scroll-snap-align:start;display:flex;flex-direction:column;box-sizing:border-box;background:var(--white);border:1px solid var(--cream-d);border-radius:6px;padding:22px 20px 20px;box-shadow:0 1px 2px rgba(26,23,20,.035);font-family:-apple-system,'Helvetica Neue','Hiragino Kaku Gothic ProN','Noto Sans JP',sans-serif;}
+#stories .gs-stars{color:var(--gold);font-size:13px;letter-spacing:.16em;line-height:1;}
+#stories .gs-rate{margin:0;}
+#stories .gs-tag{display:inline-flex;align-items:center;align-self:flex-start;gap:7px;margin:13px 0 0;padding:5px 13px;border-radius:999px;background:var(--cream);color:var(--charcoal);font-size:11.5px;line-height:1.5;letter-spacing:.03em;}
+#stories .gs-tag svg{flex:none;width:14px;height:14px;color:var(--gold);}
+#stories .gs-ttl{margin:15px 0 0;font-family:inherit;font-size:15.5px;font-weight:700;line-height:1.6;letter-spacing:.02em;color:var(--ink);}
+#stories .gs-body{margin:11px 0 0;font-size:13.5px;line-height:1.95;letter-spacing:.02em;color:var(--mid);}
+#stories .gs-src{margin:auto 0 0;padding-top:18px;font-size:10.5px;letter-spacing:.08em;color:var(--warm);}
+#stories .gs-dots{display:flex;justify-content:center;gap:7px;margin-top:14px;}
+#stories .gs-dots i{width:5px;height:5px;border-radius:50%;background:var(--sand);transition:background .3s ease;}
+#stories .gs-dots i.on{background:var(--gold);}
+#stories .gs-disc{margin-top:24px;text-align:center;font-family:-apple-system,'Helvetica Neue','Hiragino Kaku Gothic ProN','Noto Sans JP',sans-serif;font-size:10.5px;line-height:1.85;letter-spacing:.03em;color:var(--warm);}
+@media (max-width:768px){#stories{padding-bottom:44px;}#stories .gs-rail{grid-auto-columns:minmax(0,76vw);gap:12px;margin-top:28px;}#stories .gs-card{padding:20px 18px 18px;}#stories .gs-body{font-size:13.5px;line-height:2;}#stories .gs-ttl{font-size:15px;}}
+@media (max-width:400px){#stories .gs-rail{grid-auto-columns:minmax(0,80vw);}}
+@media (prefers-reduced-motion:reduce){#stories .gs-rail{scroll-behavior:auto;}}
 </style>
 </head>
 <body>
@@ -688,6 +715,73 @@ footer { background: var(--dark); border-top: 1px solid rgba(255,255,255,0.08); 
       </li>
   </ul>
   <p class="bed-sum fade">客室5室／ベッド7台・布団6セット(寝具合計13台・セット)。寝具上の最大受入人数は16名です。<br>通常のご予約は最大14名、15〜16名でのご宿泊は事前相談制となります。</p>
+</section>
+
+<!-- ══ GUEST STORIES ══ -->
+<section class="sec" id="stories" aria-labelledby="storiesHead">
+  <span class="sec-label fade">Guest Stories</span>
+  <h2 id="storiesHead" class="sec-h fade">ここで過ごした、それぞれの時間。</h2>
+  <p class="sec-lead fade">家族との休日、友人たちとの集まり、特別な日の滞在。<br>The KIKYŪを実際に訪れたゲストから届いた声をご紹介します。</p>
+  <div class="gs-proof fade">
+    <span class="gs-stars" aria-hidden="true">★★★★★</span><span class="gs-score">5.0</span>
+    <span class="gs-sep" aria-hidden="true"></span>
+    <span class="gs-meta">Airbnb レビュー12件</span>
+    <span class="gs-sep" aria-hidden="true"></span>
+    <span class="gs-badge">Guest Favorite</span>
+  </div>
+  <div class="gs-rail" id="gsRail" tabindex="0" role="group" aria-label="ゲストレビュー（横スクロール）">
+      <article class="gs-card">
+        <p class="gs-rate"><span class="gs-stars" aria-hidden="true">★★★★★</span><span class="vh">5点満点中5点</span></p>
+        <p class="gs-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8" r="3.2"/><path d="M3.2 19.2a5.8 5.8 0 0 1 11.6 0"/><path d="M16.2 5.2a3.2 3.2 0 0 1 0 5.9M17.4 14.2a5.8 5.8 0 0 1 3.4 5"/></svg><span>8名でのグループ旅行</span></p>
+        <h3 class="gs-ttl">一日中楽しめる場所でした</h3>
+        <p class="gs-body">到着した瞬間、目の前に広がる海の絶景に感動しました。カラオケやビリヤード、温泉、プールも楽しめて、8名でもみんなでのびのび過ごせました。夜には花火まで楽しめて、忘れられない思い出になりました。</p>
+        <p class="gs-src">Airbnb Guest Review</p>
+      </article>
+      <article class="gs-card">
+        <p class="gs-rate"><span class="gs-stars" aria-hidden="true">★★★★★</span><span class="vh">5点満点中5点</span></p>
+        <p class="gs-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="7.6" cy="7.4" r="2.8"/><path d="M2.6 19.4a5 5 0 0 1 10 0"/><circle cx="16.8" cy="6.4" r="2.4"/><path d="M12.8 19.4a4.2 4.2 0 0 1 8.4 0"/><circle cx="12.2" cy="13.4" r="1.8"/></svg><span>お子様連れ・三世代の家族旅行</span></p>
+        <h3 class="gs-ttl">子どもから大人まで、それぞれ楽しめました</h3>
+        <p class="gs-body">子どもたちはプールやビリヤードを楽しみ、母は温泉やマッサージチェアを気に入っていました。子どもを寝かせた後は大人たちでカラオケも。家族全員がそれぞれ楽しめたことが何より嬉しかったです。</p>
+        <p class="gs-src">Airbnb Guest Review</p>
+      </article>
+      <article class="gs-card">
+        <p class="gs-rate"><span class="gs-stars" aria-hidden="true">★★★★★</span><span class="vh">5点満点中5点</span></p>
+        <p class="gs-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8" r="3.2"/><path d="M3.2 19.2a5.8 5.8 0 0 1 11.6 0"/><path d="M16.2 5.2a3.2 3.2 0 0 1 0 5.9M17.4 14.2a5.8 5.8 0 0 1 3.4 5"/></svg><span>家族・友人とのグループ旅行</span></p>
+        <h3 class="gs-ttl">集まる時間も、自分の時間も</h3>
+        <p class="gs-body">一棟貸しなので周囲を気にすることなく、家族や友人とゆったり過ごせました。広々とした空間で、みんなで集まる時間と、それぞれがリラックスする時間の両方を満喫できました。</p>
+        <p class="gs-src">Airbnb Guest Review</p>
+      </article>
+      <article class="gs-card">
+        <p class="gs-rate"><span class="gs-stars" aria-hidden="true">★★★★★</span><span class="vh">5点満点中5点</span></p>
+        <p class="gs-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8" r="3.2"/><path d="M3.2 19.2a5.8 5.8 0 0 1 11.6 0"/><path d="M16.2 5.2a3.2 3.2 0 0 1 0 5.9M17.4 14.2a5.8 5.8 0 0 1 3.4 5"/></svg><span>グループ旅行</span></p>
+        <h3 class="gs-ttl">写真以上のオーシャンビュー</h3>
+        <p class="gs-body">リビングやテラスから見えるオーシャンビューが本当に素晴らしく、到着した瞬間から感動しました。写真以上の開放感があり、非日常を感じられる空間でした。</p>
+        <p class="gs-src">Airbnb Guest Review</p>
+      </article>
+      <article class="gs-card">
+        <p class="gs-rate"><span class="gs-stars" aria-hidden="true">★★★★★</span><span class="vh">5点満点中5点</span></p>
+        <p class="gs-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M12 3v4.6M12 16.4V21M3 12h4.6M16.4 12H21M5.8 5.8l3.2 3.2M15 15l3.2 3.2M18.2 5.8L15 9M9 15l-3.2 3.2"/></svg><span>花火を楽しむグループ旅行</span></p>
+        <h3 class="gs-ttl">宿から眺める熱海の花火</h3>
+        <p class="gs-body">花火大会を宿から見ることができ、プールも温泉も楽しませていただきました。一日を通して宿でゆっくり楽しむことができ、とても印象に残る滞在になりました。</p>
+        <p class="gs-src">Airbnb Guest Review</p>
+      </article>
+      <article class="gs-card">
+        <p class="gs-rate"><span class="gs-stars" aria-hidden="true">★★★★★</span><span class="vh">5点満点中5点</span></p>
+        <p class="gs-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8" r="3.2"/><path d="M3.2 19.2a5.8 5.8 0 0 1 11.6 0"/><path d="M16.2 5.2a3.2 3.2 0 0 1 0 5.9M17.4 14.2a5.8 5.8 0 0 1 3.4 5"/></svg><span>友人とのグループ旅行</span></p>
+        <h3 class="gs-ttl">天候を気にせず楽しめました</h3>
+        <p class="gs-body">大型テレビでのスポーツ観戦に加えて、カラオケ、ビリヤード、シアタールーム、温泉など、一棟の中だけでも十分に楽しめる設備が揃っていました。天候を気にせず充実した時間を過ごせました。</p>
+        <p class="gs-src">Airbnb Guest Review</p>
+      </article>
+      <article class="gs-card">
+        <p class="gs-rate"><span class="gs-stars" aria-hidden="true">★★★★★</span><span class="vh">5点満点中5点</span></p>
+        <p class="gs-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.6 10.4 12 3.8l8.4 6.6"/><path d="M5.6 12v8.2h12.8V12"/><path d="M10 20.2v-4.6h4v4.6"/></svg><span>家族旅行</span></p>
+        <h3 class="gs-ttl">安心して過ごせる滞在でした</h3>
+        <p class="gs-body">チェックインからとても親切に対応していただき、滞在中の問い合わせにも迅速に対応してもらえました。施設も清潔で、オーシャンビューや天然温泉も期待以上。家族全員が大満足の滞在になりました。</p>
+        <p class="gs-src">Airbnb Guest Review</p>
+      </article>
+  </div>
+  <div class="gs-dots" id="gsDots" aria-hidden="true"><i class="on"></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+  <p class="gs-disc fade">実際にご宿泊いただいたゲストから寄せられたレビューを、内容を変えない範囲で一部抜粋・編集しています。</p>
 </section>
 
 <section class="lineband" id="line-band-Mid" aria-labelledby="lineBandHeadMid">
@@ -1114,4 +1208,6 @@ if('IntersectionObserver' in window){
 </script>
 
 
+
+<script>(function(){var r=document.getElementById("gsRail"),d=document.getElementById("gsDots");if(!r||!d)return;var dots=d.children;function u(){var cs=r.children,rl=r.getBoundingClientRect().left,best=0,bd=1e9;for(var i=0;i<cs.length;i++){var x=Math.abs(cs[i].getBoundingClientRect().left-rl);if(x<bd){bd=x;best=i;}}for(var j=0;j<dots.length;j++){if(j===best){dots[j].className="on";}else{dots[j].className="";}}}r.addEventListener("scroll",function(){window.requestAnimationFrame(u);},{passive:true});u();})();</script>
 </body></html>
