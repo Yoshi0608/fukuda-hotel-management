@@ -47,6 +47,10 @@ module.exports = async (req, res) => {
                  "X-Line-Retry-Key": uuid5("kikyu-cleaning/" + notification_id) },
       body: JSON.stringify({ to: dest, messages: [{ type: "text", text: String(text).slice(0, 5000) }] }),
     });
-    return res.status(200).json({ line_http_status: r.status, delivered: r.status === 200, duplicate: r.status === 409 });
+    let detail = null;
+    if (r.status !== 200 && r.status !== 409) { try { detail = (await r.json()).message || null; } catch {} }
+    // dest_shape is diagnostic only (prefix + length), never the id itself
+    return res.status(200).json({ line_http_status: r.status, delivered: r.status === 200, duplicate: r.status === 409,
+      detail, dest_shape: dest.slice(0, 1) + "…" + dest.length });
   } catch (e) { return res.status(502).json({ error: String(e.message || e) }); }
 };
