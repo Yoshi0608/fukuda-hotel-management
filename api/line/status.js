@@ -32,7 +32,8 @@ async function api(method, path, body) {
   return { status: r.status, body: json || text.slice(0, 300) };
 }
 module.exports = async (req, res) => {
-  const { key, action } = req.query || {};
+  const { action } = req.query || {};
+  const key = req.headers["x-kikyu-key"] || (req.query || {}).key;   // header preferred (query strings can end up in logs)
   if (!process.env.KIKYU_OPS_KEY || key !== process.env.KIKYU_OPS_KEY) return res.status(403).json({ error: "forbidden" });
   try {
     if (action === "info") {
