@@ -1,5 +1,4 @@
 // KIKYŪ Cleaning Automation — Beds24 Booking Webhook receiver (Vercel, no dependencies).
-// env KIKYU_BEDS24_WEBHOOK_KEY set in Vercel 2026-08-29 (this line forces the redeploy that loads it)
 // Beds24 → POST here (custom header X-Kikyu-Webhook-Key set in Beds24 webhook config) → we
 // forward a minimal, PII-free trigger to GitHub Actions (repository_dispatch) which runs the engine.
 // Env: KIKYU_BEDS24_WEBHOOK_KEY, GITHUB_DISPATCH_TOKEN (fine-grained PAT, contents:write on the
@@ -7,6 +6,9 @@
 module.exports.config = { api: { bodyParser: false } };
 function readRaw(req) { return new Promise((r) => { let d = ""; req.on("data", (c) => (d += c)); req.on("end", () => r(d)); }); }
 module.exports = async (req, res) => {
+  if (req.method === "GET")   // health/readiness: booleans only, never values
+    return res.status(200).json({ ok: true, key_configured: !!process.env.KIKYU_BEDS24_WEBHOOK_KEY,
+      dispatch_configured: !!(process.env.GITHUB_DISPATCH_TOKEN && process.env.GITHUB_DISPATCH_REPO) });
   if (req.method !== "POST") return res.status(405).end();
   const want = process.env.KIKYU_BEDS24_WEBHOOK_KEY;
   if (!want || req.headers["x-kikyu-webhook-key"] !== want) return res.status(403).end();
