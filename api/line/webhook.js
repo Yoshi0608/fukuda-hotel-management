@@ -32,7 +32,7 @@ module.exports = async (req, res) => {
   for (const ev of events) {
     const src = ev.source || {};
     if (ev.type === "join" && src.groupId) {
-      console.log("JOIN groupId=" + src.groupId);
+      // Never log ids or secrets. The groupId is delivered to the owner's LINE only (nothing posted in the group).
       if (process.env.KIKYU_OWNER_USER_ID) {
         await lineApi("push", { to: process.env.KIKYU_OWNER_USER_ID,
           messages: [{ type: "text", text: "【KIKYŪ 清掃自動化】グループ接続を検知しました。\ngroupId: " + src.groupId }] });
