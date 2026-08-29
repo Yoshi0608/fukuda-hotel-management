@@ -1,4 +1,4 @@
-// KIKYŪ Cleaning Automation — push relay used by the Cleaning Engine (and PoC).
+// KIKYŪ Cleaning Automation — push relay used by the Cleaning Engine (and PoC). (env: KIKYU_OWNER_USER_ID, KIKYU_GROUP_ID)
 // POST /api/line/push   headers: x-kikyu-key: <KIKYU_OPS_KEY>   body: {to:"owner"|"group"|"<id>", text, notification_id}
 // X-Line-Retry-Key is derived from notification_id exactly like adapters/line_messaging.py, so the engine's
 // Outbox can retry safely: LINE answers 409 for a duplicate key (= already delivered → engine marks SENT).
