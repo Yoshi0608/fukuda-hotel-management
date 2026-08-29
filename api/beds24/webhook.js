@@ -30,9 +30,21 @@ module.exports = async (req, res) => {
     repo: process.env.GITHUB_DISPATCH_REPO, wf: process.env.GITHUB_DISPATCH_WORKFLOW || "kikyu-cleaning.yml",
     prop: process.env.KIKYU_BEDS24_PROPERTY_ID,
   };
-  if (req.method === "GET")   // health/readiness: booleans only, never values
-    return res.status(200).json({ ok: true, key_configured: !!cfg.key, dispatch_configured: !!(cfg.tok && cfg.repo),
-      dispatch_mode: "workflow_dispatch", workflow: cfg.wf });
+  if (req.method === "GET") {  // health/readiness: booleans only, never values
+    const out = { ok: true, key_configured: !!cfg.key, dispatch_configured: !!(cfg.tok && cfg.repo),
+                  dispatch_mode: "workflow_dispatch", workflow: cfg.wf, dispatch_auth: "unchecked" };
+    if (cfg.tok && cfg.repo) {   // verify the GitHub credential is alive (read-only call, no run started)
+      try {
+        const ctl = new AbortController(); const t = setTimeout(() => ctl.abort(), 6000);
+        const r = await fetch(`https://api.github.com/repos/${cfg.repo}/actions/workflows/${cfg.wf}`, {
+          headers: { Authorization: `Bearer ${cfg.tok}`, Accept: "application/vnd.github+json",
+                     "X-GitHub-Api-Version": "2022-11-28", "User-Agent": "kikyu-cleaning" }, signal: ctl.signal });
+        clearTimeout(t);
+        out.dispatch_auth = r.status === 200 ? "ok" : `http_${r.status}`;   // 401 = expired/revoked PAT, 403/404 = wrong scope/repo
+      } catch { out.dispatch_auth = "unreachable"; }
+    }
+    return res.status(200).json(out);
+  }
   if (req.method !== "POST") return res.status(405).end();
 
   // 1. authenticity: Beds24 sends the configured Custom Header verbatim
