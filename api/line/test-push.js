@@ -5,6 +5,26 @@
 // same k must NOT deliver twice (LINE answers 409 Conflict on the duplicate).
 const crypto = require("crypto");
 
+// --- LINE auth helper (inline; Vercel deploys every file under api/ as a function) -----------------
+// Token strategy (user directive 2026-08-29, Developers Console unavailable):
+//   1. LINE_CHANNEL_ACCESS_TOKEN if set (long-lived, issued in Developers Console) — future option.
+//   2. Otherwise issue a *stateless* channel access token (15 min, unlimited) from LINE_CHANNEL_ID +
+//      LINE_CHANNEL_SECRET via POST https://api.line.me/oauth2/v3/token (official, client_credentials).
+let _tok = { value: null, exp: 0 };
+async function lineToken() {
+  if (process.env.LINE_CHANNEL_ACCESS_TOKEN) return process.env.LINE_CHANNEL_ACCESS_TOKEN;
+  if (_tok.value && Date.now() < _tok.exp) return _tok.value;
+  const body = new URLSearchParams({ grant_type: "client_credentials",
+    client_id: process.env.LINE_CHANNEL_ID || "", client_secret: process.env.LINE_CHANNEL_SECRET || "" });
+  const r = await fetch("https://api.line.me/oauth2/v3/token", { method: "POST",
+    headers: { "Content-Type": "application/x-www-form-urlencoded" }, body });
+  if (!r.ok) throw new Error("token issue failed: HTTP " + r.status);
+  const j = await r.json();
+  _tok = { value: j.access_token, exp: Date.now() + Math.max(60, (j.expires_in || 900) - 60) * 1000 };
+  return _tok.value;
+}
+
+
 function uuid5(name) { // RFC 4122 v5, namespace URL — mirrors Python uuid.uuid5(uuid.NAMESPACE_URL, ...)
   const ns = Buffer.from("6ba7b8119dad11d180b400c04fd430c8", "hex");
   const h = crypto.createHash("sha1").update(Buffer.concat([ns, Buffer.from(name, "utf8")])).digest();
@@ -20,7 +40,7 @@ module.exports = async (req, res) => {
   const retryKey = uuid5("kikyu-cleaning/" + k);
   const r = await fetch("https://api.line.me/v2/bot/message/push", {
     method: "POST",
-    headers: { "Content-Type": "application/json", Authorization: "Bearer " + process.env.LINE_CHANNEL_ACCESS_TOKEN,
+    headers: { "Content-Type": "application/json", Authorization: "Bearer " + (await lineToken()),
                "X-Line-Retry-Key": retryKey },
     body: JSON.stringify({ to, messages: [{ type: "text", text: text || "KIKYŪ 清掃自動化 TEST\nこのメッセージはテストです。対応は不要です。" }] }),
   });
