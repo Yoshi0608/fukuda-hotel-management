@@ -1,4 +1,5 @@
 // KIKYŪ Cleaning Automation — Beds24 Booking Webhook receiver (Vercel, no dependencies).
+// env KIKYU_BEDS24_WEBHOOK_KEY set in Vercel 2026-08-29 (this line forces the redeploy that loads it)
 // Beds24 → POST here (custom header X-Kikyu-Webhook-Key set in Beds24 webhook config) → we
 // forward a minimal, PII-free trigger to GitHub Actions (repository_dispatch) which runs the engine.
 // Env: KIKYU_BEDS24_WEBHOOK_KEY, GITHUB_DISPATCH_TOKEN (fine-grained PAT, contents:write on the
