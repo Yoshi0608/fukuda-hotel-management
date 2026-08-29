@@ -76,7 +76,8 @@ module.exports = async (req, res) => {
       const s2 = await lineApi("push", msg, key);
       await lineApi("reply", { replyToken: ev.replyToken, messages: [{ type: "text",
         text: "【KIKYŪ 清掃自動化 / Retry Key テスト】\n1回目 push: HTTP " + s1 + "\n2回目 push（同一Retry Key）: HTTP " + s2 +
-              "\n期待値: 200 / 409。TESTメッセージが1通だけ届いていれば成功です。" }] });
+              "\n期待値: 200 / 409。TESTメッセージが1通だけ届いていれば成功です。\nあなたのuserId: " + src.userId +
+              "\n（この返信をそのままClaudeに貼り付けてください）" }] });
     }
   }
   res.status(200).send("ok");
