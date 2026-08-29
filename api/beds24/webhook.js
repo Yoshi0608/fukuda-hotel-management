@@ -41,8 +41,17 @@ module.exports = async (req, res) => {
                      "X-GitHub-Api-Version": "2022-11-28", "User-Agent": "kikyu-cleaning" }, signal: ctl.signal });
         clearTimeout(t);
         out.dispatch_auth = r.status === 200 ? "ok" : `http_${r.status}`;   // 401 = expired/revoked PAT, 403/404 = wrong scope/repo
+        if (r.status !== 200) {   // second probe to tell "repo not in token scope" from "Actions permission missing"
+          const r2 = await fetch(`https://api.github.com/repos/${cfg.repo}`, {
+            headers: { Authorization: `Bearer ${cfg.tok}`, Accept: "application/vnd.github+json",
+                       "X-GitHub-Api-Version": "2022-11-28", "User-Agent": "kikyu-cleaning" } });
+          out.dispatch_auth_hint = r2.status === 200
+            ? "token can see the repo but not its workflows → grant the token the 'Actions: Read and write' repository permission"
+            : `token cannot see the repo (HTTP ${r2.status}) → check GITHUB_DISPATCH_REPO spelling and the token's 'Only select repositories' list`;
+        }
       } catch { out.dispatch_auth = "unreachable"; }
     }
+    out.cron_secret_configured = !!process.env.CRON_SECRET;     // needed for the Vercel daily cron fallback
     return res.status(200).json(out);
   }
   if (req.method !== "POST") return res.status(405).end();
