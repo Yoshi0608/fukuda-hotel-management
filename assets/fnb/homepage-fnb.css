@@ -1,0 +1,81 @@
+/* FHM homepage — "Our Businesses" module (#our-businesses).
+   Ported from the F&B prototype (homepage-additions.css, .fhm-businesses* rules only).
+   Every rule is scoped under #our-businesses so nothing leaks into the existing homepage. */
+
+#our-businesses.fhm-businesses {
+  padding: 96px 64px;
+  background: var(--cream-d);
+}
+#our-businesses .container {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+#our-businesses .eyebrow {
+  font-family: -apple-system, 'Helvetica Neue', sans-serif;
+  font-size: 9px; letter-spacing: 0.34em; text-transform: uppercase;
+  color: var(--gold); margin: 0 0 18px;
+}
+#our-businesses h2 {
+  font-size: clamp(24px, 3vw, 38px); font-weight: 400;
+  color: var(--ink); letter-spacing: 0.02em; line-height: 1.35;
+}
+#our-businesses .fhm-businesses__grid {
+  display: grid; grid-template-columns: 1fr 1fr;
+  margin-top: 48px; gap: 32px;
+}
+#our-businesses .fhm-businesses__card {
+  background: var(--cream);
+  border: 1px solid var(--sand);
+}
+#our-businesses .fhm-businesses__visual {
+  height: 300px; position: relative; overflow: hidden;
+}
+#our-businesses .fhm-businesses__visual > img {
+  width: 100%; height: 100%; object-fit: cover; display: block;
+}
+#our-businesses .fhm-businesses__visual--sourcing {
+  background: #102a38; padding: 26px 60px;
+}
+#our-businesses .fhm-businesses__visual--sourcing > img {
+  object-fit: contain; opacity: 0.85;
+}
+#our-businesses .fhm-businesses__visual--sourcing > span {
+  position: absolute; bottom: 20px; left: 30px; color: #fff;
+  font-family: -apple-system, 'Helvetica Neue', sans-serif;
+  font-size: 11px; letter-spacing: 0.2em;
+}
+#our-businesses .fhm-businesses__body { padding: 36px 40px 42px; }
+#our-businesses .fhm-businesses__body .eyebrow {
+  font-size: 9px; margin-bottom: 18px; color: var(--warm);
+}
+#our-businesses .fhm-businesses__body h3 {
+  font-size: clamp(24px, 2.4vw, 34px); font-weight: 400;
+  color: var(--ink); letter-spacing: 0.02em; line-height: 1.3;
+}
+#our-businesses .fhm-businesses__body p.bz-lead {
+  margin-top: 20px; min-height: 60px;
+  font-size: 14.5px; line-height: 2; letter-spacing: 0.04em; color: var(--mid);
+}
+#our-businesses .text-link {
+  display: inline-flex; align-items: center; gap: 8px;
+  margin-top: 24px; min-height: 44px;
+  font-family: -apple-system, 'Helvetica Neue', sans-serif;
+  font-size: 10px; letter-spacing: 0.24em; text-transform: uppercase;
+  text-decoration: none; color: var(--mid);
+  border-bottom: 1px solid var(--sand);
+  transition: color 0.3s, border-bottom-color 0.3s;
+}
+#our-businesses .text-link:hover { color: var(--ink); border-bottom-color: var(--ink); }
+
+@media (max-width: 1100px) {
+  #our-businesses.fhm-businesses { padding: 80px 48px; }
+  #our-businesses .fhm-businesses__body { padding: 30px; }
+  #our-businesses .fhm-businesses__visual { height: 240px; }
+}
+@media (max-width: 700px) {
+  #our-businesses.fhm-businesses { padding: 64px 24px; }
+  #our-businesses .fhm-businesses__grid { grid-template-columns: 1fr; gap: 28px; margin-top: 32px; }
+  #our-businesses .fhm-businesses__body { padding: 28px; }
+  #our-businesses .fhm-businesses__body p.bz-lead { min-height: 0; }
+  #our-businesses .fhm-businesses__visual--sourcing { padding: 20px 28px; }
+}
