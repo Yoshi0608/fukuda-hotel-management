@@ -749,6 +749,7 @@ footer {
   .foot-bottom { flex-direction: column; gap: 12px; text-align: center; }
 }
 </style>
+<link rel="stylesheet" href="assets/fnb/homepage-fnb.css">
 </head>
 <body>
 
@@ -761,6 +762,7 @@ footer {
   <div class="nav-links">
     <a href="#philosophy">Philosophy</a>
     <a href="#portfolio">Properties</a>
+    <a href="food-beverage.html" data-locale-link="true"><span class="t-ja">食品・飲料事業</span><span class="t-en">Food &amp; Beverage</span></a>
     <a href="#about">Company</a>
     <a href="#founder">Founder</a>
     <a href="mailto:info@fukudahotel.com" class="nav-enquire">Enquire</a>
@@ -900,6 +902,39 @@ footer {
   </div>
 </section>
 
+<!-- OUR BUSINESSES -->
+<section id="our-businesses" class="fhm-businesses">
+  <div class="container">
+    <p class="eyebrow"><span class="t-ja">事業紹介</span><span class="t-en">Our Businesses</span></p>
+    <h2><span class="t-ja">日本の価値を、<br>ふたつの事業から。</span><span class="t-en">Two businesses.<br>One perspective on Japan.</span></h2>
+    <div class="fhm-businesses__grid">
+      <article class="fhm-businesses__card">
+        <div class="fhm-businesses__visual">
+          <img src="assets/fnb/images/hospitality.jpg" alt="相模湾を望むThe KIKYŪの室内" width="1567" height="1045" loading="lazy" decoding="async">
+        </div>
+        <div class="fhm-businesses__body">
+          <p class="eyebrow"><span class="t-ja">01 / ホスピタリティ</span><span class="t-en">01 / Hospitality</span></p>
+          <h3><span class="t-ja">宿泊事業</span><span class="t-en">Hospitality</span></h3>
+          <p class="bz-lead"><span class="t-ja">日本の魅力ある場所で、プライベートな滞在とリーダーシップリトリートを。</span><span class="t-en">Private stays and leadership retreats in exceptional locations across Japan.</span></p>
+          <a class="text-link" href="#portfolio"><span class="t-ja">宿泊事業を見る</span><span class="t-en">Explore Hospitality</span><span aria-hidden="true">↗</span></a>
+        </div>
+      </article>
+      <article class="fhm-businesses__card">
+        <div class="fhm-businesses__visual fhm-businesses__visual--sourcing">
+          <img src="assets/fnb/images/japan-sourcing-map.png" alt="日本の調達ネットワーク地図" width="1452" height="920" loading="lazy" decoding="async">
+          <span>JAPAN → GLOBAL</span>
+        </div>
+        <div class="fhm-businesses__body">
+          <p class="eyebrow"><span class="t-ja">02 / 食品・飲料</span><span class="t-en">02 / Food &amp; Beverage</span></p>
+          <h3><span class="t-ja">食品・飲料事業</span><span class="t-en">Food &amp; Beverage</span></h3>
+          <p class="bz-lead"><span class="t-ja">世界の需要と、日本の生産者・メーカー・供給パートナーをつなぎます。</span><span class="t-en">Connecting global demand with Japanese producers, manufacturers and supply partners.</span></p>
+          <a class="text-link" href="food-beverage.html" data-locale-link="true"><span class="t-ja">食品・飲料事業を見る</span><span class="t-en">Explore Food &amp; Beverage</span><span aria-hidden="true">↗</span></a>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
 <div class="rule-line"></div>
 
 <!-- ABOUT -->
@@ -1030,6 +1065,7 @@ footer {
       <a href="#philosophy">Philosophy</a>
       <a href="#about">Company</a>
       <a href="#portfolio">Properties</a>
+      <a href="food-beverage.html" data-locale-link="true"><span class="t-ja">食品・飲料事業</span><span class="t-en">Food &amp; Beverage</span></a>
       <a href="founder-message.html">Founder's Message</a>
     </div>
     <div class="foot-col">
@@ -1070,10 +1106,17 @@ footer {
     } else {
       document.body.classList.remove('lang-en');
     }
+    // Keep ?lang= on links to pages that share the fhm-lang preference (e.g. food-beverage.html)
+    document.querySelectorAll('a[data-locale-link]').forEach((a) => {
+      try { const u = new URL(a.getAttribute('href'), location.href); u.searchParams.set('lang', lang); a.href = u.href; } catch (e) {}
+    });
   };
 
   // Restore saved preference
-  const savedLang = localStorage.getItem('fhm-lang') || 'ja';
+  const queryLang = new URLSearchParams(location.search).get('lang');
+  const hasQueryLang = (queryLang === 'en' || queryLang === 'ja');
+  const savedLang = hasQueryLang ? queryLang : (localStorage.getItem('fhm-lang') || 'ja');
+  if (hasQueryLang) { try { localStorage.setItem('fhm-lang', queryLang); } catch (e) {} }
   applyLang(savedLang);
 
   langBtn.addEventListener('click', () => {
