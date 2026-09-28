@@ -24,9 +24,14 @@ const initializeFhmPrototype = () => {
  document.querySelectorAll('a[href*="food-beverage.html"],a[href$="/index.html"]').forEach(a=>a.dataset.localeLink='true');
  applyLanguage(['en','ja'].includes(queryLang)?queryLang:(saved||'en'));
  languageButtons.forEach(b=>b.addEventListener('click',()=>applyLanguage(b.dataset.setLang)));
+ const header=document.querySelector('.site-header');
  const toggle=document.querySelector('.menu-toggle');const menu=document.querySelector('.mobile-navigation');
- function closeMenu(){if(menu&&toggle){menu.hidden=true;toggle.setAttribute('aria-expanded','false')}}
- toggle?.addEventListener('click',()=>{const open=toggle.getAttribute('aria-expanded')==='true';menu.hidden=open;toggle.setAttribute('aria-expanded',String(!open));});
+ function closeMenu(){if(menu&&toggle){menu.hidden=true;toggle.setAttribute('aria-expanded','false');header?.classList.remove('menu-open')}}
+ toggle?.addEventListener('click',()=>{const open=toggle.getAttribute('aria-expanded')==='true';menu.hidden=open;toggle.setAttribute('aria-expanded',String(!open));header?.classList.toggle('menu-open',!open);});
+ /* Header: transparent while over the FV photo, solid once the page scrolls past it (solid by default without JS). */
+ const stage=document.querySelector('.hero-stage');
+ function syncHeader(){if(!header||!stage)return;const limit=stage.getBoundingClientRect().bottom-header.offsetHeight;header.classList.toggle('is-clear',limit>0);}
+ syncHeader();addEventListener('scroll',syncHeader,{passive:true});addEventListener('resize',syncHeader);
  menu?.querySelectorAll('a').forEach(a=>a.addEventListener('click',closeMenu));
  document.addEventListener('keydown',e=>{if(e.key==='Escape'&&menu&&!menu.hidden){closeMenu();toggle.focus()}});
  matchMedia('(min-width:1101px)').addEventListener('change',e=>{if(e.matches)closeMenu()});
