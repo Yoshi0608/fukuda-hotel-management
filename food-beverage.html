@@ -52,11 +52,13 @@
 
 <!-- ═══ 3. HERO ═══ -->
 <section class="hero" id="top">
-  <div class="hero-media" aria-hidden="true">
-    <picture>
-      <source type="image/webp" srcset="assets/fnb/images/hero-hong-kong-harbour.webp">
-      <img src="assets/fnb/images/hero-hong-kong-harbour.jpg" alt="" width="1744" height="902" fetchpriority="high" decoding="async">
-    </picture>
+  <div class="hero-media" id="heroMedia" aria-hidden="true">
+    <!-- Background crossfade: Tokyo → New York → Hong Kong → Paris → Dubai (4 s, 800 ms fade). Copy and CTAs below are fixed. -->
+    <img class="hs hs-tokyo is-active" src="assets/fnb/images/hero-tokyo.webp" alt="" width="1743" height="902" fetchpriority="high" decoding="async">
+    <img class="hs hs-new-york" src="assets/fnb/images/hero-new-york.webp" alt="" width="1744" height="902" fetchpriority="low" decoding="async">
+    <img class="hs hs-hong-kong" src="assets/fnb/images/hero-hong-kong-harbour.webp" alt="" width="1744" height="902" fetchpriority="low" decoding="async">
+    <img class="hs hs-paris" src="assets/fnb/images/hero-paris.webp" alt="" width="1743" height="902" fetchpriority="low" decoding="async">
+    <img class="hs hs-dubai" src="assets/fnb/images/hero-dubai.webp" alt="" width="1743" height="902" fetchpriority="low" decoding="async">
     <div class="hero-shade"></div>
   </div>
   <div class="wrap hero-inner">
