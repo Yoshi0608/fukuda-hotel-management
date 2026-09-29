@@ -115,7 +115,7 @@ h3 { font-size: 19px; font-weight: 500; letter-spacing: -0.005em; line-height: 1
 /* ─── Hero ─── */
 .hero { position: relative; isolation: isolate; background: var(--ink); color: #fff; min-height: clamp(620px, 88svh, 900px); display: flex; flex-direction: column; }
 .hero-media { position: absolute; inset: 0; z-index: -1; overflow: hidden; background: radial-gradient(120% 80% at 70% 20%, #1B3350 0%, var(--ink) 60%); }
-.hero-media picture, .hero-media img { width: 100%; height: 100%; } .hero-media img { object-fit: cover; object-position: 42% 40%; }
+.hero-media picture, .hero-media img { width: 100%; height: 100%; } .hero-media img { object-fit: cover; object-position: 12% 40%; } /* keeps the photo's own wordmark out of frame at desktop aspect ratios */
 .hero-shade { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(14,24,38,.35) 0%, rgba(14,24,38,.1) 35%, rgba(14,24,38,.55) 70%, rgba(14,24,38,.92) 100%), linear-gradient(90deg, rgba(14,24,38,.45) 0%, rgba(14,24,38,0) 55%); }
 .hero-inner { flex: 1; display: flex; flex-direction: column; justify-content: flex-end; padding: 150px 0 72px; }
 .hero-kicker { font-size: 13px; letter-spacing: .04em; color: rgba(255,255,255,.7); margin-bottom: 40px; }
@@ -281,6 +281,7 @@ h3 { font-size: 19px; font-weight: 500; letter-spacing: -0.005em; line-height: 1
   .hero { min-height: 0; }
   .hero-inner { padding: 120px 0 56px; }
   .hero-h { font-size: clamp(38px, 11vw, 52px); }
+  .hero-media img { object-position: 42% 40%; }
   .hero-sub { margin-top: 24px; }
   .hero-ctas { flex-direction: column; align-items: stretch; }
   .hero-foot__inner { flex-direction: column; gap: 10px; padding-block: 16px; }
