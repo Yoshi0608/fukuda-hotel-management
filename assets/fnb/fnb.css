@@ -226,6 +226,7 @@ h3 { font-size: 19px; font-weight: 500; letter-spacing: -0.005em; line-height: 1
 .founder-id { grid-area: 3 / 1 / 4 / 2; margin-top: 24px; }
 .founder-name { font-size: 22px; font-weight: 500; letter-spacing: -0.01em; }
 .founder-role { color: var(--muted); font-size: 15px; line-height: 1.5; margin-top: 4px; }
+.founder-meta { color: var(--muted); font-size: 14px; line-height: 1.55; margin-top: 14px; padding-top: 12px; border-top: 1px solid var(--line); overflow-wrap: anywhere; }
 .founder-h { grid-area: 1 / 2 / 2 / 3; max-width: 22ch; }
 .journey { grid-area: 2 / 2 / 4 / 3; position: relative; margin-top: 44px; padding-left: 36px; }
 .journey::before { content: ""; position: absolute; left: 4px; top: 10px; bottom: 10px; width: 1px; background: var(--line); }
@@ -234,7 +235,7 @@ h3 { font-size: 19px; font-weight: 500; letter-spacing: -0.005em; line-height: 1
 .journey li::before { content: ""; position: absolute; left: -36px; top: 9px; width: 9px; height: 9px; border-radius: 50%; background: var(--paper); border: 1px solid var(--muted); }
 .journey-num { display: block; font-size: 12px; letter-spacing: .04em; color: var(--muted); margin-bottom: 6px; font-variant-numeric: tabular-nums; }
 .journey h3 { font-size: 21px; font-weight: 500; color: var(--text); overflow-wrap: anywhere; }
-.journey-theme { margin-top: 4px; font-size: 14px; color: var(--muted); }
+.journey-theme { margin-top: 4px; font-size: 14px; color: var(--muted); overflow-wrap: anywhere; }
 .journey-theme + p { margin-top: 10px; font-size: 16px; line-height: 1.65; color: var(--text); max-width: 60ch; }
 .journey-now::before { background: var(--amber); border-color: var(--amber); }
 .journey-now h3 { font-weight: 600; }
