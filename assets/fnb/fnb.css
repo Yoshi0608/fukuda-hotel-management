@@ -219,15 +219,15 @@ h3 { font-size: 19px; font-weight: 500; letter-spacing: -0.005em; line-height: 1
 /* ─── Founder ─── */
 .founder {
   display: grid; grid-template-columns: 4fr 8fr; column-gap: clamp(32px, 6vw, 96px); row-gap: 0;
-  grid-template-areas: "photo head" "id journey" "contact contact"; align-items: start;
+  grid-template-rows: auto auto 1fr auto; align-items: start;
 }
-.founder-photo { grid-area: photo; max-width: 360px; }
+.founder-photo { grid-area: 1 / 1 / 3 / 2; max-width: 360px; }
 .founder-photo img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; object-position: 50% 25%; }
-.founder-id { grid-area: id; margin-top: 24px; }
+.founder-id { grid-area: 3 / 1 / 4 / 2; margin-top: 24px; }
 .founder-name { font-size: 22px; font-weight: 500; letter-spacing: -0.01em; }
 .founder-role { color: var(--muted); font-size: 15px; line-height: 1.5; margin-top: 4px; }
-.founder-h { grid-area: head; max-width: 22ch; }
-.journey { grid-area: journey; position: relative; margin-top: 44px; padding-left: 36px; }
+.founder-h { grid-area: 1 / 2 / 2 / 3; max-width: 22ch; }
+.journey { grid-area: 2 / 2 / 4 / 3; position: relative; margin-top: 44px; padding-left: 36px; }
 .journey::before { content: ""; position: absolute; left: 4px; top: 10px; bottom: 10px; width: 1px; background: var(--line); }
 .journey li { position: relative; padding-bottom: 36px; }
 .journey li:last-child { padding-bottom: 0; }
@@ -238,7 +238,7 @@ h3 { font-size: 19px; font-weight: 500; letter-spacing: -0.005em; line-height: 1
 .journey-theme + p { margin-top: 10px; font-size: 16px; line-height: 1.65; color: var(--text); max-width: 60ch; }
 .journey-now::before { background: var(--amber); border-color: var(--amber); }
 .journey-now h3 { font-weight: 600; }
-.contactlist { grid-area: contact; display: grid; grid-template-columns: repeat(3, auto); justify-content: start; gap: 24px 48px; margin-top: 56px; padding-top: 24px; border-top: 1px solid var(--line); }
+.contactlist { grid-area: 4 / 1 / 5 / 3; display: grid; grid-template-columns: repeat(3, auto); justify-content: start; gap: 24px 48px; margin-top: 56px; padding-top: 24px; border-top: 1px solid var(--line); }
 .contactlist dt { font-size: 12.5px; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); margin-bottom: 4px; }
 .contactlist dd a { border-bottom: 1px solid var(--line); transition: border-color var(--ease); }
 .contactlist dd a:hover { border-bottom-color: var(--text); }
@@ -286,7 +286,12 @@ h3 { font-size: 19px; font-weight: 500; letter-spacing: -0.005em; line-height: 1
   .feature-body { max-width: none; }
   .network { grid-template-columns: 1fr; }
   .steps { grid-template-columns: repeat(3, 1fr); gap: 40px 28px; }
-  .founder { grid-template-columns: 1fr; grid-template-areas: "head" "photo" "id" "journey" "contact"; }
+  .founder { grid-template-columns: 1fr; grid-template-rows: none; }
+  .founder-h { grid-area: 1 / 1 / 2 / 2; }
+  .founder-photo { grid-area: 2 / 1 / 3 / 2; }
+  .founder-id { grid-area: 3 / 1 / 4 / 2; }
+  .journey { grid-area: 4 / 1 / 5 / 2; }
+  .contactlist { grid-area: 5 / 1 / 6 / 2; }
   .founder-photo { max-width: 320px; margin-top: 32px; }
   .founder-id { margin-top: 20px; }
   .journey { margin-top: 36px; }
