@@ -533,6 +533,41 @@ footer { background: var(--dark); border-top: 1px solid rgba(255,255,255,0.08); 
 #stories .gs-rail{max-width:100%;overflow-x:auto;overflow-y:hidden;}
 html,body{width:100%;max-width:100%;overflow-x:hidden;}
 @supports (overflow-x:clip){html,body{overflow-x:clip;}}
+
+/* STAY GUIDE (scoped to #stay-guide; inherits .sec / .sec-label / .sec-h / .note / buttons) */
+#stay-guide .guide-steps { list-style: none; margin-top: 40px; border-top: 1px solid var(--sand); }
+#stay-guide .guide-steps > li { display: grid; grid-template-columns: 120px 1fr; gap: 18px; padding: 22px 0; border-bottom: 1px solid var(--sand); }
+#stay-guide .g-num { font-family: -apple-system,'Helvetica Neue',sans-serif; font-size: 9.5px; letter-spacing: 0.28em; text-transform: uppercase; color: var(--gold); padding-top: 4px; }
+#stay-guide .guide-steps b { display: block; font-weight: 400; font-size: 15.5px; letter-spacing: 0.03em; color: var(--ink); margin-bottom: 8px; }
+#stay-guide .guide-steps ul { list-style: none; }
+#stay-guide .guide-steps ul li { position: relative; padding-left: 14px; font-size: 13.5px; line-height: 1.95; color: var(--mid); letter-spacing: 0.03em; }
+#stay-guide .guide-steps ul li::before { content: ''; position: absolute; left: 0; top: 0.9em; width: 5px; height: 1px; background: var(--gold); }
+#stay-guide .guide-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 48px; }
+#stay-guide .guide-card { background: var(--white); border: 1px solid var(--sand); padding: 28px 28px 30px; }
+#stay-guide .g-title { display: block; font-weight: 400; font-size: 15.5px; letter-spacing: 0.03em; color: var(--ink); margin-bottom: 16px; }
+#stay-guide .g-amen { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px 20px; }
+#stay-guide .g-sub { display: block; font-family: -apple-system,'Helvetica Neue',sans-serif; font-size: 9px; letter-spacing: 0.24em; text-transform: uppercase; color: var(--gold); margin-bottom: 8px; }
+#stay-guide .g-amen ul { list-style: none; }
+#stay-guide .g-amen li { font-size: 13px; line-height: 1.9; color: var(--charcoal); letter-spacing: 0.03em; }
+#stay-guide .g-text { font-size: 13.5px; line-height: 2; color: var(--mid); letter-spacing: 0.03em; }
+#stay-guide .g-meta { display: grid; grid-template-columns: 100px 1fr; margin-top: 16px; border-top: 1px solid var(--sand); }
+#stay-guide .g-meta--wide { grid-template-columns: 180px 1fr; }
+#stay-guide .g-meta dt { font-family: -apple-system,'Helvetica Neue',sans-serif; font-size: 9.5px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--warm); padding: 12px 16px 12px 0; border-bottom: 1px solid var(--sand); }
+#stay-guide .g-meta--wide dt { text-transform: none; letter-spacing: 0.04em; font-size: 12.5px; font-family: inherit; color: var(--charcoal); }
+#stay-guide .g-meta dd { font-size: 13px; color: var(--charcoal); line-height: 1.9; padding: 11px 0; border-bottom: 1px solid var(--sand); }
+#stay-guide .g-meta + .note { margin-top: 14px; }
+#stay-guide .btn-line-dark { margin-top: 22px; }
+@media (max-width: 768px) {
+  #stay-guide .guide-steps > li { grid-template-columns: 1fr; gap: 6px; padding: 18px 0; }
+  #stay-guide .guide-grid { grid-template-columns: 1fr; gap: 18px; margin-top: 40px; }
+  #stay-guide .guide-card { padding: 22px 20px 24px; }
+  #stay-guide .g-amen { grid-template-columns: 1fr 1fr; }
+  #stay-guide .g-amen > div:first-child { grid-column: 1 / -1; }
+  #stay-guide .g-meta--wide { grid-template-columns: 1fr; }
+  #stay-guide .g-meta--wide dt { padding: 10px 0 0; border-bottom: none; }
+  #stay-guide .g-meta--wide dd { padding: 2px 0 10px; }
+  #stay-guide .btn-line-dark { display: block; text-align: center; }
+}
 </style>
 </head>
 <body>
@@ -982,6 +1017,119 @@ html,body{width:100%;max-width:100%;overflow-x:hidden;}
 
 <!-- ══ 10 GUEST VOICES ══ -->
 
+
+<!-- ══ STAY GUIDE ══ -->
+<section class="sec" id="stay-guide" aria-labelledby="guideHead">
+  <span class="sec-label fade">Stay Guide</span>
+  <h2 class="sec-h fade" id="guideHead">ご予約からご宿泊まで</h2>
+  <p class="sec-lead fade">空室の確認からチェックアウトまでの流れと、ご滞在に関するご案内です。</p>
+
+  <ol class="guide-steps fade" aria-label="ご予約・ご宿泊の流れ">
+    <li>
+      <span class="g-num">Step 01</span>
+      <div><b>空室・料金を確認</b>
+        <ul>
+          <li>ご希望の日程・人数を選択します</li>
+          <li>予約画面(Beds24)に進み、空室状況と宿泊料金を確認します</li>
+          <li>連泊割引は、対象日程であれば予約画面で自動的に適用されます</li>
+        </ul>
+      </div>
+    </li>
+    <li>
+      <span class="g-num">Step 02</span>
+      <div><b>予約・お支払い</b>
+        <ul>
+          <li>予約画面で必要事項を入力します</li>
+          <li>表示された料金・予約条件をご確認ください</li>
+          <li>オンライン決済(クレジットカード)でお支払いが完了すると、ご予約が確定します</li>
+        </ul>
+      </div>
+    </li>
+    <li>
+      <span class="g-num">Step 03</span>
+      <div><b>ご予約確定後</b>
+        <ul>
+          <li>ご登録のメールアドレスに予約確認のご案内をお送りします</li>
+          <li>詳細な住所・道順、チェックイン方法は、ご宿泊前にご案内します</li>
+        </ul>
+      </div>
+    </li>
+    <li>
+      <span class="g-num">Step 04</span>
+      <div><b>チェックイン 15:00</b>
+        <ul>
+          <li>事前のご案内に沿って、施設にご入館ください</li>
+          <li>入館方法の詳細は、ご予約確定後のご案内に従ってください</li>
+        </ul>
+      </div>
+    </li>
+    <li>
+      <span class="g-num">Step 05</span>
+      <div><b>ご滞在</b>
+        <ul>
+          <li>一棟貸切のプライベートステイ。滞在中、他のゲストは滞在しません</li>
+          <li>天然温泉、プール、プレイルームなどの館内設備をご利用いただけます</li>
+          <li>施設の利用条件・注意事項は、ご案内するハウスルールに従ってください</li>
+          <li>ご滞在中のお問い合わせは、LINEコンシェルジュへ(毎日9:00〜21:00)</li>
+        </ul>
+      </div>
+    </li>
+    <li>
+      <span class="g-num">Step 06</span>
+      <div><b>チェックアウト 11:00</b>
+        <ul>
+          <li>チェックアウトの手順は、ご滞在中のご案内に沿ってお手続きください</li>
+        </ul>
+      </div>
+    </li>
+  </ol>
+  <div class="fade" style="margin-top:36px;">
+    <a class="btn-gold" href="https://beds24.com/booking2.php?propid=348740&amp;referer=STAY_LP_GUIDE_CTA" target="_blank" rel="noopener noreferrer" data-cta-id="stay_guide_cta" data-referer="STAY_LP_GUIDE_CTA">空室・料金を確認する</a>
+  </div>
+
+  <div class="guide-grid">
+    <div class="guide-card fade">
+      <b class="g-title">Amenities｜アメニティ・備品</b>
+      <div class="g-amen">
+        <div>
+          <span class="g-sub">Bath &amp; Personal Care</span>
+          <ul><li>歯ブラシ</li><li>シャンプー</li><li>コンディショナー</li><li>ボディソープ</li><li>洗顔料</li><li>髭剃り</li><li>ボディウォッシュ用スポンジ</li></ul>
+        </div>
+        <div>
+          <span class="g-sub">Towels &amp; Comfort</span>
+          <ul><li>バスタオル</li><li>フェイスタオル</li><li>スリッパ</li></ul>
+        </div>
+        <div>
+          <span class="g-sub">Kitchen &amp; Dining</span>
+          <ul><li>食器類(24名分)</li><li>グラス</li><li>ワイングラス</li><li>マグカップ</li><li>コーヒーメーカー</li></ul>
+        </div>
+      </div>
+      <p class="note" style="margin-top:18px;">コーヒーメーカーをご用意しております。コーヒー粉は備え付けておりませんので、ご利用の際はご持参ください。<br>※食器類の数量は備品の目安であり、宿泊定員(通常のご予約は最大14名)とは異なります。</p>
+    </div>
+    <div class="guide-card fade">
+      <b class="g-title">LINE Concierge｜ご滞在中のサポート</b>
+      <p class="g-text">ご滞在中の施設に関するご質問・お問い合わせは、LINE公式アカウントから承ります。ご宿泊前に友だち追加いただくと、滞在中もスムーズにお問い合わせいただけます。</p>
+      <dl class="g-meta">
+        <dt>対応時間</dt><dd>毎日 9:00〜21:00</dd>
+      </dl>
+      <p class="note">※対応時間外にいただいたご連絡は、翌営業時間内に順次ご返信します。</p>
+      <a class="btn-line-dark" href="https://line.me/R/ti/p/@184zzkon" target="_blank" rel="noopener noreferrer" data-line-add="stay_guide_concierge" data-cta-id="line_cta_stay_guide">LINEでコンシェルジュに相談する</a>
+    </div>
+  </div>
+
+  <div class="guide-card fade" style="margin-top:24px;">
+    <b class="g-title">予約変更・キャンセル</b>
+    <p class="g-text">キャンセル料は、キャンセルのご連絡を当社が受け付けた日時(日本時間)を基準に判定します。</p>
+    <dl class="g-meta g-meta--wide">
+      <dt>チェックイン7日前まで</dt><dd>宿泊料金の100%をご返金</dd>
+      <dt>6日前〜4日前</dt><dd>宿泊料金の50%をご返金</dd>
+      <dt>3日前〜当日</dt><dd>ご返金なし</dd>
+      <dt>ご連絡のないご不泊</dt><dd>ご返金なし</dd>
+    </dl>
+    <p class="note">ご予約の変更・キャンセルをご希望の際は、ご予約時のメールアドレスから当社へご連絡ください。ご返金は、ご決済いただいたクレジットカードへの返金処理により行います。</p>
+    <a class="btn-line-dark" href="tokushoho.html">キャンセル条件を確認する</a>
+  </div>
+</section>
 
 <!-- ══ 11 STAY INFORMATION / FAQ ══ -->
 <section class="sec" id="stay-info">
