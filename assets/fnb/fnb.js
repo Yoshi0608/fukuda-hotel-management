@@ -1,63 +1,59 @@
-/* FHM Food & Beverage LP — header state and disclosure menu. No network requests, no tracking. */
+/* FHM International Trading Division — header state, mobile menu, hero sequence, line drawing. */
 (function () {
+  'use strict';
+  var root = document.documentElement;
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var header = document.getElementById('siteHeader');
-  var hero = document.querySelector('.hero');
-  var toggle = document.querySelector('.menu-toggle');
-  var menu = document.getElementById('mobileNav');
+  var hero = document.getElementById('top');
 
+  /* Header sits transparent over the hero, solid elsewhere. */
   function syncHeader() {
     if (!header || !hero) return;
-    var limit = hero.getBoundingClientRect().bottom - header.offsetHeight;
-    header.classList.toggle('is-clear', limit > 0);
+    var limit = hero.offsetHeight - header.offsetHeight - 10;
+    header.classList.toggle('is-clear', window.scrollY < limit);
   }
   syncHeader();
-  addEventListener('scroll', syncHeader, { passive: true });
-  addEventListener('resize', syncHeader);
+  window.addEventListener('scroll', syncHeader, { passive: true });
+  window.addEventListener('resize', syncHeader);
 
-  /* Hero background crossfade: Tokyo → New York → Hong Kong → Paris → Dubai, every 4 s.
-     One timer only; paused while the tab is hidden; disabled under prefers-reduced-motion (Tokyo stays). */
-  var media = document.getElementById('heroMedia');
-  var slides = media ? [].slice.call(media.querySelectorAll('.hs')) : [];
-  var reduce = matchMedia('(prefers-reduced-motion: reduce)');
-  var idx = 0, timer = null;
-  function show(n) {
-    var next = slides[n], cur = slides[idx];
-    if (next === cur) return;
-    slides.forEach(function (s) { s.classList.remove('is-prev'); });
-    cur.classList.remove('is-active'); cur.classList.add('is-prev');
-    next.classList.add('is-active');
-    idx = n;
+  /* Mobile menu disclosure. */
+  var toggle = document.querySelector('.menu-toggle');
+  var nav = document.getElementById('mobileNav');
+  function setMenu(open) {
+    if (!toggle || !nav) return;
+    toggle.setAttribute('aria-expanded', String(open));
+    toggle.querySelector('.menu-toggle__label').textContent = open ? 'Close' : 'Menu';
+    nav.hidden = !open;
+    header.classList.toggle('menu-open', open);
   }
-  function advance() {
-    var n = (idx + 1) % slides.length, next = slides[n];
-    if (next.complete && next.naturalWidth) { show(n); return; }
-    (next.decode ? next.decode() : Promise.resolve()).then(function () { show(n); }, function () { show(n); });
-  }
-  function start() { if (timer || slides.length < 2 || reduce.matches || document.hidden) return; timer = setInterval(advance, 4000); }
-  function stop() { if (timer) { clearInterval(timer); timer = null; } }
-  if (slides.length > 1) {
-    start();
-    document.addEventListener('visibilitychange', function () { document.hidden ? stop() : start(); });
-    if (reduce.addEventListener) reduce.addEventListener('change', function (e) { if (e.matches) { stop(); show(0); } else start(); });
-  }
-
-  function closeMenu() {
-    if (!menu || !toggle) return;
-    menu.hidden = true;
-    toggle.setAttribute('aria-expanded', 'false');
-    header.classList.remove('menu-open');
-  }
-  if (toggle && menu) {
-    toggle.addEventListener('click', function () {
-      var open = toggle.getAttribute('aria-expanded') === 'true';
-      menu.hidden = open;
-      toggle.setAttribute('aria-expanded', String(!open));
-      header.classList.toggle('menu-open', !open);
-    });
-    menu.querySelectorAll('a').forEach(function (a) { a.addEventListener('click', closeMenu); });
+  if (toggle && nav) {
+    toggle.addEventListener('click', function () { setMenu(toggle.getAttribute('aria-expanded') !== 'true'); });
+    nav.addEventListener('click', function (e) { if (e.target.closest('a')) setMenu(false); });
     document.addEventListener('keydown', function (e) {
-      if (e.key === 'Escape' && !menu.hidden) { closeMenu(); toggle.focus(); }
+      if (e.key === 'Escape' && toggle.getAttribute('aria-expanded') === 'true') { setMenu(false); toggle.focus(); }
     });
-    matchMedia('(min-width: 1025px)').addEventListener('change', function (e) { if (e.matches) closeMenu(); });
+    window.addEventListener('resize', function () { if (window.innerWidth > 1080) setMenu(false); });
+  }
+
+  /* Hero opening sequence (single orchestrated moment). */
+  function start() { root.classList.add('is-loaded'); }
+  if (reduce) start();
+  else if (document.readyState === 'complete') requestAnimationFrame(start);
+  else {
+    window.addEventListener('load', function () { requestAnimationFrame(start); });
+    setTimeout(start, 2500); /* never hold content back on slow images */
+  }
+
+  /* Route lines draw once when diagrams enter view. */
+  var drawn = document.querySelectorAll('[data-draw]');
+  if (reduce || !('IntersectionObserver' in window)) {
+    drawn.forEach(function (el) { el.classList.add('is-drawn'); });
+  } else {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (en.isIntersecting) { en.target.classList.add('is-drawn'); io.unobserve(en.target); }
+      });
+    }, { threshold: 0.35 });
+    drawn.forEach(function (el) { io.observe(el); });
   }
 })();
