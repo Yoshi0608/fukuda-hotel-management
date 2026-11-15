@@ -85,7 +85,8 @@ h3 { font-size: 21px; font-weight: 500; letter-spacing: -0.01em; line-height: 1.
 .hero-shade { position: absolute; inset: 0; z-index: -1; background: linear-gradient(180deg, rgba(20,37,54,.62) 0%, rgba(20,37,54,.12) 30%, rgba(20,37,54,.18) 55%, rgba(20,37,54,.86) 100%); }
 .hero-inner { padding: 160px 0 clamp(84px, 11vh, 132px); }
 .hero-label { font-size: 14px; letter-spacing: .04em; color: rgba(255,255,255,.82); margin-bottom: 26px; }
-.hero-title { color: var(--white); font-size: clamp(52px, 8.4vw, 132px); line-height: .94; letter-spacing: -0.035em; font-weight: 300; max-width: 13ch; }
+.hero-title { color: var(--white); font-size: clamp(52px, 7.6vw, 124px); line-height: .94; letter-spacing: -0.035em; font-weight: 300; }
+@media (min-width: 761px) { .hero-title .line { white-space: nowrap; } }
 .hero-title .line { display: block; overflow: hidden; padding-bottom: .06em; }
 .hero-title .line > span { display: inline-block; }
 .hero-copy { margin-top: 30px; max-width: 40ch; font-size: clamp(18px, 1.5vw, 21px); line-height: 1.5; color: rgba(255,255,255,.88); }
@@ -212,7 +213,7 @@ h3 { font-size: 21px; font-weight: 500; letter-spacing: -0.01em; line-height: 1.
 .contact-media { z-index: -2; }
 .contact-media img { object-fit: cover; object-position: 60% 70%; }
 .contact-shade { position: absolute; inset: 0; z-index: -1; background: linear-gradient(90deg, rgba(20,37,54,.96) 0%, rgba(20,37,54,.86) 46%, rgba(20,37,54,.45) 100%); }
-.contact h2 { color: var(--white); font-size: clamp(46px, 7vw, 108px); line-height: .96; letter-spacing: -0.03em; max-width: 11ch; }
+.contact h2 { color: var(--white); font-size: clamp(46px, 7vw, 108px); line-height: .96; letter-spacing: -0.03em; max-width: 14ch; }
 .contact-copy { margin-top: 30px; max-width: 46ch; font-size: clamp(18px, 1.4vw, 20px); color: rgba(255,255,255,.84); }
 .contact .btn { margin-top: 42px; }
 .contact-list { margin-top: 64px; display: grid; grid-template-columns: repeat(2, minmax(0, 340px)); gap: 28px 48px; padding-top: 28px; border-top: 1px solid rgba(255,255,255,.22); }
